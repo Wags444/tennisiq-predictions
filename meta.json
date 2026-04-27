@@ -1,7 +1,10 @@
 {
-  "generated": "2026-04-26 11:53",
+  "generated": "2026-04-26 14:59",
   "date": "2026-04-26",
-  "n_predictions": 56,
-  "model_accuracy": "68.7%",
+  "n_atp": 114,
+  "n_wta": 86,
+  "n_total": 200,
+  "model_accuracy_atp": "68.7%",
+  "model_accuracy_wta": "78.3%",
   "backtest_roi": "+19.2%"
 }
