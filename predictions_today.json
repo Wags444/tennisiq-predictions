@@ -16,7 +16,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Claire Liu",
@@ -35,7 +35,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Mell Elizabeth Reasco Gonzalez",
@@ -54,7 +54,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Olivia Gadecki",
@@ -73,7 +73,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Aoran Wang",
@@ -92,7 +92,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Sho Shimabukuro",
@@ -111,7 +111,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Tung-Lin Wu",
@@ -130,7 +130,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Edas Butvilas",
@@ -149,7 +149,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Anastasia Potapova",
@@ -168,26 +168,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
-  },
-  {
-    "p1_name": "Daniil Medvedev",
-    "p2_name": "Nicolai Budkov Kjaer",
-    "surface": "clay",
-    "tournament": "Mutua Madrid Open - Madrid",
-    "p1_win": 0.855,
-    "p2_win": 0.145,
-    "fair_p1": 1.17,
-    "fair_p2": 6.9,
-    "elo_diff": 300,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": -2,
-    "p2_streak": 3,
-    "p1_fatigue": 2,
-    "p2_fatigue": 3,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Terence Atmane",
@@ -206,7 +187,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Vladyslav Orlov",
@@ -225,7 +206,26 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Matthew William Donald",
+    "p2_name": "Nicolas Mejia",
+    "surface": "clay",
+    "tournament": "Mauthausen Challenger",
+    "p1_win": 0.176,
+    "p2_win": 0.824,
+    "fair_p1": 5.68,
+    "fair_p2": 1.21,
+    "elo_diff": -275,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": 2,
+    "p2_streak": 6,
+    "p1_fatigue": 2,
+    "p2_fatigue": 2,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Martyna Kubka",
@@ -244,7 +244,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Matthew Dellavedova",
@@ -263,26 +263,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
-  },
-  {
-    "p1_name": "Ivan Marrero Curbelo",
-    "p2_name": "Adil Kalyanpur",
-    "surface": "hard",
-    "tournament": "Abidjan 2 Challenger",
-    "p1_win": 0.797,
-    "p2_win": 0.203,
-    "fair_p1": 1.25,
-    "fair_p2": 4.93,
-    "elo_diff": 278,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on hard",
-    "p1_streak": 1,
-    "p2_streak": -1,
-    "p1_fatigue": 1,
-    "p2_fatigue": 2,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Ani Amiraghyan",
@@ -301,7 +282,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Abigail Rencheli",
@@ -320,7 +301,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Jenna Dean",
@@ -339,7 +320,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Haley Giavara",
@@ -358,7 +339,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Aryna Sabalenka",
@@ -377,7 +358,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Digvijaypratap Singh",
@@ -396,7 +377,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Millen Hurrion",
@@ -415,7 +396,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Adam Walton",
@@ -434,7 +415,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Lanlana Tararudee",
@@ -453,7 +434,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Jannik Sinner",
@@ -472,7 +453,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Aliona Bolsova",
@@ -491,7 +472,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Timofey Skatov",
@@ -510,7 +491,26 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Roman Safiullin",
+    "p2_name": "Cezar Cretu",
+    "surface": "clay",
+    "tournament": "Mauthausen Challenger",
+    "p1_win": 0.733,
+    "p2_win": 0.267,
+    "fair_p1": 1.36,
+    "fair_p2": 3.75,
+    "elo_diff": 144,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": 6,
+    "p2_streak": 4,
+    "p1_fatigue": 1,
+    "p2_fatigue": 1,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Darya Astakhova",
@@ -529,7 +529,7 @@
     "p1_fatigue": 5,
     "p2_fatigue": 5,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Petr Bar Biryukov",
@@ -548,7 +548,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Sergey Fomin",
@@ -567,7 +567,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Pedro Martinez Portero",
@@ -586,7 +586,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Carlos Sanchez Jover",
@@ -605,45 +605,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
-  },
-  {
-    "p1_name": "Francisco Cerundolo",
-    "p2_name": "Luciano Darderi",
-    "surface": "clay",
-    "tournament": "Mutua Madrid Open - Madrid",
-    "p1_win": 0.708,
-    "p2_win": 0.292,
-    "fair_p1": 1.41,
-    "fair_p2": 3.42,
-    "elo_diff": 167,
-    "h2h_record": "3-2",
-    "h2h_surf": "3-2 on clay",
-    "p1_streak": -1,
-    "p2_streak": -1,
-    "p1_fatigue": 2,
-    "p2_fatigue": 0,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
-  },
-  {
-    "p1_name": "Pierre-Hugues Herbert",
-    "p2_name": "Arthur Nagel",
-    "surface": "clay",
-    "tournament": "Aix En Provence Challenger",
-    "p1_win": 0.7,
-    "p2_win": 0.3,
-    "fair_p1": 1.43,
-    "fair_p2": 3.33,
-    "elo_diff": 69,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": 1,
-    "p2_streak": -1,
-    "p1_fatigue": 1,
-    "p2_fatigue": 1,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Bor Artnak",
@@ -662,7 +624,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Jessika Ponchet",
@@ -681,7 +643,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Alexander Shevchenko",
@@ -700,7 +662,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Stefanos Sakellaridis",
@@ -719,7 +681,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Kimmer Coppejans",
@@ -738,7 +700,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Giles Hussey",
@@ -757,7 +719,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Rositsa Dencheva",
@@ -776,7 +738,7 @@
     "p1_fatigue": 6,
     "p2_fatigue": 5,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Moez Echargui",
@@ -795,7 +757,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Raul Brancaccio",
@@ -814,7 +776,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 3,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Buvaysar Gadamauri",
@@ -833,7 +795,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Patrick Kypson",
@@ -852,7 +814,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Daniela Vismane",
@@ -871,7 +833,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Aleksandar Vukic",
@@ -890,7 +852,26 @@
     "p1_fatigue": 2,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "David Jorda Sanchis",
+    "p2_name": "Daniel Cukierman",
+    "surface": "clay",
+    "tournament": "Mauthausen Challenger",
+    "p1_win": 0.686,
+    "p2_win": 0.314,
+    "fair_p1": 1.46,
+    "fair_p2": 3.18,
+    "elo_diff": 216,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": 1,
+    "p2_streak": -6,
+    "p1_fatigue": 2,
+    "p2_fatigue": 2,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Julia Grabher",
@@ -909,7 +890,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Eva Bennemann",
@@ -928,7 +909,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Andrew Fenty",
@@ -947,7 +928,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Niels Visker",
@@ -966,26 +947,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
-  },
-  {
-    "p1_name": "Jurij Rodionov",
-    "p2_name": "Darwin Blanch",
-    "surface": "clay",
-    "tournament": "Mauthausen Challenger",
-    "p1_win": 0.681,
-    "p2_win": 0.319,
-    "fair_p1": 1.47,
-    "fair_p2": 3.13,
-    "elo_diff": 96,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": 1,
-    "p2_streak": -1,
-    "p1_fatigue": 2,
-    "p2_fatigue": 1,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Bu Yunchaokete",
@@ -1004,7 +966,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 3,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Clement Chidekh",
@@ -1023,7 +985,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Manas Manoj Dhamne",
@@ -1042,7 +1004,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Martha Matoula",
@@ -1061,7 +1023,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Zachary Svajda",
@@ -1080,7 +1042,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Nikolas Sanchez-Izquierdo",
@@ -1099,7 +1061,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Ella Seidel",
@@ -1118,7 +1080,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Nikoloz Basilashvili",
@@ -1137,7 +1099,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Andre Ilagan",
@@ -1156,7 +1118,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Michael Geerts",
@@ -1175,7 +1137,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Anna Siskova",
@@ -1194,7 +1156,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 6,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Adolfo Daniel Vallejo",
@@ -1213,7 +1175,26 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Hugo Gaston",
+    "p2_name": "Darwin Blanch",
+    "surface": "clay",
+    "tournament": "Mauthausen Challenger",
+    "p1_win": 0.654,
+    "p2_win": 0.346,
+    "fair_p1": 1.53,
+    "fair_p2": 2.89,
+    "elo_diff": 82,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": -1,
+    "p2_streak": -1,
+    "p1_fatigue": 1,
+    "p2_fatigue": 1,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Radu Albot",
@@ -1232,7 +1213,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Mona Barthel",
@@ -1251,7 +1232,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Vit Kopriva",
@@ -1270,7 +1251,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 3,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Anastasia Zolotareva",
@@ -1289,26 +1270,26 @@
     "p1_fatigue": 4,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
-    "p1_name": "Diego Dedura",
-    "p2_name": "Billy Harris",
+    "p1_name": "Francesco Maestrelli",
+    "p2_name": "Miguel Damas",
     "surface": "clay",
     "tournament": "Mauthausen Challenger",
     "p1_win": 0.644,
     "p2_win": 0.356,
     "fair_p1": 1.55,
     "fair_p2": 2.81,
-    "elo_diff": 162,
+    "elo_diff": 38,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
-    "p1_streak": 1,
-    "p2_streak": -2,
+    "p1_streak": -6,
+    "p2_streak": 1,
     "p1_fatigue": 1,
-    "p2_fatigue": 0,
+    "p2_fatigue": 4,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Ane Mintegi Del Olmo",
@@ -1327,7 +1308,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Mikhail Kukushkin",
@@ -1346,7 +1327,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Lizette Cabrera",
@@ -1365,7 +1346,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Weronika Ewald",
@@ -1384,7 +1365,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Gabriela Andrea Knutson",
@@ -1403,7 +1384,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Andrea Guerrieri",
@@ -1422,7 +1403,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Hanyu Guo",
@@ -1441,7 +1422,7 @@
     "p1_fatigue": 5,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Heather Watson",
@@ -1460,26 +1441,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
-  },
-  {
-    "p1_name": "Rudolf Molleker",
-    "p2_name": "Daniel Siniakov",
-    "surface": "clay",
-    "tournament": "Ostrava Challenger",
-    "p1_win": 0.627,
-    "p2_win": 0.373,
-    "fair_p1": 1.59,
-    "fair_p2": 2.68,
-    "elo_diff": -122,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": -1,
-    "p2_streak": 4,
-    "p1_fatigue": 0,
-    "p2_fatigue": 1,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Dalibor Svrcina",
@@ -1498,7 +1460,26 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Rudolf Molleker",
+    "p2_name": "Daniel Siniakov",
+    "surface": "clay",
+    "tournament": "Ostrava Challenger",
+    "p1_win": 0.627,
+    "p2_win": 0.373,
+    "fair_p1": 1.59,
+    "fair_p2": 2.68,
+    "elo_diff": -122,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": -1,
+    "p2_streak": 4,
+    "p1_fatigue": 0,
+    "p2_fatigue": 1,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Maks Kasnikowski",
@@ -1517,7 +1498,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Elena Pridankina",
@@ -1536,7 +1517,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Sara Saito",
@@ -1555,7 +1536,26 @@
     "p1_fatigue": 1,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Pierre-Hugues Herbert",
+    "p2_name": "Pol Martin Tiffon",
+    "surface": "clay",
+    "tournament": "Aix En Provence Challenger",
+    "p1_win": 0.624,
+    "p2_win": 0.376,
+    "fair_p1": 1.6,
+    "fair_p2": 2.66,
+    "elo_diff": -15,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": 1,
+    "p2_streak": 3,
+    "p1_fatigue": 1,
+    "p2_fatigue": 3,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Lukas Neumayer",
@@ -1574,7 +1574,7 @@
     "p1_fatigue": 5,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Luca Van Assche",
@@ -1593,7 +1593,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 3,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Mukund Sasikumar",
@@ -1612,7 +1612,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 3,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Zongyu Li",
@@ -1631,7 +1631,26 @@
     "p1_fatigue": 0,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Sascha Gueymard Wayenburg",
+    "p2_name": "Tom Paris",
+    "surface": "clay",
+    "tournament": "Aix En Provence Challenger",
+    "p1_win": 0.62,
+    "p2_win": 0.38,
+    "fair_p1": 1.61,
+    "fair_p2": 2.63,
+    "elo_diff": 20,
+    "h2h_record": "1-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": -3,
+    "p2_streak": 1,
+    "p1_fatigue": 1,
+    "p2_fatigue": 1,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Yibing Wu",
@@ -1650,26 +1669,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
-  },
-  {
-    "p1_name": "Zsombor Piros",
-    "p2_name": "Max Houkes",
-    "surface": "clay",
-    "tournament": "Ostrava Challenger",
-    "p1_win": 0.614,
-    "p2_win": 0.386,
-    "fair_p1": 1.63,
-    "fair_p2": 2.59,
-    "elo_diff": 155,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": 6,
-    "p2_streak": 3,
-    "p1_fatigue": 2,
-    "p2_fatigue": 3,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Keegan Smith",
@@ -1688,7 +1688,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 4,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Jil Teichmann",
@@ -1707,7 +1707,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Mananchaya Sawangkaew",
@@ -1726,7 +1726,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Thiago Seyboth Wild",
@@ -1745,7 +1745,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Ekaterine Gorgodze",
@@ -1764,7 +1764,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Zoziya Kardava",
@@ -1783,26 +1783,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
-  },
-  {
-    "p1_name": "Alexander Blockx",
-    "p2_name": "Felix Auger Aliassime",
-    "surface": "clay",
-    "tournament": "Mutua Madrid Open - Madrid",
-    "p1_win": 0.396,
-    "p2_win": 0.604,
-    "fair_p1": 2.53,
-    "fair_p2": 1.66,
-    "elo_diff": -116,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": 1,
-    "p2_streak": -1,
-    "p1_fatigue": 3,
-    "p2_fatigue": 4,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Lorenzo Sonego",
@@ -1821,26 +1802,26 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
-    "p1_name": "Tom Gentzsch",
-    "p2_name": "George Loffhagen",
+    "p1_name": "Zsombor Piros",
+    "p2_name": "Tom Gentzsch",
     "surface": "clay",
     "tournament": "Ostrava Challenger",
-    "p1_win": 0.601,
-    "p2_win": 0.399,
+    "p1_win": 0.602,
+    "p2_win": 0.398,
     "fair_p1": 1.66,
     "fair_p2": 2.51,
-    "elo_diff": 130,
+    "elo_diff": 195,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
-    "p1_streak": 2,
-    "p2_streak": -5,
-    "p1_fatigue": 4,
-    "p2_fatigue": 0,
+    "p1_streak": 6,
+    "p2_streak": 2,
+    "p1_fatigue": 2,
+    "p2_fatigue": 4,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Thomas Faurel",
@@ -1859,7 +1840,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Elijah Sanogo",
@@ -1878,7 +1859,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Svyatoslav Gulin",
@@ -1897,7 +1878,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Gabriela Lee",
@@ -1916,7 +1897,26 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Mika Brunold",
+    "p2_name": "Alex Barrena",
+    "surface": "clay",
+    "tournament": "Mauthausen Challenger",
+    "p1_win": 0.597,
+    "p2_win": 0.403,
+    "fair_p1": 1.68,
+    "fair_p2": 2.48,
+    "elo_diff": 43,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": -2,
+    "p2_streak": -1,
+    "p1_fatigue": 2,
+    "p2_fatigue": 0,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Tomas Martin Etcheverry",
@@ -1935,7 +1935,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Stan Wawrinka",
@@ -1954,7 +1954,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 3,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Rina Saigo",
@@ -1973,7 +1973,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Sahaja Yamalapalli",
@@ -1992,7 +1992,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Karine Sarkisova",
@@ -2011,7 +2011,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Lucie Havlickova",
@@ -2030,7 +2030,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Federico Arnaboldi",
@@ -2049,26 +2049,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
-  },
-  {
-    "p1_name": "Justin Engel",
-    "p2_name": "Laslo Djere",
-    "surface": "clay",
-    "tournament": "Mauthausen Challenger",
-    "p1_win": 0.416,
-    "p2_win": 0.584,
-    "fair_p1": 2.4,
-    "fair_p2": 1.71,
-    "elo_diff": -38,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": -1,
-    "p2_streak": 1,
-    "p1_fatigue": 5,
-    "p2_fatigue": 3,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Ignacio Buse",
@@ -2087,7 +2068,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Emilio Nava",
@@ -2106,7 +2087,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Thea Frodin",
@@ -2125,7 +2106,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Joel Schwaerzler",
@@ -2144,7 +2125,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Maddison Inglis",
@@ -2163,7 +2144,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Zhuoxuan Bai",
@@ -2182,7 +2163,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Juan Manuel Cerundolo",
@@ -2201,7 +2182,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Aliona Falei",
@@ -2220,7 +2201,7 @@
     "p1_fatigue": 6,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Stefano Travaglia",
@@ -2239,7 +2220,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Sijia Wei",
@@ -2258,26 +2239,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
-  },
-  {
-    "p1_name": "Marko Topo",
-    "p2_name": "Nishesh Basavareddy",
-    "surface": "clay",
-    "tournament": "Mauthausen Challenger",
-    "p1_win": 0.426,
-    "p2_win": 0.574,
-    "fair_p1": 2.35,
-    "fair_p2": 1.74,
-    "elo_diff": -187,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": -2,
-    "p2_streak": 3,
-    "p1_fatigue": 0,
-    "p2_fatigue": 1,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Emiliana Arango",
@@ -2296,26 +2258,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
-  },
-  {
-    "p1_name": "Matteo Fondriest",
-    "p2_name": "Aditya Vishal Balsekar",
-    "surface": "hard",
-    "tournament": "Abidjan 2 Challenger",
-    "p1_win": 0.429,
-    "p2_win": 0.571,
-    "fair_p1": 2.33,
-    "fair_p2": 1.75,
-    "elo_diff": -9,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on hard",
-    "p1_streak": 1,
-    "p2_streak": -1,
-    "p1_fatigue": 1,
-    "p2_fatigue": 0,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Xiyu Wang",
@@ -2334,7 +2277,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Ajla Tomljanovic",
@@ -2353,7 +2296,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 7,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Diletta Cherubini",
@@ -2372,7 +2315,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Nerman Fatic",
@@ -2391,7 +2334,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Alevtina Ibragimova",
@@ -2410,7 +2353,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Kurea Hayasaka",
@@ -2429,7 +2372,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Daria Zelinskaya",
@@ -2448,7 +2391,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Stefanos Tsitsipas",
@@ -2467,7 +2410,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Rada Zolotareva",
@@ -2486,7 +2429,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Fajing Sun",
@@ -2505,7 +2448,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Karen Khachanov",
@@ -2524,7 +2467,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 3,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Sebastian Gima",
@@ -2543,7 +2486,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Jonas Forejtek",
@@ -2562,7 +2505,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Elsa Jacquemot",
@@ -2581,7 +2524,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Yufei Ren",
@@ -2600,7 +2543,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Maria Timofeeva",
@@ -2619,7 +2562,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Misaki Matsuda",
@@ -2638,7 +2581,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Luka Pavlovic",
@@ -2657,7 +2600,26 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Francisco Cerundolo",
+    "p2_name": "Alexander Blockx",
+    "surface": "clay",
+    "tournament": "Mutua Madrid Open - Madrid",
+    "p1_win": 0.544,
+    "p2_win": 0.456,
+    "fair_p1": 1.84,
+    "fair_p2": 2.19,
+    "elo_diff": 34,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": -1,
+    "p2_streak": 1,
+    "p1_fatigue": 2,
+    "p2_fatigue": 3,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Polona Hercog",
@@ -2676,7 +2638,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Chloe Paquet",
@@ -2695,7 +2657,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Amir Omarkhanov",
@@ -2714,26 +2676,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
-  },
-  {
-    "p1_name": "Massimo Giunta",
-    "p2_name": "Oskar Brostrom Poulsen",
-    "surface": "hard",
-    "tournament": "Abidjan 2 Challenger",
-    "p1_win": 0.46,
-    "p2_win": 0.54,
-    "fair_p1": 2.17,
-    "fair_p2": 1.85,
-    "elo_diff": -48,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on hard",
-    "p1_streak": 1,
-    "p2_streak": 1,
-    "p1_fatigue": 2,
-    "p2_fatigue": 0,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Henri Squire",
@@ -2752,7 +2695,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Nao Hibino",
@@ -2771,7 +2714,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Dimitar Kuzmanov",
@@ -2790,7 +2733,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 4,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Anastasia Gasanova",
@@ -2809,7 +2752,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Calvin Hemery",
@@ -2828,7 +2771,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Yu Hsiou Hsu",
@@ -2847,7 +2790,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Jiri Lehecka",
@@ -2866,7 +2809,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Karim Bennani",
@@ -2885,7 +2828,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Marta Kostyuk",
@@ -2904,7 +2847,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Bernard Tomic",
@@ -2923,7 +2866,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Veronika Erjavec",
@@ -2942,26 +2885,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
-  },
-  {
-    "p1_name": "Max Schoenhaus",
-    "p2_name": "Jay Clarke",
-    "surface": "clay",
-    "tournament": "Ostrava Challenger",
-    "p1_win": 0.481,
-    "p2_win": 0.519,
-    "fair_p1": 2.08,
-    "fair_p2": 1.93,
-    "elo_diff": 97,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": -1,
-    "p2_streak": -1,
-    "p1_fatigue": 3,
-    "p2_fatigue": 1,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Kyoka Okamura",
@@ -2980,7 +2904,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Beatriz Haddad Maia",
@@ -2999,7 +2923,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Leolia Jeanjean",
@@ -3018,7 +2942,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Dalila Spiteri",
@@ -3037,7 +2961,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 5,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Max Hans Rehberg",
@@ -3056,7 +2980,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Xinyu Wang",
@@ -3075,7 +2999,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Eliakim Coulibaly",
@@ -3094,7 +3018,26 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Marko Topo",
+    "p2_name": "Martin Krumich",
+    "surface": "clay",
+    "tournament": "Mauthausen Challenger",
+    "p1_win": 0.496,
+    "p2_win": 0.504,
+    "fair_p1": 2.02,
+    "fair_p2": 1.98,
+    "elo_diff": -13,
+    "h2h_record": "1-0",
+    "h2h_surf": "1-0 on clay",
+    "p1_streak": -2,
+    "p2_streak": 1,
+    "p1_fatigue": 0,
+    "p2_fatigue": 1,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Alina Charaeva",
@@ -3113,7 +3056,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Allura Zamarripa",
@@ -3132,26 +3075,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-04-27 12:47"
-  },
-  {
-    "p1_name": "Robert Strombachs",
-    "p2_name": "Florent Bax",
-    "surface": "hard",
-    "tournament": "Abidjan 2 Challenger",
-    "p1_win": 0.499,
-    "p2_win": 0.501,
-    "fair_p1": 2,
-    "fair_p2": 2,
-    "elo_diff": -69,
-    "h2h_record": "1-0",
-    "h2h_surf": "1-0 on hard",
-    "p1_streak": -1,
-    "p2_streak": 2,
-    "p1_fatigue": 1,
-    "p2_fatigue": 0,
-    "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
   },
   {
     "p1_name": "Zdenek Kolar",
@@ -3170,6 +3094,25 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-04-27 07:49"
+    "generated": "2026-04-27 12:51"
+  },
+  {
+    "p1_name": "Robert Strombachs",
+    "p2_name": "Florent Bax",
+    "surface": "hard",
+    "tournament": "Abidjan 2 Challenger",
+    "p1_win": 0.499,
+    "p2_win": 0.501,
+    "fair_p1": 2,
+    "fair_p2": 2,
+    "elo_diff": -69,
+    "h2h_record": "1-0",
+    "h2h_surf": "1-0 on hard",
+    "p1_streak": -1,
+    "p2_streak": 2,
+    "p1_fatigue": 1,
+    "p2_fatigue": 0,
+    "tour": "atp",
+    "generated": "2026-04-27 12:51"
   }
 ]
