@@ -904,7 +904,7 @@ footer {
         <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:#555"><span>✗</span> CLV calculator</li>
         <li style="font-size:12px;padding:8px 0;display:flex;gap:8px;color:#555"><span>✗</span> Push notifications</li>
       </ul>
-      <a href="#" class="btn-clay" style="display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px">Start — $9.99/mo</a>
+      <button onclick="startCheckout('starter')" class="btn-clay" style="width:100%;display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px;border:none;cursor:pointer">Start — $9.99/mo</button>
     </div>
 
     <!-- PRO -->
@@ -922,7 +922,7 @@ footer {
         <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Market efficiency score</li>
         <li style="font-size:12px;padding:8px 0;display:flex;gap:8px;color:#555"><span>✗</span> Push notifications</li>
       </ul>
-      <a href="#" class="btn-clay" style="display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px">Start Pro — $19.99/mo</a>
+      <button onclick="startCheckout('pro')" class="btn-clay" style="width:100%;display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px;border:none;cursor:pointer">Start Pro — $19.99/mo</button>
     </div>
 
     <!-- SHARP -->
@@ -939,7 +939,7 @@ footer {
         <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> Performance tracker</li>
         <li style="font-size:12px;padding:8px 0;display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> CLV &gt; 8% instant alerts</li>
       </ul>
-      <a href="#" class="btn-clay" style="display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px;background:var(--clay)">Go Sharp — $29.99/mo</a>
+      <button onclick="startCheckout('sharp')" class="btn-clay" style="width:100%;display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px;background:var(--clay);border:none;cursor:pointer">Go Sharp — $29.99/mo</button>
     </div>
 
   </div>
@@ -1326,6 +1326,42 @@ async function loadSchedule() {
 loadNews();
 loadPredictions();
 loadSchedule();
+
+// ── STRIPE CHECKOUT ─────────────────────────────────────────────────────────
+const API_URL = "https://tennishq-api.vercel.app";
+
+const TIER_PRICES = {
+  starter: "price_1TReWpIlZjEq8tdh1yoNINBx",
+  pro:     "price_1TReXAIlZjEq8tdhh7dIgcyc",
+  sharp:   "price_1TReXTIlZjEq8tdhz3avVqEb"
+};
+
+async function startCheckout(tier) {
+  const btn = event.target;
+  const originalText = btn.textContent;
+  btn.textContent = "Loading...";
+  btn.disabled = true;
+
+  try {
+    const r = await fetch(API_URL + "/api/create-checkout", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ priceId: TIER_PRICES[tier], tier })
+    });
+    const data = await r.json();
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Error: " + (data.error || "Could not start checkout"));
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch(e) {
+    alert("Connection error. Please try again.");
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
 </script>
 </body>
 </html>
