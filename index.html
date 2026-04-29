@@ -721,7 +721,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#news" class="active">News</a></li>
     <li><a href="#scores">Fixtures</a></li>
-    <li><a href="#predictions" class="pro">tennisIQ ✦</a></li>
+    <li><a href="#predictions" class="pro">tennisIQ ✦</a></li><li><a href="#schedule">Schedule</a></li>
     <li><a href="#pricing">Pro</a></li>
   </ul>
   <a href="#pricing" class="nav-cta">Go Pro — $9.99</a>
@@ -832,6 +832,27 @@ footer {
 
 <!-- MORE NEWS -->
 <div class="page-wrap">
+<!-- SCHEDULE SECTION -->
+<div class="page-wrap" id="schedule">
+<section style="padding:3rem 0">
+  <div class="section-head">
+    <span class="section-head-title">Today's Schedule</span>
+    <span class="section-head-link" id="schedule-updated"></span>
+  </div>
+  <div style="display:flex;gap:2px;margin-bottom:2px;background:var(--border)">
+    <button onclick="filterSchedule('all')" id="tab-all"
+      style="flex:1;padding:10px;border:none;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;background:var(--black);color:var(--acid)">ALL</button>
+    <button onclick="filterSchedule('atp')" id="tab-atp"
+      style="flex:1;padding:10px;border:none;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;background:var(--warm);color:var(--muted)">ATP</button>
+    <button onclick="filterSchedule('wta')" id="tab-wta"
+      style="flex:1;padding:10px;border:none;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;background:var(--warm);color:var(--muted)">WTA</button>
+  </div>
+  <div id="schedule-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2px;background:var(--border);border:1px solid var(--border)">
+    <div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">Loading schedule...</div>
+  </div>
+</section>
+</div>
+
 <section class="more-news-section">
   <div class="section-head">
     <span class="section-head-title">More From Around Tennis</span>
@@ -1164,8 +1185,81 @@ document.getElementById('clv-odds-input').addEventListener('input', function() {
 });
 
 // ── INIT ────────────────────────────────────────────────────────────────────
+
+// ── SCHEDULE ────────────────────────────────────────────────────────────────
+let scheduleData = [];
+let currentTour = "all";
+
+function filterSchedule(tour) {
+  currentTour = tour;
+  ["all","atp","wta"].forEach(t => {
+    const btn = document.getElementById("tab-"+t);
+    btn.style.background = t===tour ? "var(--black)" : "var(--warm)";
+    btn.style.color      = t===tour ? "var(--acid)"  : "var(--muted)";
+  });
+  renderSchedule();
+}
+
+function cleanTournName(t) {
+  return t.replace("Mutua Madrid Open - Madrid","Madrid Open")
+          .replace(" - "," · ").replace("Challenger","Chal.");
+}
+
+function surfaceIcon(s) {
+  return s==="clay" ? "🟤" : s==="grass" ? "🟢" : "🔵";
+}
+
+function renderSchedule() {
+  const grid = document.getElementById("schedule-grid");
+  if (!scheduleData.length) return;
+  const tournMap = {};
+  scheduleData.forEach(p => {
+    if (currentTour !== "all" && p.tour !== currentTour) return;
+    if (!tournMap[p.tournament]) tournMap[p.tournament] = {name:p.tournament,surface:p.surface,tour:p.tour,matches:[]};
+    tournMap[p.tournament].matches.push(p);
+  });
+  const tourneys = Object.values(tournMap).sort((a,b) => {
+    if (a.name.includes("Madrid")) return -1;
+    if (b.name.includes("Madrid")) return 1;
+    return b.matches.length - a.matches.length;
+  });
+  if (!tourneys.length) { grid.innerHTML=`<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">No matches found.</div>`; return; }
+  grid.innerHTML = tourneys.map(t => {
+    const tourColor = t.tour==="atp" ? "#c13a0f" : "#a78bfa";
+    const matchRows = t.matches.slice(0,5).map(m => {
+      const p1Fav = m.p1_win >= m.p2_win;
+      return `<div style="padding:9px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center">
+        <div style="font-size:12px"><span style="font-weight:${p1Fav?600:400}">${m.p1_name}</span> <span style="color:var(--muted);font-size:10px">vs</span> <span style="font-weight:${!p1Fav?600:400}">${m.p2_name}</span></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;white-space:nowrap"><span style="color:var(--clay)">${Math.round(m.p1_win*100)}%</span> <span style="color:#ddd;font-size:10px">/</span> <span style="color:var(--muted)">${Math.round(m.p2_win*100)}%</span></div>
+      </div>`;
+    }).join("");
+    const more = t.matches.length - 5;
+    return `<div style="background:var(--card-bg);padding:1.25rem">
+      <div style="margin-bottom:10px">
+        <div style="font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:${tourColor};margin-bottom:3px">${t.tour.toUpperCase()} · ${t.surface} ${surfaceIcon(t.surface)}</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:15px">${cleanTournName(t.name)}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">${t.matches.length} matches today</div>
+      </div>
+      ${matchRows}
+      ${more>0?`<div style="font-size:11px;color:var(--muted);padding-top:8px;text-align:center">+${more} more</div>`:""}
+    </div>`;
+  }).join("");
+}
+
+async function loadSchedule() {
+  try {
+    const r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP "+r.status);
+    scheduleData = await r.json();
+    document.getElementById("schedule-updated").textContent = "Updated " + (scheduleData[0]?.generated || "today");
+    renderSchedule();
+  } catch(e) {
+    document.getElementById("schedule-grid").innerHTML=`<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">Schedule unavailable.</div>`;
+  }
+}
 loadNews();
 loadPredictions();
+loadSchedule();
 </script>
 </body>
 </html>
