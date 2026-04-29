@@ -799,7 +799,7 @@ footer {
     </div>
 
     <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.2);margin-bottom:10px">
-      Today · Free preview — 3 of <span id="total-pred-count">200+</span> predictions
+      Today · Free preview — 1 of <span id="total-pred-count">200+</span> predictions
     </div>
 
     <div class="pred-grid" id="pred-grid">
@@ -1057,76 +1057,80 @@ async function loadNews() {
   ticker.innerHTML = ti + ti;
 }
 async function loadPredictions() {
-  const grid = document.getElementById('pred-grid');
-  const countEl = document.getElementById('pred-count');
-  const totalEl = document.getElementById('total-pred-count');
-
+  const grid     = document.getElementById("pred-grid");
+  const countEl  = document.getElementById("pred-count");
+  const totalEl  = document.getElementById("total-pred-count");
   try {
-    const r = await fetch(PRED_URL + '?t=' + Date.now());
-    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
     const data = await r.json();
-
-    if (!data || data.length === 0) throw new Error('No predictions');
-
+    if (!data || data.length === 0) throw new Error("No predictions");
     countEl.textContent = data.length;
     totalEl.textContent = data.length;
-
-    // Show top 3 free, rest locked
-    const sorted = [...data].sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
-    const free = sorted.slice(0, 3);
-    const locked = sorted.slice(3, 6);
-
-    // Update scores panel from predictions data
+    const sorted = [...data].sort((a,b) => Math.abs(b.p1_win-0.5)-Math.abs(a.p1_win-0.5));
+    // 1 free, rest locked
+    const free   = sorted.slice(0, 1);
+    const locked = sorted.slice(1, 7);
     updateScoresFromPredictions(data);
-
-    const cards = [
+    grid.innerHTML = [
       ...free.map(p => predCardHTML(p, false)),
       ...locked.map(p => predCardHTML(p, true))
-    ].join('');
-
-    grid.innerHTML = cards;
-
-    // Animate bars
+    ].join("");
     setTimeout(() => {
-      document.querySelectorAll('.pred-bar-fill').forEach(bar => {
-        const w = bar.dataset.width;
-        bar.style.width = w + '%';
+      document.querySelectorAll(".pred-bar-fill").forEach(bar => {
+        bar.style.width = bar.dataset.width + "%";
       });
     }, 100);
-
   } catch(e) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px">
-      Predictions refresh daily at 7am. Check back soon.
-    </div>`;
+    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;
+      color:rgba(255,255,255,0.2);font-size:13px">
+      Predictions refresh daily at 7am. Check back soon.</div>`;
   }
 }
 
 function predCardHTML(p, locked) {
-  const tour = (p.tour || 'atp').toLowerCase();
-  const pct1 = Math.round((p.p1_win || 0.5) * 100);
-  const pct2 = 100 - pct1;
-  const fav = p.p1_win > p.p2_win ? '▲' : '';
-  const fav2 = p.p2_win > p.p1_win ? '▲' : '';
-  const tourn = (p.tournament || '').replace('Mutua Madrid Open - Madrid','Madrid Open');
+  const tour  = (p.tour || "atp").toLowerCase();
+  const pct1  = Math.round((p.p1_win || 0.5) * 100);
+  const pct2  = 100 - pct1;
+  const fav   = p.p1_win > p.p2_win ? "▲" : "";
+  const fav2  = p.p2_win > p.p1_win ? "▲" : "";
+  const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
 
-  let lockHTML = '';
-  if (locked) {
-    lockHTML = `
-      <div class="pred-locked">
-        <div class="lock-ring">⚿</div>
-        <div class="lock-text">Pro prediction<br>+ CLV calculator</div>
-        <a href="#pricing" class="lock-cta">Unlock — $9.99/mo</a>
-      </div>`;
-  }
+  if (locked) return `
+    <div class="pred-card" style="position:relative;overflow:hidden;min-height:160px">
+      <div class="pred-tour ${tour}">${tour.toUpperCase()}</div>
+      <div class="pred-tourn">${tourn}</div>
+      <div class="pred-matchup">
+        <span class="pred-player">${p.p1_name||"—"} ${fav}</span>
+        <span class="pred-vs">vs</span>
+        <span class="pred-player right">${fav2} ${p.p2_name||"—"}</span>
+      </div>
+      <div style="filter:blur(7px);user-select:none;pointer-events:none">
+        <div class="pred-bar-row">
+          <span class="pred-pct">??%</span>
+          <div class="pred-bar-track"><div class="pred-bar-fill" style="width:50%"></div></div>
+          <span class="pred-pct right">??%</span>
+        </div>
+        <div class="pred-detail">Elo diff · H2H · Fair odds: ??.?? / ??.??</div>
+      </div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:12px;
+        background:linear-gradient(to bottom,transparent,rgba(10,10,10,0.97));
+        display:flex;flex-direction:column;align-items:center;gap:6px">
+        <div style="font-size:10px;color:rgba(255,255,255,0.35)">Model pick · Fair odds · CLV edge</div>
+        <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:12px;
+          letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.25);
+          padding:5px 18px;text-decoration:none">Unlock Pro — $9.99/mo</a>
+      </div>
+    </div>`;
 
   return `
     <div class="pred-card">
       <div class="pred-tour ${tour}">${tour.toUpperCase()}</div>
       <div class="pred-tourn">${tourn}</div>
       <div class="pred-matchup">
-        <span class="pred-player">${p.p1_name || '—'} ${fav}</span>
+        <span class="pred-player">${p.p1_name||"—"} ${fav}</span>
         <span class="pred-vs">vs</span>
-        <span class="pred-player right">${fav2} ${p.p2_name || '—'}</span>
+        <span class="pred-player right">${fav2} ${p.p2_name||"—"}</span>
       </div>
       <div class="pred-bar-row">
         <span class="pred-pct">${pct1}%</span>
@@ -1136,10 +1140,9 @@ function predCardHTML(p, locked) {
         <span class="pred-pct right">${pct2}%</span>
       </div>
       <div class="pred-detail">
-        Elo diff: ${p.elo_diff > 0 ? '+' : ''}${p.elo_diff} · ${p.h2h_surf || p.h2h_record || ''}
-        <span class="pred-fair">Fair odds: ${p.fair_p1} / ${p.fair_p2}</span>
+        Elo: ${p.elo_diff>0?"+":""}${p.elo_diff} · ${p.h2h_surf||p.h2h_record||""}
+        <span class="pred-fair">Fair: ${p.fair_p1} / ${p.fair_p2}</span>
       </div>
-      ${lockHTML}
     </div>`;
 }
 
