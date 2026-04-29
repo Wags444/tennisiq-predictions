@@ -720,7 +720,7 @@ footer {
   <a href="/" class="nav-logo">Tennis<span>HQ</span></a>
   <ul class="nav-links">
     <li><a href="#news" class="active">News</a></li>
-    <li><a href="#scores">Scores</a></li>
+    <li><a href="#scores">Fixtures</a></li>
     <li><a href="#predictions" class="pro">tennisIQ ✦</a></li>
     <li><a href="#pricing">Pro</a></li>
   </ul>
@@ -759,14 +759,14 @@ footer {
   <!-- LIVE SCORES -->
   <div class="scores-panel fade-up-2" id="scores">
     <div class="scores-head">
-      <span class="scores-head-title">Today's Results</span>
+      <span class="scores-head-title">Today's Fixtures</span>
       <span class="live-badge"><span class="live-dot"></span>Live</span>
     </div>
     <div id="scores-list">
       <div class="scores-loading">Loading scores...</div>
     </div>
     <div class="scores-footer" onclick="document.getElementById('predictions').scrollIntoView({behavior:'smooth'})">
-      <div class="scores-footer-text">✦ tennisIQ called Sinner at 75.2% before the match</div>
+      <div class="scores-footer-text">✦ tennisIQ model picks for today's matches</div>
       <a href="#predictions" class="scores-footer-link">See today's predictions →</a>
     </div>
   </div>
@@ -908,28 +908,11 @@ const PRED_URL = 'https://thetennishq.com/predictions_today.json';
 
 // RSS feeds proxied through allorigins to avoid CORS
 const RSS_FEEDS = [
-  {
-    url: 'https://www.tennis365.com/feed/',
-    source: 'Tennis365',
-    color: '#c13a0f'
-  },
-  {
-    url: 'https://tennismajors.com/feed/',
-    source: 'Tennis Majors',
-    color: '#c13a0f'
-  },
-  {
-    url: 'https://feeds.bbci.co.uk/sport/tennis/rss.xml',
-    source: 'BBC Sport',
-    color: '#c13a0f'
-  },
-  {
-    url: 'https://www.espn.com/espn/rss/tennis/news.xml',
-    source: 'ESPN',
-    color: '#c13a0f'
-  }
+  { url: "https://feeds.bbci.co.uk/sport/tennis/rss.xml", source: "BBC Sport" },
+  { url: "https://www.tennis365.com/feed/", source: "Tennis365" },
+  { url: "https://www.atptour.com/en/media/rss-feed/xml-feed", source: "ATP Tour" },
+  { url: "https://www.wtatennis.com/rss.xml", source: "WTA Tour" }
 ];
-
 const PROXIES = ['https://api.rss2json.com/v1/api.json?rss_url=', 'https://corsproxy.io/?', 'https://api.allorigins.win/raw?url='];
 
 // ── UTILITIES ────────────────────────────────────────────────────────────────
