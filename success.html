@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to tennisIQ — TennisHQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"DM Sans",sans-serif; background:#0a0a0a; color:#fafaf7; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.wrap { max-width:480px; padding:3rem 2rem; text-align:center; }
+.logo { font-family:"DM Serif Display",serif; font-size:24px; margin-bottom:3rem; }
+.logo span { color:#c13a0f; }
+.icon { font-size:48px; margin-bottom:1.5rem; }
+.title { font-family:"Bebas Neue",sans-serif; font-size:36px; letter-spacing:2px; color:#c8f000; margin-bottom:1rem; }
+.sub { font-size:15px; color:rgba(255,255,255,0.5); line-height:1.6; margin-bottom:2rem; font-weight:300; }
+.tier-badge { display:inline-block; background:rgba(200,240,0,0.1); border:1px solid rgba(200,240,0,0.2); color:#c8f000; font-family:"Bebas Neue",sans-serif; font-size:14px; letter-spacing:2px; padding:6px 20px; margin-bottom:2rem; }
+.btn { display:inline-block; background:#c13a0f; color:white; font-family:"Bebas Neue",sans-serif; font-size:16px; letter-spacing:2px; padding:14px 32px; text-decoration:none; margin-top:1rem; }
+.loading { color:rgba(255,255,255,0.3); font-size:13px; margin-top:1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">Tennis<span>HQ</span></div>
+  <div class="icon">✦</div>
+  <div class="title">Welcome to tennisIQ</div>
+  <div class="tier-badge" id="tier-badge">Verifying payment...</div>
+  <div class="sub" id="sub-text">Please wait while we confirm your subscription.</div>
+  <div id="cta-wrap"></div>
+  <div class="loading" id="loading">Confirming with Stripe...</div>
+</div>
+<script>
+const API_URL = "https://tennishq-api.vercel.app";
+
+async function verifyAndActivate() {
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
+  const tier = params.get("tier") || "starter";
+
+  if (!sessionId) {
+    document.getElementById("tier-badge").textContent = "Error";
+    document.getElementById("sub-text").textContent = "No session found. Please contact support.";
+    document.getElementById("loading").textContent = "";
+    return;
+  }
+
+  try {
+    const r = await fetch(API_URL + "/api/verify-session", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ sessionId })
+    });
+    const data = await r.json();
+
+    if (data.valid) {
+      // Store tier in localStorage
+      localStorage.setItem("tiq_tier", data.tier);
+      localStorage.setItem("tiq_session", sessionId);
+      localStorage.setItem("tiq_email", data.email || "");
+
+      const tierName = data.tier.charAt(0).toUpperCase() + data.tier.slice(1);
+      document.getElementById("tier-badge").textContent = "tennisIQ " + tierName + " — Active";
+      document.getElementById("sub-text").textContent = "Your subscription is active. You now have full access to tennisIQ " + tierName + " predictions.";
+      document.getElementById("loading").textContent = "";
+      document.getElementById("cta-wrap").innerHTML =
+        '<a href="/" class="btn">View today's predictions →</a>';
+    } else {
+      document.getElementById("tier-badge").textContent = "Payment pending";
+      document.getElementById("sub-text").textContent = "Payment is processing. Check back in a moment.";
+      document.getElementById("loading").textContent = "";
+    }
+  } catch(e) {
+    document.getElementById("tier-badge").textContent = "Error";
+    document.getElementById("sub-text").textContent = "Could not verify payment. Please contact support@thetennishq.com";
+    document.getElementById("loading").textContent = "";
+  }
+}
+
+verifyAndActivate();
+</script>
+</body>
+</html>
