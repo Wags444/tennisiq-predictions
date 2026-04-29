@@ -930,7 +930,7 @@ const RSS_FEEDS = [
   }
 ];
 
-const PROXY = 'https://api.allorigins.win/get?url=';
+const PROXIES = ['https://api.rss2json.com/v1/api.json?rss_url=', 'https://corsproxy.io/?', 'https://api.allorigins.win/raw?url='];
 
 // ── UTILITIES ────────────────────────────────────────────────────────────────
 function timeAgo(date) {
@@ -952,24 +952,43 @@ function truncate(str, n) {
   return str.length > n ? str.slice(0, n) + '...' : str;
 }
 
-// ── RSS PARSER ───────────────────────────────────────────────────────────────
+// ── RSS PARSER ─────────────────────────────────────────────────────────────
 async function fetchFeed(feed) {
+  // Try rss2json first (most reliable), then raw XML proxies
   try {
-    const r = await fetch(PROXY + encodeURIComponent(feed.url), {cache: 'no-store'});
-    const j = await r.json();
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(j.contents, 'text/xml');
-    const items = [...xml.querySelectorAll('item')].slice(0, 8);
-    return items.map(item => ({
-      title:   item.querySelector('title')?.textContent?.trim() || '',
-      link:    item.querySelector('link')?.textContent?.trim() || '#',
-      desc:    item.querySelector('description')?.textContent?.trim() || '',
-      date:    item.querySelector('pubDate')?.textContent || '',
-      source:  feed.source
-    })).filter(i => i.title.length > 10);
-  } catch(e) {
-    return [];
-  }
+    const r1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
+    if (r1.ok) {
+      const j = await r1.json();
+      if (j.status === "ok" && j.items && j.items.length > 0) {
+        return j.items.slice(0,8).map(i => ({
+          title:  (i.title || "").trim(),
+          link:   i.link || "#",
+          desc:   (i.description || "").replace(/<[^>]+>/g,"").trim(),
+          date:   i.pubDate || "",
+          source: feed.source
+        })).filter(i => i.title.length > 10);
+      }
+    }
+  } catch(e) {}
+  // Fallback: corsproxy raw XML
+  try {
+    const r2 = await fetch(`https://corsproxy.io/?${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
+    if (r2.ok) {
+      const text = await r2.text();
+      const xml = new DOMParser().parseFromString(text, "text/xml");
+      if (!xml.querySelector("parsererror")) {
+        const items = [...xml.querySelectorAll("item")].slice(0,8);
+        if (items.length > 0) return items.map(item => ({
+          title:  item.querySelector("title")?.textContent?.trim() || "",
+          link:   item.querySelector("link")?.textContent?.trim() || "#",
+          desc:   (item.querySelector("description")?.textContent || "").replace(/<[^>]+>/g,"").trim(),
+          date:   item.querySelector("pubDate")?.textContent || "",
+          source: feed.source
+        })).filter(i => i.title.length > 10);
+      }
+    }
+  } catch(e) {}
+  return [];
 }
 
 function newsCardHTML(item, featured = false) {
@@ -987,53 +1006,52 @@ function newsCardHTML(item, featured = false) {
 }
 
 async function loadNews() {
-  const grid = document.getElementById('news-grid');
-  const moreGrid = document.getElementById('more-news-grid');
+  const grid = document.getElementById("news-grid");
+  const moreGrid = document.getElementById("more-news-grid");
 
-  // Fetch all feeds in parallel
-  const results = await Promise.all(RSS_FEEDS.map(fetchFeed));
-  const allItems = results.flat();
+  // Fetch all feeds with 12s global timeout
+  const results = await Promise.allSettled(
+    RSS_FEEDS.map(feed =>
+      Promise.race([
+        fetchFeed(feed),
+        new Promise((_,r) => setTimeout(() => r([]), 12000))
+      ]).catch(() => [])
+    )
+  );
+  const allItems = results.flatMap(r => Array.isArray(r.value) ? r.value : []);
 
-  // Deduplicate by title similarity and sort by date
+  // Deduplicate and sort by date
   const seen = new Set();
   const unique = allItems.filter(item => {
-    const key = item.title.slice(0, 40).toLowerCase();
+    const key = item.title.slice(0,40).toLowerCase();
     if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  }).sort((a, b) => new Date(b.date) - new Date(a.date));
+    seen.add(key); return true;
+  }).sort((a,b) => new Date(b.date) - new Date(a.date));
 
-  if (unique.length === 0) {
-    grid.innerHTML = `<div class="news-loading" style="grid-column:1/-1">
-      Unable to load news feeds. <a href="https://www.atptour.com/en/news" target="_blank" style="color:var(--clay)">Visit ATP Tour →</a>
-    </div>`;
-    return;
-  }
+  // Fallback links if all proxies fail
+  const fallback = [
+    {title:"ATP Tour News — Match Reports & Player Stories", link:"https://www.atptour.com/en/news", source:"ATP Tour", desc:"The latest news, match reports and player interviews from the ATP Tour.", date:""},
+    {title:"WTA Tour News — Women's Tennis Updates", link:"https://www.wtatennis.com/news", source:"WTA Tour", desc:"Breaking news, results and player stories from women's professional tennis.", date:""},
+    {title:"BBC Sport Tennis — News & Results", link:"https://www.bbc.com/sport/tennis", source:"BBC Sport", desc:"Tennis coverage from BBC Sport including Grand Slams and tour events.", date:""},
+    {title:"Madrid Open — Draws, Results & Schedule", link:"https://www.mutua-madridopen.com/en", source:"Madrid Open", desc:"Everything from the Mutua Madrid Open including full draws and live scores.", date:""},
+    {title:"Tennis Majors — In-Depth Journalism", link:"https://www.tennismajors.com", source:"Tennis Majors", desc:"Deep-dive tennis journalism covering all the major events.", date:""},
+    {title:"ESPN Tennis — Scores, News & Analysis", link:"https://www.espn.com/tennis/", source:"ESPN", desc:"Tennis news, live scores and expert analysis from ESPN.", date:""}
+  ];
 
-  // Top section: featured + 2 secondary
-  const top = unique.slice(0, 3);
+  const items = unique.length >= 3 ? unique : fallback;
+  const top = items.slice(0,3);
+  const more = items.slice(3,6);
+
   grid.innerHTML = newsCardHTML(top[0], true) +
-    (top[1] ? newsCardHTML(top[1]) : '') +
-    (top[2] ? newsCardHTML(top[2]) : '');
+    (top[1] ? newsCardHTML(top[1]) : "") +
+    (top[2] ? newsCardHTML(top[2]) : "");
+  moreGrid.innerHTML = more.map(i => newsCardHTML(i)).join("");
 
-  // More section: next 3
-  const more = unique.slice(3, 6);
-  if (more.length > 0) {
-    moreGrid.innerHTML = more.map(i => newsCardHTML(i)).join('');
-  } else {
-    moreGrid.innerHTML = '<div class="news-loading">No additional stories available.</div>';
-  }
-
-  // Populate ticker
-  const tickerTrack = document.getElementById('ticker-track');
-  const tickerItems = unique.slice(0, 8).map(i =>
-    `<span class="ticker-item">${i.source}: ${truncate(i.title, 60)}</span>`
-  ).join('');
-  // Duplicate for seamless loop
-  tickerTrack.innerHTML = tickerItems + tickerItems;
+  // Ticker
+  const ticker = document.getElementById("ticker-track");
+  const ti = items.slice(0,8).map(i => `<span class="ticker-item">${i.source}: ${truncate(i.title,60)}</span>`).join("");
+  ticker.innerHTML = ti + ti;
 }
-
-// ── PREDICTIONS ──────────────────────────────────────────────────────────────
 async function loadPredictions() {
   const grid = document.getElementById('pred-grid');
   const countEl = document.getElementById('pred-count');
