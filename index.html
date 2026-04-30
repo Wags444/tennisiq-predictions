@@ -1119,6 +1119,7 @@ async function loadPredictions() {
       ...free.map(p => predCardHTML(p, false)),
       ...locked.map(p => predCardHTML(p, true))
     ].join("");
+    updateScoresFromPredictions(data);
     setTimeout(() => {
       document.querySelectorAll(".pred-bar-fill").forEach(bar => {
         bar.style.width = bar.dataset.width + "%";
