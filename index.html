@@ -1111,10 +1111,10 @@ async function loadPredictions() {
     countEl.textContent = data.length;
     totalEl.textContent = data.length;
     const sorted = [...data].sort((a,b) => Math.abs(b.p1_win-0.5)-Math.abs(a.p1_win-0.5));
-    // 1 free, rest locked
-    const free   = sorted.slice(0, 1);
-    const locked = sorted.slice(1, 7);
-    updateScoresFromPredictions(data);
+    // Show based on tier
+    const tier = getUserTier();
+    const free   = hasAccess("starter") ? sorted : sorted.slice(0, 1);
+    const locked = hasAccess("starter") ? [] : sorted.slice(1, 7);
     grid.innerHTML = [
       ...free.map(p => predCardHTML(p, false)),
       ...locked.map(p => predCardHTML(p, true))
@@ -1323,6 +1323,32 @@ async function loadSchedule() {
     document.getElementById("schedule-grid").innerHTML=`<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">Schedule unavailable.</div>`;
   }
 }
+
+// ── TIER ACCESS ─────────────────────────────────────────────────────────────
+function getUserTier() {
+  return localStorage.getItem("tiq_tier") || "free";
+}
+
+function getTierLevel(tier) {
+  const levels = {free:0, starter:1, pro:2, sharp:3};
+  return levels[tier] || 0;
+}
+
+function hasAccess(requiredTier) {
+  return getTierLevel(getUserTier()) >= getTierLevel(requiredTier);
+}
+
+function updateNavForTier() {
+  const tier = getUserTier();
+  if (tier === "free") return;
+  const tierName = tier.charAt(0).toUpperCase() + tier.slice(1);
+  // Add tier badge to nav
+  const nav = document.querySelector("nav");
+  const badge = document.createElement("div");
+  badge.style.cssText = "font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:3px 10px;";
+  badge.textContent = "tennisIQ " + tierName;
+  nav.appendChild(badge);
+}
 loadNews();
 loadPredictions();
 loadSchedule();
@@ -1362,6 +1388,7 @@ async function startCheckout(tier) {
     btn.disabled = false;
   }
 }
+updateNavForTier();
 </script>
 </body>
 </html>
