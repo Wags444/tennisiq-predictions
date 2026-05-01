@@ -808,26 +808,21 @@ footer {
       </div>
     </div>
 
-    <!-- CLV Calculator teaser -->
-    <div class="clv-strip">
-      <div>
-        <div class="clv-left-text">✦ Pro Feature — CLV Calculator</div>
-        <div class="clv-sub">Enter the market odds on any match. See your edge vs the closing line instantly.</div>
+    <!-- CLV Calculator -->
+    <div id="clv-calculator" style="margin-top:2px;background:rgba(255,255,255,0.03);border:1px solid rgba(200,240,0,0.15);padding:1.5rem">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem">
+        <div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;color:var(--acid)">✦ CLV Calculator</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px">Enter bookmaker odds to see your edge vs the model</div>
+        </div>
+        <div id="clv-tier-badge" style="font-size:10px;color:rgba(255,255,255,0.25);font-family:'Bebas Neue',sans-serif;letter-spacing:1px"></div>
       </div>
-      <div class="clv-demo">
-        <div class="clv-input-group">
-          <span class="clv-input-label">Market odds</span>
-          <input class="clv-input" type="number" value="2.10" id="clv-odds-input" step="0.05" min="1.01">
-        </div>
-        <div class="clv-arrow">→</div>
-        <div class="clv-output">
-          <div class="clv-output-label">Your edge</div>
-          <div class="clv-output-value" id="clv-output-val">+14pp</div>
-        </div>
-        <a href="#pricing" class="clv-unlock">Unlock Pro →</a>
+      <div id="clv-content">
+        <!-- Populated by JS based on tier -->
       </div>
     </div>
   </div>
+</section>
 </section>
 
 <!-- MORE NEWS -->
@@ -1221,15 +1216,112 @@ function updateScoresFromPredictions(data) {
   scoresList.innerHTML = rows;
 }
 
-// ── CLV CALCULATOR (blurred for free users) ─────────────────────────────────
-document.getElementById('clv-odds-input').addEventListener('input', function() {
-  // Blurred — just show a plausible number to entice
-  const odds = parseFloat(this.value) || 2.10;
-  const implied = 1 / odds;
-  const edge = ((0.59 - implied) * 100).toFixed(1);
-  document.getElementById('clv-output-val').textContent =
-    (parseFloat(edge) > 0 ? '+' : '') + edge + 'pp';
-});
+// ── CLV CALCULATOR ──────────────────────────────────────────────────────────
+let clvData = [];
+
+function renderCLV() {
+  const content = document.getElementById("clv-content");
+  const badge   = document.getElementById("clv-tier-badge");
+  const tier    = getUserTier();
+
+  if (!hasAccess("pro")) {
+    // Show locked teaser for Free/Starter
+    badge.textContent = "Pro feature";
+    content.innerHTML = `
+      <div style="position:relative;padding:1.5rem;background:rgba(255,255,255,0.02)">
+        <div style="filter:blur(5px);pointer-events:none;user-select:none">
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-bottom:8px;font-size:10px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px">
+            <span>Match</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
+          </div>
+          ${[1,2,3].map(()=>`
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:center">
+            <span style="font-size:13px;color:rgba(255,255,255,0.6)">Player A vs Player B</span>
+            <span style="font-family:'Bebas Neue',sans-serif;color:var(--acid)">65%</span>
+            <input style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:white;padding:5px 8px;width:70px;font-size:13px" value="2.10" disabled>
+            <span style="font-family:'Bebas Neue',sans-serif;color:#4ade80">+12pp ✓</span>
+          </div>`).join("")}
+        </div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(10,10,10,0.7);backdrop-filter:blur(2px)">
+          <div style="font-size:12px;color:rgba(255,255,255,0.4)">CLV Calculator — Pro & Sharp only</div>
+          <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:7px 20px;text-decoration:none">Upgrade to Pro →</a>
+        </div>
+      </div>`;
+    return;
+  }
+
+  // Pro/Sharp — full calculator
+  badge.textContent = "tennisIQ " + tier.charAt(0).toUpperCase() + tier.slice(1);
+
+  if (!clvData.length) {
+    content.innerHTML = `<div style="color:rgba(255,255,255,0.3);font-size:13px;padding:1rem 0">Loading matches...</div>`;
+    return;
+  }
+
+  // Show top 10 most decisive matches
+  const matches = clvData
+    .filter(p => !p.p1_name.includes("/"))
+    .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5))
+    .slice(0,10);
+
+  content.innerHTML = `
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;margin-bottom:8px;
+      font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;padding:0 4px">
+      <span>Match</span><span>Surface</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
+    </div>
+    ${matches.map((p,idx) => {
+      const prob = Math.round(Math.max(p.p1_win, p.p2_win)*100);
+      const fav  = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
+      const dog  = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
+      const fairOdds = p.p1_win > p.p2_win ? p.fair_p1 : p.fair_p2;
+      const surf = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
+      return `
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;
+        padding:10px 4px;border-bottom:1px solid rgba(255,255,255,0.05);align-items:center">
+        <div>
+          <div style="font-size:12px;font-weight:500;color:rgba(255,255,255,0.85)">${fav}</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3)">vs ${dog}</div>
+        </div>
+        <span style="font-size:12px;color:rgba(255,255,255,0.4)">${surf} ${p.surface}</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--acid)">${prob}%
+          <span style="font-size:10px;color:rgba(255,255,255,0.3)"> (${fairOdds})</span>
+        </span>
+        <input type="number" step="0.05" min="1.01" value="${fairOdds}"
+          id="clv-input-${idx}"
+          onchange="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
+          oninput="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
+          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
+          color:white;padding:6px 8px;width:75px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none">
+        <div id="clv-result-${idx}" style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:rgba(255,255,255,0.3)">—</div>
+      </div>`;
+    }).join("")}
+    <div style="margin-top:1rem;font-size:11px;color:rgba(255,255,255,0.2);line-height:1.6">
+      Edge = model probability minus implied probability from your odds (after removing vig).
+      Green = value bet. Red = avoid. Target CLV &gt; 5pp for positive expected value.
+    </div>`;
+}
+
+function calcCLVRow(idx, modelProb) {
+  const input = document.getElementById("clv-input-"+idx);
+  const result = document.getElementById("clv-result-"+idx);
+  const odds = parseFloat(input.value);
+  if (!odds || odds < 1.01) { result.textContent = "—"; result.style.color = "rgba(255,255,255,0.3)"; return; }
+  // Remove vig estimate (assume ~5% margin)
+  const impliedProb = (1/odds) / 1.05;
+  const edge = ((modelProb - impliedProb) * 100);
+  const edgeRound = edge.toFixed(1);
+  const sign = edge > 0 ? "+" : "";
+  result.textContent = sign + edgeRound + "pp " + (edge >= 5 ? "✓" : edge >= 0 ? "~" : "✗");
+  result.style.color = edge >= 5 ? "#4ade80" : edge >= 0 ? "rgba(255,255,255,0.5)" : "#f87171";
+}
+
+async function loadCLV() {
+  try {
+    const r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error();
+    clvData = await r.json();
+    renderCLV();
+  } catch(e) { renderCLV(); }
+}
 
 // ── INIT ────────────────────────────────────────────────────────────────────
 
@@ -1353,6 +1445,7 @@ function updateNavForTier() {
 loadNews();
 loadPredictions();
 loadSchedule();
+loadCLV();
 
 // ── STRIPE CHECKOUT ─────────────────────────────────────────────────────────
 const API_URL = "https://tennishq-api.vercel.app";
