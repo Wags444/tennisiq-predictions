@@ -1134,6 +1134,36 @@ function predCardHTML(p, locked) {
   const fav   = p.p1_win > p.p2_win ? "▲" : "";
   const fav2  = p.p2_win > p.p1_win ? "▲" : "";
   const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
+  const tier  = getUserTier();
+
+  // Sharp breakdown section
+  const sharpBreakdown = hasAccess("sharp") && !locked && p.p1_serve_in ? `
+    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);margin-bottom:8px">Sharp Breakdown</div>
+      <div style="display:grid;grid-template-columns:1fr auto auto;gap:4px;font-size:10px">
+        <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
+        <span style="color:rgba(255,255,255,0.3)">1st Serve Won</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_serve_won}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_won}%</span>
+        <span style="color:rgba(255,255,255,0.3)">2nd Serve Won</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_second_won}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_second_won}%</span>
+        <span style="color:rgba(255,255,255,0.3)">BP Conv %</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_bp_conv}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_bp_conv}%</span>
+        <span style="color:rgba(255,255,255,0.3)">Win Rate</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_win_rate}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_win_rate}%</span>
+        <span style="color:rgba(255,255,255,0.3)">Elo Rating</span>
+        <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
+      </div>
+      <div style="margin-top:6px;font-size:9px;color:rgba(255,255,255,0.2)">
+        ${p.p1_name.split(" ").pop()} <span style="color:var(--acid)">◀</span> left · right <span style="color:rgba(255,255,255,0.4)">▶</span> ${p.p2_name.split(" ").pop()}
+      </div>
+    </div>` : "";
 
   if (locked) return `
     <div class="pred-card" style="position:relative;overflow:hidden;min-height:160px">
@@ -1182,6 +1212,7 @@ function predCardHTML(p, locked) {
         Elo: ${p.elo_diff>0?"+":""}${p.elo_diff} · ${p.h2h_surf||p.h2h_record||""}
         <span class="pred-fair">Fair: ${p.fair_p1} / ${p.fair_p2}</span>
       </div>
+      ${sharpBreakdown}
     </div>`;
 }
 
