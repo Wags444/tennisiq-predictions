@@ -17,8 +17,20 @@
     "p2_streak": -1,
     "p1_fatigue": 3,
     "p2_fatigue": 0,
+    "p1_fatigue.1": 3,
+    "p2_fatigue.1": 0,
+    "p1_serve_in": 62,
+    "p2_serve_in": 68.8,
+    "p1_serve_won": 75.4,
+    "p2_serve_won": 77,
+    "p1_second_won": 58.5,
+    "p2_second_won": 58,
+    "p1_bp_conv": 52.5,
+    "p2_bp_conv": 52.2,
+    "p1_win_rate": 68.3,
+    "p2_win_rate": 74.3,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Alex Bolt",
@@ -38,8 +50,20 @@
     "p2_streak": 1,
     "p1_fatigue": 0,
     "p2_fatigue": 1,
+    "p1_fatigue.1": 0,
+    "p2_fatigue.1": 1,
+    "p1_serve_in": 64,
+    "p2_serve_in": 62.5,
+    "p1_serve_won": 77.7,
+    "p2_serve_won": 78.3,
+    "p1_second_won": 57.6,
+    "p2_second_won": 56.8,
+    "p1_bp_conv": 47.1,
+    "p2_bp_conv": 49.7,
+    "p1_win_rate": 60.2,
+    "p2_win_rate": 53.9,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Jaime Faria",
@@ -59,8 +83,20 @@
     "p2_streak": -1,
     "p1_fatigue": 1,
     "p2_fatigue": 1,
+    "p1_fatigue.1": 1,
+    "p2_fatigue.1": 1,
+    "p1_serve_in": 60.8,
+    "p2_serve_in": 60.1,
+    "p1_serve_won": 75.1,
+    "p2_serve_won": 75,
+    "p1_second_won": 52.8,
+    "p2_second_won": 56.5,
+    "p1_bp_conv": 52,
+    "p2_bp_conv": 51.6,
+    "p1_win_rate": 56.5,
+    "p2_win_rate": 53.9,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Calvin Hemery",
@@ -80,8 +116,20 @@
     "p2_streak": -1,
     "p1_fatigue": 3,
     "p2_fatigue": 0,
+    "p1_fatigue.1": 3,
+    "p2_fatigue.1": 0,
+    "p1_serve_in": 65.1,
+    "p2_serve_in": 64.5,
+    "p1_serve_won": 78.9,
+    "p2_serve_won": 74,
+    "p1_second_won": 58.7,
+    "p2_second_won": 51,
+    "p1_bp_conv": 46.8,
+    "p2_bp_conv": 53.9,
+    "p1_win_rate": 49.5,
+    "p2_win_rate": 59.1,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Pol Martin Tiffon",
@@ -101,8 +149,20 @@
     "p2_streak": -1,
     "p1_fatigue": 3,
     "p2_fatigue": 1,
+    "p1_fatigue.1": 3,
+    "p2_fatigue.1": 1,
+    "p1_serve_in": 61.7,
+    "p2_serve_in": 60.1,
+    "p1_serve_won": 74.1,
+    "p2_serve_won": 75.1,
+    "p1_second_won": 54.4,
+    "p2_second_won": 57.5,
+    "p1_bp_conv": 49.7,
+    "p2_bp_conv": 51.6,
+    "p1_win_rate": 52.3,
+    "p2_win_rate": 54,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Nikolas Sanchez-Izquierdo",
@@ -122,8 +182,20 @@
     "p2_streak": 2,
     "p1_fatigue": 2,
     "p2_fatigue": 4,
+    "p1_fatigue.1": 2,
+    "p2_fatigue.1": 4,
+    "p1_serve_in": 64.3,
+    "p2_serve_in": 65.9,
+    "p1_serve_won": 70.5,
+    "p2_serve_won": 74.1,
+    "p1_second_won": 55.9,
+    "p2_second_won": 55.5,
+    "p1_bp_conv": 51.8,
+    "p2_bp_conv": 49.1,
+    "p1_win_rate": 48.4,
+    "p2_win_rate": 61.4,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Gauthier Onclin",
@@ -143,8 +215,20 @@
     "p2_streak": -2,
     "p1_fatigue": 2,
     "p2_fatigue": 0,
+    "p1_fatigue.1": 2,
+    "p2_fatigue.1": 0,
+    "p1_serve_in": 59.6,
+    "p2_serve_in": 62.1,
+    "p1_serve_won": 73.5,
+    "p2_serve_won": 75.7,
+    "p1_second_won": 54.2,
+    "p2_second_won": 55.1,
+    "p1_bp_conv": 52.3,
+    "p2_bp_conv": 52.5,
+    "p1_win_rate": 59.1,
+    "p2_win_rate": 57.6,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Hubert Hurkacz",
@@ -164,8 +248,20 @@
     "p2_streak": 9,
     "p1_fatigue": 2,
     "p2_fatigue": 0,
+    "p1_fatigue.1": 2,
+    "p2_fatigue.1": 0,
+    "p1_serve_in": 63.7,
+    "p2_serve_in": 62.6,
+    "p1_serve_won": 78.9,
+    "p2_serve_won": 71,
+    "p1_second_won": 58.5,
+    "p2_second_won": 52.9,
+    "p1_bp_conv": 42.8,
+    "p2_bp_conv": 54.7,
+    "p1_win_rate": 61.5,
+    "p2_win_rate": 68.8,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Chak Lam Coleman Wong",
@@ -185,8 +281,20 @@
     "p2_streak": 4,
     "p1_fatigue": 2,
     "p2_fatigue": 0,
+    "p1_fatigue.1": 2,
+    "p2_fatigue.1": 0,
+    "p1_serve_in": 62.1,
+    "p2_serve_in": 59.3,
+    "p1_serve_won": 77,
+    "p2_serve_won": 76.9,
+    "p1_second_won": 55.9,
+    "p2_second_won": 57.7,
+    "p1_bp_conv": 49.9,
+    "p2_bp_conv": 49.9,
+    "p1_win_rate": 54.4,
+    "p2_win_rate": 58.4,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Matteo Arnaldi",
@@ -206,8 +314,20 @@
     "p2_streak": 1,
     "p1_fatigue": 3,
     "p2_fatigue": 1,
+    "p1_fatigue.1": 3,
+    "p2_fatigue.1": 1,
+    "p1_serve_in": 60.1,
+    "p2_serve_in": 64,
+    "p1_serve_won": 72.3,
+    "p2_serve_won": 70,
+    "p1_second_won": 56.8,
+    "p2_second_won": 56.4,
+    "p1_bp_conv": 47.6,
+    "p2_bp_conv": 58.2,
+    "p1_win_rate": 39.3,
+    "p2_win_rate": 59.6,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Veronika Erjavec",
@@ -228,7 +348,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Edas Butvilas",
@@ -248,8 +368,20 @@
     "p2_streak": 1,
     "p1_fatigue": 0,
     "p2_fatigue": 1,
+    "p1_fatigue.1": 0,
+    "p2_fatigue.1": 1,
+    "p1_serve_in": 63.6,
+    "p2_serve_in": 63.2,
+    "p1_serve_won": 72.1,
+    "p2_serve_won": 71.5,
+    "p1_second_won": 57.7,
+    "p2_second_won": 55.8,
+    "p1_bp_conv": 47.6,
+    "p2_bp_conv": 47.6,
+    "p1_win_rate": 49.7,
+    "p2_win_rate": 60,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Lukas Neumayer",
@@ -269,8 +401,20 @@
     "p2_streak": 6,
     "p1_fatigue": 5,
     "p2_fatigue": 1,
+    "p1_fatigue.1": 5,
+    "p2_fatigue.1": 1,
+    "p1_serve_in": 61.9,
+    "p2_serve_in": 63.8,
+    "p1_serve_won": 71,
+    "p2_serve_won": 73.2,
+    "p1_second_won": 54.9,
+    "p2_second_won": 56,
+    "p1_bp_conv": 52.2,
+    "p2_bp_conv": 47.6,
+    "p1_win_rate": 61,
+    "p2_win_rate": 67.9,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Daria Kasatkina",
@@ -291,7 +435,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 7,
     "tour": "wta",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Yue Yuan",
@@ -312,7 +456,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Niels Visker",
@@ -332,8 +476,20 @@
     "p2_streak": 2,
     "p1_fatigue": 1,
     "p2_fatigue": 0,
+    "p1_fatigue.1": 1,
+    "p2_fatigue.1": 0,
+    "p1_serve_in": 62.9,
+    "p2_serve_in": 58.1,
+    "p1_serve_won": 78.4,
+    "p2_serve_won": 79,
+    "p1_second_won": 58.4,
+    "p2_second_won": 58.6,
+    "p1_bp_conv": 45.3,
+    "p2_bp_conv": 46.8,
+    "p1_win_rate": 60.2,
+    "p2_win_rate": 57.8,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Mirra Andreeva",
@@ -354,7 +510,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Katarzyna Kawa",
@@ -375,7 +531,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 5,
     "tour": "wta",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Raul Brancaccio",
@@ -395,8 +551,20 @@
     "p2_streak": -4,
     "p1_fatigue": 1,
     "p2_fatigue": 2,
+    "p1_fatigue.1": 1,
+    "p2_fatigue.1": 2,
+    "p1_serve_in": 63.2,
+    "p2_serve_in": 63.5,
+    "p1_serve_won": 71,
+    "p2_serve_won": 72.1,
+    "p1_second_won": 54.3,
+    "p2_second_won": 56.3,
+    "p1_bp_conv": 52.9,
+    "p2_bp_conv": 50,
+    "p1_win_rate": 52.7,
+    "p2_win_rate": 57.6,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Lanlana Tararudee",
@@ -417,7 +585,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   },
   {
     "p1_name": "Ethan Quinn",
@@ -437,7 +605,19 @@
     "p2_streak": 1,
     "p1_fatigue": 0,
     "p2_fatigue": 0,
+    "p1_fatigue.1": 0,
+    "p2_fatigue.1": 0,
+    "p1_serve_in": 62.2,
+    "p2_serve_in": 65.3,
+    "p1_serve_won": 76.1,
+    "p2_serve_won": 77.3,
+    "p1_second_won": 55.6,
+    "p2_second_won": 56.5,
+    "p1_bp_conv": 45.4,
+    "p2_bp_conv": 46.8,
+    "p1_win_rate": 55.2,
+    "p2_win_rate": 63.5,
     "tour": "atp",
-    "generated": "2026-05-01 13:14"
+    "generated": "2026-05-01 13:19"
   }
 ]
