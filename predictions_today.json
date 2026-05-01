@@ -9,6 +9,8 @@
     "fair_p1": 4.57,
     "fair_p2": 1.28,
     "elo_diff": -206,
+    "elo1": 2010,
+    "elo2": 2216,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 1,
@@ -16,7 +18,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Alex Bolt",
@@ -28,6 +30,8 @@
     "fair_p1": 4.46,
     "fair_p2": 1.29,
     "elo_diff": 23,
+    "elo1": 1860,
+    "elo2": 1837,
     "h2h_record": "1-3",
     "h2h_surf": "1-3 on hard",
     "p1_streak": -1,
@@ -35,26 +39,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
-  },
-  {
-    "p1_name": "Yibing Wu",
-    "p2_name": "Ethan Quinn",
-    "surface": "clay",
-    "tournament": "Aix En Provence Challenger",
-    "p1_win": 0.238,
-    "p2_win": 0.762,
-    "fair_p1": 4.2,
-    "fair_p2": 1.31,
-    "elo_diff": -42,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": 6,
-    "p2_streak": -1,
-    "p1_fatigue": 4,
-    "p2_fatigue": 0,
-    "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Jaime Faria",
@@ -66,6 +51,8 @@
     "fair_p1": 1.33,
     "fair_p2": 4.07,
     "elo_diff": 120,
+    "elo1": 1907,
+    "elo2": 1787,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 2,
@@ -73,7 +60,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Calvin Hemery",
@@ -85,6 +72,8 @@
     "fair_p1": 3.23,
     "fair_p2": 1.45,
     "elo_diff": -81,
+    "elo1": 1759,
+    "elo2": 1840,
     "h2h_record": "0-1",
     "h2h_surf": "0-0 on hard",
     "p1_streak": 3,
@@ -92,26 +81,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
-  },
-  {
-    "p1_name": "Ignacio Buse",
-    "p2_name": "Alejandro Tabilo",
-    "surface": "clay",
-    "tournament": "Aix En Provence Challenger",
-    "p1_win": 0.317,
-    "p2_win": 0.683,
-    "fair_p1": 3.15,
-    "fair_p2": 1.46,
-    "elo_diff": -154,
-    "h2h_record": "0-2",
-    "h2h_surf": "0-1 on clay",
-    "p1_streak": 1,
-    "p2_streak": 1,
-    "p1_fatigue": 1,
-    "p2_fatigue": 0,
-    "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Pol Martin Tiffon",
@@ -123,6 +93,8 @@
     "fair_p1": 3.11,
     "fair_p2": 1.47,
     "elo_diff": -133,
+    "elo1": 1767,
+    "elo2": 1900,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 3,
@@ -130,7 +102,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Nikolas Sanchez-Izquierdo",
@@ -142,6 +114,8 @@
     "fair_p1": 3.03,
     "fair_p2": 1.49,
     "elo_diff": -101,
+    "elo1": 1699,
+    "elo2": 1800,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 1,
@@ -149,26 +123,49 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Gauthier Onclin",
-    "p2_name": "Mert Alkaya",
+    "p2_name": "Eliakim Coulibaly",
     "surface": "hard",
     "tournament": "Abidjan 2 Challenger",
-    "p1_win": 0.635,
-    "p2_win": 0.365,
-    "fair_p1": 1.57,
-    "fair_p2": 2.74,
-    "elo_diff": 180,
-    "h2h_record": "1-0",
-    "h2h_surf": "1-0 on hard",
+    "p1_win": 0.654,
+    "p2_win": 0.346,
+    "fair_p1": 1.53,
+    "fair_p2": 2.89,
+    "elo_diff": 267,
+    "elo1": 1942,
+    "elo2": 1675,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on hard",
     "p1_streak": 8,
-    "p2_streak": 2,
+    "p2_streak": -2,
     "p1_fatigue": 2,
-    "p2_fatigue": 3,
+    "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
+  },
+  {
+    "p1_name": "Hubert Hurkacz",
+    "p2_name": "Roman Andres Burruchaga",
+    "surface": "clay",
+    "tournament": "Cagliari Challenger",
+    "p1_win": 0.641,
+    "p2_win": 0.359,
+    "fair_p1": 1.56,
+    "fair_p2": 2.79,
+    "elo_diff": -116,
+    "elo1": 1886,
+    "elo2": 2002,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": 1,
+    "p2_streak": 9,
+    "p1_fatigue": 2,
+    "p2_fatigue": 0,
+    "tour": "atp",
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Chak Lam Coleman Wong",
@@ -180,6 +177,8 @@
     "fair_p1": 1.58,
     "fair_p2": 2.71,
     "elo_diff": -29,
+    "elo1": 1780,
+    "elo2": 1809,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on hard",
     "p1_streak": -1,
@@ -187,7 +186,28 @@
     "p1_fatigue": 2,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
+  },
+  {
+    "p1_name": "Matteo Arnaldi",
+    "p2_name": "Gianluca Cadenasso",
+    "surface": "clay",
+    "tournament": "Cagliari Challenger",
+    "p1_win": 0.626,
+    "p2_win": 0.374,
+    "fair_p1": 1.6,
+    "fair_p2": 2.67,
+    "elo_diff": -119,
+    "elo1": 1670,
+    "elo2": 1789,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": -3,
+    "p2_streak": 1,
+    "p1_fatigue": 3,
+    "p2_fatigue": 1,
+    "tour": "atp",
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Veronika Erjavec",
@@ -199,6 +219,8 @@
     "fair_p1": 2.61,
     "fair_p2": 1.62,
     "elo_diff": -218,
+    "elo1": 1671,
+    "elo2": 1889,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 0,
@@ -206,26 +228,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-05-01 10:06"
-  },
-  {
-    "p1_name": "Gianluca Cadenasso",
-    "p2_name": "Jesper De Jong",
-    "surface": "clay",
-    "tournament": "Cagliari Challenger",
-    "p1_win": 0.399,
-    "p2_win": 0.601,
-    "fair_p1": 2.51,
-    "fair_p2": 1.66,
-    "elo_diff": 58,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": 1,
-    "p2_streak": -1,
-    "p1_fatigue": 1,
-    "p2_fatigue": 1,
-    "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Edas Butvilas",
@@ -237,6 +240,8 @@
     "fair_p1": 2.5,
     "fair_p2": 1.67,
     "elo_diff": -61,
+    "elo1": 1765,
+    "elo2": 1826,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": -1,
@@ -244,7 +249,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Lukas Neumayer",
@@ -256,6 +261,8 @@
     "fair_p1": 2.4,
     "fair_p2": 1.71,
     "elo_diff": -29,
+    "elo1": 1921,
+    "elo2": 1949,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 5,
@@ -263,7 +270,7 @@
     "p1_fatigue": 5,
     "p2_fatigue": 1,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Daria Kasatkina",
@@ -275,6 +282,8 @@
     "fair_p1": 1.72,
     "fair_p2": 2.4,
     "elo_diff": -22,
+    "elo1": 1627,
+    "elo2": 1649,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 0,
@@ -282,7 +291,7 @@
     "p1_fatigue": 0,
     "p2_fatigue": 7,
     "tour": "wta",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Yue Yuan",
@@ -294,6 +303,8 @@
     "fair_p1": 1.72,
     "fair_p2": 2.4,
     "elo_diff": 49,
+    "elo1": 1638,
+    "elo2": 1589,
     "h2h_record": "1-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 0,
@@ -301,7 +312,7 @@
     "p1_fatigue": 3,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Niels Visker",
@@ -313,6 +324,8 @@
     "fair_p1": 2.36,
     "fair_p2": 1.74,
     "elo_diff": -120,
+    "elo1": 1664,
+    "elo2": 1783,
     "h2h_record": "0-1",
     "h2h_surf": "0-1 on hard",
     "p1_streak": 1,
@@ -320,7 +333,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 0,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Mirra Andreeva",
@@ -332,6 +345,8 @@
     "fair_p1": 1.74,
     "fair_p2": 2.35,
     "elo_diff": 13,
+    "elo1": 1935,
+    "elo2": 1921,
     "h2h_record": "0-1",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 0,
@@ -339,7 +354,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Katarzyna Kawa",
@@ -351,6 +366,8 @@
     "fair_p1": 2.31,
     "fair_p2": 1.76,
     "elo_diff": -154,
+    "elo1": 1583,
+    "elo2": 1737,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": 0,
@@ -358,26 +375,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 5,
     "tour": "wta",
-    "generated": "2026-05-01 10:06"
-  },
-  {
-    "p1_name": "Matteo Berrettini",
-    "p2_name": "Hubert Hurkacz",
-    "surface": "clay",
-    "tournament": "Cagliari Challenger",
-    "p1_win": 0.44,
-    "p2_win": 0.56,
-    "fair_p1": 2.27,
-    "fair_p2": 1.79,
-    "elo_diff": 52,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": -1,
-    "p2_streak": 1,
-    "p1_fatigue": 0,
-    "p2_fatigue": 2,
-    "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Raul Brancaccio",
@@ -389,6 +387,8 @@
     "fair_p1": 2.25,
     "fair_p2": 1.8,
     "elo_diff": 112,
+    "elo1": 1834,
+    "elo2": 1722,
     "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
     "p1_streak": -1,
@@ -396,26 +396,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "atp",
-    "generated": "2026-05-01 10:06"
-  },
-  {
-    "p1_name": "Eliakim Coulibaly",
-    "p2_name": "Hamish Stewart",
-    "surface": "hard",
-    "tournament": "Abidjan 2 Challenger",
-    "p1_win": 0.448,
-    "p2_win": 0.552,
-    "fair_p1": 2.23,
-    "fair_p2": 1.81,
-    "elo_diff": -110,
-    "h2h_record": "0-1",
-    "h2h_surf": "0-1 on hard",
-    "p1_streak": -2,
-    "p2_streak": 3,
-    "p1_fatigue": 0,
-    "p2_fatigue": 2,
-    "tour": "atp",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
     "p1_name": "Lanlana Tararudee",
@@ -427,6 +408,8 @@
     "fair_p1": 1.81,
     "fair_p2": 2.23,
     "elo_diff": 63,
+    "elo1": 1897,
+    "elo2": 1835,
     "h2h_record": "1-0",
     "h2h_surf": "1-0 on hard",
     "p1_streak": 0,
@@ -434,25 +417,27 @@
     "p1_fatigue": 4,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-05-01 10:06"
+    "generated": "2026-05-01 13:14"
   },
   {
-    "p1_name": "Noma Akugue Noha",
-    "p2_name": "Darja Semenistaja",
+    "p1_name": "Ethan Quinn",
+    "p2_name": "Alejandro Tabilo",
     "surface": "clay",
-    "tournament": "W100 Wiesbaden",
-    "p1_win": 0.51,
-    "p2_win": 0.49,
-    "fair_p1": 1.96,
-    "fair_p2": 2.04,
-    "elo_diff": 103,
-    "h2h_record": "0-1",
+    "tournament": "Aix En Provence Challenger",
+    "p1_win": 0.476,
+    "p2_win": 0.524,
+    "fair_p1": 2.1,
+    "fair_p2": 1.91,
+    "elo_diff": -23,
+    "elo1": 1958,
+    "elo2": 1981,
+    "h2h_record": "0-0",
     "h2h_surf": "0-0 on clay",
-    "p1_streak": 0,
-    "p2_streak": 0,
-    "p1_fatigue": 4,
-    "p2_fatigue": 2,
-    "tour": "wta",
-    "generated": "2026-05-01 10:06"
+    "p1_streak": -1,
+    "p2_streak": 1,
+    "p1_fatigue": 0,
+    "p2_fatigue": 0,
+    "tour": "atp",
+    "generated": "2026-05-01 13:14"
   }
 ]
