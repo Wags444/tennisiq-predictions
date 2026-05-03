@@ -1191,7 +1191,7 @@ async function loadPredictions() {
       const firstCard = grid.querySelector(".pred-card-featured");
       if (firstCard) {
         const summaryEl = firstCard.querySelector(".pred-summary");
-        if (summaryEl) summaryEl.innerHTML = summary;
+        if (summaryEl) summaryEl.innerHTML = formatSummary(summary);
       }
     }
   } catch(e) {
