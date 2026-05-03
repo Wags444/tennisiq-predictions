@@ -1183,7 +1183,12 @@ function formDots(streak) {
     if (i < n) dots.push(win ? "w" : "l");
     else dots.push("n");
   }
-  return dots.map(d => `<div class="form-dot form-${d}"></div>`).join("");
+  const colors = {
+    w: "background:#4ade80",
+    l: "background:#f87171",
+    n: "background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2)"
+  };
+  return dots.map(d => `<div style="width:8px;height:8px;border-radius:50%;display:inline-block;${colors[d]}"></div>`).join("");
 }
 
 function getMatchSummary(m) {
