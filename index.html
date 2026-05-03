@@ -507,6 +507,11 @@ nav {
   transition: width 0.6s ease;
 }
 .pred-detail {
+.form-dot { width:7px;height:7px;border-radius:50%;display:inline-block; }
+.form-w { background:#4ade80; }
+.form-l { background:#f87171; }
+.form-n { background:rgba(255,255,255,0.1); }
+.pred-card-featured .pred-summary { display:block; }
   font-size: 10px;
   color: rgba(255,255,255,0.2);
   line-height: 1.5;
@@ -1126,9 +1131,9 @@ async function loadNews() {
   ticker.innerHTML = ti + ti;
 }
 async function loadPredictions() {
-  const grid     = document.getElementById("pred-grid");
-  const countEl  = document.getElementById("pred-count");
-  const totalEl  = document.getElementById("total-pred-count");
+  const grid    = document.getElementById("pred-grid");
+  const countEl = document.getElementById("pred-count");
+  const totalEl = document.getElementById("total-pred-count");
   try {
     const r = await fetch(PRED_URL + "?t=" + Date.now());
     if (!r.ok) throw new Error("HTTP " + r.status);
@@ -1136,21 +1141,33 @@ async function loadPredictions() {
     if (!data || data.length === 0) throw new Error("No predictions");
     countEl.textContent = data.length;
     totalEl.textContent = data.length;
-    const sorted = [...data].sort((a,b) => Math.abs(b.p1_win-0.5)-Math.abs(a.p1_win-0.5));
-    // Show based on tier
-    const tier = getUserTier();
-    const free   = hasAccess("starter") ? sorted : sorted.slice(0, 1);
-    const locked = hasAccess("starter") ? [] : sorted.slice(1, 7);
-    grid.innerHTML = [
-      ...free.map(p => predCardHTML(p, false)),
-      ...locked.map(p => predCardHTML(p, true))
-    ].join("");
+    const sorted = [...data]
+      .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
+      .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
     updateScoresFromPredictions(data);
+    const tier   = getUserTier();
+    const free   = hasAccess("starter") ? sorted : sorted.slice(0,1);
+    const locked = hasAccess("starter") ? [] : sorted.slice(1,7);
+    // Render free cards first (no summary yet)
+    grid.innerHTML = [
+      ...free.map((p,i) => predCardHTML(p, false, null, i===0)),
+      ...locked.map(p => predCardHTML(p, true, null, false))
+    ].join("");
     setTimeout(() => {
-      document.querySelectorAll(".pred-bar-fill").forEach(bar => {
+      document.querySelectorAll(".pred-bar-fill[data-width]").forEach(bar => {
         bar.style.width = bar.dataset.width + "%";
       });
     }, 100);
+    // Generate AI summary for the first free card only
+    if (free.length > 0) {
+      const topMatch = free[0];
+      const summary  = await getMatchSummary(topMatch);
+      const firstCard = grid.querySelector(".pred-card-featured");
+      if (firstCard) {
+        const summaryEl = firstCard.querySelector(".pred-summary");
+        if (summaryEl) summaryEl.innerHTML = summary;
+      }
+    }
   } catch(e) {
     grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;
       color:rgba(255,255,255,0.2);font-size:13px">
@@ -1158,16 +1175,68 @@ async function loadPredictions() {
   }
 }
 
-function predCardHTML(p, locked) {
-  const tour  = (p.tour || "atp").toLowerCase();
-  const pct1  = Math.round((p.p1_win || 0.5) * 100);
-  const pct2  = 100 - pct1;
-  const fav   = p.p1_win > p.p2_win ? "▲" : "";
-  const fav2  = p.p2_win > p.p1_win ? "▲" : "";
-  const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
-  const tier  = getUserTier();
+function formDots(streak) {
+  const n   = Math.min(Math.abs(streak || 0), 5);
+  const win = (streak || 0) > 0;
+  const dots = [];
+  for (let i = 0; i < 5; i++) {
+    if (i < n) dots.push(win ? "w" : "l");
+    else dots.push("n");
+  }
+  return dots.map(d => `<div class="form-dot form-${d}"></div>`).join("");
+}
 
-  // Sharp breakdown section
+async function getMatchSummary(m) {
+  const fav = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
+  const dog = m.p1_win > m.p2_win ? m.p2_name : m.p1_name;
+  const favProb  = Math.round(Math.max(m.p1_win, m.p2_win)*100);
+  const favStreak = m.p1_win > m.p2_win ? (m.p1_streak||0) : (m.p2_streak||0);
+  const dogStreak = m.p1_win > m.p2_win ? (m.p2_streak||0) : (m.p1_streak||0);
+  const favFatigue = m.p1_win > m.p2_win ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
+  const eloAdv = Math.abs(m.elo_diff||0);
+  const eloStr = eloAdv>150 ? "significant historical advantage" : eloAdv>60 ? "moderate historical edge" : "closely matched historically";
+  const favFormStr = favStreak>2 ? "in strong recent form" : favStreak<-1 ? "coming off a tough run" : "in steady form";
+  const dogFormStr = dogStreak>2 ? "in strong form" : dogStreak<-1 ? "struggling for form" : "in reasonable shape";
+  const favFreshStr = favFatigue>3 ? "carrying a heavy match load" : favFatigue>1 ? "with some matches in the legs" : "fresh";
+  const h2hStr = m.h2h_surf && !m.h2h_surf.startsWith("0-0") ? `The head-to-head on this surface favours ${fav}.` : "The players have little prior history on this surface.";
+  const surf = m.surface==="clay" ? "clay" : m.surface==="grass" ? "grass" : "hard courts";
+  const tourn = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(/ - .*/,"");
+  const prompt = `You are a concise tennis analyst. Write exactly 2 sentences summarising this match for a sports analysis audience. Be qualitative and engaging. No specific numbers, percentages, ratings or model metrics. Focus on form, surface suitability, momentum and matchup dynamics.
+
+Match: ${fav} vs ${dog} on ${surf} at ${tourn}.
+Context: ${fav} has a ${eloStr} and is ${favFormStr}, arriving ${favFreshStr}. ${dog} is ${dogFormStr}. ${h2hStr}
+Our model makes ${fav} a clear favourite at ${favProb}%.
+
+Write only the 2-sentence summary. No preamble.`;
+  try {
+    const resp = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        messages: [{role:"user", content:prompt}]
+      })
+    });
+    const d = await resp.json();
+    return d.content?.[0]?.text || "";
+  } catch(e) { return ""; }
+}
+
+function predCardHTML(p, locked, summary, featured) {
+  const tour  = (p.tour||"atp").toLowerCase();
+  const pct1  = Math.round((p.p1_win||0.5)*100);
+  const pct2  = 100-pct1;
+  const fav   = p.p1_win>p.p2_win ? p.p1_name : p.p2_name;
+  const dog   = p.p1_win>p.p2_win ? p.p2_name : p.p1_name;
+  const favPct= Math.max(pct1,pct2);
+  const dogPct= Math.min(pct1,pct2);
+  const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
+  const favStreak = p.p1_win>p.p2_win ? (p.p1_streak||0) : (p.p2_streak||0);
+  const dogStreak = p.p1_win>p.p2_win ? (p.p2_streak||0) : (p.p1_streak||0);
+  const fairOdds  = p.p1_win>p.p2_win ? p.fair_p1 : p.fair_p2;
+  const surfIcon  = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
+
   const sharpBreakdown = hasAccess("sharp") && !locked && p.p1_serve_in ? `
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
       <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);margin-bottom:8px">Sharp Breakdown</div>
@@ -1181,29 +1250,26 @@ function predCardHTML(p, locked) {
         <span style="color:rgba(255,255,255,0.3)">2nd Serve Won</span>
         <span style="color:var(--acid);text-align:right">${p.p1_second_won}%</span>
         <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_second_won}%</span>
-        <span style="color:rgba(255,255,255,0.3)">BP Conv %</span>
+        <span style="color:rgba(255,255,255,0.3)">BP Conv</span>
         <span style="color:var(--acid);text-align:right">${p.p1_bp_conv}%</span>
         <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_bp_conv}%</span>
         <span style="color:rgba(255,255,255,0.3)">Win Rate</span>
         <span style="color:var(--acid);text-align:right">${p.p1_win_rate}%</span>
         <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_win_rate}%</span>
-        <span style="color:rgba(255,255,255,0.3)">Elo Rating</span>
+        <span style="color:rgba(255,255,255,0.3)">Elo</span>
         <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
         <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
-      </div>
-      <div style="margin-top:6px;font-size:9px;color:rgba(255,255,255,0.2)">
-        ${p.p1_name.split(" ").pop()} <span style="color:var(--acid)">◀</span> left · right <span style="color:rgba(255,255,255,0.4)">▶</span> ${p.p2_name.split(" ").pop()}
       </div>
     </div>` : "";
 
   if (locked) return `
-    <div class="pred-card" style="position:relative;overflow:hidden;min-height:160px">
+    <div class="pred-card" style="position:relative;overflow:hidden;min-height:180px">
       <div class="pred-tour ${tour}">${tour.toUpperCase()}</div>
       <div class="pred-tourn">${tourn}</div>
       <div class="pred-matchup">
-        <span class="pred-player">${p.p1_name||"—"} ${fav}</span>
+        <span class="pred-player">${p.p1_name||"—"}</span>
         <span class="pred-vs">vs</span>
-        <span class="pred-player right">${fav2} ${p.p2_name||"—"}</span>
+        <span class="pred-player right">${p.p2_name||"—"}</span>
       </div>
       <div style="filter:blur(7px);user-select:none;pointer-events:none">
         <div class="pred-bar-row">
@@ -1211,7 +1277,7 @@ function predCardHTML(p, locked) {
           <div class="pred-bar-track"><div class="pred-bar-fill" style="width:50%"></div></div>
           <span class="pred-pct right">??%</span>
         </div>
-        <div class="pred-detail">Elo diff · H2H · Fair odds: ??.?? / ??.??</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:6px">Analysis available on upgrade</div>
       </div>
       <div style="position:absolute;bottom:0;left:0;right:0;padding:12px;
         background:linear-gradient(to bottom,transparent,rgba(10,10,10,0.97));
@@ -1224,25 +1290,32 @@ function predCardHTML(p, locked) {
     </div>`;
 
   return `
-    <div class="pred-card">
-      <div class="pred-tour ${tour}">${tour.toUpperCase()}</div>
+    <div class="pred-card ${featured ? "pred-card-featured" : ""}">
+      <div class="pred-tour ${tour}">${tour.toUpperCase()} ${surfIcon}</div>
       <div class="pred-tourn">${tourn}</div>
-      <div class="pred-matchup">
-        <span class="pred-player">${p.p1_name||"—"} ${fav}</span>
-        <span class="pred-vs">vs</span>
-        <span class="pred-player right">${fav2} ${p.p2_name||"—"}</span>
-      </div>
-      <div class="pred-bar-row">
-        <span class="pred-pct">${pct1}%</span>
-        <div class="pred-bar-track">
-          <div class="pred-bar-fill" data-width="${pct1}" style="width:0%"></div>
+      <div class="pred-matchup" style="flex-direction:column;gap:8px;align-items:flex-start">
+        <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
+          <span class="pred-player" style="font-size:14px">${fav}</span>
+          <span class="pred-pct" style="font-size:16px;color:var(--acid)">${favPct}%</span>
         </div>
-        <span class="pred-pct right">${pct2}%</span>
+        <div style="display:flex;gap:3px">${formDots(favStreak)}</div>
+        <div class="pred-bar-track" style="width:100%;margin:0">
+          <div class="pred-bar-fill" data-width="${favPct}" style="width:0%"></div>
+        </div>
+        <div style="display:flex;gap:3px">${formDots(dogStreak)}</div>
+        <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
+          <span class="pred-player" style="font-size:14px;color:rgba(255,255,255,0.5)">${dog}</span>
+          <span class="pred-pct" style="font-size:16px;color:rgba(255,255,255,0.4)">${dogPct}%</span>
+        </div>
       </div>
-      <div class="pred-detail">
-        Elo: ${p.elo_diff>0?"+":""}${p.elo_diff} · ${p.h2h_surf||p.h2h_record||""}
-        <span class="pred-fair">Fair: ${p.fair_p1} / ${p.fair_p2}</span>
+      <div class="pred-detail" style="margin-top:8px">
+        H2H: ${p.h2h_surf||p.h2h_record||"0-0"} · Fair: ${fairOdds||"—"}
       </div>
+      ${featured ? `<div class="pred-summary" style="margin-top:10px;padding:10px;
+        background:rgba(255,255,255,0.04);border-radius:3px;font-size:12px;
+        line-height:1.6;color:rgba(255,255,255,0.6);min-height:48px">
+        <span style="color:rgba(255,255,255,0.2);font-style:italic">Generating analysis...</span>
+      </div>` : ""}
       ${sharpBreakdown}
     </div>`;
 }
