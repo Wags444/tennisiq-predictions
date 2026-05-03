@@ -1208,9 +1208,9 @@ function getMatchSummary(m) {
   const favLast = fav.split(" ").pop();
   const dogLast = dog.split(" ").pop();
 
-  const edgeStr = eloAdv > 150 ? `a significant historical edge over ${dogLast}` :
-                  eloAdv > 60  ? `a moderate advantage coming in` :
-                                 `a closely contested matchup on paper`;
+  const edgeStr = favProb > 80 ? `a significant advantage over ${dogLast}` :
+                  favProb > 65 ? `a moderate edge over ${dogLast}` :
+                                 `a closely contested matchup with ${dogLast}`;
 
   const favFormStr = favStreak > 2  ? "riding a strong run of form" :
                      favStreak < -1 ? "looking to bounce back after a difficult stretch" :
