@@ -1151,7 +1151,6 @@ async function loadPredictions() {
     const rest     = sorted.filter(p => p !== featured);
     const free     = hasAccess("starter") ? sorted : [featured];
     const locked   = hasAccess("starter") ? [] : rest.slice(0,6);
-    const locked = hasAccess("starter") ? [] : sorted.slice(1,7);
     // Render free cards first (no summary yet)
     grid.innerHTML = [
       ...free.map((p,i) => predCardHTML(p, false, null, i===0)),
