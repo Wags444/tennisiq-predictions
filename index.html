@@ -1130,6 +1130,29 @@ async function loadNews() {
   const ti = items.slice(0,8).map(i => `<span class="ticker-item">${i.source}: ${truncate(i.title,60)}</span>`).join("");
   ticker.innerHTML = ti + ti;
 }
+function updateScoresFromPredictions(data) {
+  const scoresList = document.getElementById("scores-list");
+  if (!scoresList) return;
+  const rows = data.slice(0, 6).map(p => {
+    const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
+    const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
+    const favPct = Math.round(Math.max(p.p1_win, p.p2_win) * 100);
+    const tourn = (p.tournament || "").replace("Mutua Madrid Open - Madrid","Madrid Open");
+    return `
+      <div class="score-row">
+        <div>
+          <div class="score-players">${fav} vs ${dog}</div>
+          <div class="score-info">${(p.tour||"ATP").toUpperCase()} · ${p.surface||""} · ${tourn}</div>
+        </div>
+        <div>
+          <div class="score-result">${favPct}%</div>
+          <div class="score-status">Model pick</div>
+        </div>
+      </div>`;
+  }).join("");
+  scoresList.innerHTML = rows;
+}
+
 async function loadPredictions() {
   const grid    = document.getElementById("pred-grid");
   const countEl = document.getElementById("pred-count");
