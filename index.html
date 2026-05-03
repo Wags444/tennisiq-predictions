@@ -1161,7 +1161,7 @@ async function loadPredictions() {
     // Generate AI summary for the first free card only
     if (free.length > 0) {
       const topMatch = free[0];
-      const summary  = await getMatchSummary(topMatch);
+      const summary  = getMatchSummary(topMatch);
       const firstCard = grid.querySelector(".pred-card-featured");
       if (firstCard) {
         const summaryEl = firstCard.querySelector(".pred-summary");
@@ -1186,41 +1186,40 @@ function formDots(streak) {
   return dots.map(d => `<div class="form-dot form-${d}"></div>`).join("");
 }
 
-async function getMatchSummary(m) {
+function getMatchSummary(m) {
   const fav = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
   const dog = m.p1_win > m.p2_win ? m.p2_name : m.p1_name;
-  const favProb  = Math.round(Math.max(m.p1_win, m.p2_win)*100);
+  const favProb = Math.round(Math.max(m.p1_win, m.p2_win)*100);
   const favStreak = m.p1_win > m.p2_win ? (m.p1_streak||0) : (m.p2_streak||0);
   const dogStreak = m.p1_win > m.p2_win ? (m.p2_streak||0) : (m.p1_streak||0);
   const favFatigue = m.p1_win > m.p2_win ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
   const eloAdv = Math.abs(m.elo_diff||0);
-  const eloStr = eloAdv>150 ? "significant historical advantage" : eloAdv>60 ? "moderate historical edge" : "closely matched historically";
-  const favFormStr = favStreak>2 ? "in strong recent form" : favStreak<-1 ? "coming off a tough run" : "in steady form";
-  const dogFormStr = dogStreak>2 ? "in strong form" : dogStreak<-1 ? "struggling for form" : "in reasonable shape";
-  const favFreshStr = favFatigue>3 ? "carrying a heavy match load" : favFatigue>1 ? "with some matches in the legs" : "fresh";
-  const h2hStr = m.h2h_surf && !m.h2h_surf.startsWith("0-0") ? `The head-to-head on this surface favours ${fav}.` : "The players have little prior history on this surface.";
   const surf = m.surface==="clay" ? "clay" : m.surface==="grass" ? "grass" : "hard courts";
   const tourn = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(/ - .*/,"");
-  const prompt = `You are a concise tennis analyst. Write exactly 2 sentences summarising this match for a sports analysis audience. Be qualitative and engaging. No specific numbers, percentages, ratings or model metrics. Focus on form, surface suitability, momentum and matchup dynamics.
 
-Match: ${fav} vs ${dog} on ${surf} at ${tourn}.
-Context: ${fav} has a ${eloStr} and is ${favFormStr}, arriving ${favFreshStr}. ${dog} is ${dogFormStr}. ${h2hStr}
-Our model makes ${fav} a clear favourite at ${favProb}%.
+  const favLast = fav.split(" ").pop();
+  const dogLast = dog.split(" ").pop();
 
-Write only the 2-sentence summary. No preamble.`;
-  try {
-    const resp = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        messages: [{role:"user", content:prompt}]
-      })
-    });
-    const d = await resp.json();
-    return d.content?.[0]?.text || "";
-  } catch(e) { return ""; }
+  const edgeStr = eloAdv > 150 ? `a significant historical edge over ${dogLast}` :
+                  eloAdv > 60  ? `a moderate advantage coming in` :
+                                 `a closely contested matchup on paper`;
+
+  const favFormStr = favStreak > 2  ? "riding a strong run of form" :
+                     favStreak < -1 ? "looking to bounce back after a difficult stretch" :
+                                      "in steady shape heading into this match";
+
+  const dogFormStr = dogStreak > 2  ? `${dogLast} arrives in strong form and cannot be taken lightly` :
+                     dogStreak < -1 ? `${dogLast} will need to rediscover some consistency` :
+                                      `${dogLast} comes in with something to prove`;
+
+  const h2hStr = m.h2h_surf && !m.h2h_surf.startsWith("0-0") ?
+    `The head-to-head on ${surf} gives ${favLast} added confidence.` :
+    `With no prior meetings on ${surf}, this is an open question.`;
+
+  const freshStr = favFatigue > 3 ? `, though a heavy recent schedule may be a factor` :
+                   favFatigue > 1 ? `` : `, arriving fresh`;
+
+  return `${favLast} carries ${edgeStr} on ${surf} and is ${favFormStr}${freshStr}. ${dogFormStr} — our model gives ${favLast} a ${favProb}% chance today.`;
 }
 
 function predCardHTML(p, locked, summary, featured) {
