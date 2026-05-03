@@ -1274,6 +1274,20 @@ function fatigueBar(v1, v2) {
     </div>`;
 }
 
+function formatSummary(summary) {
+  if (!summary) return "";
+  const sentences = summary.match(/[^.!?]+[.!?]+/g) || [summary];
+  const first = sentences[0] || "";
+  const rest  = sentences.slice(1).join(" ");
+  if (!rest) return first;
+  if (hasAccess("pro")) return first + " " + rest;
+  return first +
+    `<span style="filter:blur(4px);user-select:none;pointer-events:none"> ${rest}</span>` +
+    `<div style="margin-top:6px"><a href="#pricing" style="font-size:10px;color:var(--acid);
+    text-decoration:none;letter-spacing:1px;font-family:'Bebas Neue',sans-serif;
+    border:1px solid rgba(200,240,0,0.2);padding:3px 10px">Unlock full analysis — Pro</a></div>`;
+}
+
 function predCardHTML(p, locked, summary, featured) {
   const tour  = (p.tour||"atp").toLowerCase();
   const pct1  = Math.round((p.p1_win||0.5)*100);
@@ -1401,19 +1415,7 @@ function predCardHTML(p, locked, summary, featured) {
       ${featured ? `<div class="pred-summary" style="padding:10px;
         background:rgba(255,255,255,0.04);border-radius:3px;font-size:12px;
         line-height:1.6;color:rgba(255,255,255,0.6);min-height:36px">
-        ${(() => {
-          if (!summary) return "";
-          const sentences = summary.match(/[^.!?]+[.!?]+/g) || [summary];
-          const first = sentences[0] || "";
-          const rest  = sentences.slice(1).join(" ");
-          const blurRest = !hasAccess("pro") && rest;
-          return first + (rest ? (blurRest ?
-            ` <span style="filter:blur(4px);user-select:none;pointer-events:none">${rest}</span>`
-            + `<div style="margin-top:6px"><a href="#pricing" style="font-size:10px;color:var(--acid);
-            text-decoration:none;letter-spacing:1px;font-family:'Bebas Neue',sans-serif;
-            border:1px solid rgba(200,240,0,0.2);padding:3px 10px">Unlock full analysis — Pro</a></div>`
-            : ` ${rest}`) : "");
-        })()}
+        ${formatSummary(summary)}
       </div>` : ""}`
   const rows = data.slice(0, 6).map(p => {
     const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
