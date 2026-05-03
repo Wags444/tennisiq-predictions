@@ -1146,7 +1146,11 @@ async function loadPredictions() {
       .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
     updateScoresFromPredictions(data);
     const tier   = getUserTier();
-    const free   = hasAccess("starter") ? sorted : sorted.slice(0,1);
+    // For free users pick the most visually interesting match (has streak data)
+    const featured = sorted.find(p => Math.abs(p.p1_streak||0) + Math.abs(p.p2_streak||0) >= 2) || sorted[0];
+    const rest     = sorted.filter(p => p !== featured);
+    const free     = hasAccess("starter") ? sorted : [featured];
+    const locked   = hasAccess("starter") ? [] : rest.slice(0,6);
     const locked = hasAccess("starter") ? [] : sorted.slice(1,7);
     // Render free cards first (no summary yet)
     grid.innerHTML = [
