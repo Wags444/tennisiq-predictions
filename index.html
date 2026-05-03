@@ -1230,6 +1230,50 @@ function getMatchSummary(m) {
   return `${favLast} carries ${edgeStr} on ${surf} and is ${favFormStr}${freshStr}. ${dogFormStr} — our model gives ${favLast} a ${favProb}% chance today.`;
 }
 
+function statBar(label, v1, v2, unit, blurred) {
+  if (v1==null||v2==null) return "";
+  const max = Math.max(v1, v2, 1);
+  const w1  = Math.round(v1/max*100);
+  const w2  = Math.round(v2/max*100);
+  const win1 = v1 >= v2;
+  const c1 = win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
+  const c2 = !win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
+  const val1 = blurred ? `<span style="filter:blur(4px);user-select:none">${v1}${unit}</span>` : `${v1}${unit}`;
+  const val2 = blurred ? `<span style="filter:blur(4px);user-select:none">${v2}${unit}</span>` : `${v2}${unit}`;
+  return `
+    <div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">
+        <span>${label}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
+        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end">
+          <span style="font-size:11px;color:${c1};font-weight:500">${val1}</span>
+          <div style="height:6px;width:${w1}%;background:${c1};border-radius:2px;max-width:100%"></div>
+        </div>
+        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="height:6px;width:${w2}%;background:${c2};border-radius:2px;max-width:100%"></div>
+          <span style="font-size:11px;color:${c2};font-weight:500">${val2}</span>
+        </div>
+      </div>
+    </div>`;
+}
+
+function fatigueBar(v1, v2) {
+  const dots = n => Array.from({length:5}, (_,i) =>
+    `<div style="width:6px;height:6px;border-radius:50%;background:${i<n?"#f87171":"rgba(255,255,255,0.1)"}"></div>`
+  ).join("");
+  return `
+    <div style="margin-bottom:8px">
+      <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Match Load</div>
+      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
+        <div style="display:flex;gap:3px;justify-content:flex-end">${dots(Math.min(v1||0,5))}</div>
+        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
+        <div style="display:flex;gap:3px">${dots(Math.min(v2||0,5))}</div>
+      </div>
+    </div>`;
+}
+
 function predCardHTML(p, locked, summary, featured) {
   const tour  = (p.tour||"atp").toLowerCase();
   const pct1  = Math.round((p.p1_win||0.5)*100);
@@ -1239,12 +1283,24 @@ function predCardHTML(p, locked, summary, featured) {
   const favPct= Math.max(pct1,pct2);
   const dogPct= Math.min(pct1,pct2);
   const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
-  const favStreak = p.p1_win>p.p2_win ? (p.p1_streak||0) : (p.p2_streak||0);
-  const dogStreak = p.p1_win>p.p2_win ? (p.p2_streak||0) : (p.p1_streak||0);
-  const fairOdds  = p.p1_win>p.p2_win ? p.fair_p1 : p.fair_p2;
-  const surfIcon  = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
+  const surfIcon = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
+  const fairOdds = p.p1_win>p.p2_win ? p.fair_p1 : p.fair_p2;
+  const isFavP1  = p.p1_win>p.p2_win;
 
-  const sharpBreakdown = hasAccess("sharp") && !locked && p.p1_serve_in ? `
+  // Reorder stats so favourite is always on left
+  const sv_in1  = isFavP1 ? p.p1_serve_in  : p.p2_serve_in;
+  const sv_in2  = isFavP1 ? p.p2_serve_in  : p.p1_serve_in;
+  const sv_won1 = isFavP1 ? p.p1_serve_won : p.p2_serve_won;
+  const sv_won2 = isFavP1 ? p.p2_serve_won : p.p1_serve_won;
+  const wr1     = isFavP1 ? p.p1_win_rate  : p.p2_win_rate;
+  const wr2     = isFavP1 ? p.p2_win_rate  : p.p1_win_rate;
+  const fat1    = isFavP1 ? p.p1_fatigue   : p.p2_fatigue;
+  const fat2    = isFavP1 ? p.p2_fatigue   : p.p1_fatigue;
+
+  const hasStats = p.p1_serve_in != null;
+  const blurStats = !hasAccess("starter");
+
+  const sharpBreakdown = hasAccess("sharp") && !locked && hasStats ? `
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
       <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);margin-bottom:8px">Sharp Breakdown</div>
       <div style="display:grid;grid-template-columns:1fr auto auto;gap:4px;font-size:10px">
@@ -1297,32 +1353,54 @@ function predCardHTML(p, locked, summary, featured) {
     </div>`;
 
   return `
-    <div class="pred-card ${featured ? "pred-card-featured" : ""}">
+    <div class="pred-card ${featured?"pred-card-featured":""}">
       <div class="pred-tour ${tour}">${tour.toUpperCase()} ${surfIcon}</div>
       <div class="pred-tourn">${tourn}</div>
-      <div class="pred-matchup" style="flex-direction:column;gap:8px;align-items:flex-start">
-        <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
-          <span class="pred-player" style="font-size:14px">${fav}</span>
-          <span class="pred-pct" style="font-size:16px;color:var(--acid)">${favPct}%</span>
+
+      <!-- Player headers -->
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:12px">
+        <div>
+          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.9)">${fav}</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--acid);line-height:1">${favPct}%</div>
         </div>
-        <div style="display:flex;gap:3px">${formDots(favStreak)}</div>
-        <div class="pred-bar-track" style="width:100%;margin:0">
-          <div class="pred-bar-fill" data-width="${favPct}" style="width:0%"></div>
-        </div>
-        <div style="display:flex;gap:3px">${formDots(dogStreak)}</div>
-        <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
-          <span class="pred-player" style="font-size:14px;color:rgba(255,255,255,0.5)">${dog}</span>
-          <span class="pred-pct" style="font-size:16px;color:rgba(255,255,255,0.4)">${dogPct}%</span>
+        <div style="text-align:center;font-size:10px;color:rgba(255,255,255,0.3);padding:0 4px">vs</div>
+        <div style="text-align:right">
+          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.5)">${dog}</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(255,255,255,0.3);line-height:1">${dogPct}%</div>
         </div>
       </div>
-      <div class="pred-detail" style="margin-top:8px">
+
+      <!-- Probability bar -->
+      <div class="pred-bar-track" style="width:100%;margin-bottom:14px">
+        <div class="pred-bar-fill" data-width="${favPct}" style="width:0%"></div>
+      </div>
+
+      <!-- Stat bars -->
+      ${hasStats ? `
+      <div style="margin-bottom:4px">
+        <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;margin-bottom:6px">
+          <div style="font-size:10px;font-weight:500;color:var(--acid);text-align:right">${fav.split(" ").pop()}</div>
+          <div></div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.35)">${dog.split(" ").pop()}</div>
+        </div>
+        ${statBar("1st Serve %", sv_in1, sv_in2, "%", blurStats)}
+        ${statBar("Serve Won %", sv_won1, sv_won2, "%", blurStats)}
+        ${statBar("Win Rate", wr1, wr2, "%", blurStats)}
+        ${fatigueBar(fat1, fat2)}
+      </div>
+      ${blurStats ? `<div style="text-align:center;margin-bottom:10px">
+        <a href="#pricing" style="font-size:11px;color:var(--acid);text-decoration:none;
+          border:1px solid rgba(200,240,0,0.2);padding:4px 14px;font-family:'Bebas Neue',sans-serif;
+          letter-spacing:1px">Unlock full stats — Starter $9.99/mo</a>
+      </div>` : ""}` : ""}
+
+      <!-- H2H and summary -->
+      <div class="pred-detail" style="margin-bottom:8px">
         H2H: ${p.h2h_surf||p.h2h_record||"0-0"} · Fair: ${fairOdds||"—"}
       </div>
-      ${featured ? `<div class="pred-summary" style="margin-top:10px;padding:10px;
+      ${featured ? `<div class="pred-summary" style="padding:10px;
         background:rgba(255,255,255,0.04);border-radius:3px;font-size:12px;
-        line-height:1.6;color:rgba(255,255,255,0.6);min-height:48px">
-        <span style="color:rgba(255,255,255,0.2);font-style:italic">Generating analysis...</span>
-      </div>` : ""}
+        line-height:1.6;color:rgba(255,255,255,0.6);min-height:36px">${summary||""}</div>` : ""}
       ${sharpBreakdown}
     </div>`;
 }
