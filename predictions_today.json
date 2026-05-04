@@ -18,7 +18,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Adam Walton",
@@ -51,7 +51,7 @@
     "p1_win_rate": 53.9,
     "p2_win_rate": 58.2,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Florent Bax",
@@ -84,7 +84,7 @@
     "p1_win_rate": 59,
     "p2_win_rate": 50.8,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Akira Santillan",
@@ -117,7 +117,7 @@
     "p1_win_rate": 61,
     "p2_win_rate": 54.4,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Mananchaya Sawangkaew",
@@ -138,7 +138,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Courtney John Lock",
@@ -171,7 +171,7 @@
     "p1_win_rate": 4.1,
     "p2_win_rate": 57.2,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Tung-Lin Wu",
@@ -204,7 +204,7 @@
     "p1_win_rate": 61.7,
     "p2_win_rate": 55,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Martin Krumich",
@@ -237,7 +237,7 @@
     "p1_win_rate": 54.9,
     "p2_win_rate": 50.4,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Brandon Perez",
@@ -270,7 +270,7 @@
     "p1_win_rate": 20.2,
     "p2_win_rate": 47.5,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Alastair Gray",
@@ -303,7 +303,7 @@
     "p1_win_rate": 57.2,
     "p2_win_rate": 47.2,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Sofia Elena Cabezas Dominguez",
@@ -324,7 +324,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Alex Bolt",
@@ -357,7 +357,7 @@
     "p1_win_rate": 60.2,
     "p2_win_rate": 58.4,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Hayato Matsuoka",
@@ -390,7 +390,7 @@
     "p1_win_rate": 59.7,
     "p2_win_rate": 44.5,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Keegan Smith",
@@ -423,7 +423,7 @@
     "p1_win_rate": 57.9,
     "p2_win_rate": 56.8,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Maria Timofeeva",
@@ -444,7 +444,7 @@
     "p1_fatigue": 4,
     "p2_fatigue": 4,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Jason Jung",
@@ -477,7 +477,7 @@
     "p1_win_rate": 27.9,
     "p2_win_rate": 54.9,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Andrea Guerrieri",
@@ -510,7 +510,7 @@
     "p1_win_rate": 69.5,
     "p2_win_rate": 57.3,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Karan Singh",
@@ -543,7 +543,7 @@
     "p1_win_rate": 51.7,
     "p2_win_rate": 49.2,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Felix Gill",
@@ -576,28 +576,7 @@
     "p1_win_rate": 69.5,
     "p2_win_rate": 57.6,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
-  },
-  {
-    "p1_name": "Ellie Schoppe",
-    "p2_name": "Allura Zamarripa",
-    "surface": "clay",
-    "tournament": "W100 Indian Harbour Beach",
-    "p1_win": 0.607,
-    "p2_win": 0.393,
-    "fair_p1": 1.65,
-    "fair_p2": 2.54,
-    "elo_diff": -43,
-    "elo1": 1539,
-    "elo2": 1582,
-    "h2h_record": "0-0",
-    "h2h_surf": "0-0 on clay",
-    "p1_streak": 0,
-    "p2_streak": 0,
-    "p1_fatigue": 0,
-    "p2_fatigue": 2,
-    "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Bernard Tomic",
@@ -630,7 +609,7 @@
     "p1_win_rate": 55.7,
     "p2_win_rate": 55.4,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Mark Lajal",
@@ -663,7 +642,7 @@
     "p1_win_rate": 58.4,
     "p2_win_rate": 58.5,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Daniel Dutra Da Silva",
@@ -696,7 +675,7 @@
     "p1_win_rate": 46.2,
     "p2_win_rate": 56.1,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Dalila Spiteri",
@@ -717,7 +696,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Justin Engel",
@@ -750,7 +729,7 @@
     "p1_win_rate": 44.7,
     "p2_win_rate": 48.4,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Alex Barrena",
@@ -783,7 +762,7 @@
     "p1_win_rate": 58.1,
     "p2_win_rate": 46.4,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Jay Clarke",
@@ -816,7 +795,7 @@
     "p1_win_rate": 56.5,
     "p2_win_rate": 66.8,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Abigail Rencheli",
@@ -837,7 +816,7 @@
     "p1_fatigue": 2,
     "p2_fatigue": 2,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Luca Castelnuovo",
@@ -870,7 +849,7 @@
     "p1_win_rate": 61.1,
     "p2_win_rate": 72.3,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Rio Noguchi",
@@ -903,7 +882,7 @@
     "p1_win_rate": 58.8,
     "p2_win_rate": 56,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Harry Wendelken",
@@ -936,7 +915,7 @@
     "p1_win_rate": 66.7,
     "p2_win_rate": 50.7,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Toby Samuel",
@@ -969,7 +948,7 @@
     "p1_win_rate": 75.8,
     "p2_win_rate": 62.1,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Gabriela Lee",
@@ -990,7 +969,28 @@
     "p1_fatigue": 2,
     "p2_fatigue": 3,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
+  },
+  {
+    "p1_name": "Allura Zamarripa",
+    "p2_name": "Ava Markham",
+    "surface": "clay",
+    "tournament": "W100 Indian Harbour Beach",
+    "p1_win": 0.444,
+    "p2_win": 0.556,
+    "fair_p1": 2.25,
+    "fair_p2": 1.8,
+    "elo_diff": -1,
+    "elo1": 1582,
+    "elo2": 1583,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_streak": 0,
+    "p2_streak": 0,
+    "p1_fatigue": 2,
+    "p2_fatigue": 3,
+    "tour": "wta",
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Gustavo Heide",
@@ -1023,7 +1023,7 @@
     "p1_win_rate": 66.8,
     "p2_win_rate": 73.3,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Matyas Cerny",
@@ -1056,7 +1056,7 @@
     "p1_win_rate": 51.5,
     "p2_win_rate": 60.6,
     "tour": "atp",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Clara Burel",
@@ -1077,7 +1077,7 @@
     "p1_fatigue": 1,
     "p2_fatigue": 1,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   },
   {
     "p1_name": "Anastasia Gasanova",
@@ -1098,6 +1098,6 @@
     "p1_fatigue": 0,
     "p2_fatigue": 5,
     "tour": "wta",
-    "generated": "2026-05-04 14:53"
+    "generated": "2026-05-04 16:49"
   }
 ]
