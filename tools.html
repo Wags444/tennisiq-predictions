@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Tennis Tools — TennisHQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --black:#0a0a0a; --warm:#f0ede6; --chalk:#fafaf7; --clay:#c13a0f;
+  --acid:#c8f000; --muted:rgba(255,255,255,0.35); --border:rgba(255,255,255,0.08);
+  --card-bg:rgba(255,255,255,0.03);
+}
+body { font-family:'DM Sans',sans-serif; background:var(--black); color:var(--chalk); min-height:100vh; font-size:15px; line-height:1.6; }
+nav { display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:56px; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,10,10,0.95); backdrop-filter:blur(8px); z-index:100; }
+.nav-logo { font-family:'DM Serif Display',serif; font-size:20px; text-decoration:none; color:var(--chalk); }
+.nav-logo span { color:var(--clay); }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); text-decoration:none; font-family:'Bebas Neue',sans-serif; transition:color 0.2s; }
+.nav-links a:hover,.nav-links a.active { color:var(--chalk); }
+.page-header { padding:4rem 2rem 3rem; max-width:1280px; margin:0 auto; border-bottom:1px solid var(--border); }
+.page-tag { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:3px; color:var(--clay); margin-bottom:12px; }
+.page-title { font-family:'DM Serif Display',serif; font-size:clamp(36px,5vw,64px); line-height:1.05; margin-bottom:16px; }
+.page-sub { font-size:16px; color:var(--muted); font-weight:300; max-width:520px; }
+.tools-wrap { max-width:1280px; margin:0 auto; padding:3rem 2rem; }
+.tools-section-label { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:3px; color:var(--muted); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+.tool-card { background:var(--card-bg); border:1px solid var(--border); padding:2rem; margin-bottom:2px; }
+.tool-title { font-family:'DM Serif Display',serif; font-size:24px; margin-bottom:6px; }
+.tool-desc { font-size:13px; color:var(--muted); margin-bottom:2rem; font-weight:300; }
+.input-group { display:flex; flex-direction:column; gap:6px; }
+.input-label { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-family:'Bebas Neue',sans-serif; }
+input[type="number"],input[type="text"],select { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:var(--chalk); padding:10px 14px; font-size:14px; font-family:'DM Sans',sans-serif; outline:none; width:140px; transition:border-color 0.2s; -moz-appearance:textfield; }
+input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button { -webkit-appearance:none; }
+input:focus,select:focus { border-color:rgba(200,240,0,0.4); }
+.input-row { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; margin-bottom:16px; }
+.calc-btn { background:var(--clay); color:white; border:none; padding:11px 28px; font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:2px; cursor:pointer; transition:opacity 0.2s; white-space:nowrap; }
+.calc-btn:hover { opacity:0.85; }
+.odds-tabs { display:flex; gap:2px; margin-bottom:1.5rem; background:var(--border); }
+.odds-tab { flex:1; padding:10px; border:none; background:var(--card-bg); color:var(--muted); font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:1.5px; cursor:pointer; transition:all 0.2s; }
+.odds-tab.active { background:var(--black); color:var(--acid); }
+.odds-input-wrap { display:none; }
+.odds-input-wrap.active { display:block; }
+.result-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:2px; background:var(--border); border:1px solid var(--border); margin-top:1.5rem; }
+.result-cell { background:var(--black); padding:1.25rem; text-align:center; }
+.result-label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; font-family:'Bebas Neue',sans-serif; }
+.result-value { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--acid); line-height:1; }
+.result-value.secondary { color:rgba(255,255,255,0.6); font-size:22px; }
+.players-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--border); margin-bottom:1.5rem; }
+.player-col { background:var(--card-bg); padding:1.5rem; }
+.player-col-header { font-family:'Bebas Neue',sans-serif; font-size:12px; letter-spacing:2px; margin-bottom:1rem; }
+.player-col-header.p1 { color:var(--acid); }
+.player-col-header.p2 { color:var(--clay); }
+.stat-input-row { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+.stat-input-row input { width:100%; }
+.format-toggle { display:flex; gap:2px; margin-bottom:1.5rem; }
+.format-btn { padding:8px 20px; border:1px solid var(--border); background:transparent; color:var(--muted); font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:1.5px; cursor:pointer; transition:all 0.2s; }
+.format-btn.active { background:var(--black); color:var(--chalk); border-color:rgba(255,255,255,0.2); }
+.prob-display { display:grid; grid-template-columns:1fr auto 1fr; gap:16px; align-items:center; padding:2rem; background:rgba(255,255,255,0.02); border:1px solid var(--border); margin-top:1.5rem; }
+.prob-player { text-align:center; }
+.prob-name { font-size:12px; color:var(--muted); margin-bottom:8px; font-family:'Bebas Neue',sans-serif; letter-spacing:1.5px; }
+.prob-pct { font-family:'Bebas Neue',sans-serif; font-size:56px; line-height:1; }
+.prob-pct.fav { color:var(--acid); }
+.prob-pct.dog { color:rgba(255,255,255,0.35); }
+.prob-vs { font-family:'DM Serif Display',serif; font-size:18px; color:var(--muted); text-align:center; }
+.prob-bar-outer { height:4px; background:rgba(255,255,255,0.08); margin-top:1.5rem; border-radius:2px; overflow:hidden; }
+.prob-bar-inner { height:100%; background:var(--acid); border-radius:2px; transition:width 0.5s ease; }
+.pro-teaser { background:rgba(200,240,0,0.04); border:1px solid rgba(200,240,0,0.15); padding:1.5rem 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:2px; }
+.pro-teaser-text { font-size:13px; color:rgba(255,255,255,0.5); }
+.pro-teaser-text strong { color:var(--acid); }
+.pro-btn { font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:1.5px; color:var(--acid); border:1px solid rgba(200,240,0,0.3); padding:8px 20px; text-decoration:none; white-space:nowrap; }
+.pro-btn:hover { background:rgba(200,240,0,0.1); }
+.calc-error { font-size:12px; color:#f87171; margin-top:8px; min-height:18px; }
+.section-gap { height:3rem; }
+footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:11px; color:rgba(255,255,255,0.2); margin-top:4rem; }
+footer a { color:rgba(255,255,255,0.3); text-decoration:none; }
+@media(max-width:640px){.players-grid{grid-template-columns:1fr;}.prob-display{grid-template-columns:1fr;}.prob-vs{display:none;}.page-header,.tools-wrap{padding:2rem 1rem;}.tool-card{padding:1.5rem 1rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Tennis<span>HQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/tennisiq.html">tennisIQ</a></li>
+    <li><a href="/tools.html" class="active">Tools</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-tag">Free Resources</div>
+  <h1 class="page-title">Tennis Tools</h1>
+  <p class="page-sub">Professional-grade calculators for serious tennis fans and bettors. Free to use, no signup required.</p>
+</div>
+
+<div class="tools-wrap">
+
+  <div class="tools-section-label">Odds Converter</div>
+  <div class="tool-card">
+    <div class="tool-title">Odds Converter</div>
+    <p class="tool-desc">Convert between decimal, American, fractional and implied probability. Includes vig-removed true probability.</p>
+    <div class="odds-tabs">
+      <button class="odds-tab active" onclick="switchTab('decimal')">Decimal</button>
+      <button class="odds-tab" onclick="switchTab('american')">American</button>
+      <button class="odds-tab" onclick="switchTab('fractional')">Fractional</button>
+      <button class="odds-tab" onclick="switchTab('implied')">Implied %</button>
+    </div>
+    <div class="odds-input-wrap active" id="tab-decimal">
+      <div class="input-row">
+        <div class="input-group"><span class="input-label">Decimal odds</span><input type="number" id="in-decimal" placeholder="e.g. 2.10" step="0.01" min="1.01"></div>
+        <button class="calc-btn" onclick="convertOdds('decimal')">Convert</button>
+      </div>
+    </div>
+    <div class="odds-input-wrap" id="tab-american">
+      <div class="input-row">
+        <div class="input-group"><span class="input-label">American odds</span><input type="number" id="in-american" placeholder="-110 or +200"></div>
+        <button class="calc-btn" onclick="convertOdds('american')">Convert</button>
+      </div>
+    </div>
+    <div class="odds-input-wrap" id="tab-fractional">
+      <div class="input-row">
+        <div class="input-group"><span class="input-label">Numerator</span><input type="number" id="in-frac-num" placeholder="e.g. 11" min="1"></div>
+        <div style="padding-bottom:12px;font-size:20px;color:var(--muted)">/</div>
+        <div class="input-group"><span class="input-label">Denominator</span><input type="number" id="in-frac-den" placeholder="e.g. 10" min="1"></div>
+        <button class="calc-btn" onclick="convertOdds('fractional')">Convert</button>
+      </div>
+    </div>
+    <div class="odds-input-wrap" id="tab-implied">
+      <div class="input-row">
+        <div class="input-group"><span class="input-label">Implied probability %</span><input type="number" id="in-implied" placeholder="e.g. 47.6" step="0.1" min="1" max="99"></div>
+        <button class="calc-btn" onclick="convertOdds('implied')">Convert</button>
+      </div>
+    </div>
+    <div class="calc-error" id="odds-error"></div>
+    <div class="result-grid" id="odds-results" style="display:none">
+      <div class="result-cell"><div class="result-label">Decimal</div><div class="result-value" id="out-decimal">—</div></div>
+      <div class="result-cell"><div class="result-label">American</div><div class="result-value" id="out-american">—</div></div>
+      <div class="result-cell"><div class="result-label">Fractional</div><div class="result-value secondary" id="out-fractional">—</div></div>
+      <div class="result-cell"><div class="result-label">Implied %</div><div class="result-value" id="out-implied">—</div></div>
+      <div class="result-cell"><div class="result-label">True prob (no vig)</div><div class="result-value" id="out-true" style="color:var(--clay)">—</div></div>
+      <div class="result-cell"><div class="result-label">Fair decimal</div><div class="result-value secondary" id="out-fair">—</div></div>
+    </div>
+  </div>
+
+  <div class="pro-teaser">
+    <div class="pro-teaser-text"><strong>Pro feature:</strong> Paste any match's bookmaker odds and tennisIQ automatically compares against the model's fair probability — showing your edge instantly.</div>
+    <a href="/#pricing" class="pro-btn">Unlock CLV Calculator →</a>
+  </div>
+
+  <div class="section-gap"></div>
+
+  <div class="tools-section-label">Match Probability Calculator</div>
+  <div class="tool-card">
+    <div class="tool-title">Match Win Probability</div>
+    <p class="tool-desc">Calculate each player's probability of winning based on their serve statistics. Enter first serve percentage, points won on first serve, and points won on second serve for each player.</p>
+    <div class="format-toggle">
+      <button class="format-btn active" id="btn-bo3" onclick="setFormat(3)">Best of 3</button>
+      <button class="format-btn" id="btn-bo5" onclick="setFormat(5)">Best of 5</button>
+    </div>
+    <div class="players-grid">
+      <div class="player-col">
+        <div class="player-col-header p1">Player 1</div>
+        <div class="stat-input-row"><span class="input-label">Name (optional)</span><input type="text" id="p1-name" placeholder="Player 1"></div>
+        <div class="stat-input-row"><span class="input-label">1st Serve In %</span><input type="number" id="p1-svIn" placeholder="e.g. 62" min="1" max="99"></div>
+        <div class="stat-input-row"><span class="input-label">1st Serve Won %</span><input type="number" id="p1-sv1Won" placeholder="e.g. 74" min="1" max="99"></div>
+        <div class="stat-input-row"><span class="input-label">2nd Serve Won %</span><input type="number" id="p1-sv2Won" placeholder="e.g. 53" min="1" max="99"></div>
+      </div>
+      <div class="player-col">
+        <div class="player-col-header p2">Player 2</div>
+        <div class="stat-input-row"><span class="input-label">Name (optional)</span><input type="text" id="p2-name" placeholder="Player 2"></div>
+        <div class="stat-input-row"><span class="input-label">1st Serve In %</span><input type="number" id="p2-svIn" placeholder="e.g. 62" min="1" max="99"></div>
+        <div class="stat-input-row"><span class="input-label">1st Serve Won %</span><input type="number" id="p2-sv1Won" placeholder="e.g. 74" min="1" max="99"></div>
+        <div class="stat-input-row"><span class="input-label">2nd Serve Won %</span><input type="number" id="p2-sv2Won" placeholder="e.g. 53" min="1" max="99"></div>
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calcMatchProb()" style="width:100%;padding:14px">Calculate Match Probability</button>
+    <div class="calc-error" id="match-error"></div>
+    <div id="match-results" style="display:none">
+      <div class="prob-display">
+        <div class="prob-player">
+          <div class="prob-name" id="res-p1-name">PLAYER 1</div>
+          <div class="prob-pct fav" id="res-p1-pct">—</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">win probability</div>
+        </div>
+        <div class="prob-vs">vs</div>
+        <div class="prob-player">
+          <div class="prob-name" id="res-p2-name">PLAYER 2</div>
+          <div class="prob-pct dog" id="res-p2-pct">—</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">win probability</div>
+        </div>
+      </div>
+      <div class="prob-bar-outer"><div class="prob-bar-inner" id="prob-bar" style="width:50%"></div></div>
+      <div class="result-grid" style="margin-top:2px">
+        <div class="result-cell"><div class="result-label">P1 Serve Win %</div><div class="result-value secondary" id="res-p1-srv">—</div></div>
+        <div class="result-cell"><div class="result-label">P2 Serve Win %</div><div class="result-value secondary" id="res-p2-srv">—</div></div>
+        <div class="result-cell"><div class="result-label">P1 Return Win %</div><div class="result-value secondary" id="res-p1-ret">—</div></div>
+        <div class="result-cell"><div class="result-label">P2 Return Win %</div><div class="result-value secondary" id="res-p2-ret">—</div></div>
+        <div class="result-cell"><div class="result-label">P1 Fair odds</div><div class="result-value secondary" id="res-p1-odds">—</div></div>
+        <div class="result-cell"><div class="result-label">P2 Fair odds</div><div class="result-value secondary" id="res-p2-odds">—</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pro-teaser">
+    <div class="pro-teaser-text"><strong>tennisIQ Pro:</strong> Our model runs this calculation for every ATP and WTA match daily — serve stats pulled automatically. See all picks, fair odds and CLV edge without the manual work.</div>
+    <a href="/#pricing" class="pro-btn">See Today's Picks →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>2026 TennisHQ &middot; <a href="/">Home</a> &middot; <a href="/tools.html">Tools</a> &middot; <a href="/#pricing">Pricing</a></p>
+  <p style="margin-top:8px">Match probability model based on Sackmann (2011) point-level simulation. For informational purposes only.</p>
+</footer>
+
+<script>
+var activeTab='decimal';
+
+function switchTab(tab){
+  activeTab=tab;
+  var tabs=['decimal','american','fractional','implied'];
+  document.querySelectorAll('.odds-tab').forEach(function(t,i){t.classList.toggle('active',tabs[i]===tab);});
+  document.querySelectorAll('.odds-input-wrap').forEach(function(w){w.classList.remove('active');});
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.getElementById('odds-error').textContent='';
+  document.getElementById('odds-results').style.display='none';
+}
+
+function gcd(a,b){return b===0?a:gcd(b,a%b);}
+
+function toFrac(d){
+  var n=Math.round((d-1)*100),de=100,g=gcd(Math.abs(n),de);
+  return (n/g)+'/'+(de/g);
+}
+
+function convertOdds(from){
+  var err=document.getElementById('odds-error');
+  err.textContent='';
+  var dec;
+  if(from==='decimal'){
+    var v=parseFloat(document.getElementById('in-decimal').value);
+    if(!v||v<=1){err.textContent='Enter a decimal value greater than 1.00';return;}
+    dec=v;
+  } else if(from==='american'){
+    var v=parseFloat(document.getElementById('in-american').value);
+    if(!v||v===0){err.textContent='Enter American odds (e.g. -110 or +200)';return;}
+    dec=v>0?(v/100)+1:(100/Math.abs(v))+1;
+  } else if(from==='fractional'){
+    var n=parseFloat(document.getElementById('in-frac-num').value);
+    var d=parseFloat(document.getElementById('in-frac-den').value);
+    if(!n||!d||d===0){err.textContent='Enter valid numerator and denominator';return;}
+    dec=(n/d)+1;
+  } else {
+    var v=parseFloat(document.getElementById('in-implied').value);
+    if(!v||v<=0||v>=100){err.textContent='Enter a probability between 1 and 99';return;}
+    dec=100/v;
+  }
+  var imp=(1/dec)*100;
+  var am=dec>=2?'+'+Math.round((dec-1)*100):'-'+Math.round(100/(dec-1));
+  var frac=toFrac(dec);
+  var trueP=imp/1.05;
+  var fairD=100/trueP;
+  document.getElementById('out-decimal').textContent=dec.toFixed(2);
+  document.getElementById('out-american').textContent=am;
+  document.getElementById('out-fractional').textContent=frac;
+  document.getElementById('out-implied').textContent=imp.toFixed(1)+'%';
+  document.getElementById('out-true').textContent=trueP.toFixed(1)+'%';
+  document.getElementById('out-fair').textContent=fairD.toFixed(2);
+  document.getElementById('odds-results').style.display='grid';
+}
+
+var matchFormat=3;
+var storedP={pA:0.63,pB:0.63};
+
+function setFormat(n){
+  matchFormat=n;
+  document.getElementById('btn-bo3').classList.toggle('active',n===3);
+  document.getElementById('btn-bo5').classList.toggle('active',n===5);
+  document.getElementById('match-results').style.display='none';
+}
+
+function pServePoint(svIn,sv1Won,sv2Won){
+  return (svIn/100)*(sv1Won/100)+(1-svIn/100)*(sv2Won/100);
+}
+
+function pWinGame(p){
+  var q=1-p;
+  var pD=(p*p)/(p*p+q*q);
+  return Math.pow(p,4)+4*Math.pow(p,4)*q+10*Math.pow(p,4)*Math.pow(q,2)+20*Math.pow(p,3)*Math.pow(q,3)*pD;
+}
+
+function pWinTiebreak(pA,pB){
+  var memo={};
+  function pw(iA,iB,srv){
+    if(iA>=7&&iA-iB>=2)return 1;
+    if(iB>=7&&iB-iA>=2)return 0;
+    var key=iA+','+iB+','+srv;
+    if(memo[key]!==undefined)return memo[key];
+    var p=srv==='A'?pA:(1-pB);
+    var tot=iA+iB;
+    var nxt=tot===0?'B':(tot%2===1?(srv==='A'?'B':'A'):srv);
+    memo[key]=p*pw(iA+1,iB,nxt)+(1-p)*pw(iA,iB+1,nxt);
+    return memo[key];
+  }
+  return pw(0,0,'A');
+}
+
+function pWinSet(pgA,pgB){
+  var memo={};
+  function ps(gA,gB,srv){
+    if(gA>=6&&gA-gB>=2)return 1;
+    if(gB>=6&&gB-gA>=2)return 0;
+    if(gA===6&&gB===6)return srv==='A'?pWinTiebreak(storedP.pA,storedP.pB):1-pWinTiebreak(storedP.pA,storedP.pB);
+    var key=gA+','+gB+','+srv;
+    if(memo[key]!==undefined)return memo[key];
+    var p=srv==='A'?pgA:(1-pgB);
+    var nxt=srv==='A'?'B':'A';
+    memo[key]=p*ps(gA+1,gB,nxt)+(1-p)*ps(gA,gB+1,nxt);
+    return memo[key];
+  }
+  return ps(0,0,'A');
+}
+
+function pWinMatch(psA,setsNeeded){
+  var memo={};
+  function pm(sA,sB){
+    if(sA>=setsNeeded)return 1;
+    if(sB>=setsNeeded)return 0;
+    var key=sA+','+sB;
+    if(memo[key]!==undefined)return memo[key];
+    memo[key]=psA*pm(sA+1,sB)+(1-psA)*pm(sA,sB+1);
+    return memo[key];
+  }
+  return pm(0,0);
+}
+
+function calcMatchProb(){
+  var err=document.getElementById('match-error');
+  err.textContent='';
+  var svIn1=parseFloat(document.getElementById('p1-svIn').value);
+  var sv1W1=parseFloat(document.getElementById('p1-sv1Won').value);
+  var sv2W1=parseFloat(document.getElementById('p1-sv2Won').value);
+  var svIn2=parseFloat(document.getElementById('p2-svIn').value);
+  var sv1W2=parseFloat(document.getElementById('p2-sv1Won').value);
+  var sv2W2=parseFloat(document.getElementById('p2-sv2Won').value);
+  if([svIn1,sv1W1,sv2W1,svIn2,sv1W2,sv2W2].some(function(v){return isNaN(v)||v<=0||v>=100;})){
+    err.textContent='Please enter all six serve statistics (values between 1 and 99).';
+    return;
+  }
+  var p1Name=document.getElementById('p1-name').value||'Player 1';
+  var p2Name=document.getElementById('p2-name').value||'Player 2';
+  var ppA=pServePoint(svIn1,sv1W1,sv2W1);
+  var ppB=pServePoint(svIn2,sv1W2,sv2W2);
+  storedP={pA:ppA,pB:ppB};
+  var pgA=pWinGame(ppA);
+  var pgB=pWinGame(ppB);
+  var psA=pWinSet(pgA,pgB);
+  var setsNeeded=matchFormat===5?3:2;
+  var pmA=pWinMatch(psA,setsNeeded);
+  var pmB=1-pmA;
+  var pctA=(Math.round(pmA*1000)/10).toFixed(1)+'%';
+  var pctB=(Math.round(pmB*1000)/10).toFixed(1)+'%';
+  document.getElementById('res-p1-name').textContent=p1Name.toUpperCase();
+  document.getElementById('res-p2-name').textContent=p2Name.toUpperCase();
+  document.getElementById('res-p1-pct').textContent=pctA;
+  document.getElementById('res-p2-pct').textContent=pctB;
+  document.getElementById('prob-bar').style.width=(pmA*100).toFixed(1)+'%';
+  document.getElementById('res-p1-pct').className='prob-pct '+(pmA>=pmB?'fav':'dog');
+  document.getElementById('res-p2-pct').className='prob-pct '+(pmB>pmA?'fav':'dog');
+  document.getElementById('res-p1-srv').textContent=(ppA*100).toFixed(1)+'%';
+  document.getElementById('res-p2-srv').textContent=(ppB*100).toFixed(1)+'%';
+  document.getElementById('res-p1-ret').textContent=((1-ppB)*100).toFixed(1)+'%';
+  document.getElementById('res-p2-ret').textContent=((1-ppA)*100).toFixed(1)+'%';
+  document.getElementById('res-p1-odds').textContent=(1/pmA).toFixed(2);
+  document.getElementById('res-p2-odds').textContent=(1/pmB).toFixed(2);
+  document.getElementById('match-results').style.display='block';
+}
+</script>
+</body>
+</html>
