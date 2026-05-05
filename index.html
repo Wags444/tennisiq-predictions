@@ -869,7 +869,7 @@ footer {
     </div>
     <div style="background:var(--card-bg);padding:1.5rem;text-align:center">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--chalk)" id="res-resolved">—</div>
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px">Matches resolved</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px">This week</div>
     </div>
     <div style="background:var(--card-bg);padding:1.5rem;text-align:center">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--chalk)" id="res-predicted">—</div>
@@ -1697,21 +1697,17 @@ async function loadResults() {
     if (!r.ok) throw new Error();
     const d = await r.json();
 
-    document.getElementById("res-accuracy").textContent =
-      d.accuracy ? d.accuracy + "%" : "—";
-    document.getElementById("res-resolved").textContent = d.total_resolved || 0;
+    document.getElementById("res-accuracy").textContent = d.accuracy_label || "Building...";
+    document.getElementById("res-resolved").textContent = d.week_resolved || 0;
     document.getElementById("res-predicted").textContent = d.total_predicted || 0;
-    document.getElementById("results-updated").textContent =
-      "Updated " + (d.last_updated || "");
+    document.getElementById("results-updated").textContent = "Updated " + (d.last_updated || "");
 
     const grid = document.getElementById("results-grid");
     const recent = d.recent_results;
 
     if (!recent || recent.length === 0) {
-      grid.innerHTML = `
-        <div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">
-          No resolved results yet — check back tomorrow after today's matches complete.
-        </div>`;
+      grid.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">
+        No resolved results yet — check back after today's matches complete.</div>`;
       return;
     }
 
@@ -1721,6 +1717,7 @@ async function loadResults() {
       const prob    = Math.round(Math.max(m.p1_win, m.p2_win)*100);
       const surf    = m.surface==="clay" ? "🟤" : m.surface==="grass" ? "🟢" : "🔵";
       const tourn   = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
+      const date    = m.pred_date || "";
       return `
         <div style="display:grid;grid-template-columns:1fr auto;gap:12px;
           padding:12px 16px;border-bottom:1px solid var(--border);
@@ -1731,7 +1728,7 @@ async function loadResults() {
               ${m.p1_name} vs ${m.p2_name}
             </div>
             <div style="font-size:10px;color:var(--muted)">
-              ${surf} ${tourn} · Pick: <strong>${pick}</strong> @ ${prob}% · Result: <strong>${m.result}</strong>
+              ${surf} ${tourn} · Pick: <strong>${pick}</strong> @ ${prob}% · Result: <strong>${m.result}</strong> · ${date}
             </div>
           </div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;

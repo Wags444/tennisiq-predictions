@@ -1,8 +1,231 @@
 {
   "total_predicted": 111,
-  "total_resolved": 0,
-  "correct": 0,
-  "accuracy": null,
-  "last_updated": "2026-05-05 06:42",
-  "recent_results": []
+  "total_resolved": 21,
+  "week_resolved": 21,
+  "week_correct": 10,
+  "accuracy_label": "Building...",
+  "min_threshold": 50,
+  "last_updated": "2026-05-05 06:57",
+  "recent_results": [
+    {
+      "p1_name": "Adam Walton",
+      "p2_name": "Yu Hsiou Hsu",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.946,
+      "p2_win": 0.054,
+      "result": "Adam Walton",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Akira Santillan",
+      "p2_name": "Chak Lam Coleman Wong",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.198,
+      "p2_win": 0.802,
+      "result": "Akira Santillan",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Mananchaya Sawangkaew",
+      "p2_name": "Heather Watson",
+      "surface": "hard",
+      "tournament": "Jiangxi Open - Jiujiang",
+      "p1_win": 0.778,
+      "p2_win": 0.222,
+      "result": "Heather Watson",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Tung-Lin Wu",
+      "p2_name": "James McCabe",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.304,
+      "p2_win": 0.696,
+      "result": "James McCabe",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Alex Bolt",
+      "p2_name": "Fajing Sun",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.645,
+      "p2_win": 0.355,
+      "result": "Fajing Sun",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Hayato Matsuoka",
+      "p2_name": "Maximus Jones",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.641,
+      "p2_win": 0.359,
+      "result": "Maximus Jones",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Keegan Smith",
+      "p2_name": "Bu Yunchaokete",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.36,
+      "p2_win": 0.64,
+      "result": "Bu Yunchaokete",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Maria Timofeeva",
+      "p2_name": "Noma Akugue Noha",
+      "surface": "clay",
+      "tournament": "Istanbul Open - Istanbul",
+      "p1_win": 0.36,
+      "p2_win": 0.64,
+      "result": "Maria Timofeeva",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Jason Jung",
+      "p2_name": "Andre Ilagan",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.361,
+      "p2_win": 0.639,
+      "result": "Andre Ilagan",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Felix Gill",
+      "p2_name": "Zdenek Kolar",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.612,
+      "p2_win": 0.388,
+      "result": "Zdenek Kolar",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Ellie Schoppe",
+      "p2_name": "Allura Zamarripa",
+      "surface": "clay",
+      "tournament": "W100 Indian Harbour Beach",
+      "p1_win": 0.607,
+      "p2_win": 0.393,
+      "result": "Allura Zamarripa",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Bernard Tomic",
+      "p2_name": "Alafia Ayeni",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.603,
+      "p2_win": 0.397,
+      "result": "Alafia Ayeni",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Dalila Spiteri",
+      "p2_name": "Kyoka Okamura",
+      "surface": "hard",
+      "tournament": "Jiangxi Open - Jiujiang",
+      "p1_win": 0.403,
+      "p2_win": 0.597,
+      "result": "Kyoka Okamura",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Alex Barrena",
+      "p2_name": "August Holmgren",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.409,
+      "p2_win": 0.591,
+      "result": "August Holmgren",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Abigail Rencheli",
+      "p2_name": "Ana Grubor",
+      "surface": "clay",
+      "tournament": "W100 Indian Harbour Beach",
+      "p1_win": 0.416,
+      "p2_win": 0.584,
+      "result": "Abigail Rencheli",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Luca Castelnuovo",
+      "p2_name": "Ognjen Milic",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.418,
+      "p2_win": 0.582,
+      "result": "Ognjen Milic",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Rio Noguchi",
+      "p2_name": "Petr Bar Biryukov",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.576,
+      "p2_win": 0.424,
+      "result": "Rio Noguchi",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Toby Samuel",
+      "p2_name": "Stefanos Sakellaridis",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.563,
+      "p2_win": 0.437,
+      "result": "Stefanos Sakellaridis",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Gustavo Heide",
+      "p2_name": "Lilian Marmousez",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.46,
+      "p2_win": 0.54,
+      "result": "Gustavo Heide",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Anastasia Gasanova",
+      "p2_name": "Hanyu Guo",
+      "surface": "clay",
+      "tournament": "Istanbul Open - Istanbul",
+      "p1_win": 0.512,
+      "p2_win": 0.488,
+      "result": "Anastasia Gasanova",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    }
+  ]
 }
