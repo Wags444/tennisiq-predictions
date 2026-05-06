@@ -1247,7 +1247,9 @@ function predCardHTML(p, locked, summary, featured) {
         background:rgba(255,255,255,0.04);border-radius:3px;font-size:12px;
         line-height:1.6;color:rgba(255,255,255,0.6);min-height:36px">
         ${formatSummary(summary)}
-      </div>` : ""}`
+      </div>` : ""}
+      ${sharpBreakdown}
+    </div>`;
   const rows = data.slice(0, 6).map(p => {
     const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
     const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
