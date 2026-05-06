@@ -3,477 +3,1650 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tennisIQ — Match Predictions</title>
+<title>tennisIQ Predictions — TennisHQ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink:    #0d0d0d;
-    --chalk:  #f5f5f0;
-    --court:  #1a472a;
-    --acid:   #c8f135;
-    --muted:  #6b7280;
-    --card:   #ffffff;
-    --border: rgba(0,0,0,0.08);
-    --clay-bg: #faeeda; --clay-text: #633806;
-    --hard-bg: #e6f1fb; --hard-text: #042c53;
-    --grass-bg:#eaf3de; --grass-text:#173404;
-    --ihard-bg:#f1efe8; --ihard-text:#2c2c2a;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--chalk);
-    color: var(--ink);
-    min-height: 100vh;
-  }
+:root {
+  --black: #0a0a0a;
+  --white: #fafaf7;
+  --clay: #c13a0f;
+  --clay-light: #e8491a;
+  --acid: #c8f000;
+  --warm: #f5f0e8;
+  --muted: #6e6b63;
+  --border: rgba(10,10,10,0.10);
+  --card-bg: #ffffff;
+}
 
-  /* ── NAV ── */
-  nav {
-    background: var(--ink);
-    border-bottom: 2px solid var(--acid);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2rem; height: 58px; position: sticky; top: 0; z-index: 100;
-  }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px; letter-spacing: 2px; color: var(--chalk);
-  }
-  .nav-logo span { color: var(--acid); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: rgba(255,255,255,0.55); text-decoration: none;
-    font-size: 12px; font-weight: 500; letter-spacing: 1px;
-    text-transform: uppercase; transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--acid); }
-  .nav-badge {
-    background: var(--acid); color: var(--ink);
-    font-size: 10px; font-weight: 700; padding: 3px 10px;
-    letter-spacing: 1px; text-transform: uppercase;
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
 
-  /* ── HEADER ── */
-  .page-header {
-    background: var(--ink);
-    padding: 2.5rem 2rem 2rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .header-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: flex-end; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .header-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(42px,6vw,72px);
-    color: var(--chalk); letter-spacing: 3px; line-height: 1;
-  }
-  .header-title span { color: var(--acid); }
-  .header-sub {
-    font-size: 13px; color: rgba(255,255,255,0.45);
-    margin-top: 0.5rem; font-weight: 300;
-  }
-  .header-stats { display: flex; gap: 2rem; }
-  .hstat { text-align: right; }
-  .hstat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px; color: var(--acid); letter-spacing: 1px;
-  }
-  .hstat-lbl { font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm);
+  color: var(--black);
+  overflow-x: hidden;
+}
 
-  /* ── CONTROLS ── */
-  .controls {
-    max-width: 1100px; margin: 1.5rem auto 0;
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
-  .filter-btn {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
-    text-transform: uppercase; padding: 6px 16px;
-    border: 1px solid var(--border); background: white;
-    color: var(--muted); cursor: pointer; transition: all 0.15s;
-  }
-  .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
-  .filter-btn.active {
-    background: var(--ink); color: var(--acid);
-    border-color: var(--ink);
-  }
-  .sort-select {
-    font-family: 'DM Sans', sans-serif; font-size: 12px;
-    padding: 6px 12px; border: 1px solid var(--border);
-    background: white; color: var(--ink); cursor: pointer;
-  }
-  .result-count {
-    font-size: 12px; color: var(--muted);
-    font-family: 'DM Mono', monospace;
-  }
+/* ── TICKER ── */
+.ticker-wrap {
+  background: var(--clay);
+  overflow: hidden;
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+.ticker-label {
+  background: var(--black);
+  color: var(--acid);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 40s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.ticker-item {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0 24px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-  /* ── GRID ── */
-  .predictions-grid {
-    max-width: 1100px; margin: 1.5rem auto 4rem;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1px;
-    background: var(--border);
-  }
+/* ── NAV ── */
+nav {
+  background: var(--black);
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--clay); }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--white); }
+.nav-links a.pro { color: var(--acid); }
+.nav-cta {
+  background: var(--clay);
+  color: white;
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.nav-cta:hover { background: var(--clay-light); }
 
-  /* ── MATCH CARD ── */
-  .match-card {
-    background: var(--card);
-    padding: 1.25rem;
-    transition: background 0.15s;
-    position: relative;
-    cursor: default;
-  }
-  .match-card:hover { background: #fafaf7; }
-  .match-card.value-card { border-left: 3px solid var(--acid); }
+/* ── HERO ── */
+.hero {
+  background: var(--black);
+  padding: clamp(2rem,5vw,4rem) clamp(1rem,4vw,3rem);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2px;
+  align-items: stretch;
+}
+.hero-main {
+  padding-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--clay);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--clay);
+}
+.hero-headline {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(36px, 5.5vw, 68px);
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+.hero-headline em {
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+}
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-clay {
+  background: var(--clay);
+  color: white;
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  padding: 12px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn-clay:hover { background: var(--clay-light); }
+.btn-outline {
+  background: transparent;
+  color: var(--acid);
+  border: 1px solid var(--acid);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  padding: 11px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--acid); color: var(--black); }
 
-  .card-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-  .tournament-name {
-    font-size: 10px; font-weight: 500; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--muted);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    max-width: 180px;
-  }
-  .card-badges { display: flex; gap: 4px; align-items: center; }
-  .surface-badge {
-    font-size: 9px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; padding: 2px 7px;
-  }
-  .surface-clay  { background: var(--clay-bg);  color: var(--clay-text); }
-  .surface-hard  { background: var(--hard-bg);  color: var(--hard-text); }
-  .surface-grass { background: var(--grass-bg); color: var(--grass-text); }
-  .surface-ihard { background: var(--ihard-bg); color: var(--ihard-text); }
-  .value-badge {
-    font-size: 9px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; padding: 2px 7px;
-    background: var(--acid); color: var(--ink);
-  }
+/* Scores panel */
+.scores-panel {
+  background: rgba(255,255,255,0.04);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+}
+.scores-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.scores-head-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+}
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  color: #ef4444;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.score-row {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  cursor: default;
+  transition: background 0.15s;
+}
+.score-row:hover { background: rgba(255,255,255,0.03); }
+.score-players { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
+.score-info { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 3px; }
+.score-result {
+  text-align: right;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  color: var(--acid);
+  letter-spacing: 1px;
+}
+.score-status { font-size: 10px; color: rgba(255,255,255,0.25); text-align: right; margin-top: 2px; }
+.scores-loading { padding: 24px 20px; text-align: center; color: rgba(255,255,255,0.2); font-size: 13px; }
+.scores-footer {
+  margin-top: auto;
+  padding: 12px 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: rgba(200,240,0,0.05);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.scores-footer:hover { background: rgba(200,240,0,0.08); }
+.scores-footer-text {
+  font-size: 11px;
+  color: rgba(200,240,0,0.7);
+  line-height: 1.5;
+}
+.scores-footer-link {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  color: var(--acid);
+  letter-spacing: 1px;
+  text-decoration: none;
+}
 
-  /* Players */
-  .matchup { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; margin-bottom: 1rem; }
-  .player { display: flex; flex-direction: column; gap: 2px; }
-  .player.right { text-align: right; align-items: flex-end; }
-  .player-name { font-size: 14px; font-weight: 500; line-height: 1.2; }
-  .player-meta { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; }
-  .vs-label { font-size: 10px; color: #ccc; text-align: center; }
+/* ── LAYOUT WRAPPER ── */
+.page-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
 
-  /* Probability bar */
-  .prob-row {
-    display: flex; align-items: center; gap: 8px; margin-bottom: 0.75rem;
-  }
-  .prob-pct {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px; font-weight: 500; min-width: 42px;
-  }
-  .prob-pct.right { text-align: right; }
-  .prob-pct.fav { color: var(--court); }
-  .bar-track {
-    flex: 1; height: 5px; background: #efefef; position: relative; overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%; background: var(--court);
-    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
-  }
-  .bar-fill.under { background: #d1d5db; }
+/* ── SECTION HEADS ── */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--black);
+}
+.section-head-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+.section-head-link {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.section-head-link:hover { color: var(--clay); }
 
-  /* Card footer */
-  .card-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap; gap: 6px;
-  }
-  .footer-item { display: flex; flex-direction: column; gap: 1px; }
-  .footer-label { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
-  .footer-value { font-size: 12px; font-family: 'DM Mono', monospace; }
-  .clv-chip {
-    font-size: 10px; font-weight: 700; padding: 3px 8px;
-    letter-spacing: 0.5px;
-  }
-  .clv-pos { background: #eaf3de; color: #173404; }
-  .clv-none { background: #f5f5f0; color: var(--muted); }
+/* ── NEWS SECTION ── */
+.news-section { padding: 3rem 0; }
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.news-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+.news-card:hover { background: #faf8f3; }
+.news-card.featured { grid-row: span 2; border-right: 1px solid var(--border); }
+.news-source {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.news-source-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--clay); }
+.news-title {
+  font-family: 'DM Serif Display', serif;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  color: var(--black);
+}
+.news-card.featured .news-title { font-size: 22px; }
+.news-card:not(.featured) .news-title { font-size: 16px; }
+.news-excerpt {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-card:not(.featured) .news-excerpt { -webkit-line-clamp: 2; }
+.news-time { font-size: 11px; color: #bbb; margin-top: 12px; }
+.news-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16/8;
+  background: var(--black);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.news-placeholder-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  color: rgba(255,255,255,0.06);
+  letter-spacing: -2px;
+  user-select: none;
+}
+.news-loading {
+  grid-column: 1/-1;
+  padding: 3rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+.news-error { grid-column: 1/-1; }
 
-  /* ── LOADING / ERROR ── */
-  .state-msg {
-    max-width: 1100px; margin: 4rem auto;
-    padding: 0 2rem; text-align: center;
-  }
-  .state-msg h3 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; margin-bottom: 0.5rem; }
-  .state-msg p { color: var(--muted); font-size: 14px; }
-  .spinner {
-    width: 32px; height: 32px; border: 2px solid var(--border);
-    border-top-color: var(--court); border-radius: 50%;
-    animation: spin 0.8s linear infinite; margin: 0 auto 1rem;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+/* ── PREDICTIONS SECTION ── */
+.predictions-section {
+  background: var(--black);
+  padding: 3rem clamp(1rem,4vw,3rem);
+  margin: 0;
+}
+.pred-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.pred-section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(24px,3.5vw,42px);
+  color: var(--white);
+  font-weight: 400;
+}
+.pred-section-title span { color: var(--acid); font-style: italic; }
+.pred-accuracy {
+  text-align: right;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.6;
+}
+.pred-accuracy strong { color: var(--acid); font-size: 18px; display: block; }
 
-  /* ── LOCK OVERLAY (non-subscribers) ── */
-  .lock-overlay {
-    position: absolute; inset: 0;
-    background: rgba(245,245,240,0.85);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 6px; backdrop-filter: blur(2px);
-  }
-  .lock-icon { font-size: 20px; }
-  .lock-text { font-size: 11px; font-weight: 500; color: var(--muted); text-align: center; }
-  .lock-btn {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px; font-weight: 500; text-transform: uppercase;
-    letter-spacing: 1px; padding: 5px 14px;
-    background: var(--ink); color: var(--acid); border: none;
-    cursor: pointer; margin-top: 4px;
-  }
+.pred-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.05);
+  margin-bottom: 2px;
+}
+.pred-card {
+  background: rgba(255,255,255,0.03);
+  padding: 1.25rem;
+  position: relative;
+  transition: background 0.15s;
+}
+.pred-card:hover { background: rgba(255,255,255,0.05); }
+.pred-tour {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.pred-tour.atp { color: var(--clay); }
+.pred-tour.wta { color: #a78bfa; }
+.pred-tourn {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pred-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+.pred-player {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pred-player.right { text-align: right; }
+.pred-vs {
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+.pred-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.pred-pct {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  color: var(--acid);
+  min-width: 40px;
+  letter-spacing: 0.5px;
+}
+.pred-pct.right {
+  color: rgba(255,255,255,0.25);
+  text-align: right;
+}
+.pred-bar-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.pred-bar-fill {
+  height: 100%;
+  background: var(--acid);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+.pred-detail {
+.form-dot { width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0; }
+.form-w { background:#4ade80 !important; }
+.form-l { background:#f87171 !important; }
+.form-n { background:rgba(255,255,255,0.15) !important;border:1px solid rgba(255,255,255,0.2); }
+.pred-card-featured .pred-summary { display:block; }
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.5;
+}
+.pred-fair {
+  display: inline-block;
+  background: rgba(200,240,0,0.1);
+  color: var(--acid);
+  font-size: 10px;
+  padding: 2px 6px;
+  margin-top: 6px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.5px;
+}
 
-  /* ── FOOTER ── */
-  .page-footer {
-    background: var(--ink); border-top: 2px solid var(--acid);
-    padding: 2rem; text-align: center;
-  }
-  .page-footer p { font-size: 11px; color: rgba(255,255,255,0.3); }
-  .page-footer strong { color: rgba(255,255,255,0.6); }
+/* Lock overlay */
+.pred-locked {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  backdrop-filter: blur(3px);
+}
+.lock-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.lock-text {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  text-align: center;
+  line-height: 1.5;
+}
+.lock-cta {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--acid);
+  text-decoration: none;
+  border: 1px solid rgba(200,240,0,0.3);
+  padding: 5px 14px;
+  transition: all 0.2s;
+}
+.lock-cta:hover { background: var(--acid); color: var(--black); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .header-stats { display: none; }
-    .predictions-grid { grid-template-columns: 1fr; }
-    .controls { flex-direction: column; align-items: flex-start; }
-  }
+/* CLV teaser */
+.clv-strip {
+  background: rgba(200,240,0,0.05);
+  border: 1px solid rgba(200,240,0,0.12);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.clv-left-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: var(--acid);
+  margin-bottom: 3px;
+}
+.clv-sub { font-size: 12px; color: rgba(255,255,255,0.3); }
+.clv-demo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.clv-input-group { display: flex; flex-direction: column; gap: 3px; }
+.clv-input-label { font-size: 9px; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 1px; }
+.clv-input {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 10px;
+  width: 76px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.clv-input:focus { border-color: rgba(200,240,0,0.4); }
+.clv-arrow { color: rgba(255,255,255,0.2); font-size: 18px; }
+.clv-output {
+  background: rgba(200,240,0,0.08);
+  border: 1px solid rgba(200,240,0,0.18);
+  padding: 7px 14px;
+  text-align: center;
+  min-width: 90px;
+}
+.clv-output-label { font-size: 9px; color: rgba(200,240,0,0.5); text-transform: uppercase; letter-spacing: 1px; }
+.clv-output-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--acid);
+  letter-spacing: 1px;
+  filter: blur(5px);
+  user-select: none;
+}
+.clv-unlock {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: var(--acid);
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid rgba(200,240,0,0.3);
+  padding: 8px 18px;
+  transition: all 0.2s;
+}
+.clv-unlock:hover { background: var(--acid); color: var(--black); }
+
+/* ── MORE NEWS ── */
+.more-news-section { padding: 3rem 0; }
+.more-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  padding: 2.5rem clamp(1rem,4vw,3rem);
+  margin-top: 3rem;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: var(--white);
+}
+.footer-logo span { color: var(--clay); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.5); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.15); }
+.footer-disclaimer {
+  max-width: 1280px;
+  margin: 1rem auto 0;
+  font-size: 10px;
+  color: rgba(255,255,255,0.12);
+  line-height: 1.5;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .scores-panel { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+  .news-grid { grid-template-columns: 1fr; }
+  .news-card.featured { grid-row: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .pred-grid { grid-template-columns: 1fr; }
+  .more-news-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .clv-strip { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.5s ease both; }
+.fade-up-2 { animation: fadeUp 0.5s 0.1s ease both; }
+.fade-up-3 { animation: fadeUp 0.5s 0.2s ease both; }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">tennis<span>HQ</span></div>
+  <a href="/" class="nav-logo">Tennis<span>HQ</span></a>
   <ul class="nav-links">
-    <li><a href="#">News</a></li>
-    <li><a href="#">Scores</a></li>
-    <li><a href="#" class="active">tennisIQ ✦</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/tennisiq.html" class="active pro">tennisIQ ✦</a></li>
+    <li><a href="/tools.html">Tools</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
   </ul>
-  <div class="nav-badge">● Live predictions</div>
+  <a href="/#pricing" class="nav-cta">Go Pro — $9.99</a>
 </nav>
 
-<div class="page-header">
-  <div class="header-inner">
+<!-- PAGE HEADER -->
+<div class="page-wrap">
+<section style="padding:3rem 0 1rem">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
     <div>
-      <div class="header-title">tennis<span>IQ</span></div>
-      <div class="header-sub" id="header-sub">Loading today's predictions...</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;color:var(--clay);margin-bottom:8px">Daily Model Output</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,64px);line-height:1.05;margin-bottom:8px">tennisIQ<br><span style="color:var(--clay)">Predictions</span></h1>
+      <div style="font-size:13px;color:var(--muted)">
+        <strong id="pred-count" style="color:var(--chalk)">—</strong> predictions today &nbsp;·&nbsp; Updated daily at 7am
+      </div>
     </div>
-    <div class="header-stats">
-      <div class="hstat">
-        <div class="hstat-num" id="stat-count">—</div>
-        <div class="hstat-lbl">Predictions today</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-num">+19.2%</div>
-        <div class="hstat-lbl">Backtest ROI</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-num">68.7%</div>
-        <div class="hstat-lbl">Model accuracy</div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <div style="font-size:11px;color:var(--muted);font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px" id="tennisiq-tier-badge"></div>
+      <div style="display:flex;gap:2px">
+        <button onclick="filterTour('all')" id="tour-all" style="padding:8px 16px;border:none;background:var(--black);color:var(--acid);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;cursor:pointer">ALL</button>
+        <button onclick="filterTour('atp')" id="tour-atp" style="padding:8px 16px;border:none;background:var(--warm);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;cursor:pointer">ATP</button>
+        <button onclick="filterTour('wta')" id="tour-wta" style="padding:8px 16px;border:none;background:var(--warm);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;cursor:pointer">WTA</button>
       </div>
     </div>
   </div>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.2);margin-bottom:10px" id="pred-subtitle">
+    Today · Free preview — upgrade to see all predictions
+  </div>
+  <div class="pred-grid" id="pred-grid">
+    <div style="grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px">Loading predictions...</div>
+  </div>
+</section>
 </div>
 
-<div class="controls">
-  <div class="filter-group">
-    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
-    <button class="filter-btn" onclick="setFilter('clay',this)">Clay</button>
-    <button class="filter-btn" onclick="setFilter('hard',this)">Hard</button>
-    <button class="filter-btn" onclick="setFilter('grass',this)">Grass</button>
-    <button class="filter-btn" onclick="setFilter('high',this)">High conviction</button>
+<!-- CLV CALCULATOR -->
+<div class="page-wrap" style="margin-top:2px">
+<section style="padding:2rem 0">
+  <div id="clv-calculator" style="background:rgba(255,255,255,0.03);border:1px solid rgba(200,240,0,0.15);padding:1.5rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;color:var(--acid)">✦ CLV Calculator</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px">Enter bookmaker odds to see your edge vs the model</div>
+      </div>
+      <div id="clv-tier-badge" style="font-size:10px;color:rgba(255,255,255,0.25);font-family:'Bebas Neue',sans-serif;letter-spacing:1px"></div>
+    </div>
+    <div id="clv-content"></div>
   </div>
-  <div style="display:flex;align-items:center;gap:12px">
-    <span class="result-count" id="result-count"></span>
-    <select class="sort-select" onchange="setSort(this.value)">
-      <option value="conviction">Sort: Conviction</option>
-      <option value="surface">Sort: Surface</option>
-      <option value="az">Sort: A–Z</option>
-    </select>
-  </div>
+</section>
 </div>
 
-<div id="main-content">
-  <div class="state-msg">
-    <div class="spinner"></div>
-    <h3>Loading</h3>
-    <p>Fetching today's tennisIQ predictions...</p>
+<!-- PRICING TEASER -->
+<div class="page-wrap" style="margin-top:2px">
+<section style="padding:2rem 0">
+  <div style="background:rgba(200,240,0,0.04);border:1px solid rgba(200,240,0,0.15);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--acid);margin-bottom:4px">Unlock the full model</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4);font-weight:300">Starter $9.99/mo · Pro $19.99/mo · Sharp $29.99/mo</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button onclick="startCheckout('starter')" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;background:var(--clay);color:white;border:none;padding:10px 20px;cursor:pointer">Starter — $9.99</button>
+      <button onclick="startCheckout('pro')" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;background:var(--acid);color:var(--black);border:none;padding:10px 20px;cursor:pointer">Pro — $19.99</button>
+      <button onclick="startCheckout('sharp')" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;background:transparent;color:var(--clay);border:1px solid var(--clay);padding:10px 20px;cursor:pointer">Sharp — $29.99</button>
+    </div>
   </div>
+</section>
 </div>
 
-<div class="page-footer">
-  <p><strong>tennisIQ</strong> uses Elo ratings, surface-specific form, fatigue modelling and H2H records. Backtest: 3,184 bets Jan 2023–Nov 2025, +19.2% ROI vs Pinnacle closing line. Past performance does not guarantee future results.</p>
-</div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Tennis<span>HQ</span></div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/tennisiq.html">tennisIQ</a>
+      <a href="/tools.html">Tools</a>
+      <a href="/#pricing">Pricing</a>
+    </div>
+    <div class="footer-copy">© 2026 TennisHQ</div>
+  </div>
+  <div class="footer-disclaimer">Predictions are for informational purposes only and do not constitute betting advice.</div>
+</footer>
 
 <script>
-const DATA_URL = 'https://wags444.github.io/tennisiq-predictions/predictions_today.json';
-const FREE_LIMIT = 5; // free users see this many cards unlocked
-const IS_PRO = false; // flip to true for subscriber view — wire to your auth later
+const PRED_URL = 'https://thetennishq.com/predictions_today.json';
 
-let allData = [];
-let currentFilter = 'all';
-let currentSort = 'conviction';
+// RSS feeds proxied through allorigins to avoid CORS
+const RSS_FEEDS = [
+  { url: "https://feeds.bbci.co.uk/sport/tennis/rss.xml", source: "BBC Sport" },
+  { url: "https://www.tennis365.com/feed/", source: "Tennis365" }
+];
+
+
+const PROXIES = ['https://api.rss2json.com/v1/api.json?rss_url=', 'https://corsproxy.io/?', 'https://api.allorigins.win/raw?url='];
+
+// ── UTILITIES ────────────────────────────────────────────────────────────────
+function timeAgo(date) {
+  const diff = (Date.now() - new Date(date)) / 1000;
+  if (diff < 3600) return Math.round(diff/60) + 'm ago';
+  if (diff < 86400) return Math.round(diff/3600) + 'h ago';
+  return Math.round(diff/86400) + 'd ago';
+}
+
+function stripHtml(html) {
+  const d = document.createElement('div');
+  d.innerHTML = html;
+  return d.textContent || '';
+}
+
+function truncate(str, n) {
+  if (!str) return '';
+  str = stripHtml(str);
+  return str.length > n ? str.slice(0, n) + '...' : str;
+}
+
+// ── RSS PARSER ─────────────────────────────────────────────────────────────
+async function fetchFeed(feed) {
+  // Try rss2json first (most reliable), then raw XML proxies
+  try {
+    const r1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
+    if (r1.ok) {
+      const j = await r1.json();
+      if (j.status === "ok" && j.items && j.items.length > 0) {
+        return j.items.slice(0,8).map(i => ({
+          title:  (i.title || "").trim(),
+          link:   i.link || "#",
+          desc:   (i.description || "").replace(/<[^>]+>/g,"").trim(),
+          date:   i.pubDate || "",
+          source: feed.source
+        })).filter(i => i.title.length > 10);
+      }
+    }
+  } catch(e) {}
+  // Fallback: corsproxy raw XML
+  try {
+    const r2 = await fetch(`https://corsproxy.io/?${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
+    if (r2.ok) {
+      const text = await r2.text();
+      const xml = new DOMParser().parseFromString(text, "text/xml");
+      if (!xml.querySelector("parsererror")) {
+        const items = [...xml.querySelectorAll("item")].slice(0,8);
+        if (items.length > 0) return items.map(item => ({
+          title:  item.querySelector("title")?.textContent?.trim() || "",
+          link:   item.querySelector("link")?.textContent?.trim() || "#",
+          desc:   (item.querySelector("description")?.textContent || "").replace(/<[^>]+>/g,"").trim(),
+          date:   item.querySelector("pubDate")?.textContent || "",
+          source: feed.source
+        })).filter(i => i.title.length > 10);
+      }
+    }
+  } catch(e) {}
+  return [];
+}
+
+function newsCardHTML(item, featured = false) {
+  const ago = item.date ? timeAgo(item.date) : '';
+  const excerpt = truncate(item.desc, featured ? 180 : 110);
+  return `
+    <a class="news-card ${featured ? 'featured' : ''}" href="${item.link}" target="_blank" rel="noopener">
+      ${featured ? `<div class="news-placeholder"><span class="news-placeholder-text">TENNIS</span></div>` : ''}
+      <div class="news-source"><span class="news-source-dot"></span>${item.source}</div>
+      <div class="news-title">${item.title}</div>
+      ${excerpt ? `<div class="news-excerpt">${excerpt}</div>` : ''}
+      ${ago ? `<div class="news-time">${ago}</div>` : ''}
+    </a>
+  `;
+}
+
+async function loadNews() {
+  const grid = document.getElementById("news-grid");
+  const moreGrid = document.getElementById("more-news-grid");
+
+  // Fetch all feeds with 12s global timeout
+  const results = await Promise.allSettled(
+    RSS_FEEDS.map(feed =>
+      Promise.race([
+        fetchFeed(feed),
+        new Promise((_,r) => setTimeout(() => r([]), 12000))
+      ]).catch(() => [])
+    )
+  );
+  const allItems = results.flatMap(r => Array.isArray(r.value) ? r.value : []);
+
+  // Deduplicate and sort by date
+  const seen = new Set();
+  const unique = allItems.filter(item => {
+    const key = item.title.slice(0,40).toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  }).sort((a,b) => new Date(b.date) - new Date(a.date));
+
+  // Fallback links if all proxies fail
+  const fallback = [
+    {title:"ATP Tour News — Match Reports & Player Stories", link:"https://www.atptour.com/en/news", source:"ATP Tour", desc:"The latest news, match reports and player interviews from the ATP Tour.", date:""},
+    {title:"WTA Tour News — Women's Tennis Updates", link:"https://www.wtatennis.com/news", source:"WTA Tour", desc:"Breaking news, results and player stories from women's professional tennis.", date:""},
+    {title:"BBC Sport Tennis — News & Results", link:"https://www.bbc.com/sport/tennis", source:"BBC Sport", desc:"Tennis coverage from BBC Sport including Grand Slams and tour events.", date:""},
+    {title:"Madrid Open — Draws, Results & Schedule", link:"https://www.mutua-madridopen.com/en", source:"Madrid Open", desc:"Everything from the Mutua Madrid Open including full draws and live scores.", date:""},
+    {title:"Tennis Majors — In-Depth Journalism", link:"https://www.tennismajors.com", source:"Tennis Majors", desc:"Deep-dive tennis journalism covering all the major events.", date:""},
+    {title:"ESPN Tennis — Scores, News & Analysis", link:"https://www.espn.com/tennis/", source:"ESPN", desc:"Tennis news, live scores and expert analysis from ESPN.", date:""}
+  ];
+
+  const items = unique.length >= 3 ? unique : fallback;
+  const top = items.slice(0,3);
+  const more = items.slice(3,6);
+
+  grid.innerHTML = newsCardHTML(top[0], true) +
+    (top[1] ? newsCardHTML(top[1]) : "") +
+    (top[2] ? newsCardHTML(top[2]) : "");
+  moreGrid.innerHTML = more.map(i => newsCardHTML(i)).join("");
+
+  // Ticker
+  const ticker = document.getElementById("ticker-track");
+  const ti = items.slice(0,8).map(i => `<span class="ticker-item">${i.source}: ${truncate(i.title,60)}</span>`).join("");
+  ticker.innerHTML = ti + ti;
+}
+function updateScoresFromPredictions(data) {
+  const scoresList = document.getElementById("scores-list");
+  if (!scoresList) return;
+  const rows = data.slice(0, 6).map(p => {
+    const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
+    const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
+    const favPct = Math.round(Math.max(p.p1_win, p.p2_win) * 100);
+    const tourn = (p.tournament || "").replace("Mutua Madrid Open - Madrid","Madrid Open");
+    return `
+      <div class="score-row">
+        <div>
+          <div class="score-players">${fav} vs ${dog}</div>
+          <div class="score-info">${(p.tour||"ATP").toUpperCase()} · ${p.surface||""} · ${tourn}</div>
+        </div>
+        <div>
+          <div class="score-result">${favPct}%</div>
+          <div class="score-status">Model pick</div>
+        </div>
+      </div>`;
+  }).join("");
+  scoresList.innerHTML = rows;
+}
 
 async function loadPredictions() {
+  const grid    = document.getElementById("pred-grid");
+  const countEl = document.getElementById("pred-count");
+  const totalEl = document.getElementById("total-pred-count");
   try {
-    const resp = await fetch(DATA_URL + '?t=' + Date.now());
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    allData = await resp.json();
-    renderAll();
+    const r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+    if (!data || data.length === 0) throw new Error("No predictions");
+    countEl.textContent = data.length;
+    totalEl.textContent = data.length;
+    const sorted = [...data]
+      .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
+      .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
+    updateScoresFromPredictions(data);
+    const tier   = getUserTier();
+    // For free users pick the most visually interesting match (has streak data)
+    const featured = sorted.find(p => Math.abs(p.p1_streak||0) + Math.abs(p.p2_streak||0) >= 2) || sorted[0];
+    const rest     = sorted.filter(p => p !== featured);
+    const free     = hasAccess("starter") ? sorted : [featured];
+    const locked   = hasAccess("starter") ? [] : rest.slice(0,6);
+    // Render free cards first (no summary yet)
+    grid.innerHTML = [
+      ...free.map((p,i) => predCardHTML(p, false, null, i===0)),
+      ...locked.map(p => predCardHTML(p, true, null, false))
+    ].join("");
+    setTimeout(() => {
+      document.querySelectorAll(".pred-bar-fill[data-width]").forEach(bar => {
+        bar.style.width = bar.dataset.width + "%";
+      });
+    }, 100);
+    // Generate AI summary for the first free card only
+    if (free.length > 0) {
+      const topMatch = free[0];
+      const summary  = getMatchSummary(topMatch);
+      const firstCard = grid.querySelector(".pred-card-featured");
+      if (firstCard) {
+        const summaryEl = firstCard.querySelector(".pred-summary");
+        if (summaryEl) summaryEl.innerHTML = formatSummary(summary);
+      }
+    }
   } catch(e) {
-    document.getElementById('main-content').innerHTML = `
-      <div class="state-msg">
-        <h3>Unavailable</h3>
-        <p>Predictions refresh daily at 7am. Check back soon.</p>
-        <p style="margin-top:0.5rem;font-size:12px;color:#999">${e.message}</p>
-      </div>`;
+    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;
+      color:rgba(255,255,255,0.2);font-size:13px">
+      Predictions refresh daily at 7am. Check back soon.</div>`;
   }
 }
 
-function streakLabel(n) {
-  if (!n || n === 0) return '—';
-  return n > 0 ? `W${n}` : `L${Math.abs(n)}`;
+function formDots(streak) {
+  const n   = Math.min(Math.abs(streak || 0), 5);
+  const win = (streak || 0) > 0;
+  const dots = [];
+  for (let i = 0; i < 5; i++) {
+    if (i < n) dots.push(win ? "w" : "l");
+    else dots.push("n");
+  }
+  const colors = {
+    w: "background:#4ade80",
+    l: "background:#f87171",
+    n: "background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2)"
+  };
+  return dots.map(d => `<div style="width:8px;height:8px;border-radius:50%;display:inline-block;${colors[d]}"></div>`).join("");
 }
 
-function surfClass(s) {
-  const m = {clay:'surface-clay',hard:'surface-hard',grass:'surface-grass',ihard:'surface-ihard'};
-  return m[s] || 'surface-hard';
+function getMatchSummary(m) {
+  const fav = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
+  const dog = m.p1_win > m.p2_win ? m.p2_name : m.p1_name;
+  const favProb = Math.round(Math.max(m.p1_win, m.p2_win)*100);
+  const favStreak = m.p1_win > m.p2_win ? (m.p1_streak||0) : (m.p2_streak||0);
+  const dogStreak = m.p1_win > m.p2_win ? (m.p2_streak||0) : (m.p1_streak||0);
+  const favFatigue = m.p1_win > m.p2_win ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
+  const eloAdv = Math.abs(m.elo_diff||0);
+  const surf = m.surface==="clay" ? "clay" : m.surface==="grass" ? "grass" : "hard courts";
+  const tourn = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(/ - .*/,"");
+
+  const favLast = fav.split(" ").pop();
+  const dogLast = dog.split(" ").pop();
+
+  const edgeStr = favProb > 80 ? `a significant advantage over ${dogLast}` :
+                  favProb > 65 ? `a moderate edge over ${dogLast}` :
+                                 `a closely contested matchup with ${dogLast}`;
+
+  const favFormStr = favStreak > 2  ? "riding a strong run of form" :
+                     favStreak < -1 ? "looking to bounce back after a difficult stretch" :
+                                      "in steady shape heading into this match";
+
+  const dogFormStr = dogStreak > 2  ? `${dogLast} arrives in strong form and cannot be taken lightly` :
+                     dogStreak < -1 ? `${dogLast} will need to rediscover some consistency` :
+                                      `${dogLast} comes in with something to prove`;
+
+  const h2hStr = m.h2h_surf && !m.h2h_surf.startsWith("0-0") ?
+    `The head-to-head on ${surf} gives ${favLast} added confidence.` :
+    `With no prior meetings on ${surf}, this is an open question.`;
+
+  const freshStr = favFatigue > 3 ? `, though a heavy recent schedule may be a factor` :
+                   favFatigue > 1 ? `` : `, arriving fresh`;
+
+  return `${favLast} carries ${edgeStr} on ${surf} and is ${favFormStr}${freshStr}. ${dogFormStr} — our model gives ${favLast} a ${favProb}% chance today.`;
 }
 
-function conviction(d) { return Math.abs(d.p1_win - 0.5); }
-
-function filtered() {
-  let data = [...allData];
-  if (currentFilter === 'clay')  data = data.filter(d => d.surface === 'clay');
-  if (currentFilter === 'hard')  data = data.filter(d => d.surface === 'hard');
-  if (currentFilter === 'grass') data = data.filter(d => d.surface === 'grass');
-  if (currentFilter === 'high')  data = data.filter(d => conviction(d) > 0.25);
-
-  if (currentSort === 'conviction') data.sort((a,b) => conviction(b) - conviction(a));
-  if (currentSort === 'surface')    data.sort((a,b) => a.surface.localeCompare(b.surface));
-  if (currentSort === 'az')         data.sort((a,b) => a.p1_name.localeCompare(b.p1_name));
-
-  return data;
+function statBar(label, v1, v2, unit, blurred) {
+  if (v1==null||v2==null) return "";
+  const max = Math.max(v1, v2, 1);
+  const w1  = Math.round(v1/max*100);
+  const w2  = Math.round(v2/max*100);
+  const win1 = v1 >= v2;
+  const c1 = win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
+  const c2 = !win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
+  const val1 = blurred ? `<span style="filter:blur(4px);user-select:none">${v1}${unit}</span>` : `${v1}${unit}`;
+  const val2 = blurred ? `<span style="filter:blur(4px);user-select:none">${v2}${unit}</span>` : `${v2}${unit}`;
+  return `
+    <div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">
+        <span>${label}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
+        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end">
+          <span style="font-size:11px;color:${c1};font-weight:500">${val1}</span>
+          <div style="height:6px;width:${w1}%;background:${c1};border-radius:2px;max-width:100%"></div>
+        </div>
+        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="height:6px;width:${w2}%;background:${c2};border-radius:2px;max-width:100%"></div>
+          <span style="font-size:11px;color:${c2};font-weight:500">${val2}</span>
+        </div>
+      </div>
+    </div>`;
 }
 
-function renderCard(d, idx) {
-  const fav1 = d.p1_win >= d.p2_win;
-  const locked = !IS_PRO && idx >= FREE_LIMIT;
+function fatigueBar(v1, v2) {
+  const dots = n => Array.from({length:5}, (_,i) =>
+    `<div style="width:6px;height:6px;border-radius:50%;background:${i<n?"#f87171":"rgba(255,255,255,0.1)"}"></div>`
+  ).join("");
+  return `
+    <div style="margin-bottom:8px">
+      <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Match Load</div>
+      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
+        <div style="display:flex;gap:3px;justify-content:flex-end">${dots(Math.min(v1||0,5))}</div>
+        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
+        <div style="display:flex;gap:3px">${dots(Math.min(v2||0,5))}</div>
+      </div>
+    </div>`;
+}
 
-  const pct1 = (d.p1_win * 100).toFixed(1);
-  const pct2 = (d.p2_win * 100).toFixed(1);
-  const fair1 = (1 / d.p1_win).toFixed(2);
-  const fair2 = (1 / d.p2_win).toFixed(2);
-  const eloDiff = d.elo_diff >= 0 ? '+' + d.elo_diff : '' + d.elo_diff;
+function formatSummary(summary) {
+  if (!summary) return "";
+  const sentences = summary.match(/[^.!?]+[.!?]+/g) || [summary];
+  const first = sentences[0] || "";
+  const rest  = sentences.slice(1).join(" ");
+  if (!rest) return first;
+  if (hasAccess("pro")) return first + " " + rest;
+  return first +
+    `<span style="filter:blur(4px);user-select:none;pointer-events:none"> ${rest}</span>` +
+    `<div style="margin-top:6px"><a href="#pricing" style="font-size:10px;color:var(--acid);
+    text-decoration:none;letter-spacing:1px;font-family:'Bebas Neue',sans-serif;
+    border:1px solid rgba(200,240,0,0.2);padding:3px 10px">Unlock full analysis — Pro</a></div>`;
+}
 
-  const lockHtml = locked ? `
-    <div class="lock-overlay">
-      <div class="lock-icon">⚿</div>
-      <div class="lock-text">tennisIQ Pro<br>required</div>
-      <button class="lock-btn" onclick="alert('Subscribe to tennisIQ Pro to unlock all predictions')">Unlock ✦</button>
-    </div>` : '';
+function predCardHTML(p, locked, summary, featured) {
+  const tour  = (p.tour||"atp").toLowerCase();
+  const pct1  = Math.round((p.p1_win||0.5)*100);
+  const pct2  = 100-pct1;
+  const fav   = p.p1_win>p.p2_win ? p.p1_name : p.p2_name;
+  const dog   = p.p1_win>p.p2_win ? p.p2_name : p.p1_name;
+  const favPct= Math.max(pct1,pct2);
+  const dogPct= Math.min(pct1,pct2);
+  const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
+  const surfIcon = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
+  const fairOdds = p.p1_win>p.p2_win ? p.fair_p1 : p.fair_p2;
+  const isFavP1  = p.p1_win>p.p2_win;
+
+  // Reorder stats so favourite is always on left
+  const sv_in1  = isFavP1 ? p.p1_serve_in  : p.p2_serve_in;
+  const sv_in2  = isFavP1 ? p.p2_serve_in  : p.p1_serve_in;
+  const sv_won1 = isFavP1 ? p.p1_serve_won : p.p2_serve_won;
+  const sv_won2 = isFavP1 ? p.p2_serve_won : p.p1_serve_won;
+  const wr1     = isFavP1 ? p.p1_win_rate  : p.p2_win_rate;
+  const wr2     = isFavP1 ? p.p2_win_rate  : p.p1_win_rate;
+  const fat1    = isFavP1 ? p.p1_fatigue   : p.p2_fatigue;
+  const fat2    = isFavP1 ? p.p2_fatigue   : p.p1_fatigue;
+
+  const hasStats = p.p1_serve_in != null;
+  const blurStats = !hasAccess("starter");
+
+  const sharpBreakdown = hasAccess("sharp") && !locked && hasStats ? `
+    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);margin-bottom:8px">Sharp Breakdown</div>
+      <div style="display:grid;grid-template-columns:1fr auto auto;gap:4px;font-size:10px">
+        <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
+        <span style="color:rgba(255,255,255,0.3)">1st Serve Won</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_serve_won}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_won}%</span>
+        <span style="color:rgba(255,255,255,0.3)">2nd Serve Won</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_second_won}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_second_won}%</span>
+        <span style="color:rgba(255,255,255,0.3)">BP Conv</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_bp_conv}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_bp_conv}%</span>
+        <span style="color:rgba(255,255,255,0.3)">Win Rate</span>
+        <span style="color:var(--acid);text-align:right">${p.p1_win_rate}%</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_win_rate}%</span>
+        <span style="color:rgba(255,255,255,0.3)">Elo</span>
+        <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
+        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
+      </div>
+    </div>` : "";
+
+  if (locked) return `
+    <div class="pred-card" style="position:relative;overflow:hidden;min-height:180px">
+      <div class="pred-tour ${tour}">${tour.toUpperCase()}</div>
+      <div class="pred-tourn">${tourn}</div>
+      <div class="pred-matchup">
+        <span class="pred-player">${p.p1_name||"—"}</span>
+        <span class="pred-vs">vs</span>
+        <span class="pred-player right">${p.p2_name||"—"}</span>
+      </div>
+      <div style="filter:blur(7px);user-select:none;pointer-events:none">
+        <div class="pred-bar-row">
+          <span class="pred-pct">??%</span>
+          <div class="pred-bar-track"><div class="pred-bar-fill" style="width:50%"></div></div>
+          <span class="pred-pct right">??%</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:6px">Analysis available on upgrade</div>
+      </div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:12px;
+        background:linear-gradient(to bottom,transparent,rgba(10,10,10,0.97));
+        display:flex;flex-direction:column;align-items:center;gap:6px">
+        <div style="font-size:10px;color:rgba(255,255,255,0.35)">Model pick · Fair odds · CLV edge</div>
+        <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:12px;
+          letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.25);
+          padding:5px 18px;text-decoration:none">Unlock Pro — $9.99/mo</a>
+      </div>
+    </div>`;
 
   return `
-  <div class="match-card${locked?'':''}" style="position:relative">
-    <div class="card-header">
-      <span class="tournament-name">${d.tournament || 'ATP Tour'}</span>
-      <div class="card-badges">
-        <span class="surface-badge ${surfClass(d.surface)}">${d.surface}</span>
-      </div>
-    </div>
+    <div class="pred-card ${featured?"pred-card-featured":""}">
+      <div class="pred-tour ${tour}">${tour.toUpperCase()} ${surfIcon}</div>
+      <div class="pred-tourn">${tourn}</div>
 
-    <div class="matchup">
-      <div class="player">
-        <div class="player-name">${d.p1_name}${fav1?' ▲':''}</div>
-        <div class="player-meta">${streakLabel(d.p1_streak)} · ${d.p1_fatigue}m/7d</div>
+      <!-- Player headers -->
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:12px">
+        <div>
+          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.9)">${fav}</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--acid);line-height:1">${favPct}%</div>
+        </div>
+        <div style="text-align:center;font-size:10px;color:rgba(255,255,255,0.3);padding:0 4px">vs</div>
+        <div style="text-align:right">
+          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.5)">${dog}</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(255,255,255,0.3);line-height:1">${dogPct}%</div>
+        </div>
       </div>
-      <div class="vs-label">vs</div>
-      <div class="player right">
-        <div class="player-name">${!fav1?' ▲ ':''}${d.p2_name}</div>
-        <div class="player-meta">${streakLabel(d.p2_streak)} · ${d.p2_fatigue}m/7d</div>
-      </div>
-    </div>
 
-    <div class="prob-row">
-      <span class="prob-pct${fav1?' fav':''}">${pct1}%</span>
-      <div class="bar-track">
-        <div class="bar-fill${!fav1?' under':''}" style="width:${pct1}%"></div>
+      <!-- Probability bar -->
+      <div class="pred-bar-track" style="width:100%;margin-bottom:14px">
+        <div class="pred-bar-fill" data-width="${favPct}" style="width:0%"></div>
       </div>
-      <span class="prob-pct right${!fav1?' fav':''}">${pct2}%</span>
-    </div>
 
-    <div class="card-footer">
-      <div class="footer-item">
-        <span class="footer-label">Elo diff</span>
-        <span class="footer-value">${eloDiff}</span>
+      <!-- Stat bars -->
+      ${hasStats ? `
+      <div style="margin-bottom:4px">
+        <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;margin-bottom:6px">
+          <div style="font-size:10px;font-weight:500;color:var(--acid);text-align:right">${fav.split(" ").pop()}</div>
+          <div></div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.35)">${dog.split(" ").pop()}</div>
+        </div>
+        ${statBar("1st Serve %", sv_in1, sv_in2, "%", blurStats)}
+        ${statBar("Serve Won %", sv_won1, sv_won2, "%", blurStats)}
+        ${statBar("Win Rate", wr1, wr2, "%", blurStats)}
+        ${fatigueBar(fat1, fat2)}
       </div>
-      <div class="footer-item">
-        <span class="footer-label">H2H</span>
-        <span class="footer-value">${d.h2h_record || '0-0'}</span>
-      </div>
-      <div class="footer-item">
-        <span class="footer-label">Fair odds</span>
-        <span class="footer-value">${fair1} / ${fair2}</span>
-      </div>
-      <span class="clv-chip clv-none">Add odds →</span>
-    </div>
+      ${blurStats ? `<div style="text-align:center;margin-bottom:10px">
+        <a href="#pricing" style="font-size:11px;color:var(--acid);text-decoration:none;
+          border:1px solid rgba(200,240,0,0.2);padding:4px 14px;font-family:'Bebas Neue',sans-serif;
+          letter-spacing:1px">Unlock full stats — Starter $9.99/mo</a>
+      </div>` : ""}` : ""}
 
-    ${lockHtml}
-  </div>`;
+      <!-- H2H and summary -->
+      <div class="pred-detail" style="margin-bottom:8px">
+        H2H: ${p.h2h_surf||p.h2h_record||"0-0"} · Fair: ${fairOdds||"—"}
+      </div>
+      ${featured ? `<div class="pred-summary" style="padding:10px;
+        background:rgba(255,255,255,0.04);border-radius:3px;font-size:12px;
+        line-height:1.6;color:rgba(255,255,255,0.6);min-height:36px">
+        ${formatSummary(summary)}
+      </div>` : ""}`
+  const rows = data.slice(0, 6).map(p => {
+    const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
+    const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
+    const favPct = Math.round(Math.max(p.p1_win, p.p2_win) * 100);
+    const tourn = (p.tournament || '').replace('Mutua Madrid Open - Madrid','Madrid Open');
+    return `
+      <div class="score-row">
+        <div>
+          <div class="score-players">${fav} vs ${dog}</div>
+          <div class="score-info">${p.tour?.toUpperCase() || 'ATP'} · ${p.surface || ''} · ${tourn}</div>
+        </div>
+        <div>
+          <div class="score-result">${favPct}%</div>
+          <div class="score-status">Model pick</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  scoresList.innerHTML = rows;
 }
 
-function renderAll() {
-  const data = filtered();
-  const count = data.length;
+// ── CLV CALCULATOR ──────────────────────────────────────────────────────────
+let clvData = [];
 
-  document.getElementById('stat-count').textContent = allData.length;
-  document.getElementById('result-count').textContent = `${count} match${count!==1?'es':''}`;
+function renderCLV() {
+  const content = document.getElementById("clv-content");
+  const badge   = document.getElementById("clv-tier-badge");
+  const tier    = getUserTier();
 
-  const gen = allData[0]?.generated || '';
-  document.getElementById('header-sub').textContent =
-    `${count} predictions · Generated ${gen} · Refreshes daily at 7am`;
-
-  if (data.length === 0) {
-    document.getElementById('main-content').innerHTML = `
-      <div class="state-msg"><h3>No matches</h3><p>Try a different filter.</p></div>`;
+  if (!hasAccess("pro")) {
+    // Show locked teaser for Free/Starter
+    badge.textContent = "Pro feature";
+    content.innerHTML = `
+      <div style="position:relative;padding:1.5rem;background:rgba(255,255,255,0.02)">
+        <div style="filter:blur(5px);pointer-events:none;user-select:none">
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-bottom:8px;font-size:10px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px">
+            <span>Match</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
+          </div>
+          ${[1,2,3].map(()=>`
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:center">
+            <span style="font-size:13px;color:rgba(255,255,255,0.6)">Player A vs Player B</span>
+            <span style="font-family:'Bebas Neue',sans-serif;color:var(--acid)">65%</span>
+            <input style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:white;padding:5px 8px;width:70px;font-size:13px" value="2.10" disabled>
+            <span style="font-family:'Bebas Neue',sans-serif;color:#4ade80">+12pp ✓</span>
+          </div>`).join("")}
+        </div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(10,10,10,0.7);backdrop-filter:blur(2px)">
+          <div style="font-size:12px;color:rgba(255,255,255,0.4)">CLV Calculator — Pro & Sharp only</div>
+          <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:7px 20px;text-decoration:none">Upgrade to Pro →</a>
+        </div>
+      </div>`;
     return;
   }
 
-  const html = `<div class="predictions-grid">${data.map((d,i) => renderCard(d,i)).join('')}</div>`;
-  document.getElementById('main-content').innerHTML = html;
+  // Pro/Sharp — full calculator
+  badge.textContent = "tennisIQ " + tier.charAt(0).toUpperCase() + tier.slice(1);
 
-  // Animate bars in
-  setTimeout(() => {
-    document.querySelectorAll('.bar-fill').forEach(el => {
-      const w = el.style.width;
-      el.style.width = '0';
-      requestAnimationFrame(() => { el.style.width = w; });
+  if (!clvData.length) {
+    content.innerHTML = `<div style="color:rgba(255,255,255,0.3);font-size:13px;padding:1rem 0">Loading matches...</div>`;
+    return;
+  }
+
+  // Show top 10 most decisive matches
+  const matches = clvData
+    .filter(p => !p.p1_name.includes("/"))
+    .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5))
+    .slice(0,10);
+
+  content.innerHTML = `
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;margin-bottom:8px;
+      font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;padding:0 4px">
+      <span>Match</span><span>Surface</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
+    </div>
+    ${matches.map((p,idx) => {
+      const prob = Math.round(Math.max(p.p1_win, p.p2_win)*100);
+      const fav  = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
+      const dog  = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
+      const fairOdds = p.p1_win > p.p2_win ? p.fair_p1 : p.fair_p2;
+      const surf = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
+      return `
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;
+        padding:10px 4px;border-bottom:1px solid rgba(255,255,255,0.05);align-items:center">
+        <div>
+          <div style="font-size:12px;font-weight:500;color:rgba(255,255,255,0.85)">${fav}</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3)">vs ${dog}</div>
+        </div>
+        <span style="font-size:12px;color:rgba(255,255,255,0.4)">${surf} ${p.surface}</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--acid)">${prob}%
+          <span style="font-size:10px;color:rgba(255,255,255,0.3)"> (${fairOdds})</span>
+        </span>
+        <input type="number" step="0.05" min="1.01" value="${fairOdds}"
+          id="clv-input-${idx}"
+          onchange="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
+          oninput="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
+          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
+          color:white;padding:6px 8px;width:75px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none">
+        <div id="clv-result-${idx}" style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:rgba(255,255,255,0.3)">—</div>
+      </div>`;
+    }).join("")}
+    <div style="margin-top:1rem;font-size:11px;color:rgba(255,255,255,0.2);line-height:1.6">
+      Edge = model probability minus implied probability from your odds (after removing vig).
+      Green = value bet. Red = avoid. Target CLV &gt; 5pp for positive expected value.
+    </div>`;
+}
+
+function calcCLVRow(idx, modelProb) {
+  const input = document.getElementById("clv-input-"+idx);
+  const result = document.getElementById("clv-result-"+idx);
+  const odds = parseFloat(input.value);
+  if (!odds || odds < 1.01) { result.textContent = "—"; result.style.color = "rgba(255,255,255,0.3)"; return; }
+  // Remove vig estimate (assume ~5% margin)
+  const impliedProb = (1/odds) / 1.05;
+  const edge = ((modelProb - impliedProb) * 100);
+  const edgeRound = edge.toFixed(1);
+  const sign = edge > 0 ? "+" : "";
+  result.textContent = sign + edgeRound + "pp " + (edge >= 5 ? "✓" : edge >= 0 ? "~" : "✗");
+  result.style.color = edge >= 5 ? "#4ade80" : edge >= 0 ? "rgba(255,255,255,0.5)" : "#f87171";
+}
+
+async function loadCLV() {
+  try {
+    const r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error();
+    clvData = await r.json();
+    renderCLV();
+  } catch(e) { renderCLV(); }
+}
+
+// ── INIT ────────────────────────────────────────────────────────────────────
+
+// ── SCHEDULE ────────────────────────────────────────────────────────────────
+let scheduleData = [];
+let currentTour = "all";
+
+function filterSchedule(tour) {
+  currentTour = tour;
+  ["all","atp","wta"].forEach(t => {
+    const btn = document.getElementById("tab-"+t);
+    btn.style.background = t===tour ? "var(--black)" : "var(--warm)";
+    btn.style.color      = t===tour ? "var(--acid)"  : "var(--muted)";
+  });
+  renderSchedule();
+}
+
+function cleanTournName(t) {
+  return t.replace("Mutua Madrid Open - Madrid","Madrid Open")
+          .replace(" - "," · ").replace("Challenger","Chal.");
+}
+
+function surfaceIcon(s) {
+  return s==="clay" ? "🟤" : s==="grass" ? "🟢" : "🔵";
+}
+
+function renderSchedule() {
+  const grid = document.getElementById("schedule-grid");
+  if (!scheduleData.length) return;
+
+  // Get unique tournaments
+  const tournMap = {};
+  scheduleData.forEach(p => {
+    if (currentTour !== "all" && p.tour !== currentTour) return;
+    if (!tournMap[p.tournament]) {
+      tournMap[p.tournament] = {
+        name: p.tournament,
+        surface: p.surface,
+        tour: p.tour,
+        count: 0
+      };
+    }
+    tournMap[p.tournament].count++;
+  });
+
+  const tourneys = Object.values(tournMap).sort((a,b) => {
+    if (a.name.includes("Madrid")) return -1;
+    if (b.name.includes("Madrid")) return 1;
+    const tierA = a.name.includes("Open")||a.name.includes("Masters") ? 2 : a.name.includes("100")||a.name.includes("75") ? 1 : 0;
+    const tierB = b.name.includes("Open")||b.name.includes("Masters") ? 2 : b.name.includes("100")||b.name.includes("75") ? 1 : 0;
+    return tierB - tierA;
+  });
+
+  if (!tourneys.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">No tournaments found.</div>`;
+    return;
+  }
+
+  grid.innerHTML = tourneys.map(t => {
+    const tourColor  = t.tour==="atp" ? "#c13a0f" : "#a78bfa";
+    const surfIcon   = t.surface==="clay" ? "🟤 Clay" : t.surface==="grass" ? "🟢 Grass" : "🔵 Hard";
+    const cleanName  = t.name
+      .replace("Mutua Madrid Open - Madrid","Madrid Open")
+      .replace(" - "," · ")
+      .replace("Challenger","Challenger");
+    const tier = t.name.includes("Open")||t.name.includes("Masters") ? "Masters / 1000" :
+                 t.name.includes("500") ? "ATP 500 / WTA 500" :
+                 t.name.includes("250") ? "ATP 250 / WTA 250" :
+                 t.name.match(/W100|W75/) ? "WTA 100 / 75" :
+                 t.name.includes("Challenger") ? "Challenger" : "ITF";
+    return `
+      <div style="background:var(--card-bg);padding:1.5rem;border-bottom:3px solid ${tourColor}">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${tourColor};margin-bottom:6px">${t.tour.toUpperCase()} · ${tier}</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:8px;line-height:1.2">${cleanName}</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <span style="font-size:12px;color:var(--muted)">${surfIcon}</span>
+          <span style="font-size:12px;color:var(--muted)">📅 This week</span>
+          <span style="font-size:12px;color:var(--muted)">${t.count} matches in model</span>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+async function loadSchedule() {
+  try {
+    const r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP "+r.status);
+    scheduleData = await r.json();
+    document.getElementById("schedule-updated").textContent = "Updated " + (scheduleData[0]?.generated || "today");
+    renderSchedule();
+  } catch(e) {
+    document.getElementById("schedule-grid").innerHTML=`<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">Schedule unavailable.</div>`;
+  }
+}
+
+// ── TIER ACCESS ─────────────────────────────────────────────────────────────
+function getUserTier() {
+  return localStorage.getItem("tiq_tier") || "free";
+}
+
+function getTierLevel(tier) {
+  const levels = {free:0, starter:1, pro:2, sharp:3};
+  return levels[tier] || 0;
+}
+
+function hasAccess(requiredTier) {
+  return getTierLevel(getUserTier()) >= getTierLevel(requiredTier);
+}
+
+function updateNavForTier() {
+  const tier = getUserTier();
+  if (tier === "free") return;
+  const tierName = tier.charAt(0).toUpperCase() + tier.slice(1);
+  // Add tier badge to nav
+  const nav = document.querySelector("nav");
+  const badge = document.createElement("div");
+  badge.style.cssText = "font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:3px 10px;";
+  badge.textContent = "tennisIQ " + tierName;
+  nav.appendChild(badge);
+}
+
+// ── RESULTS TRACKER ─────────────────────────────────────────────────────────
+const RESULTS_URL = "https://thetennishq.com/results.json";
+
+async function loadResults() {
+  try {
+    const r = await fetch(RESULTS_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error();
+    const d = await r.json();
+
+    document.getElementById("res-accuracy").textContent = d.accuracy_label || "Building...";
+    document.getElementById("res-resolved").textContent = d.week_resolved || 0;
+    document.getElementById("res-predicted").textContent = d.total_predicted || 0;
+    document.getElementById("results-updated").textContent = "Updated " + (d.last_updated || "");
+
+    const grid = document.getElementById("results-grid");
+    const recent = d.recent_results;
+
+    if (!recent || recent.length === 0) {
+      grid.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">
+        No resolved results yet — check back after today's matches complete.</div>`;
+      return;
+    }
+
+    grid.innerHTML = [...recent].reverse().map(m => {
+      const pick    = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
+      const correct = m.correct;
+      const prob    = Math.round(Math.max(m.p1_win, m.p2_win)*100);
+      const surf    = m.surface==="clay" ? "🟤" : m.surface==="grass" ? "🟢" : "🔵";
+      const tourn   = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
+      const date    = m.pred_date || "";
+      return `
+        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;
+          padding:12px 16px;border-bottom:1px solid var(--border);
+          background:var(--card-bg);align-items:center">
+          <div>
+            <div style="font-size:12px;font-weight:500;margin-bottom:3px">
+              <span style="color:${correct?"#4ade80":"#f87171"}">${correct?"✓":"✗"}</span>
+              ${m.p1_name} vs ${m.p2_name}
+            </div>
+            <div style="font-size:10px;color:var(--muted)">
+              ${surf} ${tourn} · Pick: <strong>${pick}</strong> @ ${prob}% · Result: <strong>${m.result}</strong> · ${date}
+            </div>
+          </div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;
+            color:${correct?"#4ade80":"#f87171"};letter-spacing:1px">
+            ${correct?"WIN":"LOSS"}
+          </div>
+        </div>`;
+    }).join("");
+  } catch(e) {
+    document.getElementById("results-grid").innerHTML =
+      `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">Results unavailable.</div>`;
+  }
+}
+loadNews();
+loadResults();
+loadPredictions();
+loadSchedule();
+loadCLV();
+
+// ── STRIPE CHECKOUT ─────────────────────────────────────────────────────────
+const API_URL = "https://tennishq-api.vercel.app";
+
+const TIER_PRICES = {
+  starter: "price_1TRkNMIlZjEq8tdhHfocPXkU",
+  pro:     "price_1TRkNyIlZjEq8tdh0e4glWta",
+  sharp:   "price_1TRkOTIlZjEq8tdhXNSagsdn"
+};
+
+async function startCheckout(tier) {
+  const btn = event.target;
+  const originalText = btn.textContent;
+  btn.textContent = "Loading...";
+  btn.disabled = true;
+
+  try {
+    const r = await fetch(API_URL + "/api/create-checkout", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ priceId: TIER_PRICES[tier], tier })
     });
-  }, 50);
+    const data = await r.json();
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Error: " + (data.error || "Could not start checkout"));
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch(e) {
+    alert("Connection error. Please try again.");
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
+updateNavForTier();
+
+// ── TOUR FILTER ──────────────────────────────────────────────────────────────
+var currentTourFilter = "all";
+var allPredictions = [];
+
+function filterTour(tour) {
+  currentTourFilter = tour;
+  ["all","atp","wta"].forEach(function(t) {
+    var btn = document.getElementById("tour-"+t);
+    btn.style.background = t===tour ? "var(--black)" : "var(--warm)";
+    btn.style.color      = t===tour ? "var(--acid)"  : "var(--black)";
+  });
+  renderPredictions();
 }
 
-function setFilter(f, btn) {
-  currentFilter = f;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderAll();
+function renderPredictions() {
+  var grid = document.getElementById("pred-grid");
+  var subtitle = document.getElementById("pred-subtitle");
+  var filtered = currentTourFilter === "all" ? allPredictions :
+    allPredictions.filter(function(p){ return p.tour === currentTourFilter; });
+  if (!filtered.length) {
+    grid.innerHTML = "<div style='grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px'>No predictions found.</div>";
+    return;
+  }
+  var tier = getUserTier();
+  var sorted = filtered.slice().sort(function(a,b){return Math.abs(b.p1_win-0.5)-Math.abs(a.p1_win-0.5);});
+  var free   = hasAccess("starter") ? sorted : sorted.slice(0,1);
+  var locked = hasAccess("starter") ? [] : sorted.slice(1,7);
+  var featured = free.find(function(p){return Math.abs(p.p1_streak||0)+Math.abs(p.p2_streak||0)>=2;}) || free[0];
+  grid.innerHTML = [
+    ...free.map(function(p,i){ return predCardHTML(p, false, i===0&&p===featured ? getMatchSummary(p) : null, i===0&&p===featured); }),
+    ...locked.map(function(p){ return predCardHTML(p, true, null, false); })
+  ].join("");
+  setTimeout(function(){
+    document.querySelectorAll(".pred-bar-fill[data-width]").forEach(function(bar){
+      bar.style.width = bar.dataset.width + "%";
+    });
+  }, 100);
+  if (hasAccess("starter")) {
+    subtitle.textContent = "Today · " + filtered.length + " predictions · " + (currentTourFilter==="all"?"ATP + WTA":currentTourFilter.toUpperCase());
+  }
+  updateNavForTier();
+  document.getElementById("tennisiq-tier-badge").textContent = tier !== "free" ? "tennisIQ " + tier.charAt(0).toUpperCase() + tier.slice(1) : "";
 }
 
-function setSort(s) {
-  currentSort = s;
-  renderAll();
+// Override loadPredictions for standalone page
+async function loadPredictions() {
+  var grid = document.getElementById("pred-grid");
+  var countEl = document.getElementById("pred-count");
+  try {
+    var r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    var data = await r.json();
+    if (!data || data.length === 0) throw new Error("No data");
+    allPredictions = data.filter(function(p){ return !p.p1_name.includes("/") && !p.p2_name.includes("/"); });
+    countEl.textContent = allPredictions.length;
+    renderPredictions();
+    loadCLV();
+  } catch(e) {
+    grid.innerHTML = "<div style='grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px'>Predictions refresh daily at 7am. Check back soon.</div>";
+  }
 }
 
 loadPredictions();
