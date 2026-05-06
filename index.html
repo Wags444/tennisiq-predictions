@@ -423,13 +423,20 @@ nav {
 .pred-accuracy strong { color: var(--acid); font-size: 18px; display: block; }
 
 .pred-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   background: rgba(255,255,255,0.05);
-  align-items: start;
-}
+  margin-bottom: 2px;
+  align-items: flex-start;
 .pred-card {
+  background: rgba(255,255,255,0.03);
+  padding: 1.25rem;
+  position: relative;
+  transition: background 0.15s;
+  min-width: 0;
+  width: calc(50% - 1px);
+  box-sizing: border-box;
   background: rgba(255,255,255,0.03);
   padding: 1.25rem;
   position: relative;
