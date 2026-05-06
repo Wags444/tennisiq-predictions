@@ -175,6 +175,36 @@ footer a { color:rgba(255,255,255,0.3); text-decoration:none; }
         <div class="stat-input-row"><span class="input-label">2nd Serve Won %</span><input type="number" id="p2-sv2Won" placeholder="e.g. 53" min="1" max="99"></div>
       </div>
     </div>
+    <!-- Mid-match score inputs -->
+    <div style="margin-bottom:1.5rem;padding:1.25rem;background:rgba(255,255,255,0.02);border:1px solid var(--border)">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:12px">Current Score — optional, leave blank for start of match</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px">
+        <div class="input-group"><span class="input-label">Sets (P1 / P2)</span>
+          <div style="display:flex;gap:6px">
+            <input type="number" id="mv" placeholder="0" min="0" max="2" style="width:60px">
+            <input type="number" id="mw" placeholder="0" min="0" max="2" style="width:60px">
+          </div>
+        </div>
+        <div class="input-group"><span class="input-label">Games (P1 / P2)</span>
+          <div style="display:flex;gap:6px">
+            <input type="number" id="sv" placeholder="0" min="0" max="7" style="width:60px">
+            <input type="number" id="sw" placeholder="0" min="0" max="7" style="width:60px">
+          </div>
+        </div>
+        <div class="input-group"><span class="input-label">Points (P1 / P2)</span>
+          <div style="display:flex;gap:6px">
+            <input type="number" id="gv" placeholder="0" min="0" max="7" style="width:60px">
+            <input type="number" id="gw" placeholder="0" min="0" max="7" style="width:60px">
+          </div>
+        </div>
+        <div class="input-group"><span class="input-label">Currently Serving</span>
+          <select id="serving" style="width:140px">
+            <option value="1">Player 1</option>
+            <option value="2">Player 2</option>
+          </select>
+        </div>
+      </div>
+    </div>
     <button class="calc-btn" onclick="calcMatchProb()" style="width:100%;padding:14px">Calculate Match Probability</button>
     <div class="calc-error" id="match-error"></div>
     <div id="match-results" style="display:none">
