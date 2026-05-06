@@ -1183,20 +1183,37 @@ async function loadNews() {
 function updateScoresFromPredictions(data) {
   const scoresList = document.getElementById("scores-list");
   if (!scoresList) return;
-  const rows = data.slice(0, 6).map(p => {
-    const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
-    const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
-    const favPct = Math.round(Math.max(p.p1_win, p.p2_win) * 100);
-    const tourn = (p.tournament || "").replace("Mutua Madrid Open - Madrid","Madrid Open");
+
+  // Rank tournaments by tier
+  function tourRank(t, tour) {
+    var name = (t||"").toLowerCase();
+    if (name.includes("madrid") || name.includes("rome") || name.includes("masters")) return 1;
+    if (tour==="atp" && !name.includes("challenger") && !name.includes("m15") && !name.includes("m25")) return 2;
+    if (tour==="wta" && (name.includes("1000") || name.includes("500") || name.includes("open"))) return 3;
+    if (name.includes("challenger") || name.includes("w100") || name.includes("w75")) return 4;
+    return 5;
+  }
+
+  // Get unique tournaments sorted by tier
+  const seen = new Set();
+  const sorted = [...data]
+    .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
+    .sort((a,b) => tourRank(a.tournament, a.tour) - tourRank(b.tournament, b.tour));
+
+  const rows = sorted.slice(0, 8).map(p => {
+    const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(" - "," · ");
+    const surf  = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
+    const tier  = tourRank(p.tournament, p.tour);
+    const tierLabel = tier===1 ? "Masters / 1000" : tier===2 ? "ATP Tour" : tier===3 ? "WTA Tour" : tier===4 ? "Challenger" : "ITF";
     return `
       <div class="score-row">
         <div>
-          <div class="score-players">${fav} vs ${dog}</div>
-          <div class="score-info">${(p.tour||"ATP").toUpperCase()} · ${p.surface||""} · ${tourn}</div>
+          <div class="score-players">${p.p1_name} vs ${p.p2_name}</div>
+          <div class="score-info">${surf} ${tourn}</div>
         </div>
         <div>
-          <div class="score-result">${favPct}%</div>
-          <div class="score-status">Model pick</div>
+          <div class="score-result" style="font-size:10px;color:rgba(255,255,255,0.3)">${(p.tour||"ATP").toUpperCase()}</div>
+          <div class="score-status">${tierLabel}</div>
         </div>
       </div>`;
   }).join("");
