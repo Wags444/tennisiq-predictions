@@ -424,7 +424,7 @@ nav {
 
 .pred-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2px;
   background: rgba(255,255,255,0.05);
   margin-bottom: 2px;
@@ -434,6 +434,7 @@ nav {
   padding: 1.25rem;
   position: relative;
   transition: background 0.15s;
+  min-width: 0;
 }
 .pred-card:hover { background: rgba(255,255,255,0.05); }
 .pred-tour {
@@ -1407,7 +1408,7 @@ function predCardHTML(p, locked, summary, featured) {
   const sharpBreakdown = hasAccess("sharp") && !locked && hasStats ? `
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
       <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);margin-bottom:8px">Sharp Breakdown</div>
-      <div style="display:grid;grid-template-columns:1fr auto auto;gap:4px;font-size:10px">
+      <div style="display:grid;grid-template-columns:1fr minmax(40px,auto) minmax(40px,auto);gap:4px;font-size:10px;overflow:hidden">
         <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
         <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
         <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
