@@ -1167,6 +1167,7 @@ function predCardHTML(p, locked, summary, featured) {
           <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
           <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
         </div>
+        <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.06);font-size:12px;line-height:1.6;color:rgba(255,255,255,0.5)">${getMatchSummary(p)}</div>
       </div>
     </div>` : "";
 
@@ -1243,11 +1244,6 @@ function predCardHTML(p, locked, summary, featured) {
       <div class="pred-detail" style="margin-bottom:8px">
         H2H: ${p.h2h_surf||p.h2h_record||"0-0"} · Fair: ${fairOdds||"—"}
       </div>
-      ${featured ? `<div class="pred-summary" style="padding:10px;
-        background:rgba(255,255,255,0.04);border-radius:3px;font-size:12px;
-        line-height:1.6;color:rgba(255,255,255,0.6);min-height:36px">
-        ${formatSummary(summary)}
-      </div>` : ""}
       ${sharpBreakdown}
     </div>`;
   const rows = data.slice(0, 6).map(p => {
