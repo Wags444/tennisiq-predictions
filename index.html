@@ -1406,9 +1406,9 @@ function predCardHTML(p, locked, summary, featured) {
   const blurStats = !hasAccess("starter");
 
   const sharpBreakdown = hasAccess("sharp") && !locked && hasStats ? `
-    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
+    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08);overflow:hidden;min-width:0">
       <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);margin-bottom:8px">Sharp Breakdown</div>
-      <div style="display:grid;grid-template-columns:1fr minmax(40px,auto) minmax(40px,auto);gap:4px;font-size:10px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr 42px 42px;gap:4px;font-size:10px;overflow:hidden">
         <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
         <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
         <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
