@@ -1413,27 +1413,32 @@ function predCardHTML(p, locked, summary, featured) {
   const blurStats = !hasAccess("starter");
 
   const sharpBreakdown = hasAccess("sharp") && !locked && hasStats ? `
-    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08);overflow:hidden;min-width:0">
-      <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);margin-bottom:8px">Sharp Breakdown</div>
-      <div style="display:grid;grid-template-columns:1fr 42px 42px;gap:4px;font-size:10px;overflow:hidden">
-        <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
-        <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
-        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
-        <span style="color:rgba(255,255,255,0.3)">1st Serve Won</span>
-        <span style="color:var(--acid);text-align:right">${p.p1_serve_won}%</span>
-        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_won}%</span>
-        <span style="color:rgba(255,255,255,0.3)">2nd Serve Won</span>
-        <span style="color:var(--acid);text-align:right">${p.p1_second_won}%</span>
-        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_second_won}%</span>
-        <span style="color:rgba(255,255,255,0.3)">BP Conv</span>
-        <span style="color:var(--acid);text-align:right">${p.p1_bp_conv}%</span>
-        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_bp_conv}%</span>
-        <span style="color:rgba(255,255,255,0.3)">Win Rate</span>
-        <span style="color:var(--acid);text-align:right">${p.p1_win_rate}%</span>
-        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_win_rate}%</span>
-        <span style="color:rgba(255,255,255,0.3)">Elo</span>
-        <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
-        <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
+    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
+      <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent.includes('▼')?'▲ Sharp Breakdown':'▼ Sharp Breakdown'"
+        style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);background:none;border:none;cursor:pointer;padding:0;width:100%;text-align:left">
+        ▼ Sharp Breakdown
+      </button>
+      <div style="display:none;margin-top:8px">
+        <div style="display:grid;grid-template-columns:1fr 42px 42px;gap:4px;font-size:10px;overflow:hidden">
+          <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
+          <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
+          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
+          <span style="color:rgba(255,255,255,0.3)">1st Serve Won</span>
+          <span style="color:var(--acid);text-align:right">${p.p1_serve_won}%</span>
+          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_won}%</span>
+          <span style="color:rgba(255,255,255,0.3)">2nd Serve Won</span>
+          <span style="color:var(--acid);text-align:right">${p.p1_second_won}%</span>
+          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_second_won}%</span>
+          <span style="color:rgba(255,255,255,0.3)">BP Conv</span>
+          <span style="color:var(--acid);text-align:right">${p.p1_bp_conv}%</span>
+          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_bp_conv}%</span>
+          <span style="color:rgba(255,255,255,0.3)">Win Rate</span>
+          <span style="color:var(--acid);text-align:right">${p.p1_win_rate}%</span>
+          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_win_rate}%</span>
+          <span style="color:rgba(255,255,255,0.3)">Elo</span>
+          <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
+          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
+        </div>
       </div>
     </div>` : "";
 
