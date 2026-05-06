@@ -423,7 +423,7 @@ nav {
 
 .pred-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2px;
   background: rgba(255,255,255,0.05);
   margin-bottom: 2px;
@@ -433,6 +433,7 @@ nav {
   padding: 1.25rem;
   position: relative;
   transition: background 0.15s;
+  min-width: 0;
 }
 .pred-card:hover { background: rgba(255,255,255,0.05); }
 .pred-tour {
