@@ -737,12 +737,12 @@ footer {
 <div class="hero" style="max-width:1280px;margin:0 auto">
   <div class="hero-main fade-up">
     <div>
-      <div class="hero-label">Your home for tennis</div>
-      <h1 class="hero-headline">Every match.<br>Every story.<br><em>Every edge.</em></h1>
-      <p class="hero-sub">Live scores, breaking news from the world's best tennis sources, and data-driven predictions for fans who want to understand the game more deeply.</p>
+      <div class="hero-label">Data-driven tennis analysis</div>
+      <h1 class="hero-headline">The edge is<br>in the data.<br><em>Find yours.</em></h1>
+      <p class="hero-sub">tennisIQ models every ATP and WTA match daily — serve stats, Elo ratings, fatigue, head-to-head — delivering quantitative predictions serious fans and bettors can act on.</p>
       <div class="hero-actions">
-        <a href="#news" class="btn-clay">Read today's news</a>
-        <a href="/tennisiq.html" class="btn-outline">See predictions ✦</a>
+        <a href="/tennisiq.html" class="btn-clay">See today's picks ✦</a>
+        <a href="/tools.html" class="btn-outline">Free tools →</a>
       </div>
     </div>
     <div style="display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08)">
@@ -833,6 +833,55 @@ footer {
 <!-- MORE NEWS -->
 <div class="page-wrap">
 <!-- SCHEDULE SECTION -->
+<!-- TENNISIQ TEASER -->
+<div class="page-wrap" style="background:var(--black)">
+<section style="padding:3rem 0">
+  <div class="section-head">
+    <span class="section-head-title">tennisIQ</span>
+    <a href="/tennisiq.html" class="section-head-link">See all predictions →</a>
+  </div>
+
+  <!-- Value props -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:2px">
+    <div style="background:var(--card-bg);padding:1.5rem">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:var(--clay);margin-bottom:8px">The Model</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300">Built on 110,000+ matches. Serve stats, surface Elo, fatigue, H2H — every variable that predicts match outcomes, quantified.</div>
+    </div>
+    <div style="background:var(--card-bg);padding:1.5rem">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:var(--clay);margin-bottom:8px">The Edge</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300">+19.2% ROI vs Pinnacle closing line. Our fair odds expose value the market hasn't priced in — before it closes.</div>
+    </div>
+    <div style="background:var(--card-bg);padding:1.5rem">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:var(--clay);margin-bottom:8px">The Tools</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300">Free odds converter and Sackmann match probability calculator. Pro gets CLV edge. Sharp gets serve breakdowns and push alerts.</div>
+    </div>
+  </div>
+
+  <!-- Featured prediction card -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border)">
+    <div id="tiq-teaser-card" style="background:var(--card-bg);padding:1.5rem">
+      <div style="color:rgba(255,255,255,0.2);font-size:13px">Loading today's top pick...</div>
+    </div>
+    <div style="background:rgba(200,240,0,0.04);padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--acid);margin-bottom:8px">Unlock the full model</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;font-weight:300;margin-bottom:1.5rem">
+          Today's top pick is just a preview. tennisIQ Starter unlocks every ATP and WTA prediction — win probabilities, fair odds, H2H by surface, fatigue and form indicators.
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-bottom:1rem">
+          Pro adds the CLV calculator. Sharp adds serve breakdowns and daily email digest.
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button onclick="startCheckout('starter')" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;background:var(--clay);color:white;border:none;padding:12px;cursor:pointer;width:100%">Starter — $9.99/mo</button>
+        <button onclick="startCheckout('pro')" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;background:var(--acid);color:var(--black);border:none;padding:12px;cursor:pointer;width:100%">Pro — $19.99/mo</button>
+        <a href="/tennisiq.html" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:rgba(255,255,255,0.4);text-align:center;padding:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.1)">See free preview →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
 <div class="page-wrap" id="schedule">
 <section style="padding:3rem 0">
   <div class="section-head">
@@ -1743,7 +1792,29 @@ async function loadResults() {
       `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">Results unavailable.</div>`;
   }
 }
+
+// Load teaser card for homepage
+async function loadTeaserCard() {
+  try {
+    const r = await fetch(PRED_URL + "?t=" + Date.now());
+    if (!r.ok) return;
+    const data = await r.json();
+    const sorted = data
+      .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
+      .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
+    const featured = sorted.find(p => Math.abs(p.p1_streak||0)+Math.abs(p.p2_streak||0)>=2) || sorted[0];
+    if (!featured) return;
+    const summary = getMatchSummary(featured);
+    document.getElementById("tiq-teaser-card").innerHTML = predCardHTML(featured, false, summary, true);
+    setTimeout(() => {
+      document.querySelectorAll("#tiq-teaser-card .pred-bar-fill[data-width]").forEach(bar => {
+        bar.style.width = bar.dataset.width + "%";
+      });
+    }, 100);
+  } catch(e) {}
+}
 loadNews();
+loadTeaserCard();
 loadResults();
 loadPredictions();
 loadSchedule();
