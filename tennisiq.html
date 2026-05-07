@@ -1768,7 +1768,7 @@ function filterTour(tour) {
     btn.style.color      = t===tour ? "var(--acid)"  : "var(--black)";
   });
   renderPredictions();
-    generateInsights(allPredictions);
+
 }
 
 function renderPredictions() {
@@ -1813,6 +1813,7 @@ async function loadPredictions() {
     allPredictions = data.filter(function(p){ return !p.p1_name.includes("/") && !p.p2_name.includes("/"); });
     countEl.textContent = allPredictions.length;
     renderPredictions();
+    generateInsights(allPredictions);
     loadCLV();
   } catch(e) {
     grid.innerHTML = "<div style='grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px'>Predictions refresh daily at 7am. Check back soon.</div>";
