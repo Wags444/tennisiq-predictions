@@ -1096,27 +1096,89 @@ function generateInsights(data) {
       </div>`;
   }
 
-  // Render Did You Know
+  // Render Did You Know — loads from insights.json
   const dykEl = document.getElementById("dyk-section");
-  const uniqueInsights = [...new Set(insights)].slice(0, 4);
-  if (uniqueInsights.length > 0) {
-    dykEl.innerHTML = `
-      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);padding:1.25rem;margin-bottom:2px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;
-          color:rgba(255,255,255,0.3);margin-bottom:12px">📊 Did You Know</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
-          ${uniqueInsights.map(ins => `
-            <div style="display:flex;gap:8px;align-items:flex-start">
-              <span style="color:var(--acid);flex-shrink:0;font-size:16px;line-height:1.2">✦</span>
-              <span style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6">${ins}</span>
-            </div>`
-          ).join("")}
-        </div>
-      </div>`;
+  fetch("/insights.json?t=" + new Date().toDateString())
+    .then(r => r.json())
+    .then(library => {
+      // Seed random by date so same 4 show all day
+      const seed = new Date().toDateString().split("").reduce((a,c) => a+c.charCodeAt(0), 0);
+      const shuffled = library.slice().sort((a,b) => {
+        const ra = Math.sin(seed + library.indexOf(a)) * 10000;
+        const rb = Math.sin(seed + library.indexOf(b)) * 10000;
+        return (ra - Math.floor(ra)) - (rb - Math.floor(rb));
+      });
+      const picks = shuffled.slice(0, 4);
+      dykEl.innerHTML = `
+        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);padding:1.25rem;margin-bottom:2px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,0.3)">
+              📊 Did You Know — From 110,000+ Matches
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
+            ${picks.map(ins => `
+              <div style="display:flex;gap:10px;align-items:flex-start;
+                padding:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;
+                  color:var(--acid);line-height:1;flex-shrink:0;min-width:48px;text-align:center">
+                  ${ins.stat}
+                </div>
+                <div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:4px">
+                    ${ins.insight}
+                  </div>
+                  <div style="font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:1px;font-family:'Bebas Neue',sans-serif">
+                    Based on ${ins.source}
+                  </div>
+                </div>
+              </div>`
+            ).join("")}
+          </div>
+        </div>`;
+      document.getElementById("insights-section").style.display = "block";
+    })
+    .catch(() => {
+      // Fallback if JSON fails
+      if (insights.length > 0) {
+        dykEl.innerHTML = `<div style="padding:1rem;font-size:12px;color:rgba(255,255,255,0.3)">${insights[0]}</div>`;
+      }
+    });
+              📊 Did You Know — From 110,000+ Matches
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
+            ${picks.map(ins => `
+              <div style="display:flex;gap:10px;align-items:flex-start;
+                padding:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;
+                  color:var(--acid);line-height:1;flex-shrink:0;min-width:48px;text-align:center">
+                  ${ins.stat}
+                </div>
+                <div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:4px">
+                    ${ins.insight}
+                  </div>
+                  <div style="font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:1px;font-family:'Bebas Neue',sans-serif">
+                    Based on ${ins.source}
+                  </div>
+                </div>
+              </div>`
+            ).join("")}
+          </div>
+        </div>`;
+      document.getElementById("insights-section").style.display = "block";
+    })
+    .catch(() => {
+      // Fallback if JSON fails
+      if (insights.length > 0) {
+        dykEl.innerHTML = `<div style="padding:1rem;font-size:12px;color:rgba(255,255,255,0.3)">${insights[0]}</div>`;
+      }
+    });
   }
 
   // Show section if any content
-  if (upsets.length > 0 || uniqueInsights.length > 0) {
+  if (upsets.length > 0) {
     document.getElementById("insights-section").style.display = "block";
   }
 }

@@ -1,0 +1,74 @@
+[
+  {
+    "stat": "34%",
+    "insight": "When Elo ratings differ by less than 100 points, the underdog wins 34% of the time — nearly 1 in 3.",
+    "category": "upsets",
+    "source": "110,667 ATP matches"
+  },
+  {
+    "stat": "32%",
+    "insight": "Grass produces the most upsets of any surface — favourites lose 32% of the time, vs 27% on hard courts.",
+    "category": "surface",
+    "source": "2,927 grass court matches"
+  },
+  {
+    "stat": "28.6%",
+    "insight": "Even with a 100-150 Elo point advantage, favourites still lose 28.6% of matches.",
+    "category": "upsets",
+    "source": "11,829 matches"
+  },
+  {
+    "stat": "84.4%",
+    "insight": "Heavily fatigued favourites (4+ recent matches) win 84% — fatigue rarely hurts the better player.",
+    "category": "fatigue",
+    "source": "29,559 matches"
+  },
+  {
+    "stat": "52.8%",
+    "insight": "Big servers hitting 16+ aces win only 52.8% — high ace counts correlate with more double faults and risk.",
+    "category": "serve",
+    "source": "2,298 matches"
+  },
+  {
+    "stat": "54.1%",
+    "insight": "Players committing 7+ double faults win just 54.1% of matches — each double fault is a gift to the opponent.",
+    "category": "serve",
+    "source": "4,805 matches"
+  },
+  {
+    "stat": "71.4%",
+    "insight": "A 100-150 Elo point gap translates to a 71.4% win rate for the favourite — a reliable edge.",
+    "category": "model",
+    "source": "19,656 matches"
+  },
+  {
+    "stat": "96%",
+    "insight": "When Elo ratings differ by 500+ points, favourites win 96% of the time — near-certain outcomes.",
+    "category": "model",
+    "source": "128 matches"
+  },
+  {
+    "stat": "59.3%",
+    "insight": "When Elo ratings are nearly equal (0-50 gap), the higher-ranked player still wins 59% of the time.",
+    "category": "model",
+    "source": "36,246 matches"
+  },
+  {
+    "stat": "75-80%",
+    "insight": "Players winning 75-80% of first serve points have a 56.1% match win rate — serve dominance matters.",
+    "category": "serve",
+    "source": "19,894 matches"
+  },
+  {
+    "stat": "13.8%",
+    "insight": "With a 300+ Elo point advantage, upsets occur just 13.8% of the time — the model is most reliable here.",
+    "category": "model",
+    "source": "2,009 matches"
+  },
+  {
+    "stat": "29.1%",
+    "insight": "Indoor hard courts produce more upsets (29.1%) than outdoor hard courts (26.9%) — conditions matter.",
+    "category": "surface",
+    "source": "14,353 matches"
+  }
+]
