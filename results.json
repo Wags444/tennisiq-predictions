@@ -1,12 +1,12 @@
 {
-  "total_predicted": 85,
-  "total_resolved": 8,
-  "week_resolved": 8,
-  "week_correct": 6,
+  "total_predicted": 104,
+  "total_resolved": 18,
+  "week_resolved": 18,
+  "week_correct": 11,
   "accuracy": {},
   "accuracy_label": "Building...",
   "min_threshold": 50,
-  "last_updated": "2026-05-05 19:57",
+  "last_updated": "2026-05-06 07:46",
   "recent_results": [
     {
       "p1_name": "Courtney John Lock",
@@ -95,6 +95,116 @@
       "result": "Madison Brengle",
       "correct": true,
       "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Andre Ilagan",
+      "p2_name": "Dane Sweeny",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.257,
+      "p2_win": 0.743,
+      "result": "Dane Sweeny",
+      "correct": true,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "En Shuo Liang",
+      "p2_name": "Taylah Preston",
+      "surface": "hard",
+      "tournament": "Jiangxi Open - Jiujiang",
+      "p1_win": 0.273,
+      "p2_win": 0.727,
+      "result": "En Shuo Liang",
+      "correct": false,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Anastasia Gasanova",
+      "p2_name": "Polina Kudermetova",
+      "surface": "clay",
+      "tournament": "Istanbul Open - Istanbul",
+      "p1_win": 0.307,
+      "p2_win": 0.693,
+      "result": "Polina Kudermetova",
+      "correct": true,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Stefanos Sakellaridis",
+      "p2_name": "Gustavo Heide",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.674,
+      "p2_win": 0.326,
+      "result": "Gustavo Heide",
+      "correct": false,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Lizette Cabrera",
+      "p2_name": "Zongyu Li",
+      "surface": "hard",
+      "tournament": "Jiangxi Open - Jiujiang",
+      "p1_win": 0.647,
+      "p2_win": 0.353,
+      "result": "Lizette Cabrera",
+      "correct": true,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Mark Lajal",
+      "p2_name": "Mikhail Kukushkin",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.599,
+      "p2_win": 0.401,
+      "result": "Mark Lajal",
+      "correct": true,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Heather Watson",
+      "p2_name": "Kyoka Okamura",
+      "surface": "hard",
+      "tournament": "Jiangxi Open - Jiujiang",
+      "p1_win": 0.414,
+      "p2_win": 0.586,
+      "result": "Heather Watson",
+      "correct": false,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Max Schoenhaus",
+      "p2_name": "Zdenek Kolar",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.424,
+      "p2_win": 0.576,
+      "result": "Max Schoenhaus",
+      "correct": false,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "August Holmgren",
+      "p2_name": "Guy Den Ouden",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.425,
+      "p2_win": 0.575,
+      "result": "August Holmgren",
+      "correct": false,
+      "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Fajing Sun",
+      "p2_name": "Rio Noguchi",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.461,
+      "p2_win": 0.539,
+      "result": "Rio Noguchi",
+      "correct": true,
+      "pred_date": "2026-05-05"
     }
   ]
 }
