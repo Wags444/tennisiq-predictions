@@ -747,6 +747,16 @@ footer {
   <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.2);margin-bottom:10px" id="pred-subtitle">
     Today · Free preview — upgrade to see all predictions
   </div>
+  <!-- UPSET ALERTS + DID YOU KNOW -->
+  <div id="insights-section" style="display:none;margin-bottom:2px">
+
+    <!-- Upset Alerts -->
+    <div id="upset-alerts" style="margin-bottom:2px"></div>
+
+    <!-- Did You Know -->
+    <div id="dyk-section" style="margin-bottom:2px"></div>
+
+  </div>
   <div class="pred-grid" id="pred-grid">
     <div style="grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px">Loading predictions...</div>
   </div>
@@ -954,6 +964,161 @@ function updateScoresFromPredictions(data) {
       </div>`;
   }).join("");
   scoresList.innerHTML = rows;
+}
+
+// ── UPSET ALERTS + DID YOU KNOW ─────────────────────────────────────────────
+
+function generateInsights(data) {
+  const upsets = [];
+  const insights = [];
+
+  data.forEach(function(m) {
+    const fav    = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
+    const dog    = m.p1_win > m.p2_win ? m.p2_name : m.p1_name;
+    const favW   = Math.max(m.p1_win, m.p2_win);
+    const dogW   = Math.min(m.p1_win, m.p2_win);
+    const favP1  = m.p1_win > m.p2_win;
+    const favStreak  = favP1 ? (m.p1_streak||0) : (m.p2_streak||0);
+    const dogStreak  = favP1 ? (m.p2_streak||0) : (m.p1_streak||0);
+    const favFat     = favP1 ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
+    const dogFat     = favP1 ? (m.p2_fatigue||0) : (m.p1_fatigue||0);
+    const favServe   = favP1 ? (m.p1_serve_won||0) : (m.p2_serve_won||0);
+    const dogServe   = favP1 ? (m.p2_serve_won||0) : (m.p1_serve_won||0);
+    const favWR      = favP1 ? (m.p1_win_rate||0) : (m.p2_win_rate||0);
+    const dogWR      = favP1 ? (m.p2_win_rate||0) : (m.p1_win_rate||0);
+    const surf       = m.surface||"hard";
+    const tourn      = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(/ - .*/,"");
+    const favLast    = fav.split(" ").pop();
+    const dogLast    = dog.split(" ").pop();
+    const favPct     = Math.round(favW*100);
+    const dogPct     = Math.round(dogW*100);
+
+    // ── UPSET ALERT CONDITIONS ──────────────────────────────────────────
+    const reasons = [];
+
+    // Fatigue disadvantage for favourite
+    if (favFat >= 3 && dogFat <= 1)
+      reasons.push(`${favLast} has played ${favFat}+ matches recently and may be fatigued`);
+
+    // Underdog on a hot streak
+    if (dogStreak >= 3)
+      reasons.push(`${dogLast} has won ${dogStreak} straight`);
+
+    // H2H favours underdog on this surface
+    if (m.h2h_surf && !m.h2h_surf.startsWith("0-0")) {
+      const parts = m.h2h_surf.split("-");
+      const h2hFavWins = parseInt(parts[0]);
+      const h2hDogWins = parseInt(parts[1]);
+      if (h2hDogWins > h2hFavWins)
+        reasons.push(`${dogLast} leads the H2H on ${surf} ${h2hDogWins}-${h2hFavWins}`);
+    }
+
+    // Underdog serves better
+    if (dogServe > favServe + 5)
+      reasons.push(`${dogLast}'s serve win rate (${dogServe}%) exceeds ${favLast}'s (${favServe}%) on ${surf}`);
+
+    // Underdog has higher win rate
+    if (dogWR > favWR + 8)
+      reasons.push(`${dogLast}'s recent win rate (${dogWR}%) outpaces ${favLast}'s (${favWR}%)`);
+
+    // Model says close but one player has edge
+    if (favW < 0.68 && dogStreak >= 2)
+      reasons.push(`At ${dogPct}%, ${dogLast} has real winning chances with strong recent form`);
+
+    if (reasons.length >= 2 && favW >= 0.60 && favW <= 0.88) {
+      upsets.push({ match: m, fav, dog, favPct, dogPct, reasons, tourn, surf });
+    }
+
+    // ── DID YOU KNOW INSIGHTS ───────────────────────────────────────────
+    // Long winning streak
+    if (Math.abs(m.p1_streak||0) >= 5)
+      insights.push(`${m.p1_name.split(" ").pop()} has won ${m.p1_streak} matches in a row heading into today.`);
+    if (Math.abs(m.p2_streak||0) >= 5)
+      insights.push(`${m.p2_name.split(" ").pop()} has won ${m.p2_streak} matches in a row heading into today.`);
+
+    // Heavy fatigue
+    if ((m.p1_fatigue||0) >= 4)
+      insights.push(`${m.p1_name.split(" ").pop()} is playing their ${m.p1_fatigue}th match in a short window — fatigue is a real factor.`);
+    if ((m.p2_fatigue||0) >= 4)
+      insights.push(`${m.p2_name.split(" ").pop()} is playing their ${m.p2_fatigue}th match in a short window — fatigue is a real factor.`);
+
+    // Dominant H2H
+    if (m.h2h_surf && !m.h2h_surf.startsWith("0-0") && !m.h2h_surf.startsWith("1-0") && !m.h2h_surf.startsWith("0-1")) {
+      const favLead = m.h2h_surf.split(" ")[0];
+      insights.push(`The ${surf} H2H between ${favLast} and ${dogLast} stands at ${favLead} — history is on ${favLast}'s side.`);
+    }
+
+    // Massive favourite
+    if (favW >= 0.92)
+      insights.push(`The model gives ${favLast} a ${favPct}% chance — one of the most lopsided matchups on today's card.`);
+
+    // Serve dominance
+    if (m.p1_serve_won && m.p2_serve_won && Math.abs(m.p1_serve_won - m.p2_serve_won) >= 10) {
+      const bigServer = m.p1_serve_won > m.p2_serve_won ? m.p1_name : m.p2_name;
+      const bigPct    = Math.max(m.p1_serve_won, m.p2_serve_won);
+      insights.push(`${bigServer.split(" ").pop()} wins ${bigPct}% of points on serve — a significant weapon on ${surf}.`);
+    }
+  });
+
+  // Render upset alerts
+  const upsetEl = document.getElementById("upset-alerts");
+  if (upsets.length > 0) {
+    const topUpsets = upsets.slice(0, 3);
+    upsetEl.innerHTML = `
+      <div style="margin-bottom:2px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;
+          color:var(--clay);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:2px">
+          ⚡ Upset Alerts — ${topUpsets.length} match${topUpsets.length>1?"es":""} to watch
+        </div>
+        ${topUpsets.map(u => `
+          <div style="background:rgba(193,58,15,0.08);border:1px solid rgba(193,58,15,0.2);
+            padding:1rem;margin-bottom:2px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px">
+              <div>
+                <span style="font-size:13px;font-weight:500">${u.dog}</span>
+                <span style="font-size:11px;color:rgba(255,255,255,0.3)"> vs ${u.fav}</span>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center">
+                <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--clay)">${u.dogPct}%</span>
+                <span style="font-size:10px;color:rgba(255,255,255,0.3)">${u.tourn}</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              ${u.reasons.map(r => `
+                <div style="font-size:11px;color:rgba(255,255,255,0.5);display:flex;gap:6px;align-items:flex-start">
+                  <span style="color:var(--clay);flex-shrink:0">→</span>
+                  <span>${r}</span>
+                </div>`,
+              ).join("")}
+            </div>
+          </div>`,
+        ).join("")}
+      </div>`;
+  }
+
+  // Render Did You Know
+  const dykEl = document.getElementById("dyk-section");
+  const uniqueInsights = [...new Set(insights)].slice(0, 4);
+  if (uniqueInsights.length > 0) {
+    dykEl.innerHTML = `
+      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);padding:1.25rem;margin-bottom:2px">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;
+          color:rgba(255,255,255,0.3);margin-bottom:12px">📊 Did You Know</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+          ${uniqueInsights.map(ins => `
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <span style="color:var(--acid);flex-shrink:0;font-size:16px;line-height:1.2">✦</span>
+              <span style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6">${ins}</span>
+            </div>`
+          ).join("")}
+        </div>
+      </div>`;
+  }
+
+  // Show section if any content
+  if (upsets.length > 0 || uniqueInsights.length > 0) {
+    document.getElementById("insights-section").style.display = "block";
+  }
 }
 
 async function loadPredictions() {
@@ -1603,6 +1768,7 @@ function filterTour(tour) {
     btn.style.color      = t===tour ? "var(--acid)"  : "var(--black)";
   });
   renderPredictions();
+    generateInsights(allPredictions);
 }
 
 function renderPredictions() {
