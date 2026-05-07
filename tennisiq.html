@@ -1144,38 +1144,6 @@ function generateInsights(data) {
         dykEl.innerHTML = `<div style="padding:1rem;font-size:12px;color:rgba(255,255,255,0.3)">${insights[0]}</div>`;
       }
     });
-              📊 Did You Know — From 110,000+ Matches
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-            ${picks.map(ins => `
-              <div style="display:flex;gap:10px;align-items:flex-start;
-                padding:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)">
-                <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;
-                  color:var(--acid);line-height:1;flex-shrink:0;min-width:48px;text-align:center">
-                  ${ins.stat}
-                </div>
-                <div>
-                  <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:4px">
-                    ${ins.insight}
-                  </div>
-                  <div style="font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:1px;font-family:'Bebas Neue',sans-serif">
-                    Based on ${ins.source}
-                  </div>
-                </div>
-              </div>`
-            ).join("")}
-          </div>
-        </div>`;
-      document.getElementById("insights-section").style.display = "block";
-    })
-    .catch(() => {
-      // Fallback if JSON fails
-      if (insights.length > 0) {
-        dykEl.innerHTML = `<div style="padding:1rem;font-size:12px;color:rgba(255,255,255,0.3)">${insights[0]}</div>`;
-      }
-    });
-  }
 
   // Show section if any content
   if (upsets.length > 0) {
