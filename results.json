@@ -1,13 +1,35 @@
 {
-  "total_predicted": 104,
-  "total_resolved": 22,
-  "week_resolved": 22,
-  "week_correct": 12,
+  "total_predicted": 100,
+  "total_resolved": 18,
+  "week_resolved": 18,
+  "week_correct": 11,
   "accuracy": {},
   "accuracy_label": "Building...",
   "min_threshold": 50,
-  "last_updated": "2026-05-07 21:59",
+  "last_updated": "2026-05-07 22:04",
   "recent_results": [
+    {
+      "p1_name": "Courtney John Lock",
+      "p2_name": "Iiro Vasa",
+      "surface": "clay",
+      "tournament": "Brazzaville Challenger",
+      "p1_win": 0.296,
+      "p2_win": 0.704,
+      "result": "Iiro Vasa",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Martin Krumich",
+      "p2_name": "Gabriele Piraino",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.672,
+      "p2_win": 0.328,
+      "result": "Martin Krumich",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
     {
       "p1_name": "Sofia Elena Cabezas Dominguez",
       "p2_name": "Thea Frodin",
@@ -183,50 +205,6 @@
       "result": "Rio Noguchi",
       "correct": true,
       "pred_date": "2026-05-05"
-    },
-    {
-      "p1_name": "Facundo Diaz Acosta",
-      "p2_name": "Nikolas Sanchez-Izquierdo",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.959,
-      "p2_win": 0.041,
-      "result": "Facundo Diaz Acosta",
-      "correct": true,
-      "pred_date": "2026-05-06"
-    },
-    {
-      "p1_name": "Michael Geerts",
-      "p2_name": "Iiro Vasa",
-      "surface": "clay",
-      "tournament": "Brazzaville Challenger",
-      "p1_win": 0.675,
-      "p2_win": 0.325,
-      "result": "Iiro Vasa",
-      "correct": false,
-      "pred_date": "2026-05-06"
-    },
-    {
-      "p1_name": "Frederico Ferreira Silva",
-      "p2_name": "Chun Hsin Tseng",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.642,
-      "p2_win": 0.358,
-      "result": "Chun Hsin Tseng",
-      "correct": false,
-      "pred_date": "2026-05-06"
-    },
-    {
-      "p1_name": "Jay Clarke",
-      "p2_name": "Nishesh Basavareddy",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.411,
-      "p2_win": 0.589,
-      "result": "Jay Clarke",
-      "correct": false,
-      "pred_date": "2026-05-06"
     }
   ]
 }
