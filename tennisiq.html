@@ -1,1852 +1,883 @@
-<!DOCTYPE html><!-- tennisiq v3.1 -->
+<!DOCTYPE html><!-- tennisiq v4.0 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>tennisIQ Predictions — TennisHQ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black: #0a0a0a;
-  --white: #fafaf7;
-  --clay: #c13a0f;
-  --clay-light: #e8491a;
-  --acid: #c8f000;
-  --warm: #f5f0e8;
-  --muted: #6e6b63;
-  --border: rgba(10,10,10,0.10);
-  --card-bg: #ffffff;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0f1210;--bg2:#141714;--bg3:#191c19;--bg4:#1e221e;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --text:#dde3da;--text2:#a8b0a4;--muted:#5c6459;
+  --green:#5db87a;--green-hi:#7dd49a;
+  --green-dim:rgba(93,184,122,0.1);--green-border:rgba(93,184,122,0.2);
+  --amber:#c89a4a;--amber-dim:rgba(200,154,74,0.1);--amber-border:rgba(200,154,74,0.25);
+  --red:#c86060;--red-dim:rgba(200,96,96,0.08);
+  --clay:#c13a0f;--acid:#c8f000;
+  --mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--serif:'Instrument Serif',serif;
 }
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;min-height:100vh;}
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+/* NAV */
+nav{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid var(--border);background:rgba(15,18,16,0.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:16px;}
+.logo-name{font-family:var(--serif);font-size:18px;color:var(--text);letter-spacing:-0.3px;text-decoration:none;}
+.logo-name em{color:var(--green);font-style:italic;}
+.logo-div{width:1px;height:16px;background:var(--border2);}
+.logo-sub{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+.nav-links{display:flex;}
+.nav-link{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;border-left:1px solid var(--border);transition:color 0.15s;}
+.nav-link:last-child{border-right:1px solid var(--border);}
+.nav-link:hover{color:var(--text);}
+.nav-link.active{color:var(--green);}
+.nav-r{display:flex;align-items:center;gap:12px;}
+.live-ind{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.2;}}
+.tier-badge{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--green);border:1px solid var(--green-border);padding:4px 10px;}
+.upgrade-btn{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;background:none;border:1px solid var(--green-border);color:var(--green);padding:6px 14px;cursor:pointer;transition:all 0.15s;}
+.upgrade-btn:hover{background:var(--green-dim);}
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--black);
-  color: var(--chalk);
-  overflow-x: hidden;
-}
+/* PAGE */
+.page{display:grid;grid-template-columns:1fr 420px;min-height:calc(100vh - 50px);}
+.main{border-right:1px solid var(--border);}
+.aside{background:var(--bg2);}
 
-/* ── TICKER ── */
-.ticker-wrap {
-  background: var(--clay);
-  overflow: hidden;
-  height: 34px;
-  display: flex;
-  align-items: center;
-}
-.ticker-label {
-  background: var(--black);
-  color: var(--acid);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  padding: 0 16px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  flex-shrink: 0;
-  z-index: 2;
-}
-.ticker-track {
-  display: flex;
-  animation: ticker 40s linear infinite;
-  white-space: nowrap;
-}
-.ticker-track:hover { animation-play-state: paused; }
-.ticker-item {
-  color: white;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  padding: 0 24px;
-  border-right: 1px solid rgba(255,255,255,0.2);
-}
-@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+/* STATS STRIP */
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
+.stat{padding:14px 20px;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-l{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+.stat-v{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--green);line-height:1;}
+.stat-s{font-size:10px;color:var(--muted);margin-top:3px;}
 
-/* ── NAV ── */
-nav {
-  background: var(--black);
-  padding: 0 clamp(1rem, 4vw, 3rem);
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.nav-logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  color: var(--white);
-  text-decoration: none;
-  letter-spacing: -0.5px;
-}
-.nav-logo span { color: var(--clay); }
-.nav-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.45);
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--white); }
-.nav-links a.pro { color: var(--acid); }
-.nav-cta {
-  background: var(--clay);
-  color: white;
-  border: none;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px;
-  letter-spacing: 1.5px;
-  padding: 8px 20px;
-  cursor: pointer;
-  transition: background 0.2s;
-  text-decoration: none;
-  display: inline-block;
-}
-.nav-cta:hover { background: var(--clay-light); }
+/* SECTION LABEL */
+.sec{display:flex;align-items:center;justify-content:space-between;padding:9px 20px;border-bottom:1px solid var(--border);background:var(--bg2);}
+.sec-l{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.sec-r{font-family:var(--mono);font-size:9px;color:var(--muted);}
 
-/* ── HERO ── */
-.hero {
-  background: var(--black);
-  padding: clamp(2rem,5vw,4rem) clamp(1rem,4vw,3rem);
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 2px;
-  align-items: stretch;
-}
-.hero-main {
-  padding-right: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.hero-label {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: var(--clay);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.hero-label::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background: var(--clay);
-}
-.hero-headline {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(36px, 5.5vw, 68px);
-  color: var(--white);
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-}
-.hero-headline em {
-  font-style: italic;
-  color: rgba(255,255,255,0.5);
-}
-.hero-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.4);
-  font-weight: 300;
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 2rem;
-}
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-clay {
-  background: var(--clay);
-  color: white;
-  border: none;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px;
-  letter-spacing: 2px;
-  padding: 12px 28px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.2s;
-}
-.btn-clay:hover { background: var(--clay-light); }
-.btn-outline {
-  background: transparent;
-  color: var(--acid);
-  border: 1px solid var(--acid);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px;
-  letter-spacing: 2px;
-  padding: 11px 28px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s;
-}
-.btn-outline:hover { background: var(--acid); color: var(--black); }
+/* DNA CARD */
+.dna-card{padding:20px;border-bottom:1px solid var(--border);}
+.dna-top{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:start;margin-bottom:14px;}
+.dna-player{display:flex;flex-direction:column;gap:5px;}
+.dna-player.right{align-items:flex-end;text-align:right;}
+.dna-flag{width:20px;height:15px;border-radius:1px;object-fit:cover;}
+.dna-flag-wrap{display:flex;align-items:center;gap:6px;}
+.dna-flag-wrap.right{flex-direction:row-reverse;}
+.dna-archetype{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;}
+.dna-name{font-family:var(--serif);font-size:20px;color:var(--text);line-height:1.1;}
+.dna-prob{font-family:var(--mono);font-size:32px;font-weight:500;color:var(--green);line-height:1;}
+.dna-prob.dog{color:var(--muted);font-size:22px;}
+.dna-center{padding:0 16px;display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:8px;}
+.dna-vs{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted);}
+.dna-surf{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;text-align:center;}
 
-/* Scores panel */
-.scores-panel {
-  background: rgba(255,255,255,0.04);
-  border-left: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  flex-direction: column;
-}
-.scores-head {
-  padding: 16px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.scores-head-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: rgba(255,255,255,0.5);
-}
-.live-badge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10px;
-  font-weight: 500;
-  color: #ef4444;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ef4444;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-.score-row {
-  padding: 14px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
-  cursor: default;
-  transition: background 0.15s;
-}
-.score-row:hover { background: rgba(255,255,255,0.03); }
-.score-players { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
-.score-info { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 3px; }
-.score-result {
-  text-align: right;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 17px;
-  color: var(--acid);
-  letter-spacing: 1px;
-}
-.score-status { font-size: 10px; color: rgba(255,255,255,0.25); text-align: right; margin-top: 2px; }
-.scores-loading { padding: 24px 20px; text-align: center; color: rgba(255,255,255,0.2); font-size: 13px; }
-.scores-footer {
-  margin-top: auto;
-  padding: 12px 20px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  background: rgba(200,240,0,0.05);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.scores-footer:hover { background: rgba(200,240,0,0.08); }
-.scores-footer-text {
-  font-size: 11px;
-  color: rgba(200,240,0,0.7);
-  line-height: 1.5;
-}
-.scores-footer-link {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 12px;
-  color: var(--acid);
-  letter-spacing: 1px;
-  text-decoration: none;
-}
+/* NARRATIVE */
+.dna-narrative{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--text2);line-height:1.7;padding:12px 14px;background:rgba(93,184,122,0.04);border-left:2px solid var(--green-border);margin-bottom:14px;}
 
-/* ── LAYOUT WRAPPER ── */
-.page-wrap {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 3rem);
-}
+/* DNA BODY */
+.dna-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
 
-/* ── SECTION HEADS ── */
-.section-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--black);
-}
-.section-head-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 2px;
-  color: var(--black);
-}
-.section-head-link {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.section-head-link:hover { color: var(--clay); }
+/* STAT COMPARE */
+.cmp-header{display:grid;grid-template-columns:1fr 90px 1fr;gap:4px;margin-bottom:8px;}
+.cmp-pname{font-family:var(--mono);font-size:8px;letter-spacing:1px;}
+.cmp-row{display:grid;grid-template-columns:1fr 90px 1fr;gap:6px;align-items:center;margin-bottom:7px;}
+.cmp-lbl{font-family:var(--mono);font-size:8px;color:var(--muted);text-align:center;letter-spacing:1px;white-space:nowrap;}
 
-/* ── NEWS SECTION ── */
-.news-section { padding: 3rem 0; }
-.news-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 2px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.news-card {
-  background: var(--card-bg);
-  padding: 1.5rem;
-  cursor: pointer;
-  transition: background 0.15s;
-  text-decoration: none;
-  display: block;
-  color: inherit;
-}
-.news-card:hover { background: #faf8f3; }
-.news-card.featured { grid-row: span 2; border-right: 1px solid var(--border); }
-.news-source {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--clay);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.news-source-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--clay); }
-.news-title {
-  font-family: 'DM Serif Display', serif;
-  line-height: 1.25;
-  margin-bottom: 10px;
-  color: var(--black);
-}
-.news-card.featured .news-title { font-size: 22px; }
-.news-card:not(.featured) .news-title { font-size: 16px; }
-.news-excerpt {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-weight: 300;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.news-card:not(.featured) .news-excerpt { -webkit-line-clamp: 2; }
-.news-time { font-size: 11px; color: #bbb; margin-top: 12px; }
-.news-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 16/8;
-  background: var(--black);
-  margin-bottom: 1rem;
-  overflow: hidden;
-}
-.news-placeholder-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 64px;
-  color: rgba(255,255,255,0.06);
-  letter-spacing: -2px;
-  user-select: none;
-}
-.news-loading {
-  grid-column: 1/-1;
-  padding: 3rem;
-  text-align: center;
-  color: var(--muted);
-  font-size: 14px;
-}
-.news-error { grid-column: 1/-1; }
+/* INDICATORS */
+.indicators{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.ind-block{background:var(--bg3);border:1px solid var(--border);padding:10px;}
+.ind-label{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;}
+.ind-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.ind-player{font-family:var(--mono);font-size:9px;color:var(--text2);}
+.fat-dots{display:flex;gap:3px;}
+.fat-dot{width:6px;height:6px;border-radius:50%;}
+.fat-on{background:var(--amber);}
+.fat-off{background:var(--bg4);}
+.mom-bar-outer{width:60px;height:4px;background:var(--bg4);border-radius:1px;overflow:hidden;}
+.mom-bar-inner{height:100%;border-radius:1px;}
+.mom-pos{background:var(--green);}
+.mom-neg{background:var(--red);}
 
-/* ── PREDICTIONS SECTION ── */
-.predictions-section {
-  background: var(--black);
-  padding: 3rem clamp(1rem,4vw,3rem);
-  margin: 0;
-}
-.pred-section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-.pred-section-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(24px,3.5vw,42px);
-  color: var(--white);
-  font-weight: 400;
-}
-.pred-section-title span { color: var(--acid); font-style: italic; }
-.pred-accuracy {
-  text-align: right;
-  font-size: 12px;
-  color: rgba(255,255,255,0.3);
-  line-height: 1.6;
-}
-.pred-accuracy strong { color: var(--acid); font-size: 18px; display: block; }
+/* CONFIDENCE */
+.conf-wrap{margin-bottom:10px;}
+.conf-label{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;}
+.conf-bar-outer{height:20px;background:var(--bg3);border:1px solid var(--border);border-radius:2px;position:relative;overflow:hidden;}
+.conf-band{position:absolute;top:0;bottom:0;background:var(--green-dim);border-left:1px solid var(--green-border);border-right:1px solid var(--green-border);}
+.conf-point{position:absolute;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:var(--green);border:2px solid var(--bg);}
+.conf-axis{display:flex;justify-content:space-between;margin-top:3px;}
+.conf-tick{font-family:var(--mono);font-size:8px;color:var(--muted);}
 
-.pred-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  background: rgba(255,255,255,0.05);
-  margin-bottom: 2px;
-  align-items: flex-start;
-}
-.pred-card {
-  background: rgba(255,255,255,0.03);
-  padding: 1.25rem;
-  position: relative;
-  transition: background 0.15s;
-  min-width: 0;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.pred-tour.atp { color: var(--clay); }
-.pred-tour.wta { color: #a78bfa; }
-.pred-tourn {
-  font-size: 11px;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.pred-matchup {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  gap: 8px;
-}
-.pred-player {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--white);
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.pred-player.right { text-align: right; }
-.pred-vs {
-  font-size: 10px;
-  color: rgba(255,255,255,0.2);
-  flex-shrink: 0;
-}
-.pred-bar-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.pred-pct {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
-  color: var(--acid);
-  min-width: 40px;
-  letter-spacing: 0.5px;
-}
-.pred-pct.right {
-  color: rgba(255,255,255,0.25);
-  text-align: right;
-}
-.pred-bar-track {
-  flex: 1;
-  height: 3px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.pred-bar-fill {
-  height: 100%;
-  background: var(--acid);
-  border-radius: 2px;
-  transition: width 0.6s ease;
-}
-.pred-detail {
-.form-dot { width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0; }
-.form-w { background:#4ade80 !important; }
-.form-l { background:#f87171 !important; }
-.form-n { background:rgba(255,255,255,0.15) !important;border:1px solid rgba(255,255,255,0.2); }
-.pred-card-featured .pred-summary { display:block; }
-  font-size: 10px;
-  color: rgba(255,255,255,0.2);
-  line-height: 1.5;
-}
-.pred-fair {
-  display: inline-block;
-  background: rgba(200,240,0,0.1);
-  color: var(--acid);
-  font-size: 10px;
-  padding: 2px 6px;
-  margin-top: 6px;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.5px;
-}
+/* MODEL PANEL */
+.model-panel{background:var(--green-dim);border:1px solid var(--green-border);padding:12px;}
+.model-head{font-family:var(--mono);font-size:8px;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;}
+.model-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;}
+.model-col-h{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1px;padding:3px 5px;border-bottom:1px solid var(--border);}
+.model-cell{font-family:var(--mono);font-size:10px;padding:4px 5px;color:var(--text2);}
+.model-cell.gr{color:var(--green);font-weight:500;}
+.model-cell.am{color:var(--amber);}
+.model-cell.lb{color:var(--muted);}
 
-/* Lock overlay */
-.pred-locked {
-  position: absolute;
-  inset: 0;
-  background: rgba(10,10,10,0.88);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  backdrop-filter: blur(3px);
-}
-.lock-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-}
-.lock-text {
-  font-size: 11px;
-  color: rgba(255,255,255,0.25);
-  text-align: center;
-  line-height: 1.5;
-}
-.lock-cta {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  color: var(--acid);
-  text-decoration: none;
-  border: 1px solid rgba(200,240,0,0.3);
-  padding: 5px 14px;
-  transition: all 0.2s;
-}
-.lock-cta:hover { background: var(--acid); color: var(--black); }
+/* BLUR OVERLAY */
+.blur-section{filter:blur(4px);user-select:none;pointer-events:none;}
+.upgrade-overlay{text-align:center;padding:12px;margin-top:8px;}
+.upgrade-overlay a{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--green);border:1px solid var(--green-border);padding:5px 16px;text-decoration:none;display:inline-block;}
+.upgrade-overlay a:hover{background:var(--green-dim);}
 
-/* CLV teaser */
-.clv-strip {
-  background: rgba(200,240,0,0.05);
-  border: 1px solid rgba(200,240,0,0.12);
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.clv-left-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  color: var(--acid);
-  margin-bottom: 3px;
-}
-.clv-sub { font-size: 12px; color: rgba(255,255,255,0.3); }
-.clv-demo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.clv-input-group { display: flex; flex-direction: column; gap: 3px; }
-.clv-input-label { font-size: 9px; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 1px; }
-.clv-input {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 7px 10px;
-  width: 76px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.clv-input:focus { border-color: rgba(200,240,0,0.4); }
-.clv-arrow { color: rgba(255,255,255,0.2); font-size: 18px; }
-.clv-output {
-  background: rgba(200,240,0,0.08);
-  border: 1px solid rgba(200,240,0,0.18);
-  padding: 7px 14px;
-  text-align: center;
-  min-width: 90px;
-}
-.clv-output-label { font-size: 9px; color: rgba(200,240,0,0.5); text-transform: uppercase; letter-spacing: 1px; }
-.clv-output-value {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  color: var(--acid);
-  letter-spacing: 1px;
-  filter: blur(5px);
-  user-select: none;
-}
-.clv-unlock {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  color: var(--acid);
-  text-decoration: none;
-  white-space: nowrap;
-  border: 1px solid rgba(200,240,0,0.3);
-  padding: 8px 18px;
-  transition: all 0.2s;
-}
-.clv-unlock:hover { background: var(--acid); color: var(--black); }
+/* UPSET PANEL */
+.upset-sec{border-bottom:1px solid var(--border);}
+.upset-inner{padding:12px 20px;}
+.upset-items{display:flex;flex-direction:column;gap:6px;}
+.upset-row{padding:10px 12px;background:var(--amber-dim);border:1px solid var(--amber-border);border-left:2px solid var(--amber);}
+.upset-match{font-size:12px;font-weight:500;margin-bottom:2px;}
+.upset-prob{font-family:var(--mono);font-size:11px;color:var(--amber);margin-bottom:4px;}
+.upset-reasons{display:flex;flex-direction:column;gap:2px;}
+.upset-r{font-size:10px;color:var(--text2);}
+.upset-r::before{content:"→ ";color:var(--amber);}
 
-/* ── MORE NEWS ── */
-.more-news-section { padding: 3rem 0; }
-.more-news-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
+/* DYK */
+.dyk-inner{padding:14px 20px;border-bottom:1px solid var(--border);}
+.dyk-head{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.dyk-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.dyk-item{background:var(--bg3);border:1px solid var(--border);padding:10px;display:flex;gap:10px;}
+.dyk-stat{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--green);min-width:40px;line-height:1.2;flex-shrink:0;}
+.dyk-text{font-size:10px;color:var(--text2);line-height:1.5;}
 
-/* ── FOOTER ── */
-footer {
-  background: var(--black);
-  padding: 2.5rem clamp(1rem,4vw,3rem);
-  margin-top: 3rem;
-}
-.footer-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.footer-logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  color: var(--white);
-}
-.footer-logo span { color: var(--clay); }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a {
-  font-size: 11px;
-  color: rgba(255,255,255,0.25);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: rgba(255,255,255,0.5); }
-.footer-copy { font-size: 11px; color: rgba(255,255,255,0.15); }
-.footer-disclaimer {
-  max-width: 1280px;
-  margin: 1rem auto 0;
-  font-size: 10px;
-  color: rgba(255,255,255,0.12);
-  line-height: 1.5;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
+/* PRED LIST */
+.pred-filters{display:flex;border-bottom:1px solid var(--border);}
+.pred-filter{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;border:none;background:none;color:var(--muted);cursor:pointer;border-right:1px solid var(--border);}
+.pred-filter.on{color:var(--green);background:var(--green-dim);}
+.pred-col-h{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:7px 20px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 60px 60px 70px;gap:10px;background:var(--bg2);}
+.pred-row{display:grid;grid-template-columns:1fr 60px 60px 70px;padding:11px 20px;border-bottom:1px solid var(--border);align-items:center;gap:10px;cursor:pointer;transition:background 0.1s;}
+.pred-row:hover{background:var(--bg3);}
+.pred-row.selected{background:var(--green-dim);border-left:2px solid var(--green);padding-left:18px;}
+.pred-row.locked{cursor:default;opacity:0.4;}
+.pred-row.locked:hover{background:transparent;}
+.pred-name{font-size:12px;font-weight:500;margin-bottom:2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.pred-flag{width:16px;height:12px;border-radius:1px;object-fit:cover;flex-shrink:0;}
+.pred-info{font-family:var(--mono);font-size:9px;color:var(--muted);}
+.pred-prob{font-family:var(--mono);font-size:14px;font-weight:500;text-align:center;}
+.pred-prob.hi{color:var(--green);}
+.pred-prob.md{color:var(--amber);}
+.pred-prob.locked{filter:blur(4px);}
+.pred-fair{font-family:var(--mono);font-size:11px;color:var(--text2);text-align:center;}
+.pred-fair.locked{filter:blur(4px);}
+.badge{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;}
+.b-sharp{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
+.b-watch{background:var(--amber-dim);color:var(--amber);}
+.b-lock{background:rgba(255,255,255,0.03);color:var(--muted);border:1px solid var(--border);}
 
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; }
-  .scores-panel { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
-  .news-grid { grid-template-columns: 1fr; }
-  .news-card.featured { grid-row: auto; border-right: none; border-bottom: 1px solid var(--border); }
-  .pred-grid { grid-template-columns: 1fr; }
-  .more-news-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .clv-strip { flex-direction: column; align-items: flex-start; }
-}
+/* PRICING TEASER */
+.pricing-teaser{padding:20px;border-bottom:1px solid var(--border);background:rgba(93,184,122,0.03);}
+.pricing-head{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.pricing-card{background:var(--bg3);border:1px solid var(--border);padding:14px;}
+.pricing-card.featured{border-color:var(--green-border);}
+.pricing-tier{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.pricing-price{font-family:var(--mono);font-size:22px;font-weight:500;color:var(--green);margin-bottom:8px;}
+.pricing-features{font-size:10px;color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.pricing-btn{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;width:100%;padding:7px;border:1px solid var(--green-border);background:var(--green-dim);color:var(--green);cursor:pointer;transition:all 0.15s;}
+.pricing-btn:hover{background:var(--green);color:var(--bg);}
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ASIDE */
+.aside-head{padding:9px 16px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;display:flex;justify-content:space-between;background:var(--bg2);}
+.fix-item{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:8px;}
+.fix-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.clay-dot{background:#c87840;}.hard-dot{background:#4878c8;}.grass-dot{background:#58a840;}
+.fix-body{flex:1;}
+.fix-players{font-size:11px;font-weight:500;}
+.fix-meta{font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:2px;}
+.fix-badge{font-family:var(--mono);font-size:8px;letter-spacing:1px;padding:2px 5px;flex-shrink:0;}
+.fb-m{background:var(--green-dim);color:var(--green);}
+.fb-c{background:rgba(255,255,255,0.04);color:var(--muted);}
+.anal-item{padding:14px 16px;border-bottom:1px solid var(--border);}
+.anal-src{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1px;margin-bottom:5px;}
+.anal-title{font-family:var(--serif);font-size:14px;line-height:1.35;margin-bottom:5px;color:var(--text);}
+.anal-exc{font-size:11px;color:var(--text2);line-height:1.5;}
+.anal-tag{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:8px;letter-spacing:1px;padding:2px 7px;background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
+
+@media(max-width:900px){
+  .page{grid-template-columns:1fr;}
+  .aside{display:none;}
+  .stats-strip{grid-template-columns:1fr 1fr;}
+  .dna-body{grid-template-columns:1fr;}
+  .dyk-grid{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
 }
-.fade-up { animation: fadeUp 0.5s ease both; }
-.fade-up-2 { animation: fadeUp 0.5s 0.1s ease both; }
-.fade-up-3 { animation: fadeUp 0.5s 0.2s ease both; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Tennis<span>HQ</span></a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/tennisiq.html" class="active pro">tennisIQ ✦</a></li>
-    <li><a href="/tools.html">Tools</a></li>
-    <li><a href="/#pricing">Pricing</a></li>
-  </ul>
-  <a href="/#pricing" class="nav-cta">Go Pro — $9.99</a>
+  <div class="logo">
+    <a href="/" class="logo-name">Tennis<em>IQ</em></a>
+    <div class="logo-div"></div>
+    <div class="logo-sub">Intelligence Platform</div>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tennisiq.html" class="nav-link active">Predictions</a>
+    <a href="/tools.html" class="nav-link">Tools</a>
+    <a href="/#pricing" class="nav-link">Pricing</a>
+  </div>
+  <div class="nav-r">
+    <div class="live-ind"><div class="live-dot"></div><span id="pred-count">—</span> picks today</div>
+    <div class="tier-badge" id="nav-tier-badge" style="display:none"></div>
+    <button class="upgrade-btn" id="nav-upgrade-btn" onclick="document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'})">UPGRADE ↗</button>
+  </div>
 </nav>
 
-<!-- PAGE HEADER -->
-<div class="page-wrap">
-<section style="padding:3rem 0 1rem">
-  <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
-    <div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;color:var(--clay);margin-bottom:8px">Daily Model Output</div>
-      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,64px);line-height:1.05;margin-bottom:8px">tennisIQ<br><span style="color:var(--clay)">Predictions</span></h1>
-      <div style="font-size:13px;color:var(--muted)">
-        <strong id="pred-count" style="color:var(--chalk)">—</strong> predictions today &nbsp;·&nbsp; Updated daily at 7am
+<div class="page">
+<div class="main">
+
+  <!-- Stats strip -->
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-l">Accuracy</div><div class="stat-v">68.7%</div><div class="stat-s">110K+ matches</div></div>
+    <div class="stat"><div class="stat-l">CLV Edge</div><div class="stat-v">+19.2%</div><div class="stat-s">vs Pinnacle closing</div></div>
+    <div class="stat"><div class="stat-l">Today</div><div class="stat-v" id="stat-today">—</div><div class="stat-s" id="stat-today-sub">Loading...</div></div>
+    <div class="stat"><div class="stat-l">This week</div><div class="stat-v" id="stat-week">—</div><div class="stat-s">Track record</div></div>
+  </div>
+
+  <!-- DNA CARD -->
+  <div class="sec">
+    <div class="sec-l">Matchup DNA</div>
+    <div class="sec-r" id="dna-match-label">Featured match</div>
+  </div>
+
+  <div class="dna-card" id="dna-card">
+    <!-- Player headers — always visible -->
+    <div class="dna-top">
+      <div class="dna-player">
+        <div class="dna-flag-wrap">
+          <img class="dna-flag" id="dna-flag1" src="" alt="" onerror="this.style.display='none'">
+          <div class="dna-archetype" id="dna-arch1">—</div>
+        </div>
+        <div class="dna-name" id="dna-name1">Loading...</div>
+        <div class="dna-prob" id="dna-prob1">—%</div>
+      </div>
+      <div class="dna-center">
+        <!-- Radar — visible to free -->
+        <svg id="dna-radar" width="130" height="130" viewBox="-65 -65 130 130">
+          <g opacity="0.12">
+            <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="none" stroke="#5db87a" stroke-width="0.5"/>
+            <polygon points="0,-33 29,-17 29,17 0,33 -29,17 -29,-17" fill="none" stroke="#5db87a" stroke-width="0.5"/>
+            <polygon points="0,-17 15,-8 15,8 0,17 -15,8 -15,-8" fill="none" stroke="#5db87a" stroke-width="0.5"/>
+          </g>
+          <g opacity="0.15" stroke="#5db87a" stroke-width="0.5">
+            <line x1="0" y1="0" x2="0" y2="-50"/>
+            <line x1="0" y1="0" x2="43" y2="-25"/>
+            <line x1="0" y1="0" x2="43" y2="25"/>
+            <line x1="0" y1="0" x2="0" y2="50"/>
+            <line x1="0" y1="0" x2="-43" y2="25"/>
+            <line x1="0" y1="0" x2="-43" y2="-25"/>
+          </g>
+          <polygon id="radar-p1" points="0,-45 37,-18 32,20 0,42 -26,20 -36,-20" fill="rgba(93,184,122,0.15)" stroke="#5db87a" stroke-width="1.5"/>
+          <polygon id="radar-p2" points="0,-28 22,-15 25,15 0,28 -22,15 -28,-14" fill="rgba(168,176,164,0.07)" stroke="#a8b0a4" stroke-width="1" stroke-dasharray="3,2"/>
+          <text y="-57" text-anchor="middle" font-family="DM Mono" font-size="6" fill="#5c6459" letter-spacing="1">SERVE</text>
+          <text x="50" y="-23" font-family="DM Mono" font-size="6" fill="#5c6459" letter-spacing="1">RETURN</text>
+          <text x="48" y="32" font-family="DM Mono" font-size="6" fill="#5c6459" letter-spacing="1">FORM</text>
+          <text y="60" text-anchor="middle" font-family="DM Mono" font-size="6" fill="#5c6459" letter-spacing="1">BP%</text>
+          <text x="-66" y="32" font-family="DM Mono" font-size="6" fill="#5c6459" letter-spacing="1">ELO</text>
+          <text x="-62" y="-23" font-family="DM Mono" font-size="6" fill="#5c6459" letter-spacing="1">SURF</text>
+        </svg>
+        <div class="dna-vs">vs</div>
+        <div class="dna-surf" id="dna-surf">—</div>
+      </div>
+      <div class="dna-player right">
+        <div class="dna-flag-wrap right">
+          <img class="dna-flag" id="dna-flag2" src="" alt="" onerror="this.style.display='none'">
+          <div class="dna-archetype" id="dna-arch2">—</div>
+        </div>
+        <div class="dna-name" id="dna-name2">—</div>
+        <div class="dna-prob dog" id="dna-prob2">—%</div>
       </div>
     </div>
-    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-      <div style="font-size:11px;color:var(--muted);font-family:'Bebas Neue',sans-serif;letter-spacing:1.5px" id="tennisiq-tier-badge"></div>
-      <div style="display:flex;gap:2px">
-        <button onclick="filterTour('all')" id="tour-all" style="padding:8px 16px;border:none;background:var(--black);color:var(--acid);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;cursor:pointer">ALL</button>
-        <button onclick="filterTour('atp')" id="tour-atp" style="padding:8px 16px;border:none;background:var(--warm);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;cursor:pointer">ATP</button>
-        <button onclick="filterTour('wta')" id="tour-wta" style="padding:8px 16px;border:none;background:var(--warm);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;cursor:pointer">WTA</button>
+
+    <!-- Pro+ content -->
+    <div id="dna-pro-content">
+      <!-- Narrative -->
+      <div class="dna-narrative" id="dna-narrative" style="display:none"></div>
+
+      <div class="dna-body">
+        <!-- Left: indicators + confidence -->
+        <div>
+          <div class="indicators" id="dna-indicators">
+            <div class="ind-block">
+              <div class="ind-label">Fatigue</div>
+              <div class="ind-row">
+                <div class="ind-player" id="fat-name1">—</div>
+                <div class="fat-dots" id="fat-dots1"></div>
+              </div>
+              <div class="ind-row">
+                <div class="ind-player" id="fat-name2">—</div>
+                <div class="fat-dots" id="fat-dots2"></div>
+              </div>
+            </div>
+            <div class="ind-block">
+              <div class="ind-label">Momentum</div>
+              <div class="ind-row">
+                <div class="ind-player" id="mom-name1">—</div>
+                <div class="mom-bar-outer"><div class="mom-bar-inner mom-pos" id="mom-bar1" style="width:50%"></div></div>
+              </div>
+              <div class="ind-row">
+                <div class="ind-player" id="mom-name2">—</div>
+                <div class="mom-bar-outer"><div class="mom-bar-inner mom-pos" id="mom-bar2" style="width:50%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="conf-wrap" id="dna-confidence">
+            <div class="conf-label">Win Probability Band</div>
+            <div class="conf-bar-outer">
+              <div class="conf-band" id="conf-band" style="left:60%;width:20%"></div>
+              <div class="conf-point" id="conf-point" style="left:70%"></div>
+            </div>
+            <div class="conf-axis">
+              <span class="conf-tick">0%</span>
+              <span class="conf-tick">25%</span>
+              <span class="conf-tick">50%</span>
+              <span class="conf-tick">75%</span>
+              <span class="conf-tick" style="color:var(--green)" id="conf-label">—</span>
+            </div>
+          </div>
+        </div>
+        <!-- Right: stat compare + model panel -->
+        <div>
+          <div class="cmp-header">
+            <div style="text-align:right"><span class="cmp-pname" id="cmp-p1-name" style="color:var(--green)">—</span></div>
+            <div></div>
+            <div><span class="cmp-pname" id="cmp-p2-name" style="color:var(--muted)">—</span></div>
+          </div>
+          <div id="cmp-rows"></div>
+          <div class="model-panel" id="dna-model-panel">
+            <div class="model-head"><span>Model Intelligence</span><span style="color:var(--muted)">Fair vs implied</span></div>
+            <div class="model-grid">
+              <div class="model-col-h">Metric</div><div class="model-col-h">Model</div><div class="model-col-h">Naive</div><div class="model-col-h">Edge</div>
+              <div class="model-cell lb">Win prob</div><div class="model-cell gr" id="mi-prob">—</div><div class="model-cell">—</div><div class="model-cell am" id="mi-edge">—</div>
+              <div class="model-cell lb">Fair odds</div><div class="model-cell gr" id="mi-fair">—</div><div class="model-cell" id="mi-naive">—</div><div class="model-cell am">+CLV</div>
+              <div class="model-cell lb">Elo gap</div><div class="model-cell gr" id="mi-elo">—</div><div class="model-cell">Not priced</div><div class="model-cell am">Signal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Free upgrade prompt -->
+    <div id="dna-free-prompt" style="display:none">
+      <div style="padding:14px;background:rgba(93,184,122,0.04);border:1px solid var(--green-border);margin-top:12px;text-align:center;">
+        <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:8px">PRO UNLOCKS</div>
+        <div style="font-size:11px;color:var(--text2);margin-bottom:10px">Fatigue meter · Momentum · Confidence band · Model intelligence · All predictions</div>
+        <button onclick="startCheckout('pro')" style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:7px 20px;cursor:pointer;">Pro — $9.99/mo ↗</button>
       </div>
     </div>
   </div>
-  <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.2);margin-bottom:10px" id="pred-subtitle">
-    Today · Free preview — upgrade to see all predictions
+
+  <!-- UPSET ALERTS — Sharp only -->
+  <div id="upset-section" style="display:none">
+    <div class="sec"><div class="sec-l">Upset Alerts</div><div class="sec-r" id="upset-count">—</div></div>
+    <div class="upset-sec"><div class="upset-inner"><div class="upset-items" id="upset-list"></div></div></div>
   </div>
-  <!-- UPSET ALERTS + DID YOU KNOW -->
-  <div id="insights-section" style="display:none;margin-bottom:2px">
 
-    <!-- Upset Alerts -->
-    <div id="upset-alerts" style="margin-bottom:2px"></div>
-
-    <!-- Did You Know -->
-    <div id="dyk-section" style="margin-bottom:2px"></div>
-
+  <!-- DYK — all tiers -->
+  <div class="sec"><div class="sec-l">Model Insights</div><div class="sec-r">From 110,000+ matches</div></div>
+  <div class="dyk-inner" id="dyk-section">
+    <div class="dyk-grid" id="dyk-grid">
+      <div class="dyk-item"><div class="dyk-stat">34%</div><div class="dyk-text">When Elo gap is under 100 points, upsets happen 34% of the time — nearly 1 in 3.</div></div>
+      <div class="dyk-item"><div class="dyk-stat">32%</div><div class="dyk-text">Grass produces more upsets than any surface — 32% vs 27% upset rate on hard courts.</div></div>
+      <div class="dyk-item"><div class="dyk-stat">84%</div><div class="dyk-text">Fatigued favourites (4+ recent matches) still win 84% — momentum outweighs fatigue.</div></div>
+      <div class="dyk-item"><div class="dyk-stat">52.8%</div><div class="dyk-text">Players hitting 16+ aces win just 52.8% — big serving correlates with double fault risk.</div></div>
+    </div>
   </div>
-  <div class="pred-grid" id="pred-grid">
-    <div style="grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px">Loading predictions...</div>
-  </div>
-</section>
-</div>
 
-<!-- CLV CALCULATOR -->
-<div class="page-wrap" style="margin-top:2px">
-<section style="padding:2rem 0">
-  <div id="clv-calculator" style="background:rgba(255,255,255,0.03);border:1px solid rgba(200,240,0,0.15);padding:1.5rem">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem">
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;color:var(--acid)">✦ CLV Calculator</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px">Enter bookmaker odds to see your edge vs the model</div>
+  <!-- PRED LIST — Pro+ sees all, Free sees 1 -->
+  <div class="sec"><div class="sec-l">Predictions</div><div class="sec-r">Updated daily at 7am · <span id="pred-subtitle">Free preview</span></div></div>
+  <div class="pred-filters">
+    <button class="pred-filter on" onclick="filterTour('all',this)">All</button>
+    <button class="pred-filter" onclick="filterTour('atp',this)">ATP</button>
+    <button class="pred-filter" onclick="filterTour('wta',this)">WTA</button>
+  </div>
+  <div class="pred-col-h"><span>Match</span><span style="text-align:center">Prob</span><span style="text-align:center">Fair</span><span>Signal</span></div>
+  <div id="pred-list"></div>
+
+  <!-- PRICING — shown to free users -->
+  <div id="pricing-section" class="pricing-teaser" style="display:none">
+    <div class="pricing-head">Unlock tennisIQ</div>
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-price">$9.99<span style="font-size:12px;color:var(--muted)">/mo</span></div>
+        <div class="pricing-features">
+          ✓ All predictions + probabilities<br>
+          ✓ Matchup DNA full breakdown<br>
+          ✓ Model intelligence panel<br>
+          ✓ Fatigue, momentum, confidence band<br>
+          ✓ Fair odds on every match
+        </div>
+        <button class="pricing-btn" onclick="startCheckout('pro')">Get Pro ↗</button>
       </div>
-      <div id="clv-tier-badge" style="font-size:10px;color:rgba(255,255,255,0.25);font-family:'Bebas Neue',sans-serif;letter-spacing:1px"></div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Sharp</div>
+        <div class="pricing-price">$19.99<span style="font-size:12px;color:var(--muted)">/mo</span></div>
+        <div class="pricing-features">
+          ✓ Everything in Pro<br>
+          ✓ Upset alerts — flagged daily<br>
+          ✓ Daily email digest of top picks<br>
+          ✓ Priority model updates<br>
+          ✓ Serve breakdown in DNA card
+        </div>
+        <button class="pricing-btn" onclick="startCheckout('sharp')">Get Sharp ↗</button>
+      </div>
     </div>
-    <div id="clv-content"></div>
   </div>
-</section>
+
 </div>
 
-<!-- PRICING TEASER -->
-<div class="page-wrap" style="margin-top:2px">
-<section style="padding:2rem 0">
-  <div style="background:rgba(200,240,0,0.04);border:1px solid rgba(200,240,0,0.15);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-    <div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--acid);margin-bottom:4px">Unlock the full model</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.4);font-weight:300">Starter $9.99/mo · Pro $19.99/mo · Sharp $29.99/mo</div>
-    </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button onclick="startCheckout('starter')" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;background:var(--clay);color:white;border:none;padding:10px 20px;cursor:pointer">Starter — $9.99</button>
-      <button onclick="startCheckout('pro')" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;background:var(--acid);color:var(--black);border:none;padding:10px 20px;cursor:pointer">Pro — $19.99</button>
-      <button onclick="startCheckout('sharp')" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;background:transparent;color:var(--clay);border:1px solid var(--clay);padding:10px 20px;cursor:pointer">Sharp — $29.99</button>
-    </div>
-  </div>
-</section>
-</div>
+<!-- ASIDE -->
+<div class="aside">
+  <div class="aside-head"><span>Schedule</span><span id="sched-count" style="color:var(--green)">—</span></div>
+  <div id="schedule-list"></div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Tennis<span>HQ</span></div>
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/tennisiq.html">tennisIQ</a>
-      <a href="/tools.html">Tools</a>
-      <a href="/#pricing">Pricing</a>
-    </div>
-    <div class="footer-copy">© 2026 TennisHQ</div>
+  <div class="aside-head"><span>Analysis</span></div>
+  <div class="anal-item">
+    <div class="anal-src">TENNIS ABSTRACT · 2 DAYS AGO</div>
+    <div class="anal-title">Surface Elo outperforms overall Elo on clay by 8.3%</div>
+    <div class="anal-exc">New analysis across 40,000 clay matches shows surface-adjusted ratings reduce prediction error significantly versus general Elo ratings alone.</div>
+    <span class="anal-tag">Model Research</span>
   </div>
-  <div class="footer-disclaimer">Predictions are for informational purposes only and do not constitute betting advice.</div>
-</footer>
+  <div class="anal-item">
+    <div class="anal-src">HEAVY TOPSPIN · 5 DAYS AGO</div>
+    <div class="anal-title">The fatigue paradox: why rest doesn't help underdogs</div>
+    <div class="anal-exc">Fatigued favourites win at higher rates across 29,000 matches — momentum consistently outweighs physical wear in predictive models.</div>
+    <span class="anal-tag">Upset Research</span>
+  </div>
+  <div class="anal-item">
+    <div class="anal-src">TENNIS ABSTRACT · 1 WEEK AGO</div>
+    <div class="anal-title">Break point conversion: skill or variance across 45,000 matches?</div>
+    <div class="anal-exc">Players converting 70%+ of break points win 57.5% of matches — regression analysis suggests half that edge is noise, not skill.</div>
+    <span class="anal-tag">Data Analysis</span>
+  </div>
+  <div class="anal-item">
+    <div class="anal-src">HEAVY TOPSPIN · 2 WEEKS AGO</div>
+    <div class="anal-title">Why Challenger form predicts Tour results better than ranking</div>
+    <div class="anal-exc">Surface-specific Challenger results predict Tour match outcomes 6.2% more accurately than ATP ranking in backtested data.</div>
+    <span class="anal-tag">Performance Modeling</span>
+  </div>
+
+  <!-- CLV Calculator -->
+  <div id="clv-calculator" style="border-top:1px solid var(--border);">
+    <div class="aside-head"><span>CLV Calculator</span><span style="color:var(--green)">Pro</span></div>
+    <div id="clv-content" style="padding:12px 16px;font-family:var(--mono);font-size:10px;color:var(--muted);">
+      Enter bookmaker odds above to calculate your edge.
+    </div>
+  </div>
+</div>
+</div>
 
 <script>
-const PRED_URL = 'https://thetennishq.com/predictions_today.json';
-
-// RSS feeds proxied through allorigins to avoid CORS
-const RSS_FEEDS = [
-  { url: "https://feeds.bbci.co.uk/sport/tennis/rss.xml", source: "BBC Sport" },
-  { url: "https://www.tennis365.com/feed/", source: "Tennis365" }
-];
-
-
-const PROXIES = ['https://api.rss2json.com/v1/api.json?rss_url=', 'https://corsproxy.io/?', 'https://api.allorigins.win/raw?url='];
-
-// ── UTILITIES ────────────────────────────────────────────────────────────────
-function timeAgo(date) {
-  const diff = (Date.now() - new Date(date)) / 1000;
-  if (diff < 3600) return Math.round(diff/60) + 'm ago';
-  if (diff < 86400) return Math.round(diff/3600) + 'h ago';
-  return Math.round(diff/86400) + 'd ago';
-}
-
-function stripHtml(html) {
-  const d = document.createElement('div');
-  d.innerHTML = html;
-  return d.textContent || '';
-}
-
-function truncate(str, n) {
-  if (!str) return '';
-  str = stripHtml(str);
-  return str.length > n ? str.slice(0, n) + '...' : str;
-}
-
-// ── RSS PARSER ─────────────────────────────────────────────────────────────
-async function fetchFeed(feed) {
-  // Try rss2json first (most reliable), then raw XML proxies
-  try {
-    const r1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
-    if (r1.ok) {
-      const j = await r1.json();
-      if (j.status === "ok" && j.items && j.items.length > 0) {
-        return j.items.slice(0,8).map(i => ({
-          title:  (i.title || "").trim(),
-          link:   i.link || "#",
-          desc:   (i.description || "").replace(/<[^>]+>/g,"").trim(),
-          date:   i.pubDate || "",
-          source: feed.source
-        })).filter(i => i.title.length > 10);
-      }
-    }
-  } catch(e) {}
-  // Fallback: corsproxy raw XML
-  try {
-    const r2 = await fetch(`https://corsproxy.io/?${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
-    if (r2.ok) {
-      const text = await r2.text();
-      const xml = new DOMParser().parseFromString(text, "text/xml");
-      if (!xml.querySelector("parsererror")) {
-        const items = [...xml.querySelectorAll("item")].slice(0,8);
-        if (items.length > 0) return items.map(item => ({
-          title:  item.querySelector("title")?.textContent?.trim() || "",
-          link:   item.querySelector("link")?.textContent?.trim() || "#",
-          desc:   (item.querySelector("description")?.textContent || "").replace(/<[^>]+>/g,"").trim(),
-          date:   item.querySelector("pubDate")?.textContent || "",
-          source: feed.source
-        })).filter(i => i.title.length > 10);
-      }
-    }
-  } catch(e) {}
-  return [];
-}
-
-function newsCardHTML(item, featured = false) {
-  const ago = item.date ? timeAgo(item.date) : '';
-  const excerpt = truncate(item.desc, featured ? 180 : 110);
-  return `
-    <a class="news-card ${featured ? 'featured' : ''}" href="${item.link}" target="_blank" rel="noopener">
-      ${featured ? `<div class="news-placeholder"><span class="news-placeholder-text">TENNIS</span></div>` : ''}
-      <div class="news-source"><span class="news-source-dot"></span>${item.source}</div>
-      <div class="news-title">${item.title}</div>
-      ${excerpt ? `<div class="news-excerpt">${excerpt}</div>` : ''}
-      ${ago ? `<div class="news-time">${ago}</div>` : ''}
-    </a>
-  `;
-}
-
-async function loadNews() {
-  const grid = document.getElementById("news-grid");
-  const moreGrid = document.getElementById("more-news-grid");
-
-  // Fetch all feeds with 12s global timeout
-  const results = await Promise.allSettled(
-    RSS_FEEDS.map(feed =>
-      Promise.race([
-        fetchFeed(feed),
-        new Promise((_,r) => setTimeout(() => r([]), 12000))
-      ]).catch(() => [])
-    )
-  );
-  const allItems = results.flatMap(r => Array.isArray(r.value) ? r.value : []);
-
-  // Deduplicate and sort by date
-  const seen = new Set();
-  const unique = allItems.filter(item => {
-    const key = item.title.slice(0,40).toLowerCase();
-    if (seen.has(key)) return false;
-    seen.add(key); return true;
-  }).sort((a,b) => new Date(b.date) - new Date(a.date));
-
-  // Fallback links if all proxies fail
-  const fallback = [
-    {title:"ATP Tour News — Match Reports & Player Stories", link:"https://www.atptour.com/en/news", source:"ATP Tour", desc:"The latest news, match reports and player interviews from the ATP Tour.", date:""},
-    {title:"WTA Tour News — Women's Tennis Updates", link:"https://www.wtatennis.com/news", source:"WTA Tour", desc:"Breaking news, results and player stories from women's professional tennis.", date:""},
-    {title:"BBC Sport Tennis — News & Results", link:"https://www.bbc.com/sport/tennis", source:"BBC Sport", desc:"Tennis coverage from BBC Sport including Grand Slams and tour events.", date:""},
-    {title:"Madrid Open — Draws, Results & Schedule", link:"https://www.mutua-madridopen.com/en", source:"Madrid Open", desc:"Everything from the Mutua Madrid Open including full draws and live scores.", date:""},
-    {title:"Tennis Majors — In-Depth Journalism", link:"https://www.tennismajors.com", source:"Tennis Majors", desc:"Deep-dive tennis journalism covering all the major events.", date:""},
-    {title:"ESPN Tennis — Scores, News & Analysis", link:"https://www.espn.com/tennis/", source:"ESPN", desc:"Tennis news, live scores and expert analysis from ESPN.", date:""}
-  ];
-
-  const items = unique.length >= 3 ? unique : fallback;
-  const top = items.slice(0,3);
-  const more = items.slice(3,6);
-
-  grid.innerHTML = newsCardHTML(top[0], true) +
-    (top[1] ? newsCardHTML(top[1]) : "") +
-    (top[2] ? newsCardHTML(top[2]) : "");
-  moreGrid.innerHTML = more.map(i => newsCardHTML(i)).join("");
-
-  // Ticker
-  const ticker = document.getElementById("ticker-track");
-  const ti = items.slice(0,8).map(i => `<span class="ticker-item">${i.source}: ${truncate(i.title,60)}</span>`).join("");
-  ticker.innerHTML = ti + ti;
-}
-function updateScoresFromPredictions(data) {
-  const scoresList = document.getElementById("scores-list");
-  if (!scoresList) return;
-  const rows = data.slice(0, 6).map(p => {
-    const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
-    const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
-    const favPct = Math.round(Math.max(p.p1_win, p.p2_win) * 100);
-    const tourn = (p.tournament || "").replace("Mutua Madrid Open - Madrid","Madrid Open");
-    return `
-      <div class="score-row">
-        <div>
-          <div class="score-players">${fav} vs ${dog}</div>
-          <div class="score-info">${(p.tour||"ATP").toUpperCase()} · ${p.surface||""} · ${tourn}</div>
-        </div>
-        <div>
-          <div class="score-result">${favPct}%</div>
-          <div class="score-status">Model pick</div>
-        </div>
-      </div>`;
-  }).join("");
-  scoresList.innerHTML = rows;
-}
-
-// ── UPSET ALERTS + DID YOU KNOW ─────────────────────────────────────────────
-
-function generateInsights(data) {
-  const upsets = [];
-  const insights = [];
-
-  data.forEach(function(m) {
-    const fav    = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
-    const dog    = m.p1_win > m.p2_win ? m.p2_name : m.p1_name;
-    const favW   = Math.max(m.p1_win, m.p2_win);
-    const dogW   = Math.min(m.p1_win, m.p2_win);
-    const favP1  = m.p1_win > m.p2_win;
-    const favStreak  = favP1 ? (m.p1_streak||0) : (m.p2_streak||0);
-    const dogStreak  = favP1 ? (m.p2_streak||0) : (m.p1_streak||0);
-    const favFat     = favP1 ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
-    const dogFat     = favP1 ? (m.p2_fatigue||0) : (m.p1_fatigue||0);
-    const favServe   = favP1 ? (m.p1_serve_won||0) : (m.p2_serve_won||0);
-    const dogServe   = favP1 ? (m.p2_serve_won||0) : (m.p1_serve_won||0);
-    const favWR      = favP1 ? (m.p1_win_rate||0) : (m.p2_win_rate||0);
-    const dogWR      = favP1 ? (m.p2_win_rate||0) : (m.p1_win_rate||0);
-    const surf       = m.surface||"hard";
-    const tourn      = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(/ - .*/,"");
-    const favLast    = fav.split(" ").pop();
-    const dogLast    = dog.split(" ").pop();
-    const favPct     = Math.round(favW*100);
-    const dogPct     = Math.round(dogW*100);
-
-    // ── UPSET ALERT CONDITIONS ──────────────────────────────────────────
-    const reasons = [];
-
-    // Fatigue disadvantage for favourite
-    if (favFat >= 3 && dogFat <= 1)
-      reasons.push(`${favLast} has played ${favFat}+ matches recently and may be fatigued`);
-
-    // Underdog on a hot streak
-    if (dogStreak >= 3)
-      reasons.push(`${dogLast} has won ${dogStreak} straight`);
-
-    // H2H favours underdog on this surface
-    if (m.h2h_surf && !m.h2h_surf.startsWith("0-0")) {
-      const parts = m.h2h_surf.split("-");
-      const h2hFavWins = parseInt(parts[0]);
-      const h2hDogWins = parseInt(parts[1]);
-      if (h2hDogWins > h2hFavWins)
-        reasons.push(`${dogLast} leads the H2H on ${surf} ${h2hDogWins}-${h2hFavWins}`);
-    }
-
-    // Underdog serves better
-    if (dogServe > favServe + 5)
-      reasons.push(`${dogLast}'s serve win rate (${dogServe}%) exceeds ${favLast}'s (${favServe}%) on ${surf}`);
-
-    // Underdog has higher win rate
-    if (dogWR > favWR + 8)
-      reasons.push(`${dogLast}'s recent win rate (${dogWR}%) outpaces ${favLast}'s (${favWR}%)`);
-
-    // Model says close but one player has edge
-    if (favW < 0.68 && dogStreak >= 2)
-      reasons.push(`At ${dogPct}%, ${dogLast} has real winning chances with strong recent form`);
-
-    if (reasons.length >= 2 && favW >= 0.60 && favW <= 0.88) {
-      upsets.push({ match: m, fav, dog, favPct, dogPct, reasons, tourn, surf });
-    }
-
-    // ── DID YOU KNOW INSIGHTS ───────────────────────────────────────────
-    // Long winning streak
-    if (Math.abs(m.p1_streak||0) >= 5)
-      insights.push(`${m.p1_name.split(" ").pop()} has won ${m.p1_streak} matches in a row heading into today.`);
-    if (Math.abs(m.p2_streak||0) >= 5)
-      insights.push(`${m.p2_name.split(" ").pop()} has won ${m.p2_streak} matches in a row heading into today.`);
-
-    // Heavy fatigue
-    if ((m.p1_fatigue||0) >= 4)
-      insights.push(`${m.p1_name.split(" ").pop()} is playing their ${m.p1_fatigue}th match in a short window — fatigue is a real factor.`);
-    if ((m.p2_fatigue||0) >= 4)
-      insights.push(`${m.p2_name.split(" ").pop()} is playing their ${m.p2_fatigue}th match in a short window — fatigue is a real factor.`);
-
-    // Dominant H2H
-    if (m.h2h_surf && !m.h2h_surf.startsWith("0-0") && !m.h2h_surf.startsWith("1-0") && !m.h2h_surf.startsWith("0-1")) {
-      const favLead = m.h2h_surf.split(" ")[0];
-      insights.push(`The ${surf} H2H between ${favLast} and ${dogLast} stands at ${favLead} — history is on ${favLast}'s side.`);
-    }
-
-    // Massive favourite
-    if (favW >= 0.92)
-      insights.push(`The model gives ${favLast} a ${favPct}% chance — one of the most lopsided matchups on today's card.`);
-
-    // Serve dominance
-    if (m.p1_serve_won && m.p2_serve_won && Math.abs(m.p1_serve_won - m.p2_serve_won) >= 10) {
-      const bigServer = m.p1_serve_won > m.p2_serve_won ? m.p1_name : m.p2_name;
-      const bigPct    = Math.max(m.p1_serve_won, m.p2_serve_won);
-      insights.push(`${bigServer.split(" ").pop()} wins ${bigPct}% of points on serve — a significant weapon on ${surf}.`);
-    }
-  });
-
-  // Render upset alerts
-  const upsetEl = document.getElementById("upset-alerts");
-  if (upsets.length > 0) {
-    const topUpsets = upsets.slice(0, 3);
-    upsetEl.innerHTML = `
-      <div style="margin-bottom:2px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;
-          color:var(--clay);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:2px">
-          ⚡ Upset Alerts — ${topUpsets.length} match${topUpsets.length>1?"es":""} to watch
-        </div>
-        ${topUpsets.map(u => `
-          <div style="background:rgba(193,58,15,0.08);border:1px solid rgba(193,58,15,0.2);
-            padding:1rem;margin-bottom:2px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px">
-              <div>
-                <span style="font-size:13px;font-weight:500">${u.dog}</span>
-                <span style="font-size:11px;color:rgba(255,255,255,0.3)"> vs ${u.fav}</span>
-              </div>
-              <div style="display:flex;gap:8px;align-items:center">
-                <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--clay)">${u.dogPct}%</span>
-                <span style="font-size:10px;color:rgba(255,255,255,0.3)">${u.tourn}</span>
-              </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:4px">
-              ${u.reasons.map(r => `
-                <div style="font-size:11px;color:rgba(255,255,255,0.5);display:flex;gap:6px;align-items:flex-start">
-                  <span style="color:var(--clay);flex-shrink:0">→</span>
-                  <span>${r}</span>
-                </div>`,
-              ).join("")}
-            </div>
-          </div>`,
-        ).join("")}
-      </div>`;
-  }
-
-  // Render Did You Know — loads from insights.json
-  const dykEl = document.getElementById("dyk-section");
-  fetch("/insights.json?t=" + new Date().toDateString())
-    .then(r => r.json())
-    .then(library => {
-      // Seed random by date so same 4 show all day
-      const seed = new Date().toDateString().split("").reduce((a,c) => a+c.charCodeAt(0), 0);
-      const shuffled = library.slice().sort((a,b) => {
-        const ra = Math.sin(seed + library.indexOf(a)) * 10000;
-        const rb = Math.sin(seed + library.indexOf(b)) * 10000;
-        return (ra - Math.floor(ra)) - (rb - Math.floor(rb));
-      });
-      const picks = shuffled.slice(0, 4);
-      dykEl.innerHTML = `
-        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);padding:1.25rem;margin-bottom:2px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,0.3)">
-              📊 Did You Know — From 110,000+ Matches
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-            ${picks.map(ins => `
-              <div style="display:flex;gap:10px;align-items:flex-start;
-                padding:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)">
-                <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;
-                  color:var(--acid);line-height:1;flex-shrink:0;min-width:48px;text-align:center">
-                  ${ins.stat}
-                </div>
-                <div>
-                  <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:4px">
-                    ${ins.insight}
-                  </div>
-                  <div style="font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:1px;font-family:'Bebas Neue',sans-serif">
-                    Based on ${ins.source}
-                  </div>
-                </div>
-              </div>`
-            ).join("")}
-          </div>
-        </div>`;
-      document.getElementById("insights-section").style.display = "block";
-    })
-    .catch(() => {
-      // Fallback if JSON fails
-      if (insights.length > 0) {
-        dykEl.innerHTML = `<div style="padding:1rem;font-size:12px;color:rgba(255,255,255,0.3)">${insights[0]}</div>`;
-      }
-    });
-
-  // Show section if any content
-  if (upsets.length > 0) {
-    document.getElementById("insights-section").style.display = "block";
-  }
-}
-
-async function loadPredictions() {
-  const grid    = document.getElementById("pred-grid");
-  const countEl = document.getElementById("pred-count");
-  const totalEl = document.getElementById("total-pred-count");
-  try {
-    const r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    const data = await r.json();
-    if (!data || data.length === 0) throw new Error("No predictions");
-    countEl.textContent = data.length;
-    totalEl.textContent = data.length;
-    const sorted = [...data]
-      .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
-      .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
-    updateScoresFromPredictions(data);
-    const tier   = getUserTier();
-    // For free users pick the most visually interesting match (has streak data)
-    const featured = sorted.find(p => Math.abs(p.p1_streak||0) + Math.abs(p.p2_streak||0) >= 2) || sorted[0];
-    const rest     = sorted.filter(p => p !== featured);
-    const free     = hasAccess("starter") ? sorted : [featured];
-    const locked   = hasAccess("starter") ? [] : rest.slice(0,6);
-    // Render free cards first (no summary yet)
-    grid.innerHTML = [
-      ...free.map((p,i) => predCardHTML(p, false, null, i===0)),
-      ...locked.map(p => predCardHTML(p, true, null, false))
-    ].join("");
-    setTimeout(() => {
-      document.querySelectorAll(".pred-bar-fill[data-width]").forEach(bar => {
-        bar.style.width = bar.dataset.width + "%";
-      });
-    }, 100);
-    // Generate AI summary for the first free card only
-    if (free.length > 0) {
-      const topMatch = free[0];
-      const summary  = getMatchSummary(topMatch);
-      const firstCard = grid.querySelector(".pred-card-featured");
-      if (firstCard) {
-        const summaryEl = firstCard.querySelector(".pred-summary");
-        if (summaryEl) summaryEl.innerHTML = formatSummary(summary);
-      }
-    }
-  } catch(e) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;
-      color:rgba(255,255,255,0.2);font-size:13px">
-      Predictions refresh daily at 7am. Check back soon.</div>`;
-  }
-}
-
-function formDots(streak) {
-  const n   = Math.min(Math.abs(streak || 0), 5);
-  const win = (streak || 0) > 0;
-  const dots = [];
-  for (let i = 0; i < 5; i++) {
-    if (i < n) dots.push(win ? "w" : "l");
-    else dots.push("n");
-  }
-  const colors = {
-    w: "background:#4ade80",
-    l: "background:#f87171",
-    n: "background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2)"
-  };
-  return dots.map(d => `<div style="width:8px;height:8px;border-radius:50%;display:inline-block;${colors[d]}"></div>`).join("");
-}
-
-function getMatchSummary(m) {
-  const fav = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
-  const dog = m.p1_win > m.p2_win ? m.p2_name : m.p1_name;
-  const favProb = Math.round(Math.max(m.p1_win, m.p2_win)*100);
-  const favStreak = m.p1_win > m.p2_win ? (m.p1_streak||0) : (m.p2_streak||0);
-  const dogStreak = m.p1_win > m.p2_win ? (m.p2_streak||0) : (m.p1_streak||0);
-  const favFatigue = m.p1_win > m.p2_win ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
-  const eloAdv = Math.abs(m.elo_diff||0);
-  const surf = m.surface==="clay" ? "clay" : m.surface==="grass" ? "grass" : "hard courts";
-  const tourn = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(/ - .*/,"");
-
-  const favLast = fav.split(" ").pop();
-  const dogLast = dog.split(" ").pop();
-
-  const edgeStr = favProb > 80 ? `a significant advantage over ${dogLast}` :
-                  favProb > 65 ? `a moderate edge over ${dogLast}` :
-                                 `a closely contested matchup with ${dogLast}`;
-
-  const favFormStr = favStreak > 2  ? "riding a strong run of form" :
-                     favStreak < -1 ? "looking to bounce back after a difficult stretch" :
-                                      "in steady shape heading into this match";
-
-  const dogFormStr = dogStreak > 2  ? `${dogLast} arrives in strong form and cannot be taken lightly` :
-                     dogStreak < -1 ? `${dogLast} will need to rediscover some consistency` :
-                                      `${dogLast} comes in with something to prove`;
-
-  const h2hStr = m.h2h_surf && !m.h2h_surf.startsWith("0-0") ?
-    `The head-to-head on ${surf} gives ${favLast} added confidence.` :
-    `With no prior meetings on ${surf}, this is an open question.`;
-
-  const freshStr = favFatigue > 3 ? `, though a heavy recent schedule may be a factor` :
-                   favFatigue > 1 ? `` : `, arriving fresh`;
-
-  return `${favLast} carries ${edgeStr} on ${surf} and is ${favFormStr}${freshStr}. ${dogFormStr} — our model gives ${favLast} a ${favProb}% chance today.`;
-}
-
-function statBar(label, v1, v2, unit, blurred) {
-  if (v1==null||v2==null) return "";
-  const max = Math.max(v1, v2, 1);
-  const w1  = Math.round(v1/max*100);
-  const w2  = Math.round(v2/max*100);
-  const win1 = v1 >= v2;
-  const c1 = win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
-  const c2 = !win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
-  const val1 = blurred ? `<span style="filter:blur(4px);user-select:none">${v1}${unit}</span>` : `${v1}${unit}`;
-  const val2 = blurred ? `<span style="filter:blur(4px);user-select:none">${v2}${unit}</span>` : `${v2}${unit}`;
-  return `
-    <div style="margin-bottom:8px">
-      <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">
-        <span>${label}</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
-        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end">
-          <span style="font-size:11px;color:${c1};font-weight:500">${val1}</span>
-          <div style="height:6px;width:${w1}%;background:${c1};border-radius:2px;max-width:100%"></div>
-        </div>
-        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
-        <div style="display:flex;align-items:center;gap:6px">
-          <div style="height:6px;width:${w2}%;background:${c2};border-radius:2px;max-width:100%"></div>
-          <span style="font-size:11px;color:${c2};font-weight:500">${val2}</span>
-        </div>
-      </div>
-    </div>`;
-}
-
-function fatigueBar(v1, v2) {
-  const dots = n => Array.from({length:5}, (_,i) =>
-    `<div style="width:6px;height:6px;border-radius:50%;background:${i<n?"#f87171":"rgba(255,255,255,0.1)"}"></div>`
-  ).join("");
-  return `
-    <div style="margin-bottom:8px">
-      <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Match Load</div>
-      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
-        <div style="display:flex;gap:3px;justify-content:flex-end">${dots(Math.min(v1||0,5))}</div>
-        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
-        <div style="display:flex;gap:3px">${dots(Math.min(v2||0,5))}</div>
-      </div>
-    </div>`;
-}
-
-function formatSummary(summary) {
-  if (!summary) return "";
-  const sentences = summary.match(/[^.!?]+[.!?]+/g) || [summary];
-  const first = sentences[0] || "";
-  const rest  = sentences.slice(1).join(" ");
-  if (!rest) return first;
-  if (hasAccess("pro")) return first + " " + rest;
-  return first +
-    `<span style="filter:blur(4px);user-select:none;pointer-events:none"> ${rest}</span>` +
-    `<div style="margin-top:6px"><a href="#pricing" style="font-size:10px;color:var(--acid);
-    text-decoration:none;letter-spacing:1px;font-family:'Bebas Neue',sans-serif;
-    border:1px solid rgba(200,240,0,0.2);padding:3px 10px">Unlock full analysis — Pro</a></div>`;
-}
-
-function predCardHTML(p, locked, summary, featured) {
-  const tour  = (p.tour||"atp").toLowerCase();
-  const pct1  = Math.round((p.p1_win||0.5)*100);
-  const pct2  = 100-pct1;
-  const fav   = p.p1_win>p.p2_win ? p.p1_name : p.p2_name;
-  const dog   = p.p1_win>p.p2_win ? p.p2_name : p.p1_name;
-  const favPct= Math.max(pct1,pct2);
-  const dogPct= Math.min(pct1,pct2);
-  const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
-  const surfIcon = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
-  const fairOdds = p.p1_win>p.p2_win ? p.fair_p1 : p.fair_p2;
-  const isFavP1  = p.p1_win>p.p2_win;
-
-  // Reorder stats so favourite is always on left
-  const sv_in1  = isFavP1 ? p.p1_serve_in  : p.p2_serve_in;
-  const sv_in2  = isFavP1 ? p.p2_serve_in  : p.p1_serve_in;
-  const sv_won1 = isFavP1 ? p.p1_serve_won : p.p2_serve_won;
-  const sv_won2 = isFavP1 ? p.p2_serve_won : p.p1_serve_won;
-  const wr1     = isFavP1 ? p.p1_win_rate  : p.p2_win_rate;
-  const wr2     = isFavP1 ? p.p2_win_rate  : p.p1_win_rate;
-  const fat1    = isFavP1 ? p.p1_fatigue   : p.p2_fatigue;
-  const fat2    = isFavP1 ? p.p2_fatigue   : p.p1_fatigue;
-
-  const hasStats = p.p1_serve_in != null;
-  const blurStats = !hasAccess("starter");
-
-  const sharpBreakdown = hasAccess("sharp") && !locked && hasStats ? `
-    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
-      <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent.includes('▼')?'▲ Sharp Breakdown':'▼ Sharp Breakdown'"
-        style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);background:none;border:none;cursor:pointer;padding:0;width:100%;text-align:left">
-        ▼ Sharp Breakdown
-      </button>
-      <div style="display:none;margin-top:8px">
-        <div style="display:grid;grid-template-columns:1fr 42px 42px;gap:4px;font-size:10px;overflow:hidden">
-          <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
-          <span style="color:rgba(255,255,255,0.3)">1st Serve Won</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_serve_won}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_won}%</span>
-          <span style="color:rgba(255,255,255,0.3)">2nd Serve Won</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_second_won}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_second_won}%</span>
-          <span style="color:rgba(255,255,255,0.3)">BP Conv</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_bp_conv}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_bp_conv}%</span>
-          <span style="color:rgba(255,255,255,0.3)">Win Rate</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_win_rate}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_win_rate}%</span>
-          <span style="color:rgba(255,255,255,0.3)">Elo</span>
-          <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
-        </div>
-        <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.06);font-size:12px;line-height:1.6;color:rgba(255,255,255,0.5)">${getMatchSummary(p)}</div>
-      </div>
-    </div>` : "";
-
-  if (locked) return `
-    <div class="pred-card" style="position:relative;overflow:hidden;min-height:180px">
-      <div class="pred-tour ${tour}">${tour.toUpperCase()}</div>
-      <div class="pred-tourn">${tourn}</div>
-      <div class="pred-matchup">
-        <span class="pred-player">${p.p1_name||"—"}</span>
-        <span class="pred-vs">vs</span>
-        <span class="pred-player right">${p.p2_name||"—"}</span>
-      </div>
-      <div style="filter:blur(7px);user-select:none;pointer-events:none">
-        <div class="pred-bar-row">
-          <span class="pred-pct">??%</span>
-          <div class="pred-bar-track"><div class="pred-bar-fill" style="width:50%"></div></div>
-          <span class="pred-pct right">??%</span>
-        </div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:6px">Analysis available on upgrade</div>
-      </div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:12px;
-        background:linear-gradient(to bottom,transparent,rgba(10,10,10,0.97));
-        display:flex;flex-direction:column;align-items:center;gap:6px">
-        <div style="font-size:10px;color:rgba(255,255,255,0.35)">Model pick · Fair odds · CLV edge</div>
-        <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:12px;
-          letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.25);
-          padding:5px 18px;text-decoration:none">Unlock Pro — $9.99/mo</a>
-      </div>
-    </div>`;
-
-  return `
-    <div class="pred-card ${featured?"pred-card-featured":""}">
-      <div class="pred-tour ${tour}">${tour.toUpperCase()} ${surfIcon}</div>
-      <div class="pred-tourn">${tourn}</div>
-
-      <!-- Player headers -->
-      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:12px">
-        <div>
-          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.9)">${fav}</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--acid);line-height:1">${favPct}%</div>
-        </div>
-        <div style="text-align:center;font-size:10px;color:rgba(255,255,255,0.3);padding:0 4px">vs</div>
-        <div style="text-align:right">
-          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.5)">${dog}</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(255,255,255,0.3);line-height:1">${dogPct}%</div>
-        </div>
-      </div>
-
-      <!-- Probability bar -->
-      <div class="pred-bar-track" style="width:100%;margin-bottom:14px">
-        <div class="pred-bar-fill" data-width="${favPct}" style="width:0%"></div>
-      </div>
-
-      <!-- Stat bars -->
-      ${hasStats ? `
-      <div style="margin-bottom:4px">
-        <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;margin-bottom:6px">
-          <div style="font-size:10px;font-weight:500;color:var(--acid);text-align:right">${fav.split(" ").pop()}</div>
-          <div></div>
-          <div style="font-size:10px;color:rgba(255,255,255,0.35)">${dog.split(" ").pop()}</div>
-        </div>
-        ${statBar("1st Serve %", sv_in1, sv_in2, "%", blurStats)}
-        ${statBar("Serve Won %", sv_won1, sv_won2, "%", blurStats)}
-        ${statBar("Win Rate", wr1, wr2, "%", blurStats)}
-        ${fatigueBar(fat1, fat2)}
-      </div>
-      ${blurStats ? `<div style="text-align:center;margin-bottom:10px">
-        <a href="#pricing" style="font-size:11px;color:var(--acid);text-decoration:none;
-          border:1px solid rgba(200,240,0,0.2);padding:4px 14px;font-family:'Bebas Neue',sans-serif;
-          letter-spacing:1px">Unlock full stats — Starter $9.99/mo</a>
-      </div>` : ""}` : ""}
-
-      <!-- H2H and summary -->
-      <div class="pred-detail" style="margin-bottom:8px">
-        H2H: ${p.h2h_surf||p.h2h_record||"0-0"} · Fair: ${fairOdds||"—"}
-      </div>
-      ${sharpBreakdown}
-    </div>`;
-  const rows = data.slice(0, 6).map(p => {
-    const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
-    const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
-    const favPct = Math.round(Math.max(p.p1_win, p.p2_win) * 100);
-    const tourn = (p.tournament || '').replace('Mutua Madrid Open - Madrid','Madrid Open');
-    return `
-      <div class="score-row">
-        <div>
-          <div class="score-players">${fav} vs ${dog}</div>
-          <div class="score-info">${p.tour?.toUpperCase() || 'ATP'} · ${p.surface || ''} · ${tourn}</div>
-        </div>
-        <div>
-          <div class="score-result">${favPct}%</div>
-          <div class="score-status">Model pick</div>
-        </div>
-      </div>`;
-  }).join('');
-
-  scoresList.innerHTML = rows;
-}
-
-// ── CLV CALCULATOR ──────────────────────────────────────────────────────────
-let clvData = [];
-
-function renderCLV() {
-  const content = document.getElementById("clv-content");
-  const badge   = document.getElementById("clv-tier-badge");
-  const tier    = getUserTier();
-
-  if (!hasAccess("pro")) {
-    // Show locked teaser for Free/Starter
-    badge.textContent = "Pro feature";
-    content.innerHTML = `
-      <div style="position:relative;padding:1.5rem;background:rgba(255,255,255,0.02)">
-        <div style="filter:blur(5px);pointer-events:none;user-select:none">
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-bottom:8px;font-size:10px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px">
-            <span>Match</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
-          </div>
-          ${[1,2,3].map(()=>`
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:center">
-            <span style="font-size:13px;color:rgba(255,255,255,0.6)">Player A vs Player B</span>
-            <span style="font-family:'Bebas Neue',sans-serif;color:var(--acid)">65%</span>
-            <input style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:white;padding:5px 8px;width:70px;font-size:13px" value="2.10" disabled>
-            <span style="font-family:'Bebas Neue',sans-serif;color:#4ade80">+12pp ✓</span>
-          </div>`).join("")}
-        </div>
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(10,10,10,0.7);backdrop-filter:blur(2px)">
-          <div style="font-size:12px;color:rgba(255,255,255,0.4)">CLV Calculator — Pro & Sharp only</div>
-          <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:7px 20px;text-decoration:none">Upgrade to Pro →</a>
-        </div>
-      </div>`;
-    return;
-  }
-
-  // Pro/Sharp — full calculator
-  badge.textContent = "tennisIQ " + tier.charAt(0).toUpperCase() + tier.slice(1);
-
-  if (!clvData.length) {
-    content.innerHTML = `<div style="color:rgba(255,255,255,0.3);font-size:13px;padding:1rem 0">Loading matches...</div>`;
-    return;
-  }
-
-  // Show top 10 most decisive matches
-  const matches = clvData
-    .filter(p => !p.p1_name.includes("/"))
-    .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5))
-    .slice(0,10);
-
-  content.innerHTML = `
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;margin-bottom:8px;
-      font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;padding:0 4px">
-      <span>Match</span><span>Surface</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
-    </div>
-    ${matches.map((p,idx) => {
-      const prob = Math.round(Math.max(p.p1_win, p.p2_win)*100);
-      const fav  = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
-      const dog  = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
-      const fairOdds = p.p1_win > p.p2_win ? p.fair_p1 : p.fair_p2;
-      const surf = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
-      return `
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;
-        padding:10px 4px;border-bottom:1px solid rgba(255,255,255,0.05);align-items:center">
-        <div>
-          <div style="font-size:12px;font-weight:500;color:rgba(255,255,255,0.85)">${fav}</div>
-          <div style="font-size:10px;color:rgba(255,255,255,0.3)">vs ${dog}</div>
-        </div>
-        <span style="font-size:12px;color:rgba(255,255,255,0.4)">${surf} ${p.surface}</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--acid)">${prob}%
-          <span style="font-size:10px;color:rgba(255,255,255,0.3)"> (${fairOdds})</span>
-        </span>
-        <input type="number" step="0.05" min="1.01" value="${fairOdds}"
-          id="clv-input-${idx}"
-          onchange="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
-          oninput="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
-          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
-          color:white;padding:6px 8px;width:75px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none">
-        <div id="clv-result-${idx}" style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:rgba(255,255,255,0.3)">—</div>
-      </div>`;
-    }).join("")}
-    <div style="margin-top:1rem;font-size:11px;color:rgba(255,255,255,0.2);line-height:1.6">
-      Edge = model probability minus implied probability from your odds (after removing vig).
-      Green = value bet. Red = avoid. Target CLV &gt; 5pp for positive expected value.
-    </div>`;
-}
-
-function calcCLVRow(idx, modelProb) {
-  const input = document.getElementById("clv-input-"+idx);
-  const result = document.getElementById("clv-result-"+idx);
-  const odds = parseFloat(input.value);
-  if (!odds || odds < 1.01) { result.textContent = "—"; result.style.color = "rgba(255,255,255,0.3)"; return; }
-  // Remove vig estimate (assume ~5% margin)
-  const impliedProb = (1/odds) / 1.05;
-  const edge = ((modelProb - impliedProb) * 100);
-  const edgeRound = edge.toFixed(1);
-  const sign = edge > 0 ? "+" : "";
-  result.textContent = sign + edgeRound + "pp " + (edge >= 5 ? "✓" : edge >= 0 ? "~" : "✗");
-  result.style.color = edge >= 5 ? "#4ade80" : edge >= 0 ? "rgba(255,255,255,0.5)" : "#f87171";
-}
-
-async function loadCLV() {
-  try {
-    const r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error();
-    clvData = await r.json();
-    renderCLV();
-  } catch(e) { renderCLV(); }
-}
-
-// ── INIT ────────────────────────────────────────────────────────────────────
-
-// ── SCHEDULE ────────────────────────────────────────────────────────────────
-let scheduleData = [];
-let currentTour = "all";
-
-function filterSchedule(tour) {
-  currentTour = tour;
-  ["all","atp","wta"].forEach(t => {
-    const btn = document.getElementById("tab-"+t);
-    btn.style.background = t===tour ? "var(--black)" : "var(--warm)";
-    btn.style.color      = t===tour ? "var(--acid)"  : "var(--muted)";
-  });
-  renderSchedule();
-}
-
-function cleanTournName(t) {
-  return t.replace("Mutua Madrid Open - Madrid","Madrid Open")
-          .replace(" - "," · ").replace("Challenger","Chal.");
-}
-
-function surfaceIcon(s) {
-  return s==="clay" ? "🟤" : s==="grass" ? "🟢" : "🔵";
-}
-
-function renderSchedule() {
-  const grid = document.getElementById("schedule-grid");
-  if (!scheduleData.length) return;
-
-  // Get unique tournaments
-  const tournMap = {};
-  scheduleData.forEach(p => {
-    if (currentTour !== "all" && p.tour !== currentTour) return;
-    if (!tournMap[p.tournament]) {
-      tournMap[p.tournament] = {
-        name: p.tournament,
-        surface: p.surface,
-        tour: p.tour,
-        count: 0
-      };
-    }
-    tournMap[p.tournament].count++;
-  });
-
-  const tourneys = Object.values(tournMap).sort((a,b) => {
-    if (a.name.includes("Madrid")) return -1;
-    if (b.name.includes("Madrid")) return 1;
-    const tierA = a.name.includes("Open")||a.name.includes("Masters") ? 2 : a.name.includes("100")||a.name.includes("75") ? 1 : 0;
-    const tierB = b.name.includes("Open")||b.name.includes("Masters") ? 2 : b.name.includes("100")||b.name.includes("75") ? 1 : 0;
-    return tierB - tierA;
-  });
-
-  if (!tourneys.length) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">No tournaments found.</div>`;
-    return;
-  }
-
-  grid.innerHTML = tourneys.map(t => {
-    const tourColor  = t.tour==="atp" ? "#c13a0f" : "#a78bfa";
-    const surfIcon   = t.surface==="clay" ? "🟤 Clay" : t.surface==="grass" ? "🟢 Grass" : "🔵 Hard";
-    const cleanName  = t.name
-      .replace("Mutua Madrid Open - Madrid","Madrid Open")
-      .replace(" - "," · ")
-      .replace("Challenger","Challenger");
-    const tier = t.name.includes("Open")||t.name.includes("Masters") ? "Masters / 1000" :
-                 t.name.includes("500") ? "ATP 500 / WTA 500" :
-                 t.name.includes("250") ? "ATP 250 / WTA 250" :
-                 t.name.match(/W100|W75/) ? "WTA 100 / 75" :
-                 t.name.includes("Challenger") ? "Challenger" : "ITF";
-    return `
-      <div style="background:var(--card-bg);padding:1.5rem;border-bottom:3px solid ${tourColor}">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${tourColor};margin-bottom:6px">${t.tour.toUpperCase()} · ${tier}</div>
-        <div style="font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:8px;line-height:1.2">${cleanName}</div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <span style="font-size:12px;color:var(--muted)">${surfIcon}</span>
-          <span style="font-size:12px;color:var(--muted)">📅 This week</span>
-          <span style="font-size:12px;color:var(--muted)">${t.count} matches in model</span>
-        </div>
-      </div>`;
-  }).join("");
-}
-
-async function loadSchedule() {
-  try {
-    const r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error("HTTP "+r.status);
-    scheduleData = await r.json();
-    document.getElementById("schedule-updated").textContent = "Updated " + (scheduleData[0]?.generated || "today");
-    renderSchedule();
-  } catch(e) {
-    document.getElementById("schedule-grid").innerHTML=`<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">Schedule unavailable.</div>`;
-  }
-}
-
-// ── TIER ACCESS ─────────────────────────────────────────────────────────────
-function getUserTier() {
-  return localStorage.getItem("tiq_tier") || "free";
-}
-
-function getTierLevel(tier) {
-  const levels = {free:0, starter:1, pro:2, sharp:3};
-  return levels[tier] || 0;
-}
-
-function hasAccess(requiredTier) {
-  return getTierLevel(getUserTier()) >= getTierLevel(requiredTier);
-}
+// ── CONSTANTS ──────────────────────────────────────────────────────────────────
+var PRED_URL = 'https://thetennishq.com/predictions_today.json';
+var RESULTS_URL = 'https://thetennishq.com/results.json';
+var API_URL = 'https://tennishq-api.vercel.app';
+var FLAG_URL = 'https://flagcdn.com/20x15/';
+var TIER_PRICES = { pro: 'PRICE_PRO_PLACEHOLDER', sharp: 'PRICE_SHARP_PLACEHOLDER' };
+
+// ── TIER SYSTEM ────────────────────────────────────────────────────────────────
+function getUserTier() { return localStorage.getItem('tiq_tier') || 'free'; }
+function getTierLevel(t) { return {free:0,starter:1,pro:1,sharp:2}[t]||0; }
+function hasAccess(required) { return getTierLevel(getUserTier()) >= getTierLevel(required); }
 
 function updateNavForTier() {
-  const tier = getUserTier();
-  if (tier === "free") return;
-  const tierName = tier.charAt(0).toUpperCase() + tier.slice(1);
-  // Add tier badge to nav
-  const nav = document.querySelector("nav");
-  const badge = document.createElement("div");
-  badge.style.cssText = "font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:3px 10px;";
-  badge.textContent = "tennisIQ " + tierName;
-  nav.appendChild(badge);
-}
-
-// ── RESULTS TRACKER ─────────────────────────────────────────────────────────
-const RESULTS_URL = "https://thetennishq.com/results.json";
-
-async function loadResults() {
-  try {
-    const r = await fetch(RESULTS_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error();
-    const d = await r.json();
-
-    document.getElementById("res-accuracy").textContent = d.accuracy_label || "Building...";
-    document.getElementById("res-resolved").textContent = d.week_resolved || 0;
-    document.getElementById("res-predicted").textContent = d.total_predicted || 0;
-    document.getElementById("results-updated").textContent = "Updated " + (d.last_updated || "");
-
-    const grid = document.getElementById("results-grid");
-    const recent = d.recent_results;
-
-    if (!recent || recent.length === 0) {
-      grid.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">
-        No resolved results yet — check back after today's matches complete.</div>`;
-      return;
-    }
-
-    grid.innerHTML = [...recent].reverse().map(m => {
-      const pick    = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
-      const correct = m.correct;
-      const prob    = Math.round(Math.max(m.p1_win, m.p2_win)*100);
-      const surf    = m.surface==="clay" ? "🟤" : m.surface==="grass" ? "🟢" : "🔵";
-      const tourn   = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
-      const date    = m.pred_date || "";
-      return `
-        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;
-          padding:12px 16px;border-bottom:1px solid var(--border);
-          background:var(--card-bg);align-items:center">
-          <div>
-            <div style="font-size:12px;font-weight:500;margin-bottom:3px">
-              <span style="color:${correct?"#4ade80":"#f87171"}">${correct?"✓":"✗"}</span>
-              ${m.p1_name} vs ${m.p2_name}
-            </div>
-            <div style="font-size:10px;color:var(--muted)">
-              ${surf} ${tourn} · Pick: <strong>${pick}</strong> @ ${prob}% · Result: <strong>${m.result}</strong> · ${date}
-            </div>
-          </div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;
-            color:${correct?"#4ade80":"#f87171"};letter-spacing:1px">
-            ${correct?"WIN":"LOSS"}
-          </div>
-        </div>`;
-    }).join("");
-  } catch(e) {
-    document.getElementById("results-grid").innerHTML =
-      `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">Results unavailable.</div>`;
+  var tier = getUserTier();
+  var badge = document.getElementById('nav-tier-badge');
+  var btn = document.getElementById('nav-upgrade-btn');
+  if (tier !== 'free') {
+    badge.textContent = 'tennisIQ ' + tier.charAt(0).toUpperCase() + tier.slice(1);
+    badge.style.display = 'block';
+    btn.style.display = 'none';
+  } else {
+    badge.style.display = 'none';
+    btn.style.display = 'block';
   }
 }
-// tennisiq page init
-loadPredictions();
 
-
-
-
-// ── STRIPE CHECKOUT ─────────────────────────────────────────────────────────
-const API_URL = "https://tennishq-api.vercel.app";
-
-const TIER_PRICES = {
-  starter: "price_1TRkNMIlZjEq8tdhHfocPXkU",
-  pro:     "price_1TRkNyIlZjEq8tdh0e4glWta",
-  sharp:   "price_1TRkOTIlZjEq8tdhXNSagsdn"
-};
-
+// ── CHECKOUT ──────────────────────────────────────────────────────────────────
 async function startCheckout(tier) {
-  const btn = event.target;
-  const originalText = btn.textContent;
-  btn.textContent = "Loading...";
-  btn.disabled = true;
-
   try {
-    const r = await fetch(API_URL + "/api/create-checkout", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ priceId: TIER_PRICES[tier], tier })
+    var res = await fetch(API_URL + '/api/create-checkout', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({tier: tier, returnUrl: window.location.href})
     });
-    const data = await r.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert("Error: " + (data.error || "Could not start checkout"));
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }
-  } catch(e) {
-    alert("Connection error. Please try again.");
-    btn.textContent = originalText;
-    btn.disabled = false;
+    var data = await res.json();
+    if (data.url) window.location.href = data.url;
+    else alert('Unable to start checkout. Please try again.');
+  } catch(e) { alert('Unable to connect. Please try again.'); }
+}
+
+// ── HELPER FUNCTIONS ──────────────────────────────────────────────────────────
+function flagImg(code, cls) {
+  if (!code) return '';
+  return '<img class="'+(cls||'pred-flag')+'" src="'+FLAG_URL+code+'.png" alt="'+code+'" onerror="this.style.display=\'none\'">';
+}
+
+function archetype(svIn, svWon, winRate, bp) {
+  if (!svIn && !svWon) return '—';
+  if (svWon > 76) return 'Serve Dominator';
+  if (bp > 52) return 'Clutch Player';
+  if (winRate > 60) return 'Consistent Baseliner';
+  if (svIn > 65) return 'First-Strike Player';
+  if (winRate < 46) return 'Developing Player';
+  return 'All-Court Grinder';
+}
+
+function narrative(m) {
+  var isFavP1 = m.p1_win > m.p2_win;
+  var fav = isFavP1 ? m.p1_name : m.p2_name;
+  var dog = isFavP1 ? m.p2_name : m.p1_name;
+  var favL = fav.split(' ').pop(), dogL = dog.split(' ').pop();
+  var prob = Math.round(Math.max(m.p1_win, m.p2_win) * 100);
+  var svWon = isFavP1 ? m.p1_serve_won : m.p2_serve_won;
+  var elo = Math.abs(m.elo_diff || 0);
+  var surf = m.surface || 'hard';
+  var favFat = isFavP1 ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
+  var favStreak = isFavP1 ? (m.p1_streak||0) : (m.p2_streak||0);
+  var dogStreak = isFavP1 ? (m.p2_streak||0) : (m.p1_streak||0);
+  var parts = [];
+  if (elo > 150) parts.push(favL + ' enters with a significant Elo advantage of ' + elo + ' rating points');
+  else if (elo > 50) parts.push(favL + ' carries a moderate Elo edge of ' + elo + ' points');
+  else parts.push('The Elo ratings are nearly level — a genuine contest on paper');
+  if (svWon && svWon > 74) parts.push('a ' + svWon + '% first serve won rate on ' + surf + ' provides structural control of rallies');
+  if (favFat >= 3) parts.push('a heavy recent match load may be worth monitoring');
+  if (favStreak > 2) parts.push(favL + ' arrives on the back of ' + favStreak + ' consecutive wins');
+  if (dogStreak > 2) parts.push(dogL + ' has won ' + dogStreak + ' straight and cannot be dismissed');
+  var last = 'The model assigns ' + favL + ' a ' + prob + '% win probability — ';
+  if (prob > 85) last += 'among the most reliable picks on today\'s card.';
+  else if (prob > 70) last += 'a solid edge with meaningful upset potential remaining.';
+  else last += 'a lean rather than a certainty; approach with appropriate caution.';
+  return parts.slice(0,2).map(function(p,i){return i===0?p.charAt(0).toUpperCase()+p.slice(1):p;}).join(', with ') + '. ' + last;
+}
+
+// ── DNA CARD ──────────────────────────────────────────────────────────────────
+var allData = [], selectedIdx = 0, currentFilter = 'all';
+
+function renderDNA(m) {
+  var isFavP1 = m.p1_win > m.p2_win;
+  var fav = isFavP1 ? m.p1_name : m.p2_name;
+  var dog = isFavP1 ? m.p2_name : m.p1_name;
+  var favFlag = isFavP1 ? m.p1_flag : m.p2_flag;
+  var dogFlag = isFavP1 ? m.p2_flag : m.p1_flag;
+  var favProb = Math.round(Math.max(m.p1_win, m.p2_win) * 100);
+  var dogProb = 100 - favProb;
+  var isFav = isFavP1;
+  var favSvIn = isFav?m.p1_serve_in:m.p2_serve_in, dogSvIn = isFav?m.p2_serve_in:m.p1_serve_in;
+  var favSvWon = isFav?m.p1_serve_won:m.p2_serve_won, dogSvWon = isFav?m.p2_serve_won:m.p1_serve_won;
+  var favWR = isFav?m.p1_win_rate:m.p2_win_rate, dogWR = isFav?m.p2_win_rate:m.p1_win_rate;
+  var favBP = isFav?m.p1_bp_conv:m.p2_bp_conv, dogBP = isFav?m.p2_bp_conv:m.p1_bp_conv;
+  var favFat = isFav?(m.p1_fatigue||0):(m.p2_fatigue||0);
+  var dogFat = isFav?(m.p2_fatigue||0):(m.p1_fatigue||0);
+  var favStreak = isFav?(m.p1_streak||0):(m.p2_streak||0);
+  var dogStreak = isFav?(m.p2_streak||0):(m.p1_streak||0);
+  var tourn = (m.tournament||'').replace('Mutua Madrid Open - Madrid','Madrid Open').replace(/ - .*/,'');
+  var surf = m.surface ? m.surface.charAt(0).toUpperCase()+m.surface.slice(1) : 'Hard';
+
+  // Always visible
+  document.getElementById('dna-name1').textContent = fav;
+  document.getElementById('dna-name2').textContent = dog;
+  document.getElementById('dna-prob1').textContent = favProb + '%';
+  document.getElementById('dna-prob2').textContent = dogProb + '%';
+  var f1 = document.getElementById('dna-flag1');
+  var f2 = document.getElementById('dna-flag2');
+  f1.src = favFlag ? FLAG_URL+favFlag+'.png' : '';
+  f2.src = dogFlag ? FLAG_URL+dogFlag+'.png' : '';
+  document.getElementById('dna-arch1').textContent = archetype(favSvIn, favSvWon, favWR, favBP);
+  document.getElementById('dna-arch2').textContent = archetype(dogSvIn, dogSvWon, dogWR, dogBP);
+  document.getElementById('dna-surf').textContent = surf + ' · ' + tourn;
+  document.getElementById('dna-match-label').textContent = fav + ' vs ' + dog;
+
+  // Radar — always visible
+  var svN = Math.min((favSvWon||60)/90, 1);
+  var retN = Math.min((100-(dogSvWon||60))/40, 1);
+  var formN = Math.min(Math.max((favStreak||0)+3,0)/6, 1);
+  var bpN = Math.min((favBP||40)/70, 1);
+  var eloN = Math.min(Math.abs(m.elo_diff||0)/300, 1);
+  var surfN = Math.min((favWR||45)/75, 1);
+  function pt(angle, scale) {
+    var rad = (angle-90)*Math.PI/180, d = 48*scale;
+    return (d*Math.cos(rad)).toFixed(1)+','+(d*Math.sin(rad)).toFixed(1);
+  }
+  var p1pts = [pt(0,svN),pt(60,retN),pt(120,formN),pt(180,bpN),pt(240,eloN),pt(300,surfN)].join(' ');
+  document.getElementById('radar-p1').setAttribute('points', p1pts);
+
+  var isPro = hasAccess('pro');
+  var isSharp = hasAccess('sharp');
+
+  // Pro content visibility
+  document.getElementById('dna-pro-content').style.display = isPro ? 'block' : 'none';
+  document.getElementById('dna-free-prompt').style.display = isPro ? 'none' : 'block';
+
+  if (isPro) {
+    // Narrative
+    var narr = document.getElementById('dna-narrative');
+    narr.textContent = narrative(m);
+    narr.style.display = 'block';
+
+    // Fatigue dots
+    document.getElementById('fat-name1').textContent = fav.split(' ').pop();
+    document.getElementById('fat-name2').textContent = dog.split(' ').pop();
+    var f1d = Math.min(favFat, 5), f2d = Math.min(dogFat, 5);
+    document.getElementById('fat-dots1').innerHTML = [0,1,2,3,4].map(function(i){return '<div class="fat-dot '+(i<f1d?'fat-on':'fat-off')+'"></div>';}).join('');
+    document.getElementById('fat-dots2').innerHTML = [0,1,2,3,4].map(function(i){return '<div class="fat-dot '+(i<f2d?'fat-on':'fat-off')+'"></div>';}).join('');
+
+    // Momentum
+    document.getElementById('mom-name1').textContent = fav.split(' ').pop();
+    document.getElementById('mom-name2').textContent = dog.split(' ').pop();
+    var m1 = Math.max(0,Math.min(100,50+(favStreak||0)*15));
+    var m2 = Math.max(0,Math.min(100,50+(dogStreak||0)*15));
+    var b1 = document.getElementById('mom-bar1'), b2 = document.getElementById('mom-bar2');
+    b1.style.width = m1+'%'; b1.className = 'mom-bar-inner '+(favStreak>=0?'mom-pos':'mom-neg');
+    b2.style.width = m2+'%'; b2.className = 'mom-bar-inner '+(dogStreak>=0?'mom-pos':'mom-neg');
+
+    // Confidence
+    var lo = Math.max(0, favProb-8), hi = Math.min(100, favProb+5);
+    document.getElementById('conf-band').style.left = lo+'%';
+    document.getElementById('conf-band').style.width = (hi-lo)+'%';
+    document.getElementById('conf-point').style.left = favProb+'%';
+    document.getElementById('conf-label').textContent = favProb+'%';
+
+    // Stat compare
+    document.getElementById('cmp-p1-name').textContent = fav.split(' ').pop().toUpperCase();
+    document.getElementById('cmp-p2-name').textContent = dog.split(' ').pop().toUpperCase();
+    var stats = [
+      {label:'1ST SERVE %', v1:favSvIn, v2:dogSvIn},
+      {label:'SERVE WON', v1:favSvWon, v2:dogSvWon},
+      {label:'WIN RATE', v1:favWR, v2:dogWR},
+      {label:'BP CONV', v1:favBP, v2:dogBP}
+    ];
+    document.getElementById('cmp-rows').innerHTML = stats.map(function(s){
+      if (!s.v1 && !s.v2) return '';
+      var max = Math.max(s.v1||0, s.v2||0, 1);
+      var w1 = Math.round((s.v1||0)/max*70), w2 = Math.round((s.v2||0)/max*70);
+      var c1 = (s.v1||0)>=(s.v2||0)?'var(--green)':'var(--text2)';
+      var c2 = (s.v2||0)>(s.v1||0)?'var(--green)':'var(--text2)';
+      return '<div class="cmp-row">'+
+        '<div style="display:flex;align-items:center;justify-content:flex-end;gap:6px">'+
+          '<span style="font-family:var(--mono);font-size:11px;font-weight:500;color:'+c1+'">'+(s.v1||'—')+'%</span>'+
+          '<div style="height:3px;width:'+w1+'px;background:var(--green);border-radius:1px"></div>'+
+        '</div>'+
+        '<div class="cmp-lbl">'+s.label+'</div>'+
+        '<div style="display:flex;align-items:center;gap:6px">'+
+          '<div style="height:3px;width:'+w2+'px;background:rgba(255,255,255,0.12);border-radius:1px"></div>'+
+          '<span style="font-family:var(--mono);font-size:11px;color:'+c2+'">'+(s.v2||'—')+'%</span>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+
+    // Model panel
+    document.getElementById('mi-prob').textContent = favProb+'%';
+    document.getElementById('mi-fair').textContent = isFavP1?(m.fair_p1||'—'):(m.fair_p2||'—');
+    document.getElementById('mi-elo').textContent = (m.elo_diff>0?'+':'')+Math.round(m.elo_diff||0);
+    document.getElementById('mi-edge').textContent = favProb>75?'Strong':favProb>60?'Moderate':'Marginal';
+    document.getElementById('mi-naive').textContent = '~'+(1/(favProb/100*0.95)).toFixed(2);
   }
 }
-updateNavForTier();
 
-// ── TOUR FILTER ──────────────────────────────────────────────────────────────
-var currentTourFilter = "all";
-var allPredictions = [];
-
-function filterTour(tour) {
-  currentTourFilter = tour;
-  ["all","atp","wta"].forEach(function(t) {
-    var btn = document.getElementById("tour-"+t);
-    btn.style.background = t===tour ? "var(--black)" : "var(--warm)";
-    btn.style.color      = t===tour ? "var(--acid)"  : "var(--black)";
+// ── UPSET ALERTS ──────────────────────────────────────────────────────────────
+function generateUpsets(data) {
+  if (!hasAccess('sharp')) return;
+  document.getElementById('upset-section').style.display = 'block';
+  var upsets = [];
+  data.forEach(function(m) {
+    var isFavP1 = m.p1_win > m.p2_win;
+    var fav = isFavP1?m.p1_name:m.p2_name, dog = isFavP1?m.p2_name:m.p1_name;
+    var favW = Math.max(m.p1_win,m.p2_win);
+    var favFat = isFavP1?(m.p1_fatigue||0):(m.p2_fatigue||0);
+    var dogStreak = isFavP1?(m.p2_streak||0):(m.p1_streak||0);
+    var dogSrv = isFavP1?(m.p2_serve_won||0):(m.p1_serve_won||0);
+    var favSrv = isFavP1?(m.p1_serve_won||0):(m.p2_serve_won||0);
+    var favL = fav.split(' ').pop(), dogL = dog.split(' ').pop();
+    var reasons = [];
+    if (favFat>=3) reasons.push(favL+' carrying fatigue ('+favFat+' recent matches)');
+    if (dogStreak>=3) reasons.push(dogL+' on '+dogStreak+'-match win streak');
+    if (dogSrv>favSrv+5) reasons.push(dogL+' serve won% ('+dogSrv+'%) exceeds '+favL+'\'s ('+favSrv+'%)');
+    if (favW<0.68&&dogStreak>=2) reasons.push('Close contest — model gives '+(Math.round((1-favW)*100))+'% upset probability');
+    if (reasons.length>=2&&favW>=0.55&&favW<=0.88) upsets.push({m:m,fav:fav,dog:dog,favW:favW,reasons:reasons});
   });
-  renderPredictions();
-
-}
-
-function renderPredictions() {
-  var grid = document.getElementById("pred-grid");
-  var subtitle = document.getElementById("pred-subtitle");
-  var filtered = currentTourFilter === "all" ? allPredictions :
-    allPredictions.filter(function(p){ return p.tour === currentTourFilter; });
-  if (!filtered.length) {
-    grid.innerHTML = "<div style='grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px'>No predictions found.</div>";
+  document.getElementById('upset-count').textContent = upsets.length+' match'+(upsets.length!==1?'es':'')+' flagged';
+  if (!upsets.length) {
+    document.getElementById('upset-list').innerHTML = '<div style="font-family:var(--mono);font-size:10px;color:var(--muted);padding:8px 0">No significant upset signals today.</div>';
     return;
   }
-  var tier = getUserTier();
-  var sorted = filtered.slice().sort(function(a,b){return Math.abs(b.p1_win-0.5)-Math.abs(a.p1_win-0.5);});
-  var free   = hasAccess("starter") ? sorted : sorted.slice(0,1);
-  var locked = hasAccess("starter") ? [] : sorted.slice(1,7);
-  var featured = free.find(function(p){return Math.abs(p.p1_streak||0)+Math.abs(p.p2_streak||0)>=2;}) || free[0];
-  grid.innerHTML = [
-    ...free.map(function(p,i){ return predCardHTML(p, false, i===0&&p===featured ? getMatchSummary(p) : null, i===0&&p===featured); }),
-    ...locked.map(function(p){ return predCardHTML(p, true, null, false); })
-  ].join("");
-  setTimeout(function(){
-    document.querySelectorAll(".pred-bar-fill[data-width]").forEach(function(bar){
-      bar.style.width = bar.dataset.width + "%";
-    });
-  }, 100);
-  if (hasAccess("starter")) {
-    subtitle.textContent = "Today · " + filtered.length + " predictions · " + (currentTourFilter==="all"?"ATP + WTA":currentTourFilter.toUpperCase());
-  }
-  updateNavForTier();
-  document.getElementById("tennisiq-tier-badge").textContent = tier !== "free" ? "tennisIQ " + tier.charAt(0).toUpperCase() + tier.slice(1) : "";
+  document.getElementById('upset-list').innerHTML = upsets.slice(0,3).map(function(u){
+    var prob = Math.round((1-u.favW)*100);
+    var tourn = (u.m.tournament||'').replace(/ - .*/,'');
+    return '<div class="upset-row">'+
+      '<div class="upset-match">'+u.dog+' vs '+u.fav+'</div>'+
+      '<div class="upset-prob">'+prob+'% upset probability · '+(u.m.surface||'')+' · '+tourn+'</div>'+
+      '<div class="upset-reasons">'+u.reasons.map(function(r){return '<div class="upset-r">'+r+'</div>';}).join('')+'</div>'+
+    '</div>';
+  }).join('');
 }
 
-// Override loadPredictions for standalone page
-async function loadPredictions() {
-  var grid = document.getElementById("pred-grid");
-  var countEl = document.getElementById("pred-count");
+// ── PREDICTIONS LIST ──────────────────────────────────────────────────────────
+function renderPreds(data) {
+  var isPro = hasAccess('pro');
+  var filtered = currentFilter==='all'?data:data.filter(function(m){return m.tour===currentFilter;});
+  document.getElementById('pred-subtitle').textContent = isPro ? filtered.length+' predictions' : 'Free preview — 1 of '+filtered.length;
+  var toShow = isPro ? filtered : filtered.slice(0,1);
+  var locked = isPro ? [] : filtered.slice(1, 7);
+
+  document.getElementById('pred-list').innerHTML = [
+    ...toShow.map(function(m, i) {
+      var prob = Math.round(Math.max(m.p1_win,m.p2_win)*100);
+      var fair = m.p1_win>m.p2_win?m.fair_p1:m.fair_p2;
+      var isFavP1 = m.p1_win>m.p2_win;
+      var probClass = prob>80?'hi':prob>60?'md':'';
+      var isSharp = hasAccess('sharp');
+      var badge = prob>80?'<span class="badge b-sharp">Sharp</span>':
+                  prob>60?'<span class="badge b-watch">Watch</span>':
+                  '<span class="badge b-watch">⚡</span>';
+      var tourn = (m.tournament||'').replace('Mutua Madrid Open - Madrid','Madrid Open').replace(/ - .*/,'');
+      var realIdx = data.indexOf(m);
+      return '<div class="pred-row'+(selectedIdx===realIdx?' selected':'')+'" onclick="selectMatch('+realIdx+')">'+
+        '<div>'+
+          '<div class="pred-name">'+flagImg(m.p1_flag)+'<span>'+m.p1_name+'</span>'+
+          '<span style="color:var(--muted);font-weight:400;font-size:10px;margin:0 3px">vs</span>'+
+          flagImg(m.p2_flag)+'<span>'+m.p2_name+'</span></div>'+
+          '<div class="pred-info">'+(m.surface||'')+' · '+tourn+' · '+(m.tour||'ATP').toUpperCase()+'</div>'+
+        '</div>'+
+        '<div class="pred-prob '+probClass+'">'+prob+'%</div>'+
+        '<div class="pred-fair">'+(fair||'—')+'</div>'+
+        '<div>'+badge+'</div>'+
+      '</div>';
+    }),
+    ...locked.map(function(m) {
+      return '<div class="pred-row locked">'+
+        '<div>'+
+          '<div class="pred-name" style="filter:blur(5px)">'+m.p1_name+' vs '+m.p2_name+'</div>'+
+          '<div class="pred-info">'+(m.surface||'')+' · '+(m.tour||'ATP').toUpperCase()+'</div>'+
+        '</div>'+
+        '<div class="pred-prob locked">XX%</div>'+
+        '<div class="pred-fair locked">X.XX</div>'+
+        '<div><span class="badge b-lock">Pro</span></div>'+
+      '</div>';
+    })
+  ].join('');
+
+  // Show pricing to free users
+  document.getElementById('pricing-section').style.display = isPro ? 'none' : 'block';
+
+  // Schedule
+  document.getElementById('sched-count').textContent = filtered.length;
+  document.getElementById('schedule-list').innerHTML = filtered.slice(0,8).map(function(m){
+    var surfClass = m.surface==='clay'?'clay-dot':m.surface==='grass'?'grass-dot':'hard-dot';
+    var tourn = (m.tournament||'').replace('Mutua Madrid Open - Madrid','Madrid Open').replace(/ - .*/,'');
+    return '<div class="fix-item">'+
+      '<div class="fix-dot '+surfClass+'"></div>'+
+      '<div class="fix-body">'+
+        '<div class="fix-players">'+m.p1_name+' vs '+m.p2_name+'</div>'+
+        '<div class="fix-meta">'+(m.tour||'ATP').toUpperCase()+' · '+tourn+'</div>'+
+      '</div>'+
+      '<span class="fix-badge fb-c">'+(m.surface||'H').charAt(0).toUpperCase()+'</span>'+
+    '</div>';
+  }).join('');
+}
+
+function selectMatch(idx) {
+  selectedIdx = idx;
+  renderDNA(allData[idx]);
+  var filtered = currentFilter==='all'?allData:allData.filter(function(m){return m.tour===currentFilter;});
+  document.querySelectorAll('.pred-row:not(.locked)').forEach(function(r,i){
+    if (filtered[i]) r.classList.toggle('selected', filtered[i]===allData[idx]);
+  });
+}
+
+function filterTour(t, btn) {
+  currentFilter = t;
+  document.querySelectorAll('.pred-filter').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  renderPreds(allData);
+}
+
+// ── RESULTS ───────────────────────────────────────────────────────────────────
+async function loadResults() {
   try {
-    var r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error("HTTP " + r.status);
+    var r = await fetch(RESULTS_URL + '?t=' + Date.now());
+    if (!r.ok) return;
+    var d = await r.json();
+    document.getElementById('stat-week').textContent = d.accuracy_label || 'Building...';
+  } catch(e) {}
+}
+
+// ── CLV CALCULATOR ────────────────────────────────────────────────────────────
+async function loadCLV() {
+  var el = document.getElementById('clv-content');
+  if (!hasAccess('sharp')) {
+    el.innerHTML = '<div style="text-align:center;padding:8px 0"><div style="font-size:10px;color:var(--muted);margin-bottom:8px">Available on Pro</div><button onclick="startCheckout(\'pro\')" style="font-family:var(--mono);font-size:9px;letter-spacing:1px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:5px 14px;cursor:pointer;">Get Pro ↗</button></div>';
+    return;
+  }
+  el.innerHTML = '<div style="display:flex;flex-direction:column;gap:8px">'+
+    '<div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:4px">Enter bookmaker decimal odds:</div>'+
+    '<div style="display:flex;gap:8px;align-items:center">'+
+      '<input type="number" id="clv-odds" placeholder="e.g. 1.85" step="0.01" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 10px;font-family:var(--mono);font-size:12px;width:100px;outline:none;">'+
+      '<button onclick="calcCLV()" style="font-family:var(--mono);font-size:9px;letter-spacing:1px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:6px 12px;cursor:pointer;">Calculate</button>'+
+    '</div>'+
+    '<div id="clv-result" style="font-family:var(--mono);font-size:11px;color:var(--muted);min-height:20px"></div>'+
+  '</div>';
+}
+
+function calcCLV() {
+  var odds = parseFloat(document.getElementById('clv-odds').value);
+  if (!odds || odds <= 1) { document.getElementById('clv-result').textContent = 'Enter valid decimal odds'; return; }
+  var m = allData[selectedIdx];
+  if (!m) return;
+  var favProb = Math.max(m.p1_win, m.p2_win);
+  var fairOdds = 1 / favProb;
+  var impliedProb = 1 / odds;
+  var edge = (favProb - impliedProb) * 100;
+  var edgeColor = edge > 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('clv-result').innerHTML =
+    '<span style="color:'+edgeColor+'">Edge: '+(edge>0?'+':'')+edge.toFixed(1)+'%</span>' +
+    ' · Fair: '+fairOdds.toFixed(2)+' · Your odds: '+odds.toFixed(2);
+}
+
+// ── MAIN LOAD ─────────────────────────────────────────────────────────────────
+async function loadPredictions() {
+  try {
+    var r = await fetch(PRED_URL + '?t=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
     var data = await r.json();
-    if (!data || data.length === 0) throw new Error("No data");
-    allPredictions = data.filter(function(p){ return !p.p1_name.includes("/") && !p.p2_name.includes("/"); });
-    countEl.textContent = allPredictions.length;
-    renderPredictions();
-    generateInsights(allPredictions);
+    allData = data.filter(function(m){return !m.p1_name.includes('/')&&!m.p2_name.includes('/');});
+    allData.sort(function(a,b){return Math.abs(b.p1_win-0.5)-Math.abs(a.p1_win-0.5);});
+    document.getElementById('pred-count').textContent = allData.length;
+    document.getElementById('stat-today').textContent = allData.length;
+    var atp = allData.filter(function(m){return m.tour==='atp';}).length;
+    var wta = allData.filter(function(m){return m.tour==='wta';}).length;
+    document.getElementById('stat-today-sub').textContent = atp+' ATP · '+wta+' WTA';
+    renderPreds(allData);
+    renderDNA(allData[0]);
+    generateUpsets(allData);
     loadCLV();
+    loadResults();
+    updateNavForTier();
+
+    // Load DYK from insights.json
+    fetch('/insights.json?t='+new Date().toDateString())
+      .then(function(r){return r.json();})
+      .then(function(lib){
+        var seed = new Date().toDateString().split('').reduce(function(a,c){return a+c.charCodeAt(0);},0);
+        var sh = lib.slice().sort(function(a,b){
+          var ra=Math.sin(seed+lib.indexOf(a))*10000, rb=Math.sin(seed+lib.indexOf(b))*10000;
+          return (ra-Math.floor(ra))-(rb-Math.floor(rb));
+        });
+        document.getElementById('dyk-grid').innerHTML = sh.slice(0,4).map(function(ins){
+          return '<div class="dyk-item"><div class="dyk-stat">'+ins.stat+'</div><div class="dyk-text">'+ins.insight+'</div></div>';
+        }).join('');
+      }).catch(function(){});
+
   } catch(e) {
-    grid.innerHTML = "<div style='grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px'>Predictions refresh daily at 7am. Check back soon.</div>";
+    document.getElementById('pred-list').innerHTML = '<div style="padding:2rem;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted)">Predictions refresh daily at 7am. Check back soon.</div>';
   }
 }
 
