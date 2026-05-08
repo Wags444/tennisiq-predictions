@@ -1,112 +1,13 @@
 {
-  "total_predicted": 104,
-  "total_resolved": 18,
-  "week_resolved": 18,
-  "week_correct": 11,
+  "total_predicted": 120,
+  "total_resolved": 29,
+  "week_resolved": 29,
+  "week_correct": 19,
   "accuracy": {},
   "accuracy_label": "Building...",
   "min_threshold": 50,
-  "last_updated": "2026-05-06 07:46",
+  "last_updated": "2026-05-07 07:23",
   "recent_results": [
-    {
-      "p1_name": "Courtney John Lock",
-      "p2_name": "Iiro Vasa",
-      "surface": "clay",
-      "tournament": "Brazzaville Challenger",
-      "p1_win": 0.296,
-      "p2_win": 0.704,
-      "result": "Iiro Vasa",
-      "correct": true,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Martin Krumich",
-      "p2_name": "Gabriele Piraino",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.672,
-      "p2_win": 0.328,
-      "result": "Martin Krumich",
-      "correct": true,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Sofia Elena Cabezas Dominguez",
-      "p2_name": "Thea Frodin",
-      "surface": "clay",
-      "tournament": "W100 Indian Harbour Beach",
-      "p1_win": 0.349,
-      "p2_win": 0.651,
-      "result": "Thea Frodin",
-      "correct": true,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Andrea Guerrieri",
-      "p2_name": "Chun Hsin Tseng",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.631,
-      "p2_win": 0.369,
-      "result": "Chun Hsin Tseng",
-      "correct": false,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Daniel Dutra Da Silva",
-      "p2_name": "Facundo Mena",
-      "surface": "clay",
-      "tournament": "Santos Challenger",
-      "p1_win": 0.401,
-      "p2_win": 0.599,
-      "result": "Facundo Mena",
-      "correct": true,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Justin Engel",
-      "p2_name": "Nikolas Sanchez-Izquierdo",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.594,
-      "p2_win": 0.406,
-      "result": "Nikolas Sanchez-Izquierdo",
-      "correct": false,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Harry Wendelken",
-      "p2_name": "Frederico Ferreira Silva",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.433,
-      "p2_win": 0.567,
-      "result": "Frederico Ferreira Silva",
-      "correct": true,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Gabriela Lee",
-      "p2_name": "Madison Brengle",
-      "surface": "clay",
-      "tournament": "W100 Indian Harbour Beach",
-      "p1_win": 0.444,
-      "p2_win": 0.556,
-      "result": "Madison Brengle",
-      "correct": true,
-      "pred_date": "2026-05-04"
-    },
-    {
-      "p1_name": "Andre Ilagan",
-      "p2_name": "Dane Sweeny",
-      "surface": "hard",
-      "tournament": "Wuxi Challenger",
-      "p1_win": 0.257,
-      "p2_win": 0.743,
-      "result": "Dane Sweeny",
-      "correct": true,
-      "pred_date": "2026-05-05"
-    },
     {
       "p1_name": "En Shuo Liang",
       "p2_name": "Taylah Preston",
@@ -205,6 +106,127 @@
       "result": "Rio Noguchi",
       "correct": true,
       "pred_date": "2026-05-05"
+    },
+    {
+      "p1_name": "Adam Walton",
+      "p2_name": "James McCabe",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.951,
+      "p2_win": 0.049,
+      "result": "Adam Walton",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Florent Bax",
+      "p2_name": "Adrian Arcon",
+      "surface": "clay",
+      "tournament": "Brazzaville Challenger",
+      "p1_win": 0.824,
+      "p2_win": 0.176,
+      "result": "Florent Bax",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Aditya Vishal Balsekar",
+      "p2_name": "Blaise Bicknell",
+      "surface": "clay",
+      "tournament": "Brazzaville Challenger",
+      "p1_win": 0.3,
+      "p2_win": 0.7,
+      "result": "Blaise Bicknell",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Brandon Perez",
+      "p2_name": "Younes Lalami Laaroussi",
+      "surface": "clay",
+      "tournament": "Brazzaville Challenger",
+      "p1_win": 0.329,
+      "p2_win": 0.671,
+      "result": "Younes Lalami Laaroussi",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Alastair Gray",
+      "p2_name": "Jie Cui",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.652,
+      "p2_win": 0.348,
+      "result": "Jie Cui",
+      "correct": false,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Karan Singh",
+      "p2_name": "Digvijaypratap Singh",
+      "surface": "clay",
+      "tournament": "Brazzaville Challenger",
+      "p1_win": 0.612,
+      "p2_win": 0.388,
+      "result": "Karan Singh",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Maximus Jones",
+      "p2_name": "Akira Santillan",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.604,
+      "p2_win": 0.396,
+      "result": "Akira Santillan",
+      "correct": false,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Ognjen Milic",
+      "p2_name": "Bu Yunchaokete",
+      "surface": "hard",
+      "tournament": "Wuxi Challenger",
+      "p1_win": 0.413,
+      "p2_win": 0.587,
+      "result": "Bu Yunchaokete",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Martin Krumich",
+      "p2_name": "Clement Chidekh",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.545,
+      "p2_win": 0.455,
+      "result": "Martin Krumich",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Matyas Cerny",
+      "p2_name": "Bor Artnak",
+      "surface": "clay",
+      "tournament": "Brazzaville Challenger",
+      "p1_win": 0.533,
+      "p2_win": 0.467,
+      "result": "Matyas Cerny",
+      "correct": true,
+      "pred_date": "2026-05-06"
+    },
+    {
+      "p1_name": "Clara Burel",
+      "p2_name": "Jessika Ponchet",
+      "surface": "clay",
+      "tournament": "W75 Saint-Gaudens",
+      "p1_win": 0.517,
+      "p2_win": 0.483,
+      "result": "Jessika Ponchet",
+      "correct": false,
+      "pred_date": "2026-05-06"
     }
   ]
 }
