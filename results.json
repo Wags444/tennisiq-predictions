@@ -1,13 +1,57 @@
 {
-  "total_predicted": 107,
-  "total_resolved": 24,
-  "week_resolved": 24,
+  "total_predicted": 101,
+  "total_resolved": 18,
+  "week_resolved": 18,
   "week_correct": 11,
   "accuracy": {},
   "accuracy_label": "Building...",
   "min_threshold": 50,
-  "last_updated": "2026-05-08 07:54",
+  "last_updated": "2026-05-08 08:07",
   "recent_results": [
+    {
+      "p1_name": "Courtney John Lock",
+      "p2_name": "Iiro Vasa",
+      "surface": "clay",
+      "tournament": "Brazzaville Challenger",
+      "p1_win": 0.296,
+      "p2_win": 0.704,
+      "result": "Iiro Vasa",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Martin Krumich",
+      "p2_name": "Gabriele Piraino",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.672,
+      "p2_win": 0.328,
+      "result": "Martin Krumich",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Sofia Elena Cabezas Dominguez",
+      "p2_name": "Thea Frodin",
+      "surface": "clay",
+      "tournament": "W100 Indian Harbour Beach",
+      "p1_win": 0.349,
+      "p2_win": 0.651,
+      "result": "Thea Frodin",
+      "correct": true,
+      "pred_date": "2026-05-04"
+    },
+    {
+      "p1_name": "Andrea Guerrieri",
+      "p2_name": "Chun Hsin Tseng",
+      "surface": "clay",
+      "tournament": "Francavilla Challenger",
+      "p1_win": 0.631,
+      "p2_win": 0.369,
+      "result": "Chun Hsin Tseng",
+      "correct": false,
+      "pred_date": "2026-05-04"
+    },
     {
       "p1_name": "Daniel Dutra Da Silva",
       "p2_name": "Facundo Mena",
@@ -161,72 +205,6 @@
       "result": "Rio Noguchi",
       "correct": true,
       "pred_date": "2026-05-05"
-    },
-    {
-      "p1_name": "Rio Noguchi",
-      "p2_name": "Jie Cui",
-      "surface": "hard",
-      "tournament": "Wuxi Challenger",
-      "p1_win": 0.966,
-      "p2_win": 0.034,
-      "result": "Jie Cui",
-      "correct": false,
-      "pred_date": "2026-05-07"
-    },
-    {
-      "p1_name": "Lanlana Tararudee",
-      "p2_name": "Xinxin Yao",
-      "surface": "hard",
-      "tournament": "Jiangxi Open - Jiujiang",
-      "p1_win": 0.842,
-      "p2_win": 0.158,
-      "result": "Xinxin Yao",
-      "correct": false,
-      "pred_date": "2026-05-07"
-    },
-    {
-      "p1_name": "Adam Walton",
-      "p2_name": "Bu Yunchaokete",
-      "surface": "hard",
-      "tournament": "Wuxi Challenger",
-      "p1_win": 0.626,
-      "p2_win": 0.374,
-      "result": "Bu Yunchaokete",
-      "correct": false,
-      "pred_date": "2026-05-07"
-    },
-    {
-      "p1_name": "Mark Lajal",
-      "p2_name": "Dane Sweeny",
-      "surface": "hard",
-      "tournament": "Wuxi Challenger",
-      "p1_win": 0.431,
-      "p2_win": 0.569,
-      "result": "Mark Lajal",
-      "correct": false,
-      "pred_date": "2026-05-07"
-    },
-    {
-      "p1_name": "Lizette Cabrera",
-      "p2_name": "Zhuoxuan Bai",
-      "surface": "hard",
-      "tournament": "Jiangxi Open - Jiujiang",
-      "p1_win": 0.555,
-      "p2_win": 0.445,
-      "result": "Zhuoxuan Bai",
-      "correct": false,
-      "pred_date": "2026-05-07"
-    },
-    {
-      "p1_name": "Gustavo Heide",
-      "p2_name": "Martin Krumich",
-      "surface": "clay",
-      "tournament": "Francavilla Challenger",
-      "p1_win": 0.495,
-      "p2_win": 0.505,
-      "result": "Gustavo Heide",
-      "correct": false,
-      "pred_date": "2026-05-07"
     }
   ]
 }
