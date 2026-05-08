@@ -150,8 +150,8 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
 .pred-filters{display:flex;border-bottom:1px solid var(--border);}
 .pred-filter{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;border:none;background:none;color:var(--muted);cursor:pointer;border-right:1px solid var(--border);}
 .pred-filter.on{color:var(--green);background:var(--green-dim);}
-.pred-col-h{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:7px 20px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 60px 60px 70px;gap:10px;background:var(--bg2);}
-.pred-row{display:grid;grid-template-columns:1fr 60px 60px 70px;padding:11px 20px;border-bottom:1px solid var(--border);align-items:center;gap:10px;cursor:pointer;transition:background 0.1s;}
+.pred-col-h{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:7px 20px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 60px 60px 50px 70px;gap:10px;background:var(--bg2);}
+.pred-row{display:grid;grid-template-columns:1fr 60px 60px 50px 70px;padding:11px 20px;border-bottom:1px solid var(--border);align-items:center;gap:10px;cursor:pointer;transition:background 0.1s;}
 .pred-row:hover{background:var(--bg3);}
 .pred-row.selected{background:var(--green-dim);border-left:2px solid var(--green);padding-left:18px;}
 .pred-row.locked{cursor:default;opacity:0.4;}
@@ -398,7 +398,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
     <button class="pred-filter" onclick="filterTour('atp',this)">ATP</button>
     <button class="pred-filter" onclick="filterTour('wta',this)">WTA</button>
   </div>
-  <div class="pred-col-h"><span>Match</span><span style="text-align:center">Prob</span><span style="text-align:center">Fair</span><span>Signal</span></div>
+<div class="pred-col-h"><span>Match</span><span style="text-align:center">Prob</span><span style="text-align:center">Fair</span><span style="text-align:center">CLV</span><span>Signal</span></div>
   <div id="pred-list"></div>
 
   <!-- PRICING — shown to free users -->
@@ -721,6 +721,18 @@ function generateUpsets(data) {
 }
 
 // ── PREDICTIONS LIST ──────────────────────────────────────────────────────────
+function getCLV(m) {
+  if (!hasAccess("sharp")) return "";
+  var isFavP1 = m.p1_win > m.p2_win;
+  var fairProb = Math.max(m.p1_win, m.p2_win);
+  var mktOdds = isFavP1 ? m.p1_odds : m.p2_odds;
+  if (!mktOdds) return '<span style="color:var(--muted)">—</span>';
+  var mktProb = 1 / mktOdds;
+  var clv = (fairProb - mktProb) * 100;
+  var color = clv > 0 ? "var(--green)" : "var(--red)";
+  return '<span style="color:' + color + '">' + (clv > 0 ? "+" : "") + clv.toFixed(1) + '%</span>';
+}
+
 function renderPreds(data) {
   var isPro = hasAccess('pro');
   var filtered = currentFilter==='all'?data:data.filter(function(m){return m.tour===currentFilter;});
@@ -749,6 +761,7 @@ function renderPreds(data) {
         '</div>'+
         '<div class="pred-prob '+probClass+'">'+prob+'%</div>'+
         '<div class="pred-fair">'+(fair||'—')+'</div>'+
+        '<div style="font-family:var(--mono);font-size:11px;text-align:center">'+getCLV(m)+'</div>'+
         '<div>'+badge+'</div>'+
       '</div>';
     }),
