@@ -184,8 +184,8 @@ var TIER_PRICES = {pro:'price_1TUxthIlZjEq8tdhopWfZyca',sharp:'price_1TUxtzIlZjE
 var FLAG_URL = 'https://flagcdn.com/20x15/';
 
 var allPlayers = [], filteredPlayers = [];
-var currentTour = 'all', currentSurface = 'hard', selectedIdx = -1;
-var sortCol = 'elo', sortDir = -1, currentSurface = 'overall';
+var currentTour = 'all', currentSurface = 'overall', selectedIdx = -1;
+var sortCol = 'elo', sortDir = -1;
 
 function getUserTier(){return localStorage.getItem('tiq_tier')||'free';}
 function hasAccess(t){var l={free:0,pro:1,sharp:2};return (l[getUserTier()]||0)>=(l[t]||0);}
