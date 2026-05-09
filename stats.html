@@ -185,7 +185,7 @@ var FLAG_URL = 'https://flagcdn.com/20x15/';
 
 var allPlayers = [], filteredPlayers = [];
 var currentTour = 'all', currentSurface = 'overall', selectedIdx = -1;
-var sortCol = 'elo', sortDir = -1;
+var sortCol = 'elo', sortDir = 1;
 
 function getUserTier(){return localStorage.getItem('tiq_tier')||'free';}
 function hasAccess(t){var l={free:0,pro:1,sharp:2};return (l[getUserTier()]||0)>=(l[t]||0);}
@@ -238,7 +238,7 @@ function filterPlayers() {
   });
   filteredPlayers.sort(function(a,b) {
     var va = getElo(a)||0, vb = getElo(b)||0;
-    if (vb !== va) return (vb-va)*sortDir;
+    if (vb !== va) return vb-va;
     return (a.name||"").localeCompare(b.name||"");
   });
   renderTable();
