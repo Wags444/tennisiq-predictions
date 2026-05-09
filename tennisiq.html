@@ -235,16 +235,35 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
 
   <!-- Stats strip -->
   <div class="stats-strip">
-    <div class="stat"><div class="stat-l">Accuracy</div><div class="stat-v">68.7%</div><div class="stat-s">110K+ matches</div></div>
+    <div class="stat"><div class="stat-l">Accuracy</div><div class="stat-v">68.7%</div><div class="stat-s">ATP/WTA backtested</div></div>
     <div class="stat"><div class="stat-l">CLV Edge</div><div class="stat-v">+19.2%</div><div class="stat-s">vs Pinnacle closing</div></div>
-    <div class="stat"><div class="stat-l">Today</div><div class="stat-v" id="stat-today">—</div><div class="stat-s" id="stat-today-sub">Loading...</div></div>
-    <div class="stat"><div class="stat-l">This week</div><div class="stat-v" id="stat-week">—</div><div class="stat-s">Track record</div></div>
+    <div class="stat"><div class="stat-l">Today</div><div class="stat-v" id="stat-today">—</div><div class="stat-s" id="stat-today-sub">Refreshes 7am daily</div></div>
+    <div class="stat"><div class="stat-l">This week</div><div class="stat-v" id="stat-week">—</div><div class="stat-s">Building track record</div></div>
   </div>
 
   <!-- DNA CARD -->
-  <div class="sec">
+  <div style="border-bottom:1px solid var(--border);background:var(--bg2);">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
+    <div style="padding:12px 20px;border-right:1px solid var(--border);">
+      <div style="font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">Free</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.6;">1 featured match preview<br>Matchup DNA — % + radar<br>TennisIQ Signals<br>Public schedule</div>
+    </div>
+    <div style="padding:12px 20px;border-right:1px solid var(--border);background:var(--green-dim);">
+      <div style="font-family:var(--mono);font-size:8px;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">Pro · $9.99/mo</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.6;">All predictions + probabilities<br>Full Matchup DNA breakdown<br>Fair odds + confidence bands<br>Model intelligence panel</div>
+    </div>
+    <div style="padding:12px 20px;">
+      <div style="font-family:var(--mono);font-size:8px;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">Sharp · $19.99/mo</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.6;">Upset alerts — daily<br>CLV on every match<br>Daily email digest<br>Advanced serve breakdowns</div>
+    </div>
+  </div>
+  <div style="padding:8px 20px;font-family:var(--mono);font-size:9px;color:var(--muted);">
+    Backtested across ATP/WTA matches 2015-2025. Live tracked results published as tennisIQ matures.
+  </div>
+</div>
+<div class="sec">
     <div class="sec-l">Matchup DNA</div>
-    <div class="sec-r" id="dna-match-label">Featured match</div>
+    <div class="sec-r" id="dna-match-label">Click any match · Sample shown</div>
   </div>
 
   <div class="dna-card" id="dna-card">
@@ -253,10 +272,10 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
       <div class="dna-player">
         <div class="dna-flag-wrap">
           <img class="dna-flag" id="dna-flag1" src="" alt="" onerror="this.style.display='none'">
-          <div class="dna-archetype" id="dna-arch1">—</div>
+          <div class="dna-archetype" id="dna-arch1">Aggressive Baseliner</div>
         </div>
-        <div class="dna-name" id="dna-name1">Loading...</div>
-        <div class="dna-prob" id="dna-prob1">—%</div>
+        <div class="dna-name" id="dna-name1">Refreshes 7am daily</div>
+        <div class="dna-prob" id="dna-prob1">96%</div>
       </div>
       <div class="dna-center">
         <!-- Radar — visible to free -->
@@ -284,15 +303,15 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
           <text x="-62" y="-23" font-family="DM Mono" font-size="6" fill="#5c6459" letter-spacing="1">SURF</text>
         </svg>
         <div class="dna-vs">vs</div>
-        <div class="dna-surf" id="dna-surf">—</div>
+        <div class="dna-surf" id="dna-surf">Clay · Italian Open</div>
       </div>
       <div class="dna-player right">
         <div class="dna-flag-wrap right">
           <img class="dna-flag" id="dna-flag2" src="" alt="" onerror="this.style.display='none'">
-          <div class="dna-archetype" id="dna-arch2">—</div>
+          <div class="dna-archetype" id="dna-arch2">All-Court Grinder</div>
         </div>
-        <div class="dna-name" id="dna-name2">—</div>
-        <div class="dna-prob dog" id="dna-prob2">—%</div>
+        <div class="dna-name" id="dna-name2">Sebastian Ofner</div>
+        <div class="dna-prob dog" id="dna-prob2">4%</div>
       </div>
     </div>
 
@@ -369,7 +388,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
       <div style="padding:14px;background:rgba(93,184,122,0.04);border:1px solid var(--green-border);margin-top:12px;text-align:center;">
         <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:8px">PRO UNLOCKS</div>
         <div style="font-size:11px;color:var(--text2);margin-bottom:10px">Fatigue meter · Momentum · Confidence band · Model intelligence · All predictions</div>
-        <button onclick="startCheckout('pro')" style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:7px 20px;cursor:pointer;">Pro — $9.99/mo ↗</button>
+        <button onclick="startCheckout('pro')" style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:7px 20px;cursor:pointer;">Unlock Full Card — $9.99/mo ↗</button>
       </div>
     </div>
   </div>
@@ -381,7 +400,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
   </div>
 
   <!-- DYK — all tiers -->
-  <div class="sec"><div class="sec-l">Model Insights</div><div class="sec-r">From 110,000+ matches</div></div>
+  <div class="sec"><div class="sec-l">TennisIQ Signals</div><div class="sec-r">From 110,000+ matches</div></div>
   <div class="dyk-inner" id="dyk-section">
     <div class="dyk-grid" id="dyk-grid">
       <div class="dyk-item"><div class="dyk-stat">34%</div><div class="dyk-text">When Elo gap is under 100 points, upsets happen 34% of the time — nearly 1 in 3.</div></div>
@@ -415,7 +434,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
           ✓ Fatigue, momentum, confidence band<br>
           ✓ Fair odds on every match
         </div>
-        <button class="pricing-btn" onclick="startCheckout('pro')">Get Pro ↗</button>
+        <button class="pricing-btn" onclick="startCheckout('pro')">Unlock Full Card ↗</button>
       </div>
       <div class="pricing-card">
         <div class="pricing-tier">Sharp</div>
@@ -427,7 +446,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
           ✓ Priority model updates<br>
           ✓ Serve breakdown in DNA card
         </div>
-        <button class="pricing-btn" onclick="startCheckout('sharp')">Get Sharp ↗</button>
+        <button class="pricing-btn" onclick="startCheckout('sharp')">Get Sharp Alerts ↗</button>
       </div>
     </div>
   </div>
@@ -706,7 +725,7 @@ function generateUpsets(data) {
   });
   document.getElementById('upset-count').textContent = upsets.length+' match'+(upsets.length!==1?'es':'')+' flagged';
   if (!upsets.length) {
-    document.getElementById('upset-list').innerHTML = '<div style="font-family:var(--mono);font-size:10px;color:var(--muted);padding:8px 0">No significant upset signals today.</div>';
+    document.getElementById('upset-list').innerHTML = '<div style="font-family:var(--mono);font-size:10px;color:var(--muted);padding:8px 0">No qualifying upset signals flagged. Model confidence is high across today's card.</div>';
     return;
   }
   document.getElementById('upset-list').innerHTML = upsets.slice(0,3).map(function(u){
@@ -827,7 +846,7 @@ async function loadResults() {
 async function loadCLV() {
   var el = document.getElementById('clv-content');
   if (!hasAccess('sharp')) {
-    el.innerHTML = '<div style="text-align:center;padding:8px 0"><div style="font-size:10px;color:var(--muted);margin-bottom:8px">Available on Pro</div><button onclick="startCheckout(\'pro\')" style="font-family:var(--mono);font-size:9px;letter-spacing:1px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:5px 14px;cursor:pointer;">Get Pro ↗</button></div>';
+    el.innerHTML = '<div style="text-align:center;padding:8px 0"><div style="font-size:10px;color:var(--muted);margin-bottom:8px">Available on Pro</div><button onclick="startCheckout(\'pro\')" style="font-family:var(--mono);font-size:9px;letter-spacing:1px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:5px 14px;cursor:pointer;">Unlock Full Card ↗</button></div>';
     return;
   }
   el.innerHTML = '<div style="display:flex;flex-direction:column;gap:8px">'+
