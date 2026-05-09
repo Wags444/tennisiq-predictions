@@ -155,7 +155,8 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
       <button class="filter-tab" onclick="setTour('wta',this)">WTA</button>
     </div>
     <div class="surface-tabs">
-      <button class="surf-tab on hard" onclick="setSurface('hard',this)">Hard</button>
+      <button class="surf-tab on" onclick="setSurface('overall',this)">Overall</button>
+      <button class="surf-tab" onclick="setSurface('hard',this)">Hard</button>
       <button class="surf-tab" onclick="setSurface('clay',this)">Clay</button>
       <button class="surf-tab" onclick="setSurface('grass',this)">Grass</button>
     </div>
@@ -184,7 +185,7 @@ var FLAG_URL = 'https://flagcdn.com/20x15/';
 
 var allPlayers = [], filteredPlayers = [];
 var currentTour = 'all', currentSurface = 'hard', selectedIdx = -1;
-var sortCol = 'elo', sortDir = -1;
+var sortCol = 'elo', sortDir = -1, currentSurface = 'overall';
 
 function getUserTier(){return localStorage.getItem('tiq_tier')||'free';}
 function hasAccess(t){var l={free:0,pro:1,sharp:2};return (l[getUserTier()]||0)>=(l[t]||0);}
@@ -198,8 +199,9 @@ async function startCheckout(tier) {
 }
 
 function getElo(p) {
+  if (currentSurface === 'overall') return p.elo_overall ? parseFloat(p.elo_overall) : null;
   var col = 'elo_'+currentSurface;
-  var v = p[col] || p.elo_hard || null;
+  var v = p[col] || p.elo_overall || null;
   return v ? parseFloat(v) : null;
 }
 function getWinRate(p) {
@@ -251,8 +253,8 @@ function setTour(t, btn) {
 
 function setSurface(s, btn) {
   currentSurface = s;
-  document.querySelectorAll('.surf-tab').forEach(function(b){b.classList.remove('on','clay','hard','grass');});
-  btn.classList.add('on', s);
+  document.querySelectorAll('.surf-tab').forEach(function(b){b.classList.remove('on','clay','hard','grass','overall');});
+  btn.classList.add('on', s === 'overall' ? '' : s).trim();
   filterPlayers();
   if (selectedIdx >= 0) renderDetail(allPlayers[selectedIdx]);
 }
