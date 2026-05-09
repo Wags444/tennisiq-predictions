@@ -199,7 +199,8 @@ async function startCheckout(tier) {
 
 function getElo(p) {
   var col = 'elo_'+currentSurface;
-  return p[col] || p.elo_hard || 0;
+  var v = p[col] || p.elo_hard || null;
+  return v ? parseFloat(v) : null;
 }
 function getWinRate(p) {
   return p[currentSurface+'_win_rate'] || null;
@@ -230,11 +231,13 @@ function filterPlayers() {
   filteredPlayers = allPlayers.filter(function(p) {
     if (currentTour !== 'all' && p.tour !== currentTour) return false;
     if (q && !p.name.toLowerCase().includes(q)) return false;
+    if (!q && !getElo(p)) return false;
     return true;
   });
   filteredPlayers.sort(function(a,b) {
-    var va = getElo(a), vb = getElo(b);
-    return (vb-va)*sortDir;
+    var va = getElo(a)||0, vb = getElo(b)||0;
+    if (vb !== va) return (vb-va)*sortDir;
+    return (a.name||"").localeCompare(b.name||"");
   });
   renderTable();
 }
