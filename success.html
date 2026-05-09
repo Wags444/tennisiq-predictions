@@ -3,80 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome to tennisIQ — TennisHQ</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<title>Welcome to tennisIQ</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:"DM Sans",sans-serif; background:#0a0a0a; color:#fafaf7; min-height:100vh; display:flex; align-items:center; justify-content:center; }
-.wrap { max-width:480px; padding:3rem 2rem; text-align:center; }
-.logo { font-family:"DM Serif Display",serif; font-size:24px; margin-bottom:3rem; }
-.logo span { color:#c13a0f; }
-.icon { font-size:48px; margin-bottom:1.5rem; }
-.title { font-family:"Bebas Neue",sans-serif; font-size:36px; letter-spacing:2px; color:#c8f000; margin-bottom:1rem; }
-.sub { font-size:15px; color:rgba(255,255,255,0.5); line-height:1.6; margin-bottom:2rem; font-weight:300; }
-.tier-badge { display:inline-block; background:rgba(200,240,0,0.1); border:1px solid rgba(200,240,0,0.2); color:#c8f000; font-family:"Bebas Neue",sans-serif; font-size:14px; letter-spacing:2px; padding:6px 20px; margin-bottom:2rem; }
-.btn { display:inline-block; background:#c13a0f; color:white; font-family:"Bebas Neue",sans-serif; font-size:16px; letter-spacing:2px; padding:14px 32px; text-decoration:none; margin-top:1rem; }
-.loading { color:rgba(255,255,255,0.3); font-size:13px; margin-top:1rem; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#0f1210;--bg2:#141714;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--text:#dde3da;--text2:#a8b0a4;--muted:#5c6459;--green:#5db87a;--green-dim:rgba(93,184,122,0.1);--green-border:rgba(93,184,122,0.2);--mono:"DM Mono",monospace;--sans:"Instrument Sans",sans-serif;--serif:"Instrument Serif",serif;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;}
+.card{background:var(--bg2);border:1px solid var(--border);padding:48px;max-width:480px;width:100%;text-align:center;}
+.check{width:48px;height:48px;border-radius:50%;background:var(--green-dim);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:20px;}
+.title{font-family:var(--serif);font-size:28px;color:var(--text);margin-bottom:8px;letter-spacing:-0.5px;}
+.tier-badge{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--green);border:1px solid var(--green-border);padding:4px 12px;margin-bottom:16px;}
+.sub{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:32px;}
+.btn-primary{display:block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;background:var(--green);color:#0a1a0f;padding:13px 24px;text-decoration:none;font-weight:500;margin-bottom:10px;}
+.btn-secondary{display:block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:12px 24px;}
+.divider{height:1px;background:var(--border);margin:24px 0;}
+.manage-label{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+.manage-btn{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted);background:transparent;border:1px solid var(--border);padding:8px 16px;cursor:pointer;width:100%;}
+.manage-btn:hover{color:var(--text);border-color:var(--border2);}
+.logo{font-family:var(--serif);font-size:15px;color:var(--muted);margin-bottom:32px;}
+.logo em{color:var(--green);font-style:italic;}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="logo">Tennis<span>HQ</span></div>
-  <div class="icon">✦</div>
-  <div class="title">Welcome to tennisIQ</div>
-  <div class="tier-badge" id="tier-badge">Verifying payment...</div>
-  <div class="sub" id="sub-text">Please wait while we confirm your subscription.</div>
-  <div id="cta-wrap"></div>
-  <div class="loading" id="loading">Confirming with Stripe...</div>
+<div class="logo">Tennis<em>IQ</em></div>
+<div class="card">
+  <div class="check">✓</div>
+  <h1 class="title">You're all set.</h1>
+  <div class="tier-badge" id="tier-badge">LOADING...</div>
+  <p class="sub" id="success-msg">Your subscription is active.</p>
+  <a href="/tennisiq.html" class="btn-primary">View Today's Predictions ↗</a>
+  <a href="/" class="btn-secondary">Back to Home</a>
+  <div class="divider"></div>
+  <div class="manage-label">Subscription Management</div>
+  <button class="manage-btn" id="manage-btn" onclick="openPortal()">Manage Subscription ↗</button>
 </div>
 <script>
-const API_URL = "https://tennishq-api.vercel.app";
-
-async function verifyAndActivate() {
-  const params = new URLSearchParams(window.location.search);
-  const sessionId = params.get("session_id");
-  const tier = params.get("tier") || "starter";
-
-  if (!sessionId) {
-    document.getElementById("tier-badge").textContent = "Error";
-    document.getElementById("sub-text").textContent = "No session found. Please contact support.";
-    document.getElementById("loading").textContent = "";
-    return;
-  }
-
-  try {
-    const r = await fetch(API_URL + "/api/verify-session", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ sessionId })
-    });
-    const data = await r.json();
-
-    if (data.valid) {
-      // Store tier in localStorage
-      localStorage.setItem("tiq_tier", data.tier);
-      localStorage.setItem("tiq_session", sessionId);
-      localStorage.setItem("tiq_email", data.email || "");
-
-      const tierName = data.tier.charAt(0).toUpperCase() + data.tier.slice(1);
-      document.getElementById("tier-badge").textContent = "tennisIQ " + tierName + " — Active";
-      document.getElementById("sub-text").textContent = "Your subscription is active. You now have full access to tennisIQ " + tierName + " predictions.";
-      document.getElementById("loading").textContent = "";
-      document.getElementById("cta-wrap").innerHTML =
-        '<a href="/" class="btn">View today\'s predictions →</a>';
-    } else {
-      document.getElementById("tier-badge").textContent = "Payment pending";
-      document.getElementById("sub-text").textContent = "Payment is processing. Check back in a moment.";
-      document.getElementById("loading").textContent = "";
-    }
-  } catch(e) {
-    document.getElementById("tier-badge").textContent = "Error";
-    document.getElementById("sub-text").textContent = "Could not verify payment. Please contact support@thetennishq.com";
-    document.getElementById("loading").textContent = "";
-  }
+var API_URL = "https://tennishq-api.vercel.app";
+function getParam(n){return new URLSearchParams(window.location.search).get(n);}
+var sessionId=getParam("session_id"), tier=getParam("tier")||"pro";
+if(tier) localStorage.setItem("tiq_tier",tier);
+var names={pro:"Pro",sharp:"Sharp"};
+document.getElementById("tier-badge").textContent="tennisIQ "+(names[tier]||tier).toUpperCase()+" · ACTIVE";
+var msgs={pro:"Your Pro subscription is active. You now have access to all predictions, the full Matchup DNA breakdown, model intelligence, fatigue and momentum data.",sharp:"Your Sharp subscription is active. You now have full access including upset alerts, the CLV calculator on every match, and daily email digest of top picks."};
+document.getElementById("success-msg").textContent=msgs[tier]||msgs.pro;
+async function openPortal(){
+  var btn=document.getElementById("manage-btn");
+  if(!sessionId){alert("Session ID not found.");return;}
+  btn.textContent="Loading...";btn.disabled=true;
+  try{
+    var res=await fetch(API_URL+"/api/customer-portal",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({sessionId})});
+    var d=await res.json();
+    if(d.url) window.location.href=d.url;
+    else{btn.textContent="Manage Subscription ↗";btn.disabled=false;alert("Unable to open portal.");}
+  }catch(e){btn.textContent="Manage Subscription ↗";btn.disabled=false;alert("Unable to connect.");}
 }
-
-verifyAndActivate();
 </script>
 </body>
 </html>
