@@ -1,1891 +1,451 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TennisHQ — Tennis News, Scores & Predictions</title>
-<meta name="description" content="Live tennis scores, breaking news, and data-driven match predictions. Your home for ATP and WTA tennis.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<title>TennisIQ — Tennis Intelligence Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black: #0a0a0a;
-  --white: #fafaf7;
-  --clay: #c13a0f;
-  --clay-light: #e8491a;
-  --acid: #c8f000;
-  --warm: #f5f0e8;
-  --muted: #6e6b63;
-  --border: rgba(10,10,10,0.10);
-  --card-bg: #ffffff;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0f1210;--bg2:#141714;--bg3:#191c19;--bg4:#1e221e;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --text:#dde3da;--text2:#a8b0a4;--muted:#5c6459;
+  --green:#5db87a;--green-hi:#7dd49a;
+  --green-dim:rgba(93,184,122,0.1);--green-border:rgba(93,184,122,0.2);
+  --amber:#c89a4a;--amber-dim:rgba(200,154,74,0.1);
+  --mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--serif:'Instrument Serif',serif;
 }
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;min-height:100vh;}
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+/* NAV */
+nav{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid var(--border);background:rgba(15,18,16,0.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:16px;}
+.logo-name{font-family:var(--serif);font-size:18px;color:var(--text);letter-spacing:-0.3px;text-decoration:none;}
+.logo-name em{color:var(--green);font-style:italic;}
+.logo-div{width:1px;height:16px;background:var(--border2);}
+.logo-sub{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+.nav-links{display:flex;}
+.nav-link{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;border-left:1px solid var(--border);transition:color 0.15s;}
+.nav-link:last-child{border-right:1px solid var(--border);}
+.nav-link:hover{color:var(--text);}
+.nav-link.active{color:var(--green);}
+.nav-r{display:flex;align-items:center;gap:10px;}
+.nav-cta{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;background:var(--green);color:#0a1a0f;padding:7px 16px;text-decoration:none;font-weight:500;transition:opacity 0.15s;}
+.nav-cta:hover{opacity:0.9;}
+.nav-login{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--muted);text-decoration:none;}
+.nav-login:hover{color:var(--text);}
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--warm);
-  color: var(--black);
-  overflow-x: hidden;
-}
+/* HERO */
+.hero{padding:80px 32px 64px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.hero-left{}
+.hero-eyebrow{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--green);}
+.hero-title{font-family:var(--serif);font-size:52px;line-height:1.05;color:var(--text);margin-bottom:20px;letter-spacing:-1px;}
+.hero-title em{color:var(--green);font-style:italic;}
+.hero-subtitle{font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:32px;max-width:420px;}
+.hero-actions{display:flex;gap:12px;align-items:center;}
+.btn-primary{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;background:var(--green);color:#0a1a0f;padding:12px 24px;text-decoration:none;font-weight:500;display:inline-block;transition:opacity 0.15s;}
+.btn-primary:hover{opacity:0.9;}
+.btn-secondary{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--muted);text-decoration:none;border:1px solid var(--border2);padding:11px 24px;transition:all 0.15s;}
+.btn-secondary:hover{color:var(--text);border-color:var(--green-border);}
+.hero-stats{display:flex;gap:32px;margin-top:40px;padding-top:32px;border-top:1px solid var(--border);}
+.hero-stat{}
+.hero-stat-v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--green);}
+.hero-stat-l{font-size:10px;color:var(--muted);margin-top:3px;}
 
-/* ── TICKER ── */
-.ticker-wrap {
-  background: var(--clay);
-  overflow: hidden;
-  height: 34px;
-  display: flex;
-  align-items: center;
-}
-.ticker-label {
-  background: var(--black);
-  color: var(--acid);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  padding: 0 16px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  flex-shrink: 0;
-  z-index: 2;
-}
-.ticker-track {
-  display: flex;
-  animation: ticker 40s linear infinite;
-  white-space: nowrap;
-}
-.ticker-track:hover { animation-play-state: paused; }
-.ticker-item {
-  color: white;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  padding: 0 24px;
-  border-right: 1px solid rgba(255,255,255,0.2);
-}
-@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+/* HERO RIGHT — DNA PREVIEW */
+.hero-right{position:relative;}
+.dna-preview{background:var(--bg2);border:1px solid var(--border);padding:20px;}
+.dna-preview-label{font-family:var(--mono);font-size:8px;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.dna-preview-label::after{content:'LIVE';font-size:7px;background:var(--green-dim);color:var(--green);padding:2px 6px;border:1px solid var(--green-border);}
+.dna-players{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:center;margin-bottom:14px;}
+.dna-p{display:flex;flex-direction:column;gap:4px;}
+.dna-p.right{align-items:flex-end;text-align:right;}
+.dna-p-flag{width:18px;height:13px;border-radius:1px;object-fit:cover;}
+.dna-p-arch{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.dna-p-name{font-family:var(--serif);font-size:16px;color:var(--text);line-height:1.1;}
+.dna-p-prob{font-family:var(--mono);font-size:26px;font-weight:500;color:var(--green);}
+.dna-p-prob.dog{color:var(--muted);font-size:18px;}
+.dna-center-pre{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 12px;}
+.dna-vs{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--muted);}
+.dna-surf-pre{font-family:var(--mono);font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;text-align:center;}
+.dna-narrative-pre{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--text2);line-height:1.6;padding:10px 12px;background:rgba(93,184,122,0.04);border-left:2px solid var(--green-border);margin-bottom:12px;}
+.dna-blur-overlay{position:relative;}
+.dna-blur-inner{filter:blur(3px);opacity:0.5;}
+.dna-lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+.dna-lock-label{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.dna-lock-btn{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:6px 16px;text-decoration:none;cursor:pointer;}
+.mini-stat-row{display:grid;grid-template-columns:1fr 70px 1fr;gap:4px;margin-bottom:6px;align-items:center;}
+.mini-stat-val{font-family:var(--mono);font-size:10px;font-weight:500;}
+.mini-stat-val.p1{color:var(--green);text-align:right;}
+.mini-stat-val.p2{color:var(--text2);}
+.mini-stat-lbl{font-family:var(--mono);font-size:7px;color:var(--muted);text-align:center;letter-spacing:1px;}
+.mini-bar-row{display:flex;align-items:center;gap:2px;}
+.mini-bar{height:2px;border-radius:1px;}
 
-/* ── NAV ── */
-nav {
-  background: var(--black);
-  padding: 0 clamp(1rem, 4vw, 3rem);
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.nav-logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  color: var(--white);
-  text-decoration: none;
-  letter-spacing: -0.5px;
-}
-.nav-logo span { color: var(--clay); }
-.nav-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.45);
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--white); }
-.nav-links a.pro { color: var(--acid); }
-.nav-cta {
-  background: var(--clay);
-  color: white;
-  border: none;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px;
-  letter-spacing: 1.5px;
-  padding: 8px 20px;
-  cursor: pointer;
-  transition: background 0.2s;
-  text-decoration: none;
-  display: inline-block;
-}
-.nav-cta:hover { background: var(--clay-light); }
+/* SECTION */
+.section{padding:64px 32px;border-top:1px solid var(--border);}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-label{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.section-title{font-family:var(--serif);font-size:36px;color:var(--text);margin-bottom:8px;letter-spacing:-0.5px;}
+.section-sub{font-size:14px;color:var(--text2);max-width:560px;line-height:1.7;}
 
-/* ── HERO ── */
-.hero {
-  background: var(--black);
-  padding: clamp(2rem,5vw,4rem) clamp(1rem,4vw,3rem);
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 2px;
-  align-items: stretch;
-}
-.hero-main {
-  padding-right: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.hero-label {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: var(--clay);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.hero-label::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background: var(--clay);
-}
-.hero-headline {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(36px, 5.5vw, 68px);
-  color: var(--white);
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-}
-.hero-headline em {
-  font-style: italic;
-  color: rgba(255,255,255,0.5);
-}
-.hero-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.4);
-  font-weight: 300;
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 2rem;
-}
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-clay {
-  background: var(--clay);
-  color: white;
-  border: none;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px;
-  letter-spacing: 2px;
-  padding: 12px 28px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.2s;
-}
-.btn-clay:hover { background: var(--clay-light); }
-.btn-outline {
-  background: transparent;
-  color: var(--acid);
-  border: 1px solid var(--acid);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px;
-  letter-spacing: 2px;
-  padding: 11px 28px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s;
-}
-.btn-outline:hover { background: var(--acid); color: var(--black); }
+/* DIFFERENTIATORS */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:40px;}
+.diff-card{background:var(--bg);padding:28px 24px;}
+.diff-num{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:16px;}
+.diff-title{font-family:var(--serif);font-size:20px;color:var(--text);margin-bottom:10px;line-height:1.2;}
+.diff-body{font-size:12px;color:var(--text2);line-height:1.7;}
+.diff-stat{font-family:var(--mono);font-size:28px;font-weight:500;color:var(--green);margin-top:16px;}
+.diff-stat-l{font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:2px;}
 
-/* Scores panel */
-.scores-panel {
-  background: rgba(255,255,255,0.04);
-  border-left: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  flex-direction: column;
-}
-.scores-head {
-  padding: 16px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.scores-head-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: rgba(255,255,255,0.5);
-}
-.live-badge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10px;
-  font-weight: 500;
-  color: #ef4444;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ef4444;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-.score-row {
-  padding: 14px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
-  cursor: default;
-  transition: background 0.15s;
-}
-.score-row:hover { background: rgba(255,255,255,0.03); }
-.score-players { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
-.score-info { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 3px; }
-.score-result {
-  text-align: right;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 17px;
-  color: var(--acid);
-  letter-spacing: 1px;
-}
-.score-status { font-size: 10px; color: rgba(255,255,255,0.25); text-align: right; margin-top: 2px; }
-.scores-loading { padding: 24px 20px; text-align: center; color: rgba(255,255,255,0.2); font-size: 13px; }
-.scores-footer {
-  margin-top: auto;
-  padding: 12px 20px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  background: rgba(200,240,0,0.05);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.scores-footer:hover { background: rgba(200,240,0,0.08); }
-.scores-footer-text {
-  font-size: 11px;
-  color: rgba(200,240,0,0.7);
-  line-height: 1.5;
-}
-.scores-footer-link {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 12px;
-  color: var(--acid);
-  letter-spacing: 1px;
-  text-decoration: none;
-}
+/* VS SECTION */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:40px;}
+.vs-col{background:var(--bg);padding:28px 24px;}
+.vs-col.them{opacity:0.5;}
+.vs-head{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.vs-head.us{color:var(--green);}
+.vs-head.them{color:var(--muted);}
+.vs-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
+.vs-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.vs-dot.yes{background:var(--green);}
+.vs-dot.no{background:var(--muted);}
+.vs-text{font-size:12px;color:var(--text2);line-height:1.5;}
 
-/* ── LAYOUT WRAPPER ── */
-.page-wrap {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 3rem);
-}
+/* TRACK RECORD */
+.track-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:40px;}
+.track-stat{background:var(--bg2);padding:24px;}
+.track-l{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.track-v{font-family:var(--mono);font-size:28px;font-weight:500;color:var(--green);line-height:1;}
+.track-s{font-size:10px;color:var(--muted);margin-top:4px;}
 
-/* ── SECTION HEADS ── */
-.section-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--black);
-}
-.section-head-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 2px;
-  color: var(--black);
-}
-.section-head-link {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.section-head-link:hover { color: var(--clay); }
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin-top:40px;}
+.pricing-card{background:var(--bg);padding:28px 24px;position:relative;}
+.pricing-card.featured{background:var(--bg2);}
+.pricing-card.featured::before{content:'MOST POPULAR';position:absolute;top:0;left:0;right:0;background:var(--green);color:#0a1a0f;font-family:var(--mono);font-size:8px;letter-spacing:2px;text-align:center;padding:4px;}
+.pricing-card.featured{padding-top:36px;}
+.pricing-tier{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.pricing-price{font-family:var(--mono);font-size:32px;font-weight:500;color:var(--green);margin-bottom:4px;line-height:1;}
+.pricing-cadence{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:20px;}
+.pricing-features{margin-bottom:24px;}
+.pricing-feature{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:12px;color:var(--text2);line-height:1.5;}
+.pf-check{color:var(--green);flex-shrink:0;font-size:11px;}
+.pf-dash{color:var(--muted);flex-shrink:0;font-size:11px;}
+.pricing-btn{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;width:100%;padding:11px;border:1px solid var(--green-border);background:var(--green-dim);color:var(--green);cursor:pointer;transition:all 0.15s;display:block;text-align:center;text-decoration:none;}
+.pricing-btn:hover{background:var(--green);color:#0a1a0f;}
+.pricing-btn.free{border-color:var(--border);background:transparent;color:var(--muted);}
+.pricing-btn.free:hover{border-color:var(--border2);color:var(--text);}
 
-/* ── NEWS SECTION ── */
-.news-section { padding: 3rem 0; }
-.news-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 2px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.news-card {
-  background: var(--card-bg);
-  padding: 1.5rem;
-  cursor: pointer;
-  transition: background 0.15s;
-  text-decoration: none;
-  display: block;
-  color: inherit;
-}
-.news-card:hover { background: #faf8f3; }
-.news-card.featured { grid-row: span 2; border-right: 1px solid var(--border); }
-.news-source {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--clay);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.news-source-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--clay); }
-.news-title {
-  font-family: 'DM Serif Display', serif;
-  line-height: 1.25;
-  margin-bottom: 10px;
-  color: var(--black);
-}
-.news-card.featured .news-title { font-size: 22px; }
-.news-card:not(.featured) .news-title { font-size: 16px; }
-.news-excerpt {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-weight: 300;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.news-card:not(.featured) .news-excerpt { -webkit-line-clamp: 2; }
-.news-time { font-size: 11px; color: #bbb; margin-top: 12px; }
-.news-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 16/8;
-  background: var(--black);
-  margin-bottom: 1rem;
-  overflow: hidden;
-}
-.news-placeholder-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 64px;
-  color: rgba(255,255,255,0.06);
-  letter-spacing: -2px;
-  user-select: none;
-}
-.news-loading {
-  grid-column: 1/-1;
-  padding: 3rem;
-  text-align: center;
-  color: var(--muted);
-  font-size: 14px;
-}
-.news-error { grid-column: 1/-1; }
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:var(--serif);font-size:15px;color:var(--muted);}
+.footer-logo em{color:var(--green);font-style:italic;}
+.footer-links{display:flex;gap:20px;}
+.footer-link{font-family:var(--mono);font-size:9px;color:var(--muted);text-decoration:none;letter-spacing:1px;transition:color 0.15s;}
+.footer-link:hover{color:var(--text);}
+.footer-copy{font-family:var(--mono);font-size:9px;color:var(--muted);}
 
-/* ── PREDICTIONS SECTION ── */
-.predictions-section {
-  background: var(--black);
-  padding: 3rem clamp(1rem,4vw,3rem);
-  margin: 0;
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px;padding:48px 20px;}
+  .hero-title{font-size:36px;}
+  .hero-right{display:none;}
+  .diff-grid,.vs-grid,.track-strip,.pricing-grid{grid-template-columns:1fr;}
+  .section{padding:40px 20px;}
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
 }
-.pred-section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-.pred-section-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(24px,3.5vw,42px);
-  color: var(--white);
-  font-weight: 400;
-}
-.pred-section-title span { color: var(--acid); font-style: italic; }
-.pred-accuracy {
-  text-align: right;
-  font-size: 12px;
-  color: rgba(255,255,255,0.3);
-  line-height: 1.6;
-}
-.pred-accuracy strong { color: var(--acid); font-size: 18px; display: block; }
-
-.pred-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  background: rgba(255,255,255,0.05);
-  margin-bottom: 2px;
-  align-items: flex-start;
-.pred-card {
-  background: rgba(255,255,255,0.03);
-  padding: 1.25rem;
-  position: relative;
-  transition: background 0.15s;
-  min-width: 0;
-  width: 100%;
-  box-sizing: border-box;
-  background: rgba(255,255,255,0.03);
-  padding: 1.25rem;
-  position: relative;
-  transition: background 0.15s;
-  min-width: 0;
-}
-.pred-card:hover { background: rgba(255,255,255,0.05); }
-.pred-tour {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.pred-tour.atp { color: var(--clay); }
-.pred-tour.wta { color: #a78bfa; }
-.pred-tourn {
-  font-size: 11px;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.pred-matchup {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  gap: 8px;
-}
-.pred-player {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--white);
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.pred-player.right { text-align: right; }
-.pred-vs {
-  font-size: 10px;
-  color: rgba(255,255,255,0.2);
-  flex-shrink: 0;
-}
-.pred-bar-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.pred-pct {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
-  color: var(--acid);
-  min-width: 40px;
-  letter-spacing: 0.5px;
-}
-.pred-pct.right {
-  color: rgba(255,255,255,0.25);
-  text-align: right;
-}
-.pred-bar-track {
-  flex: 1;
-  height: 3px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.pred-bar-fill {
-  height: 100%;
-  background: var(--acid);
-  border-radius: 2px;
-  transition: width 0.6s ease;
-}
-.pred-detail {
-.form-dot { width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0; }
-.form-w { background:#4ade80 !important; }
-.form-l { background:#f87171 !important; }
-.form-n { background:rgba(255,255,255,0.15) !important;border:1px solid rgba(255,255,255,0.2); }
-.pred-card-featured .pred-summary { display:block; }
-  font-size: 10px;
-  color: rgba(255,255,255,0.2);
-  line-height: 1.5;
-}
-.pred-fair {
-  display: inline-block;
-  background: rgba(200,240,0,0.1);
-  color: var(--acid);
-  font-size: 10px;
-  padding: 2px 6px;
-  margin-top: 6px;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.5px;
-}
-
-/* Lock overlay */
-.pred-locked {
-  position: absolute;
-  inset: 0;
-  background: rgba(10,10,10,0.88);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  backdrop-filter: blur(3px);
-}
-.lock-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-}
-.lock-text {
-  font-size: 11px;
-  color: rgba(255,255,255,0.25);
-  text-align: center;
-  line-height: 1.5;
-}
-.lock-cta {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  color: var(--acid);
-  text-decoration: none;
-  border: 1px solid rgba(200,240,0,0.3);
-  padding: 5px 14px;
-  transition: all 0.2s;
-}
-.lock-cta:hover { background: var(--acid); color: var(--black); }
-
-/* CLV teaser */
-.clv-strip {
-  background: rgba(200,240,0,0.05);
-  border: 1px solid rgba(200,240,0,0.12);
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.clv-left-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  color: var(--acid);
-  margin-bottom: 3px;
-}
-.clv-sub { font-size: 12px; color: rgba(255,255,255,0.3); }
-.clv-demo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.clv-input-group { display: flex; flex-direction: column; gap: 3px; }
-.clv-input-label { font-size: 9px; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 1px; }
-.clv-input {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 7px 10px;
-  width: 76px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.clv-input:focus { border-color: rgba(200,240,0,0.4); }
-.clv-arrow { color: rgba(255,255,255,0.2); font-size: 18px; }
-.clv-output {
-  background: rgba(200,240,0,0.08);
-  border: 1px solid rgba(200,240,0,0.18);
-  padding: 7px 14px;
-  text-align: center;
-  min-width: 90px;
-}
-.clv-output-label { font-size: 9px; color: rgba(200,240,0,0.5); text-transform: uppercase; letter-spacing: 1px; }
-.clv-output-value {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  color: var(--acid);
-  letter-spacing: 1px;
-  filter: blur(5px);
-  user-select: none;
-}
-.clv-unlock {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  color: var(--acid);
-  text-decoration: none;
-  white-space: nowrap;
-  border: 1px solid rgba(200,240,0,0.3);
-  padding: 8px 18px;
-  transition: all 0.2s;
-}
-.clv-unlock:hover { background: var(--acid); color: var(--black); }
-
-/* ── MORE NEWS ── */
-.more-news-section { padding: 3rem 0; }
-.more-news-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-/* ── FOOTER ── */
-footer {
-  background: var(--black);
-  padding: 2.5rem clamp(1rem,4vw,3rem);
-  margin-top: 3rem;
-}
-.footer-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.footer-logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  color: var(--white);
-}
-.footer-logo span { color: var(--clay); }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a {
-  font-size: 11px;
-  color: rgba(255,255,255,0.25);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: rgba(255,255,255,0.5); }
-.footer-copy { font-size: 11px; color: rgba(255,255,255,0.15); }
-.footer-disclaimer {
-  max-width: 1280px;
-  margin: 1rem auto 0;
-  font-size: 10px;
-  color: rgba(255,255,255,0.12);
-  line-height: 1.5;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; }
-  .scores-panel { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
-  .news-grid { grid-template-columns: 1fr; }
-  .news-card.featured { grid-row: auto; border-right: none; border-bottom: 1px solid var(--border); }
-  .pred-grid { grid-template-columns: 1fr; }
-  .more-news-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .clv-strip { flex-direction: column; align-items: flex-start; }
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.fade-up { animation: fadeUp 0.5s ease both; }
-.fade-up-2 { animation: fadeUp 0.5s 0.1s ease both; }
-.fade-up-3 { animation: fadeUp 0.5s 0.2s ease both; }
 </style>
 </head>
 <body>
 
-<!-- TICKER (populated by JS) -->
-<div class="ticker-wrap">
-  <div class="ticker-label">LIVE</div>
-  <div class="ticker-track" id="ticker-track">
-    <span class="ticker-item">Loading scores...</span>
-  </div>
-</div>
-
-<!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Tennis<span>HQ</span></a>
-  <ul class="nav-links">
-    <li><a href="#news" class="active">News</a></li>
-    <li><a href="#scores">Fixtures</a></li>
-    <li><a href="/tennisiq.html" class="pro">tennisIQ ✦</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#results">Results</a></li><li><a href="/tools.html">Tools</a></li>
-    <li><a href="#pricing">Pro</a></li>
-  </ul>
-  <a href="#pricing" class="nav-cta">Go Pro — $9.99</a>
+  <div class="logo">
+    <a href="/" class="logo-name">Tennis<em>IQ</em></a>
+    <div class="logo-div"></div>
+    <div class="logo-sub">Intelligence Platform</div>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link active">Home</a>
+    <a href="/tennisiq.html" class="nav-link">Predictions</a>
+    <a href="/stats.html" class="nav-link">Stats</a>
+    <a href="/tools.html" class="nav-link">Tools</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+  </div>
+  <div class="nav-r">
+    <a href="/tennisiq.html" class="nav-cta">View Today's Predictions ↗</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<div style="background:var(--black)">
-<div class="hero" style="max-width:1280px;margin:0 auto">
-  <div class="hero-main fade-up">
-    <div>
-      <div class="hero-label">Data-driven tennis analysis</div>
-      <h1 class="hero-headline">The edge is<br>in the data.<br><em>Find yours.</em></h1>
-      <p class="hero-sub">tennisIQ models every ATP and WTA match daily — serve stats, Elo ratings, fatigue, head-to-head — delivering quantitative predictions serious fans and bettors can act on.</p>
-      <div class="hero-actions">
-        <a href="/tennisiq.html" class="btn-clay">See today's picks ✦</a>
-        <a href="/tools.html" class="btn-outline">Free tools →</a>
-      </div>
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Tennis Intelligence Platform</div>
+    <h1 class="hero-title">The edge is<br>in the <em>data.</em></h1>
+    <p class="hero-subtitle">tennisIQ is a predictive analytics platform built on 110,000+ matches. Not picks. Not opinions. A model that finds edges the market misses — on every surface, every tour, every day.</p>
+    <div class="hero-actions">
+      <a href="/tennisiq.html" class="btn-primary">View Today's Predictions ↗</a>
+      <a href="#how-it-works" class="btn-secondary">How it works</a>
     </div>
-    <div style="display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08)">
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--acid);line-height:1">68.7%</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;margin-top:3px">ATP accuracy</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-v">68.7%</div>
+        <div class="hero-stat-l">Backtested accuracy</div>
       </div>
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--acid);line-height:1">+19.2%</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;margin-top:3px">ROI vs Pinnacle</div>
+      <div class="hero-stat">
+        <div class="hero-stat-v">+19.2%</div>
+        <div class="hero-stat-l">ROI vs Pinnacle closing</div>
       </div>
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--acid);line-height:1">110K+</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;margin-top:3px">Matches backtested</div>
+      <div class="hero-stat">
+        <div class="hero-stat-v">110K+</div>
+        <div class="hero-stat-l">Matches analysed</div>
       </div>
     </div>
   </div>
 
-  <!-- LIVE SCORES -->
-  <div class="scores-panel fade-up-2" id="scores">
-    <div class="scores-head">
-      <span class="scores-head-title">Today's Fixtures</span>
-      <span class="live-badge"><span class="live-dot"></span>Live</span>
-    </div>
-    <div id="scores-list">
-      <div class="scores-loading">Loading scores...</div>
-    </div>
-    <div class="scores-footer" onclick="document.getElementById('predictions').scrollIntoView({behavior:'smooth'})">
-      <div class="scores-footer-text">✦ tennisIQ model picks for today's matches</div>
-      <a href="#predictions" class="scores-footer-link">See today's predictions →</a>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- NEWS SECTION -->
-<div class="page-wrap">
-<section class="news-section" id="news">
-  <div class="section-head">
-    <span class="section-head-title">Latest Tennis News</span>
-    <span class="section-head-link">Curated from ATP Tour, BBC Sport, ESPN & Tennis Majors</span>
-  </div>
-  <div class="news-grid" id="news-grid">
-    <div class="news-loading">Loading latest tennis news...</div>
-  </div>
-</section>
-</div>
-
-<!-- TENNISIQ PREDICTIONS SECTION -->
-<section class="predictions-section" id="predictions">
-  <div style="max-width:1280px;margin:0 auto">
-    <div class="pred-section-head">
-      <h2 class="pred-section-title">tennisIQ<br><span>Predictions</span></h2>
-      <div class="pred-accuracy">
-        <strong id="pred-count">—</strong>
-        predictions today
-        <br>Updated daily at 7am
-      </div>
-    </div>
-
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.2);margin-bottom:10px">
-      Today · Free preview — 1 of <span id="total-pred-count">today's</span> predictions
-    </div>
-
-    <div class="pred-grid" id="pred-grid">
-      <div style="grid-column:1/-1;padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:13px">
-        Loading predictions...
-      </div>
-    </div>
-
-    <!-- CLV Calculator -->
-    <div id="clv-calculator" style="margin-top:2px;background:rgba(255,255,255,0.03);border:1px solid rgba(200,240,0,0.15);padding:1.5rem">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem">
-        <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;color:var(--acid)">✦ CLV Calculator</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px">Enter bookmaker odds to see your edge vs the model</div>
+  <!-- DNA PREVIEW -->
+  <div class="hero-right">
+    <div class="dna-preview">
+      <div class="dna-preview-label">Matchup DNA</div>
+      <div class="dna-players">
+        <div class="dna-p">
+          <div style="display:flex;align-items:center;gap:6px">
+            <img class="dna-p-flag" src="https://flagcdn.com/20x15/es.png" alt="ESP">
+            <div class="dna-p-arch">Aggressive Baseliner</div>
+          </div>
+          <div class="dna-p-name">Carlos<br>Alcaraz</div>
+          <div class="dna-p-prob">78%</div>
         </div>
-        <div id="clv-tier-badge" style="font-size:10px;color:rgba(255,255,255,0.25);font-family:'Bebas Neue',sans-serif;letter-spacing:1px"></div>
-      </div>
-      <div id="clv-content">
-        <!-- Populated by JS based on tier -->
-      </div>
-    </div>
-  </div>
-</section>
-</section>
-
-<!-- MORE NEWS -->
-<div class="page-wrap">
-<!-- SCHEDULE SECTION -->
-<!-- TENNISIQ TEASER -->
-<div class="page-wrap" style="background:var(--black)">
-<section style="padding:3rem 0">
-  <div class="section-head">
-    <span class="section-head-title">tennisIQ</span>
-    <a href="/tennisiq.html" class="section-head-link">See all predictions →</a>
-  </div>
-
-  <!-- Value props -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:2px">
-    <div style="background:rgba(20,20,20,0.95);padding:1.5rem">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:var(--clay);margin-bottom:8px">The Model</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300">Built on 110,000+ matches. Serve stats, surface Elo, fatigue, H2H — every variable that predicts match outcomes, quantified.</div>
-    </div>
-    <div style="background:rgba(20,20,20,0.95);padding:1.5rem">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:var(--clay);margin-bottom:8px">The Edge</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300">+19.2% ROI vs Pinnacle closing line. Our fair odds expose value the market hasn't priced in — before it closes.</div>
-    </div>
-    <div style="background:rgba(20,20,20,0.95);padding:1.5rem">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:var(--clay);margin-bottom:8px">The Tools</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:300">Free odds converter and Sackmann match probability calculator. Pro gets CLV edge. Sharp gets serve breakdowns and push alerts.</div>
-    </div>
-  </div>
-
-  <!-- Featured prediction card -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border)">
-    <div id="tiq-teaser-card" style="background:rgba(20,20,20,0.95);padding:1.5rem">
-      <div style="color:rgba(255,255,255,0.2);font-size:13px">Loading today's top pick...</div>
-    </div>
-    <div style="background:rgba(200,240,0,0.04);padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between">
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--acid);margin-bottom:8px">Unlock the full model</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;font-weight:300;margin-bottom:1.5rem">
-          Today's top pick is just a preview. tennisIQ Starter unlocks every ATP and WTA prediction — win probabilities, fair odds, H2H by surface, fatigue and form indicators.
+        <div class="dna-center-pre">
+          <svg width="100" height="100" viewBox="-50 -50 100 100">
+            <g opacity="0.12">
+              <polygon points="0,-38 33,-19 33,19 0,38 -33,19 -33,-19" fill="none" stroke="#5db87a" stroke-width="0.5"/>
+              <polygon points="0,-25 22,-13 22,13 0,25 -22,13 -22,-13" fill="none" stroke="#5db87a" stroke-width="0.5"/>
+            </g>
+            <g opacity="0.15" stroke="#5db87a" stroke-width="0.5">
+              <line x1="0" y1="0" x2="0" y2="-38"/>
+              <line x1="0" y1="0" x2="33" y2="-19"/>
+              <line x1="0" y1="0" x2="33" y2="19"/>
+              <line x1="0" y1="0" x2="0" y2="38"/>
+              <line x1="0" y1="0" x2="-33" y2="19"/>
+              <line x1="0" y1="0" x2="-33" y2="-19"/>
+            </g>
+            <polygon points="0,-36 29,-14 24,16 0,32 -20,16 -28,-16" fill="rgba(93,184,122,0.15)" stroke="#5db87a" stroke-width="1.5"/>
+            <polygon points="0,-22 18,-12 19,12 0,21 -17,12 -21,-11" fill="rgba(168,176,164,0.07)" stroke="#a8b0a4" stroke-width="1" stroke-dasharray="2,1.5"/>
+            <text y="-43" text-anchor="middle" font-family="DM Mono" font-size="5" fill="#5c6459">SERVE</text>
+            <text x="38" y="-17" font-family="DM Mono" font-size="5" fill="#5c6459">RET</text>
+            <text x="36" y="26" font-family="DM Mono" font-size="5" fill="#5c6459">FORM</text>
+            <text y="47" text-anchor="middle" font-family="DM Mono" font-size="5" fill="#5c6459">BP%</text>
+            <text x="-50" y="26" font-family="DM Mono" font-size="5" fill="#5c6459">ELO</text>
+            <text x="-48" y="-17" font-family="DM Mono" font-size="5" fill="#5c6459">SURF</text>
+          </svg>
+          <div class="dna-vs">vs</div>
+          <div class="dna-surf-pre">Clay · Roland Garros</div>
         </div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-bottom:1rem">
-          Pro adds the CLV calculator. Sharp adds serve breakdowns and daily email digest.
+        <div class="dna-p right">
+          <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+            <img class="dna-p-flag" src="https://flagcdn.com/20x15/de.png" alt="GER">
+            <div class="dna-p-arch">Counter-Puncher</div>
+          </div>
+          <div class="dna-p-name">Alexander<br>Zverev</div>
+          <div class="dna-p-prob dog">22%</div>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <button onclick="startCheckout('pro')" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;background:var(--acid);color:var(--black);border:none;padding:12px;cursor:pointer;width:100%">Pro — $9.99/mo</button>
-        <button onclick="startCheckout('sharp')" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;background:var(--clay);color:white;border:none;padding:12px;cursor:pointer;width:100%">Sharp — $19.99/mo</button>
-        <a href="/tennisiq.html" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:rgba(255,255,255,0.4);text-align:center;padding:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.1)">See free preview →</a>
+      <div class="dna-narrative-pre">Alcaraz enters as the dominant clay-court force — his surface Elo of 2140 dwarfs Zverev's 1921, backed by an 87.7% win rate on clay. The model assigns a 78% win probability, ranking this among today's most reliable signals.</div>
+      <div class="dna-blur-overlay">
+        <div class="dna-blur-inner">
+          <div class="mini-stat-row"><div class="mini-stat-val p1" style="text-align:right">73.0%</div><div class="mini-stat-lbl">SERVE WON</div><div class="mini-stat-val p2">69.4%</div></div>
+          <div class="mini-stat-row"><div class="mini-stat-val p1" style="text-align:right">65.7%</div><div class="mini-stat-lbl">1ST SERVE %</div><div class="mini-stat-val p2">62.3%</div></div>
+          <div class="mini-stat-row"><div class="mini-stat-val p1" style="text-align:right">50.1%</div><div class="mini-stat-lbl">BP CONV</div><div class="mini-stat-val p2">47.8%</div></div>
+        </div>
+        <div class="dna-lock">
+          <div class="dna-lock-label">Pro · Unlock Full Breakdown</div>
+          <a href="#pricing" class="dna-lock-btn">View Plans ↗</a>
+        </div>
       </div>
     </div>
   </div>
-</section>
 </div>
 
-<div class="page-wrap" id="schedule">
-<section style="padding:3rem 0">
-  <div class="section-head">
-    <span class="section-head-title">Today's Schedule</span>
-    <span class="section-head-link" id="schedule-updated"></span>
+<!-- HOW IT WORKS -->
+<div class="section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Built on match science,<br>not intuition.</h2>
+    <p class="section-sub">tennisIQ uses a logistic regression model trained on 110,000+ ATP and WTA matches, incorporating surface-adjusted Elo ratings, serve and return profiles, fatigue signals, and head-to-head history.</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-num">01</div>
+        <div class="diff-title">Surface-Adjusted Elo</div>
+        <div class="diff-body">Standard Elo treats all matches equally. Our model builds separate hard, clay, grass, and indoor hard ratings — because a clay specialist with a 1900 clay Elo tells a very different story than a 1900 overall Elo.</div>
+        <div class="diff-stat">4 surfaces</div>
+        <div class="diff-stat-l">Separate Elo ratings per surface</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-num">02</div>
+        <div class="diff-title">Serve & Return Profiling</div>
+        <div class="diff-body">Every prediction is informed by 8 serve and return metrics per player, calculated across their full match history. 1st serve won %, 2nd serve won %, break point conversion, double fault rate — all surface-stratified.</div>
+        <div class="diff-stat">8 metrics</div>
+        <div class="diff-stat-l">Per-player, per-surface serve profile</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-num">03</div>
+        <div class="diff-title">Market Intelligence</div>
+        <div class="diff-body">Where bookmaker odds exist, we calculate closing line value — the gap between our model's fair probability and what the market implies. Positive CLV is the most reliable indicator of long-term edge.</div>
+        <div class="diff-stat">+19.2%</div>
+        <div class="diff-stat-l">Average ROI vs Pinnacle closing line</div>
+      </div>
+    </div>
   </div>
-  <div style="display:flex;gap:2px;margin-bottom:2px;background:var(--border)">
-    <button onclick="filterSchedule('all')" id="tab-all"
-      style="flex:1;padding:10px;border:none;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;background:var(--black);color:var(--acid)">ALL</button>
-    <button onclick="filterSchedule('atp')" id="tab-atp"
-      style="flex:1;padding:10px;border:none;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;background:var(--warm);color:var(--muted)">ATP</button>
-    <button onclick="filterSchedule('wta')" id="tab-wta"
-      style="flex:1;padding:10px;border:none;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;background:var(--warm);color:var(--muted)">WTA</button>
-  </div>
-  <div id="schedule-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2px;background:var(--border);border:1px solid var(--border)">
-    <div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">Loading schedule...</div>
-  </div>
-</section>
 </div>
 
-<!-- RESULTS TRACKER -->
-<div class="page-wrap" id="results">
-<section style="padding:3rem 0">
-  <div class="section-head">
-    <span class="section-head-title">Track Record</span>
-    <span class="section-head-link" id="results-updated"></span>
-  </div>
-
-  <!-- Summary stats -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:2px">
-    <div style="background:var(--card-bg);padding:1.5rem;text-align:center">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--acid)" id="res-accuracy">—</div>
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px">Live accuracy</div>
+<!-- VS COMPETITORS -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Why tennisIQ</div>
+    <h2 class="section-title">Intelligence, not tips.</h2>
+    <p class="section-sub">Most tennis services offer picks from pundits. tennisIQ offers a transparent, data-driven model with verifiable track records and the methodology to back it up.</p>
+    <div class="vs-grid">
+      <div class="vs-col">
+        <div class="vs-head us">tennisIQ</div>
+        <div class="vs-item"><div class="vs-dot yes"></div><div class="vs-text">Probabilistic win % — not just who to bet on</div></div>
+        <div class="vs-item"><div class="vs-dot yes"></div><div class="vs-text">Surface-adjusted Elo for every player in the database</div></div>
+        <div class="vs-item"><div class="vs-dot yes"></div><div class="vs-text">Serve & return profiles updated from match history</div></div>
+        <div class="vs-item"><div class="vs-dot yes"></div><div class="vs-text">Fatigue and momentum signals built into every prediction</div></div>
+        <div class="vs-item"><div class="vs-dot yes"></div><div class="vs-text">Closing line value vs Pinnacle — verifiable edge</div></div>
+        <div class="vs-item"><div class="vs-dot yes"></div><div class="vs-text">Matchup DNA — visual, shareable, explainable</div></div>
+        <div class="vs-item"><div class="vs-dot yes"></div><div class="vs-text">Covers ATP, WTA, Challengers, and ITF</div></div>
+      </div>
+      <div class="vs-col them">
+        <div class="vs-head them">Typical tipster service</div>
+        <div class="vs-item"><div class="vs-dot no"></div><div class="vs-text">Subjective picks with no methodology disclosed</div></div>
+        <div class="vs-item"><div class="vs-dot no"></div><div class="vs-text">Overall Elo only — no surface differentiation</div></div>
+        <div class="vs-item"><div class="vs-dot no"></div><div class="vs-text">No serve/return data integration</div></div>
+        <div class="vs-item"><div class="vs-dot no"></div><div class="vs-text">No fatigue or schedule modeling</div></div>
+        <div class="vs-item"><div class="vs-dot no"></div><div class="vs-text">No CLV calculation or market comparison</div></div>
+        <div class="vs-item"><div class="vs-dot no"></div><div class="vs-text">No visual explainability</div></div>
+        <div class="vs-item"><div class="vs-dot no"></div><div class="vs-text">Usually ATP-only, top tournaments only</div></div>
+      </div>
     </div>
-    <div style="background:var(--card-bg);padding:1.5rem;text-align:center">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--chalk)" id="res-resolved">—</div>
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px">This week</div>
-    </div>
-    <div style="background:var(--card-bg);padding:1.5rem;text-align:center">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--chalk)" id="res-predicted">—</div>
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px">Total predicted</div>
-    </div>
   </div>
-
-  <!-- Recent results -->
-  <div id="results-grid" style="background:var(--border);border:1px solid var(--border)">
-    <div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">Loading results...</div>
-  </div>
-</section>
 </div>
 
-<section class="more-news-section">
-  <div class="section-head">
-    <span class="section-head-title">More From Around Tennis</span>
-    <a href="#news" class="section-head-link">Back to top ↑</a>
+<!-- TRACK RECORD -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Track Record</div>
+    <h2 class="section-title">Numbers that hold up.</h2>
+    <p class="section-sub">Built on 110,000+ matches of backtesting. Live predictions updated daily at 7am. Track record published in full — we don't cherry-pick.</p>
+    <div class="track-strip">
+      <div class="track-stat">
+        <div class="track-l">Backtested Accuracy</div>
+        <div class="track-v">68.7%</div>
+        <div class="track-s">Across all surfaces and tours</div>
+      </div>
+      <div class="track-stat">
+        <div class="track-l">ROI vs Pinnacle</div>
+        <div class="track-v">+19.2%</div>
+        <div class="track-s">Closing line value benchmark</div>
+      </div>
+      <div class="track-stat">
+        <div class="track-l">Matches Analysed</div>
+        <div class="track-v">110K+</div>
+        <div class="track-s">ATP + WTA combined</div>
+      </div>
+      <div class="track-stat">
+        <div class="track-l">Player Profiles</div>
+        <div class="track-v">1,463</div>
+        <div class="track-s">995 ATP · 468 WTA</div>
+      </div>
+    </div>
   </div>
-  <div class="more-news-grid" id="more-news-grid">
-    <div class="news-loading">Loading more news...</div>
-  </div>
-</section>
 </div>
 
 <!-- PRICING -->
-<div class="page-wrap" id="pricing">
-<div style="padding:3rem 0">
-  <div class="section-head">
-    <span class="section-head-title">Choose your edge</span>
-    <span class="section-head-link">Cancel anytime</span>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border)">
-
-    <!-- FREE -->
-    <div style="background:var(--warm);padding:2rem">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:1rem">Free</div>
-      <div style="font-family:'DM Serif Display',serif;font-size:48px;font-weight:400;line-height:1;margin-bottom:4px">$0</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:1.5rem">forever</div>
-      <ul style="list-style:none;margin-bottom:2rem">
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:8px"><span style="color:var(--clay)">✓</span> Live news & schedule</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:8px"><span style="color:var(--clay)">✓</span> 1 featured prediction daily</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;color:#bbb"><span>✗</span> All daily predictions</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;color:#bbb"><span>✗</span> Win probabilities</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;color:#bbb"><span>✗</span> CLV calculator</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;color:#bbb"><span>✗</span> Value alerts</li>
-        <li style="font-size:12px;padding:8px 0;display:flex;gap:8px;color:#bbb"><span>✗</span> Push notifications</li>
-      </ul>
-      <button style="width:100%;padding:12px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;background:transparent;color:var(--black);border:1.5px solid var(--black);cursor:pointer">Get started free</button>
+<div class="section" id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Start free. Go sharp.</h2>
+    <p class="section-sub">Every tier includes the Matchup DNA card — the visual core of tennisIQ. Upgrade to unlock the full analytical depth behind every prediction.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Free</div>
+        <div class="pricing-price">$0</div>
+        <div class="pricing-cadence">Always free</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pf-check">✓</span>Matchup DNA card — % + radar</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>1 prediction preview per day</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Model insights (DYK stats)</div>
+          <div class="pricing-feature"><span class="pf-dash">—</span><span style="color:var(--muted)">Full prediction list</span></div>
+          <div class="pricing-feature"><span class="pf-dash">—</span><span style="color:var(--muted)">Fatigue & momentum data</span></div>
+          <div class="pricing-feature"><span class="pf-dash">—</span><span style="color:var(--muted)">Model intelligence panel</span></div>
+        </div>
+        <a href="/tennisiq.html" class="pricing-btn free">Get started →</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-price">$9.99</div>
+        <div class="pricing-cadence">per month</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pf-check">✓</span>Everything in Free</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>All predictions + probabilities</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Full Matchup DNA breakdown</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Fatigue, momentum, confidence band</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Model intelligence panel</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Fair odds on every match</div>
+        </div>
+        <button class="pricing-btn" onclick="startCheckout('pro')">Get Pro ↗</button>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Sharp</div>
+        <div class="pricing-price">$19.99</div>
+        <div class="pricing-cadence">per month</div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pf-check">✓</span>Everything in Pro</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Upset alerts — flagged daily</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>CLV calculator on every match</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Daily email digest of top picks</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Priority model updates</div>
+          <div class="pricing-feature"><span class="pf-check">✓</span>Full player stats database</div>
+        </div>
+        <button class="pricing-btn" onclick="startCheckout('sharp')">Get Sharp ↗</button>
+      </div>
     </div>
-
-    <!-- STARTER -->
-    <div style="background:var(--black);padding:2rem">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:1rem">Starter</div>
-      <div style="font-family:'DM Serif Display',serif;font-size:48px;font-weight:400;line-height:1;color:var(--chalk);margin-bottom:4px">$9<span style="font-size:22px;font-weight:300">.99</span></div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:1.5rem">per month</div>
-      <ul style="list-style:none;margin-bottom:2rem">
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Everything in Free</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> All daily predictions</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> ATP + WTA win probabilities</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> H2H records by surface</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Fatigue & form indicators</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:#555"><span>✗</span> CLV calculator</li>
-        <li style="font-size:12px;padding:8px 0;display:flex;gap:8px;color:#555"><span>✗</span> Push notifications</li>
-      </ul>
-      <button onclick="startCheckout('pro')" class="btn-clay" style="width:100%;display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px;border:none;cursor:pointer">Get Pro — $9.99/mo</button>
-    </div>
-
-    <!-- PRO -->
-    <div style="background:var(--black);padding:2rem;border-top:3px solid var(--acid)">
-      <div style="display:inline-block;background:var(--acid);color:var(--black);font-size:10px;font-weight:700;letter-spacing:2px;padding:3px 10px;text-transform:uppercase;margin-bottom:0.75rem">Most Popular</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;color:var(--acid);margin-bottom:1rem">Pro</div>
-      <div style="font-family:'DM Serif Display',serif;font-size:48px;font-weight:400;line-height:1;color:var(--chalk);margin-bottom:4px">$19<span style="font-size:22px;font-weight:300">.99</span></div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:1.5rem">per month</div>
-      <ul style="list-style:none;margin-bottom:2rem">
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Everything in Starter</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> CLV calculator</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Value alerts — CLV &gt; 5%</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Expected value per match</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Sportsbook odds comparison</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--acid)">✓</span> Market efficiency score</li>
-        <li style="font-size:12px;padding:8px 0;display:flex;gap:8px;color:#555"><span>✗</span> Push notifications</li>
-      </ul>
-      <button onclick="startCheckout('sharp')" class="btn-clay" style="width:100%;display:block;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:12px;border:none;cursor:pointer">Get Sharp — $19.99/mo</button>
-    </div>
-
-    <!-- SHARP -->
-    <div style="background:var(--ink,#0a0a0a);padding:2rem;border-top:3px solid var(--clay)">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;color:var(--clay);margin-bottom:1rem">Sharp</div>
-      <div style="font-family:'DM Serif Display',serif;font-size:48px;font-weight:400;line-height:1;color:var(--chalk);margin-bottom:4px">$29<span style="font-size:22px;font-weight:300">.99</span></div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:1.5rem">per month</div>
-      <ul style="list-style:none;margin-bottom:2rem">
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> Everything in Pro</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> Surface variable breakdown</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> Leading matchup insights</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> Push alerts — high value picks</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> Daily 7am email digest</li>
-        <li style="font-size:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> Performance tracker</li>
-        <li style="font-size:12px;padding:8px 0;display:flex;gap:8px;color:rgba(255,255,255,0.75)"><span style="color:var(--clay)">✓</span> CLV &gt; 8% instant alerts</li>
-      </ul>
-
-    </div>
-
-  </div>
-  <div style="text-align:center;font-size:11px;color:var(--muted);padding:1rem 0">
-    Backtest covers 3,184 bets vs Pinnacle closing odds Jan 2023–Nov 2025. Past performance does not guarantee future results.
   </div>
 </div>
-</div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Tennis<span>HQ</span></div>
-    <div class="footer-links">
-      <a href="#news">News</a>
-      <a href="/tennisiq.html">tennisIQ</a>
-      <a href="/tools.html">Tools</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#">Privacy</a>
-    </div>
-    <div class="footer-copy">© 2026 TennisHQ</div>
+  <div class="footer-logo">Tennis<em>IQ</em></div>
+  <div class="footer-links">
+    <a href="/tennisiq.html" class="footer-link">Predictions</a>
+    <a href="/stats.html" class="footer-link">Stats</a>
+    <a href="/tools.html" class="footer-link">Tools</a>
+    <a href="https://www.tennis-reference.com" class="footer-link" target="_blank">News</a>
+    <a href="#pricing" class="footer-link">Pricing</a>
   </div>
-  <div class="footer-disclaimer">
-    TennisHQ aggregates news headlines from third-party sources including BBC Sport, ESPN, and Tennis Majors. All articles remain the property of their respective publishers. Predictions are for informational purposes only and do not constitute betting advice.
-  </div>
+  <div class="footer-copy">© 2026 tennisIQ · Intelligence Platform</div>
 </footer>
 
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────────
-const PRED_URL = 'https://thetennishq.com/predictions_today.json';
-
-// RSS feeds proxied through allorigins to avoid CORS
-const RSS_FEEDS = [
-  { url: "https://feeds.bbci.co.uk/sport/tennis/rss.xml", source: "BBC Sport" },
-  { url: "https://www.tennis365.com/feed/", source: "Tennis365" }
-];
-
-
-const PROXIES = ['https://api.rss2json.com/v1/api.json?rss_url=', 'https://corsproxy.io/?', 'https://api.allorigins.win/raw?url='];
-
-// ── UTILITIES ────────────────────────────────────────────────────────────────
-function timeAgo(date) {
-  const diff = (Date.now() - new Date(date)) / 1000;
-  if (diff < 3600) return Math.round(diff/60) + 'm ago';
-  if (diff < 86400) return Math.round(diff/3600) + 'h ago';
-  return Math.round(diff/86400) + 'd ago';
-}
-
-function stripHtml(html) {
-  const d = document.createElement('div');
-  d.innerHTML = html;
-  return d.textContent || '';
-}
-
-function truncate(str, n) {
-  if (!str) return '';
-  str = stripHtml(str);
-  return str.length > n ? str.slice(0, n) + '...' : str;
-}
-
-// ── RSS PARSER ─────────────────────────────────────────────────────────────
-async function fetchFeed(feed) {
-  // Try rss2json first (most reliable), then raw XML proxies
-  try {
-    const r1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
-    if (r1.ok) {
-      const j = await r1.json();
-      if (j.status === "ok" && j.items && j.items.length > 0) {
-        return j.items.slice(0,8).map(i => ({
-          title:  (i.title || "").trim(),
-          link:   i.link || "#",
-          desc:   (i.description || "").replace(/<[^>]+>/g,"").trim(),
-          date:   i.pubDate || "",
-          source: feed.source
-        })).filter(i => i.title.length > 10);
-      }
-    }
-  } catch(e) {}
-  // Fallback: corsproxy raw XML
-  try {
-    const r2 = await fetch(`https://corsproxy.io/?${encodeURIComponent(feed.url)}`, {signal: AbortSignal.timeout(8000)});
-    if (r2.ok) {
-      const text = await r2.text();
-      const xml = new DOMParser().parseFromString(text, "text/xml");
-      if (!xml.querySelector("parsererror")) {
-        const items = [...xml.querySelectorAll("item")].slice(0,8);
-        if (items.length > 0) return items.map(item => ({
-          title:  item.querySelector("title")?.textContent?.trim() || "",
-          link:   item.querySelector("link")?.textContent?.trim() || "#",
-          desc:   (item.querySelector("description")?.textContent || "").replace(/<[^>]+>/g,"").trim(),
-          date:   item.querySelector("pubDate")?.textContent || "",
-          source: feed.source
-        })).filter(i => i.title.length > 10);
-      }
-    }
-  } catch(e) {}
-  return [];
-}
-
-function newsCardHTML(item, featured = false) {
-  const ago = item.date ? timeAgo(item.date) : '';
-  const excerpt = truncate(item.desc, featured ? 180 : 110);
-  return `
-    <a class="news-card ${featured ? 'featured' : ''}" href="${item.link}" target="_blank" rel="noopener">
-      ${featured ? `<div class="news-placeholder"><span class="news-placeholder-text">TENNIS</span></div>` : ''}
-      <div class="news-source"><span class="news-source-dot"></span>${item.source}</div>
-      <div class="news-title">${item.title}</div>
-      ${excerpt ? `<div class="news-excerpt">${excerpt}</div>` : ''}
-      ${ago ? `<div class="news-time">${ago}</div>` : ''}
-    </a>
-  `;
-}
-
-async function loadNews() {
-  const grid = document.getElementById("news-grid");
-  const moreGrid = document.getElementById("more-news-grid");
-
-  // Fetch all feeds with 12s global timeout
-  const results = await Promise.allSettled(
-    RSS_FEEDS.map(feed =>
-      Promise.race([
-        fetchFeed(feed),
-        new Promise((_,r) => setTimeout(() => r([]), 12000))
-      ]).catch(() => [])
-    )
-  );
-  const allItems = results.flatMap(r => Array.isArray(r.value) ? r.value : []);
-
-  // Deduplicate and sort by date
-  const seen = new Set();
-  const unique = allItems.filter(item => {
-    const key = item.title.slice(0,40).toLowerCase();
-    if (seen.has(key)) return false;
-    seen.add(key); return true;
-  }).sort((a,b) => new Date(b.date) - new Date(a.date));
-
-  // Fallback links if all proxies fail
-  const fallback = [
-    {title:"ATP Tour News — Match Reports & Player Stories", link:"https://www.atptour.com/en/news", source:"ATP Tour", desc:"The latest news, match reports and player interviews from the ATP Tour.", date:""},
-    {title:"WTA Tour News — Women's Tennis Updates", link:"https://www.wtatennis.com/news", source:"WTA Tour", desc:"Breaking news, results and player stories from women's professional tennis.", date:""},
-    {title:"BBC Sport Tennis — News & Results", link:"https://www.bbc.com/sport/tennis", source:"BBC Sport", desc:"Tennis coverage from BBC Sport including Grand Slams and tour events.", date:""},
-    {title:"Madrid Open — Draws, Results & Schedule", link:"https://www.mutua-madridopen.com/en", source:"Madrid Open", desc:"Everything from the Mutua Madrid Open including full draws and live scores.", date:""},
-    {title:"Tennis Majors — In-Depth Journalism", link:"https://www.tennismajors.com", source:"Tennis Majors", desc:"Deep-dive tennis journalism covering all the major events.", date:""},
-    {title:"ESPN Tennis — Scores, News & Analysis", link:"https://www.espn.com/tennis/", source:"ESPN", desc:"Tennis news, live scores and expert analysis from ESPN.", date:""}
-  ];
-
-  const items = unique.length >= 3 ? unique : fallback;
-  const top = items.slice(0,3);
-  const more = items.slice(3,6);
-
-  grid.innerHTML = newsCardHTML(top[0], true) +
-    (top[1] ? newsCardHTML(top[1]) : "") +
-    (top[2] ? newsCardHTML(top[2]) : "");
-  moreGrid.innerHTML = more.map(i => newsCardHTML(i)).join("");
-
-  // Ticker
-  const ticker = document.getElementById("ticker-track");
-  const ti = items.slice(0,8).map(i => `<span class="ticker-item">${i.source}: ${truncate(i.title,60)}</span>`).join("");
-  ticker.innerHTML = ti + ti;
-}
-function updateScoresFromPredictions(data) {
-  const scoresList = document.getElementById("scores-list");
-  if (!scoresList) return;
-
-  // Rank tournaments by tier
-  function tourRank(t, tour) {
-    var name = (t||"").toLowerCase();
-    if (name.includes("madrid") || name.includes("rome") || name.includes("masters")) return 1;
-    if (tour==="atp" && !name.includes("challenger") && !name.includes("m15") && !name.includes("m25")) return 2;
-    if (tour==="wta" && (name.includes("1000") || name.includes("500") || name.includes("open"))) return 3;
-    if (name.includes("challenger") || name.includes("w100") || name.includes("w75")) return 4;
-    return 5;
-  }
-
-  // Get unique tournaments sorted by tier
-  const seen = new Set();
-  const sorted = [...data]
-    .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
-    .sort((a,b) => tourRank(a.tournament, a.tour) - tourRank(b.tournament, b.tour));
-
-  const rows = sorted.slice(0, 8).map(p => {
-    const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(" - "," · ");
-    const surf  = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
-    const tier  = tourRank(p.tournament, p.tour);
-    const tierLabel = tier===1 ? "Masters / 1000" : tier===2 ? "ATP Tour" : tier===3 ? "WTA Tour" : tier===4 ? "Challenger" : "ITF";
-    return `
-      <div class="score-row">
-        <div>
-          <div class="score-players">${p.p1_name} vs ${p.p2_name}</div>
-          <div class="score-info">${surf} ${tourn}</div>
-        </div>
-        <div>
-          <div class="score-result" style="font-size:10px;color:rgba(255,255,255,0.3)">${(p.tour||"ATP").toUpperCase()}</div>
-          <div class="score-status">${tierLabel}</div>
-        </div>
-      </div>`;
-  }).join("");
-  scoresList.innerHTML = rows;
-}
-
-async function loadPredictions() {
-  const grid    = document.getElementById("pred-grid");
-  const countEl = document.getElementById("pred-count");
-  const totalEl = document.getElementById("total-pred-count");
-  try {
-    const r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    const data = await r.json();
-    if (!data || data.length === 0) throw new Error("No predictions");
-    countEl.textContent = data.length;
-    totalEl.textContent = data.length;
-    const sorted = [...data]
-      .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
-      .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
-    updateScoresFromPredictions(data);
-    const tier   = getUserTier();
-    // For free users pick the most visually interesting match (has streak data)
-    const featured = sorted.find(p => Math.abs(p.p1_streak||0) + Math.abs(p.p2_streak||0) >= 2) || sorted[0];
-    const rest     = sorted.filter(p => p !== featured);
-    const free     = hasAccess("starter") ? sorted : [featured];
-    const locked   = hasAccess("starter") ? [] : rest.slice(0,6);
-    // Render free cards first (no summary yet)
-    grid.innerHTML = [
-      ...free.map((p,i) => predCardHTML(p, false, null, i===0)),
-      ...locked.map(p => predCardHTML(p, true, null, false))
-    ].join("");
-    setTimeout(() => {
-      document.querySelectorAll(".pred-bar-fill[data-width]").forEach(bar => {
-        bar.style.width = bar.dataset.width + "%";
-      });
-    }, 100);
-    // Generate AI summary for the first free card only
-    if (free.length > 0) {
-      const topMatch = free[0];
-      const summary  = getMatchSummary(topMatch);
-      const firstCard = grid.querySelector(".pred-card-featured");
-      if (firstCard) {
-        const summaryEl = firstCard.querySelector(".pred-summary");
-        if (summaryEl) summaryEl.innerHTML = formatSummary(summary);
-      }
-    }
-  } catch(e) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;
-      color:rgba(255,255,255,0.2);font-size:13px">
-      Predictions refresh daily at 7am. Check back soon.</div>`;
-  }
-}
-
-function formDots(streak) {
-  const n   = Math.min(Math.abs(streak || 0), 5);
-  const win = (streak || 0) > 0;
-  const dots = [];
-  for (let i = 0; i < 5; i++) {
-    if (i < n) dots.push(win ? "w" : "l");
-    else dots.push("n");
-  }
-  const colors = {
-    w: "background:#4ade80",
-    l: "background:#f87171",
-    n: "background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2)"
-  };
-  return dots.map(d => `<div style="width:8px;height:8px;border-radius:50%;display:inline-block;${colors[d]}"></div>`).join("");
-}
-
-function getMatchSummary(m) {
-  const fav = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
-  const dog = m.p1_win > m.p2_win ? m.p2_name : m.p1_name;
-  const favProb = Math.round(Math.max(m.p1_win, m.p2_win)*100);
-  const favStreak = m.p1_win > m.p2_win ? (m.p1_streak||0) : (m.p2_streak||0);
-  const dogStreak = m.p1_win > m.p2_win ? (m.p2_streak||0) : (m.p1_streak||0);
-  const favFatigue = m.p1_win > m.p2_win ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
-  const eloAdv = Math.abs(m.elo_diff||0);
-  const surf = m.surface==="clay" ? "clay" : m.surface==="grass" ? "grass" : "hard courts";
-  const tourn = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open").replace(/ - .*/,"");
-
-  const favLast = fav.split(" ").pop();
-  const dogLast = dog.split(" ").pop();
-
-  const edgeStr = favProb > 80 ? `a significant advantage over ${dogLast}` :
-                  favProb > 65 ? `a moderate edge over ${dogLast}` :
-                                 `a closely contested matchup with ${dogLast}`;
-
-  const favFormStr = favStreak > 2  ? "riding a strong run of form" :
-                     favStreak < -1 ? "looking to bounce back after a difficult stretch" :
-                                      "in steady shape heading into this match";
-
-  const dogFormStr = dogStreak > 2  ? `${dogLast} arrives in strong form and cannot be taken lightly` :
-                     dogStreak < -1 ? `${dogLast} will need to rediscover some consistency` :
-                                      `${dogLast} comes in with something to prove`;
-
-  const h2hStr = m.h2h_surf && !m.h2h_surf.startsWith("0-0") ?
-    `The head-to-head on ${surf} gives ${favLast} added confidence.` :
-    `With no prior meetings on ${surf}, this is an open question.`;
-
-  const freshStr = favFatigue > 3 ? `, though a heavy recent schedule may be a factor` :
-                   favFatigue > 1 ? `` : `, arriving fresh`;
-
-  return `${favLast} carries ${edgeStr} on ${surf} and is ${favFormStr}${freshStr}. ${dogFormStr} — our model gives ${favLast} a ${favProb}% chance today.`;
-}
-
-function statBar(label, v1, v2, unit, blurred) {
-  if (v1==null||v2==null) return "";
-  const max = Math.max(v1, v2, 1);
-  const w1  = Math.round(v1/max*100);
-  const w2  = Math.round(v2/max*100);
-  const win1 = v1 >= v2;
-  const c1 = win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
-  const c2 = !win1 ? "#c8f000" : "rgba(255,255,255,0.25)";
-  const val1 = blurred ? `<span style="filter:blur(4px);user-select:none">${v1}${unit}</span>` : `${v1}${unit}`;
-  const val2 = blurred ? `<span style="filter:blur(4px);user-select:none">${v2}${unit}</span>` : `${v2}${unit}`;
-  return `
-    <div style="margin-bottom:8px">
-      <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">
-        <span>${label}</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
-        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end">
-          <span style="font-size:11px;color:${c1};font-weight:500">${val1}</span>
-          <div style="height:6px;width:${w1}%;background:${c1};border-radius:2px;max-width:100%"></div>
-        </div>
-        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
-        <div style="display:flex;align-items:center;gap:6px">
-          <div style="height:6px;width:${w2}%;background:${c2};border-radius:2px;max-width:100%"></div>
-          <span style="font-size:11px;color:${c2};font-weight:500">${val2}</span>
-        </div>
-      </div>
-    </div>`;
-}
-
-function fatigueBar(v1, v2) {
-  const dots = n => Array.from({length:5}, (_,i) =>
-    `<div style="width:6px;height:6px;border-radius:50%;background:${i<n?"#f87171":"rgba(255,255,255,0.1)"}"></div>`
-  ).join("");
-  return `
-    <div style="margin-bottom:8px">
-      <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Match Load</div>
-      <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;align-items:center">
-        <div style="display:flex;gap:3px;justify-content:flex-end">${dots(Math.min(v1||0,5))}</div>
-        <div style="width:1px;height:12px;background:rgba(255,255,255,0.1);margin:0 auto"></div>
-        <div style="display:flex;gap:3px">${dots(Math.min(v2||0,5))}</div>
-      </div>
-    </div>`;
-}
-
-function formatSummary(summary) {
-  if (!summary) return "";
-  const sentences = summary.match(/[^.!?]+[.!?]+/g) || [summary];
-  const first = sentences[0] || "";
-  const rest  = sentences.slice(1).join(" ");
-  if (!rest) return first;
-  if (hasAccess("pro")) return first + " " + rest;
-  return first +
-    `<span style="filter:blur(4px);user-select:none;pointer-events:none"> ${rest}</span>` +
-    `<div style="margin-top:6px"><a href="#pricing" style="font-size:10px;color:var(--acid);
-    text-decoration:none;letter-spacing:1px;font-family:'Bebas Neue',sans-serif;
-    border:1px solid rgba(200,240,0,0.2);padding:3px 10px">Unlock full analysis — Pro</a></div>`;
-}
-
-function predCardHTML(p, locked, summary, featured) {
-  const tour  = (p.tour||"atp").toLowerCase();
-  const pct1  = Math.round((p.p1_win||0.5)*100);
-  const pct2  = 100-pct1;
-  const fav   = p.p1_win>p.p2_win ? p.p1_name : p.p2_name;
-  const dog   = p.p1_win>p.p2_win ? p.p2_name : p.p1_name;
-  const favPct= Math.max(pct1,pct2);
-  const dogPct= Math.min(pct1,pct2);
-  const tourn = (p.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
-  const surfIcon = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
-  const fairOdds = p.p1_win>p.p2_win ? p.fair_p1 : p.fair_p2;
-  const isFavP1  = p.p1_win>p.p2_win;
-
-  // Reorder stats so favourite is always on left
-  const sv_in1  = isFavP1 ? p.p1_serve_in  : p.p2_serve_in;
-  const sv_in2  = isFavP1 ? p.p2_serve_in  : p.p1_serve_in;
-  const sv_won1 = isFavP1 ? p.p1_serve_won : p.p2_serve_won;
-  const sv_won2 = isFavP1 ? p.p2_serve_won : p.p1_serve_won;
-  const wr1     = isFavP1 ? p.p1_win_rate  : p.p2_win_rate;
-  const wr2     = isFavP1 ? p.p2_win_rate  : p.p1_win_rate;
-  const fat1    = isFavP1 ? p.p1_fatigue   : p.p2_fatigue;
-  const fat2    = isFavP1 ? p.p2_fatigue   : p.p1_fatigue;
-
-  const hasStats = p.p1_serve_in != null;
-  const blurStats = !hasAccess("starter");
-
-  const sharpBreakdown = hasAccess("sharp") && !locked && hasStats ? `
-    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)">
-      <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.textContent=this.textContent.includes('▼')?'▲ Sharp Breakdown':'▼ Sharp Breakdown'"
-        style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clay);background:none;border:none;cursor:pointer;padding:0;width:100%;text-align:left">
-        ▼ Sharp Breakdown
-      </button>
-      <div style="display:none;margin-top:8px">
-        <div style="display:grid;grid-template-columns:1fr 42px 42px;gap:4px;font-size:10px;overflow:hidden">
-          <span style="color:rgba(255,255,255,0.3)">1st Serve In</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_serve_in}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_in}%</span>
-          <span style="color:rgba(255,255,255,0.3)">1st Serve Won</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_serve_won}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_serve_won}%</span>
-          <span style="color:rgba(255,255,255,0.3)">2nd Serve Won</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_second_won}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_second_won}%</span>
-          <span style="color:rgba(255,255,255,0.3)">BP Conv</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_bp_conv}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_bp_conv}%</span>
-          <span style="color:rgba(255,255,255,0.3)">Win Rate</span>
-          <span style="color:var(--acid);text-align:right">${p.p1_win_rate}%</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.p2_win_rate}%</span>
-          <span style="color:rgba(255,255,255,0.3)">Elo</span>
-          <span style="color:var(--acid);text-align:right">${p.elo1||"—"}</span>
-          <span style="color:rgba(255,255,255,0.4);text-align:right">${p.elo2||"—"}</span>
-        </div>
-      </div>
-    </div>` : "";
-
-  if (locked) return `
-    <div class="pred-card" style="position:relative;overflow:hidden;min-height:180px">
-      <div class="pred-tour ${tour}">${tour.toUpperCase()}</div>
-      <div class="pred-tourn">${tourn}</div>
-      <div class="pred-matchup">
-        <span class="pred-player">${p.p1_name||"—"}</span>
-        <span class="pred-vs">vs</span>
-        <span class="pred-player right">${p.p2_name||"—"}</span>
-      </div>
-      <div style="filter:blur(7px);user-select:none;pointer-events:none">
-        <div class="pred-bar-row">
-          <span class="pred-pct">??%</span>
-          <div class="pred-bar-track"><div class="pred-bar-fill" style="width:50%"></div></div>
-          <span class="pred-pct right">??%</span>
-        </div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:6px">Analysis available on upgrade</div>
-      </div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:12px;
-        background:linear-gradient(to bottom,transparent,rgba(10,10,10,0.97));
-        display:flex;flex-direction:column;align-items:center;gap:6px">
-        <div style="font-size:10px;color:rgba(255,255,255,0.35)">Model pick · Fair odds · CLV edge</div>
-        <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:12px;
-          letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.25);
-          padding:5px 18px;text-decoration:none">Unlock Pro — $9.99/mo</a>
-      </div>
-    </div>`;
-
-  return `
-    <div class="pred-card ${featured?"pred-card-featured":""}">
-      <div class="pred-tour ${tour}">${tour.toUpperCase()} ${surfIcon}</div>
-      <div class="pred-tourn">${tourn}</div>
-
-      <!-- Player headers -->
-      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:12px">
-        <div>
-          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.9)">${fav}</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--acid);line-height:1">${favPct}%</div>
-        </div>
-        <div style="text-align:center;font-size:10px;color:rgba(255,255,255,0.3);padding:0 4px">vs</div>
-        <div style="text-align:right">
-          <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.5)">${dog}</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(255,255,255,0.3);line-height:1">${dogPct}%</div>
-        </div>
-      </div>
-
-      <!-- Probability bar -->
-      <div class="pred-bar-track" style="width:100%;margin-bottom:14px">
-        <div class="pred-bar-fill" data-width="${favPct}" style="width:0%"></div>
-      </div>
-
-      <!-- Stat bars -->
-      ${hasStats ? `
-      <div style="margin-bottom:4px">
-        <div style="display:grid;grid-template-columns:1fr 6px 1fr;gap:3px;margin-bottom:6px">
-          <div style="font-size:10px;font-weight:500;color:var(--acid);text-align:right">${fav.split(" ").pop()}</div>
-          <div></div>
-          <div style="font-size:10px;color:rgba(255,255,255,0.35)">${dog.split(" ").pop()}</div>
-        </div>
-        ${statBar("1st Serve %", sv_in1, sv_in2, "%", blurStats)}
-        ${statBar("Serve Won %", sv_won1, sv_won2, "%", blurStats)}
-        ${statBar("Win Rate", wr1, wr2, "%", blurStats)}
-        ${fatigueBar(fat1, fat2)}
-      </div>
-      ${blurStats ? `<div style="text-align:center;margin-bottom:10px">
-        <a href="#pricing" style="font-size:11px;color:var(--acid);text-decoration:none;
-          border:1px solid rgba(200,240,0,0.2);padding:4px 14px;font-family:'Bebas Neue',sans-serif;
-          letter-spacing:1px">Unlock full stats — Starter $9.99/mo</a>
-      </div>` : ""}` : ""}
-
-      <!-- H2H and summary -->
-      <div class="pred-detail" style="margin-bottom:8px">
-        H2H: ${p.h2h_surf||p.h2h_record||"0-0"} · Fair: ${fairOdds||"—"}
-      </div>
-      ${featured ? `<div class="pred-summary" style="padding:10px;
-        background:rgba(255,255,255,0.04);border-radius:3px;font-size:12px;
-        line-height:1.6;color:rgba(255,255,255,0.6);min-height:36px">
-        ${formatSummary(summary)}
-      </div>` : ""}`
-  const rows = data.slice(0, 6).map(p => {
-    const fav = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
-    const dog = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
-    const favPct = Math.round(Math.max(p.p1_win, p.p2_win) * 100);
-    const tourn = (p.tournament || '').replace('Mutua Madrid Open - Madrid','Madrid Open');
-    return `
-      <div class="score-row">
-        <div>
-          <div class="score-players">${fav} vs ${dog}</div>
-          <div class="score-info">${p.tour?.toUpperCase() || 'ATP'} · ${p.surface || ''} · ${tourn}</div>
-        </div>
-        <div>
-          <div class="score-result">${favPct}%</div>
-          <div class="score-status">Model pick</div>
-        </div>
-      </div>`;
-  }).join('');
-
-  scoresList.innerHTML = rows;
-}
-
-// ── CLV CALCULATOR ──────────────────────────────────────────────────────────
-let clvData = [];
-
-function renderCLV() {
-  const content = document.getElementById("clv-content");
-  const badge   = document.getElementById("clv-tier-badge");
-  const tier    = getUserTier();
-
-  if (!hasAccess("pro")) {
-    // Show locked teaser for Free/Starter
-    badge.textContent = "Pro feature";
-    content.innerHTML = `
-      <div style="position:relative;padding:1.5rem;background:rgba(255,255,255,0.02)">
-        <div style="filter:blur(5px);pointer-events:none;user-select:none">
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-bottom:8px;font-size:10px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px">
-            <span>Match</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
-          </div>
-          ${[1,2,3].map(()=>`
-          <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:center">
-            <span style="font-size:13px;color:rgba(255,255,255,0.6)">Player A vs Player B</span>
-            <span style="font-family:'Bebas Neue',sans-serif;color:var(--acid)">65%</span>
-            <input style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:white;padding:5px 8px;width:70px;font-size:13px" value="2.10" disabled>
-            <span style="font-family:'Bebas Neue',sans-serif;color:#4ade80">+12pp ✓</span>
-          </div>`).join("")}
-        </div>
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(10,10,10,0.7);backdrop-filter:blur(2px)">
-          <div style="font-size:12px;color:rgba(255,255,255,0.4)">CLV Calculator — Pro & Sharp only</div>
-          <a href="#pricing" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:7px 20px;text-decoration:none">Upgrade to Pro →</a>
-        </div>
-      </div>`;
-    return;
-  }
-
-  // Pro/Sharp — full calculator
-  badge.textContent = "tennisIQ " + tier.charAt(0).toUpperCase() + tier.slice(1);
-
-  if (!clvData.length) {
-    content.innerHTML = `<div style="color:rgba(255,255,255,0.3);font-size:13px;padding:1rem 0">Loading matches...</div>`;
-    return;
-  }
-
-  // Show top 10 most decisive matches
-  const matches = clvData
-    .filter(p => !p.p1_name.includes("/"))
-    .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5))
-    .slice(0,10);
-
-  content.innerHTML = `
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;margin-bottom:8px;
-      font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;padding:0 4px">
-      <span>Match</span><span>Surface</span><span>Model prob</span><span>Your odds</span><span>Edge</span>
-    </div>
-    ${matches.map((p,idx) => {
-      const prob = Math.round(Math.max(p.p1_win, p.p2_win)*100);
-      const fav  = p.p1_win > p.p2_win ? p.p1_name : p.p2_name;
-      const dog  = p.p1_win > p.p2_win ? p.p2_name : p.p1_name;
-      const fairOdds = p.p1_win > p.p2_win ? p.fair_p1 : p.fair_p2;
-      const surf = p.surface==="clay" ? "🟤" : p.surface==="grass" ? "🟢" : "🔵";
-      return `
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px;
-        padding:10px 4px;border-bottom:1px solid rgba(255,255,255,0.05);align-items:center">
-        <div>
-          <div style="font-size:12px;font-weight:500;color:rgba(255,255,255,0.85)">${fav}</div>
-          <div style="font-size:10px;color:rgba(255,255,255,0.3)">vs ${dog}</div>
-        </div>
-        <span style="font-size:12px;color:rgba(255,255,255,0.4)">${surf} ${p.surface}</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--acid)">${prob}%
-          <span style="font-size:10px;color:rgba(255,255,255,0.3)"> (${fairOdds})</span>
-        </span>
-        <input type="number" step="0.05" min="1.01" value="${fairOdds}"
-          id="clv-input-${idx}"
-          onchange="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
-          oninput="calcCLVRow(${idx}, ${p.p1_win > p.p2_win ? p.p1_win : p.p2_win})"
-          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
-          color:white;padding:6px 8px;width:75px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none">
-        <div id="clv-result-${idx}" style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:rgba(255,255,255,0.3)">—</div>
-      </div>`;
-    }).join("")}
-    <div style="margin-top:1rem;font-size:11px;color:rgba(255,255,255,0.2);line-height:1.6">
-      Edge = model probability minus implied probability from your odds (after removing vig).
-      Green = value bet. Red = avoid. Target CLV &gt; 5pp for positive expected value.
-    </div>`;
-}
-
-function calcCLVRow(idx, modelProb) {
-  const input = document.getElementById("clv-input-"+idx);
-  const result = document.getElementById("clv-result-"+idx);
-  const odds = parseFloat(input.value);
-  if (!odds || odds < 1.01) { result.textContent = "—"; result.style.color = "rgba(255,255,255,0.3)"; return; }
-  // Remove vig estimate (assume ~5% margin)
-  const impliedProb = (1/odds) / 1.05;
-  const edge = ((modelProb - impliedProb) * 100);
-  const edgeRound = edge.toFixed(1);
-  const sign = edge > 0 ? "+" : "";
-  result.textContent = sign + edgeRound + "pp " + (edge >= 5 ? "✓" : edge >= 0 ? "~" : "✗");
-  result.style.color = edge >= 5 ? "#4ade80" : edge >= 0 ? "rgba(255,255,255,0.5)" : "#f87171";
-}
-
-async function loadCLV() {
-  try {
-    const r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error();
-    clvData = await r.json();
-    renderCLV();
-  } catch(e) { renderCLV(); }
-}
-
-// ── INIT ────────────────────────────────────────────────────────────────────
-
-// ── SCHEDULE ────────────────────────────────────────────────────────────────
-let scheduleData = [];
-let currentTour = "all";
-
-function filterSchedule(tour) {
-  currentTour = tour;
-  ["all","atp","wta"].forEach(t => {
-    const btn = document.getElementById("tab-"+t);
-    btn.style.background = t===tour ? "var(--black)" : "var(--warm)";
-    btn.style.color      = t===tour ? "var(--acid)"  : "var(--muted)";
-  });
-  renderSchedule();
-}
-
-function cleanTournName(t) {
-  return t.replace("Mutua Madrid Open - Madrid","Madrid Open")
-          .replace(" - "," · ").replace("Challenger","Chal.");
-}
-
-function surfaceIcon(s) {
-  return s==="clay" ? "🟤" : s==="grass" ? "🟢" : "🔵";
-}
-
-function renderSchedule() {
-  const grid = document.getElementById("schedule-grid");
-  if (!scheduleData.length) return;
-
-  // Get unique tournaments
-  const tournMap = {};
-  scheduleData.forEach(p => {
-    if (currentTour !== "all" && p.tour !== currentTour) return;
-    if (!tournMap[p.tournament]) {
-      tournMap[p.tournament] = {
-        name: p.tournament,
-        surface: p.surface,
-        tour: p.tour,
-        count: 0
-      };
-    }
-    tournMap[p.tournament].count++;
-  });
-
-  const tourneys = Object.values(tournMap).sort((a,b) => {
-    if (a.name.includes("Madrid")) return -1;
-    if (b.name.includes("Madrid")) return 1;
-    const tierA = a.name.includes("Open")||a.name.includes("Masters") ? 2 : a.name.includes("100")||a.name.includes("75") ? 1 : 0;
-    const tierB = b.name.includes("Open")||b.name.includes("Masters") ? 2 : b.name.includes("100")||b.name.includes("75") ? 1 : 0;
-    return tierB - tierA;
-  });
-
-  if (!tourneys.length) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">No tournaments found.</div>`;
-    return;
-  }
-
-  grid.innerHTML = tourneys.map(t => {
-    const tourColor  = t.tour==="atp" ? "#c13a0f" : "#a78bfa";
-    const surfIcon   = t.surface==="clay" ? "🟤 Clay" : t.surface==="grass" ? "🟢 Grass" : "🔵 Hard";
-    const cleanName  = t.name
-      .replace("Mutua Madrid Open - Madrid","Madrid Open")
-      .replace(" - "," · ")
-      .replace("Challenger","Challenger");
-    const tier = t.name.includes("Open")||t.name.includes("Masters") ? "Masters / 1000" :
-                 t.name.includes("500") ? "ATP 500 / WTA 500" :
-                 t.name.includes("250") ? "ATP 250 / WTA 250" :
-                 t.name.match(/W100|W75/) ? "WTA 100 / 75" :
-                 t.name.includes("Challenger") ? "Challenger" : "ITF";
-    return `
-      <div style="background:var(--card-bg);padding:1.5rem;border-bottom:3px solid ${tourColor}">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${tourColor};margin-bottom:6px">${t.tour.toUpperCase()} · ${tier}</div>
-        <div style="font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:8px;line-height:1.2">${cleanName}</div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <span style="font-size:12px;color:var(--muted)">${surfIcon}</span>
-          <span style="font-size:12px;color:var(--muted)">📅 This week</span>
-          <span style="font-size:12px;color:var(--muted)">${t.count} matches in model</span>
-        </div>
-      </div>`;
-  }).join("");
-}
-
-async function loadSchedule() {
-  try {
-    const r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error("HTTP "+r.status);
-    scheduleData = await r.json();
-    document.getElementById("schedule-updated").textContent = "Updated " + (scheduleData[0]?.generated || "today");
-    renderSchedule();
-  } catch(e) {
-    document.getElementById("schedule-grid").innerHTML=`<div style="grid-column:1/-1;padding:2rem;text-align:center;color:var(--muted);font-size:13px">Schedule unavailable.</div>`;
-  }
-}
-
-// ── TIER ACCESS ─────────────────────────────────────────────────────────────
-function getUserTier() {
-  return localStorage.getItem("tiq_tier") || "free";
-}
-
-function getTierLevel(tier) {
-  const levels = {free:0, starter:1, pro:2, sharp:3};
-  return levels[tier] || 0;
-}
-
-function hasAccess(requiredTier) {
-  return getTierLevel(getUserTier()) >= getTierLevel(requiredTier);
-}
-
-function updateNavForTier() {
-  const tier = getUserTier();
-  if (tier === "free") return;
-  const tierName = tier.charAt(0).toUpperCase() + tier.slice(1);
-  // Add tier badge to nav
-  const nav = document.querySelector("nav");
-  const badge = document.createElement("div");
-  badge.style.cssText = "font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--acid);border:1px solid rgba(200,240,0,0.3);padding:3px 10px;";
-  badge.textContent = "tennisIQ " + tierName;
-  nav.appendChild(badge);
-}
-
-// ── RESULTS TRACKER ─────────────────────────────────────────────────────────
-const RESULTS_URL = "https://thetennishq.com/results.json";
-
-async function loadResults() {
-  try {
-    const r = await fetch(RESULTS_URL + "?t=" + Date.now());
-    if (!r.ok) throw new Error();
-    const d = await r.json();
-
-    document.getElementById("res-accuracy").textContent = d.accuracy_label || "Building...";
-    document.getElementById("res-resolved").textContent = d.week_resolved || 0;
-    document.getElementById("res-predicted").textContent = d.total_predicted || 0;
-    document.getElementById("results-updated").textContent = "Updated " + (d.last_updated || "");
-
-    const grid = document.getElementById("results-grid");
-    const recent = d.recent_results;
-
-    if (!recent || recent.length === 0) {
-      grid.innerHTML = `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">
-        No resolved results yet — check back after today's matches complete.</div>`;
-      return;
-    }
-
-    grid.innerHTML = [...recent].reverse().map(m => {
-      const pick    = m.p1_win > m.p2_win ? m.p1_name : m.p2_name;
-      const correct = m.correct;
-      const prob    = Math.round(Math.max(m.p1_win, m.p2_win)*100);
-      const surf    = m.surface==="clay" ? "🟤" : m.surface==="grass" ? "🟢" : "🔵";
-      const tourn   = (m.tournament||"").replace("Mutua Madrid Open - Madrid","Madrid Open");
-      const date    = m.pred_date || "";
-      return `
-        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;
-          padding:12px 16px;border-bottom:1px solid var(--border);
-          background:var(--card-bg);align-items:center">
-          <div>
-            <div style="font-size:12px;font-weight:500;margin-bottom:3px">
-              <span style="color:${correct?"#4ade80":"#f87171"}">${correct?"✓":"✗"}</span>
-              ${m.p1_name} vs ${m.p2_name}
-            </div>
-            <div style="font-size:10px;color:var(--muted)">
-              ${surf} ${tourn} · Pick: <strong>${pick}</strong> @ ${prob}% · Result: <strong>${m.result}</strong> · ${date}
-            </div>
-          </div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:12px;
-            color:${correct?"#4ade80":"#f87171"};letter-spacing:1px">
-            ${correct?"WIN":"LOSS"}
-          </div>
-        </div>`;
-    }).join("");
-  } catch(e) {
-    document.getElementById("results-grid").innerHTML =
-      `<div style="padding:2rem;text-align:center;color:var(--muted);font-size:13px">Results unavailable.</div>`;
-  }
-}
-
-// Load teaser card for homepage
-async function loadTeaserCard() {
-  try {
-    const r = await fetch(PRED_URL + "?t=" + Date.now());
-    if (!r.ok) return;
-    const data = await r.json();
-    const sorted = data
-      .filter(p => !p.p1_name.includes("/") && !p.p2_name.includes("/"))
-      .sort((a,b) => Math.abs(b.p1_win-0.5) - Math.abs(a.p1_win-0.5));
-    const featured = sorted.find(p => Math.abs(p.p1_streak||0)+Math.abs(p.p2_streak||0)>=2) || sorted[0];
-    if (!featured) return;
-    const summary = getMatchSummary(featured);
-    document.getElementById("tiq-teaser-card").innerHTML = predCardHTML(featured, false, summary, true);
-    setTimeout(() => {
-      document.querySelectorAll("#tiq-teaser-card .pred-bar-fill[data-width]").forEach(bar => {
-        bar.style.width = bar.dataset.width + "%";
-      });
-    }, 100);
-  } catch(e) {}
-}
-loadNews();
-loadTeaserCard();
-loadResults();
-loadPredictions();
-loadSchedule();
-loadCLV();
-
-// ── STRIPE CHECKOUT ─────────────────────────────────────────────────────────
-const API_URL = "https://tennishq-api.vercel.app";
-
-const TIER_PRICES = {
-  pro:   "price_1TUxthIlZjEq8tdhopWfZyca",
-  sharp: "price_1TUxtzIlZjEq8tdh4T0OpZbY"
+var API_URL = 'https://tennishq-api.vercel.app';
+var TIER_PRICES = {
+  pro: 'price_1TUxthIlZjEq8tdhopWfZyca',
+  sharp: 'price_1TUxtzIlZjEq8tdh4T0OpZbY'
 };
 
-
 async function startCheckout(tier) {
-  const btn = event.target;
-  const originalText = btn.textContent;
-  btn.textContent = "Loading...";
-  btn.disabled = true;
-
   try {
-    const r = await fetch(API_URL + "/api/create-checkout", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ priceId: TIER_PRICES[tier], tier })
+    var res = await fetch(API_URL + '/api/create-checkout', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({tier: tier, returnUrl: window.location.href})
     });
-    const data = await r.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert("Error: " + (data.error || "Could not start checkout"));
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }
-  } catch(e) {
-    alert("Connection error. Please try again.");
-    btn.textContent = originalText;
-    btn.disabled = false;
-  }
+    var data = await res.json();
+    if (data.url) window.location.href = data.url;
+    else alert('Unable to start checkout. Please try again.');
+  } catch(e) { alert('Unable to connect. Please try again.'); }
 }
-updateNavForTier();
 </script>
 </body>
 </html>

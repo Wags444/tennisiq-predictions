@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Stats — TennisIQ</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0f1210;--bg2:#141714;--bg3:#191c19;--bg4:#1e221e;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --text:#dde3da;--text2:#a8b0a4;--muted:#5c6459;
+  --green:#5db87a;--green-dim:rgba(93,184,122,0.1);--green-border:rgba(93,184,122,0.2);
+  --amber:#c89a4a;--amber-dim:rgba(200,154,74,0.1);
+  --clay-col:#c87840;--hard-col:#4878c8;--grass-col:#58a840;
+  --mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--serif:'Instrument Serif',serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;min-height:100vh;}
+
+nav{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid var(--border);background:rgba(15,18,16,0.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
+.logo-name{font-family:var(--serif);font-size:18px;color:var(--text);letter-spacing:-0.3px;text-decoration:none;}
+.logo-name em{color:var(--green);font-style:italic;}
+.logo-div{width:1px;height:16px;background:var(--border2);margin:0 16px;}
+.logo-sub{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+.nav-left{display:flex;align-items:center;}
+.nav-links{display:flex;}
+.nav-link{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;border-left:1px solid var(--border);transition:color 0.15s;}
+.nav-link:last-child{border-right:1px solid var(--border);}
+.nav-link:hover{color:var(--text);}
+.nav-link.active{color:var(--green);}
+.nav-r{display:flex;align-items:center;gap:10px;}
+.upgrade-btn{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;background:none;border:1px solid var(--green-border);color:var(--green);padding:6px 14px;cursor:pointer;}
+
+.page{max-width:1200px;margin:0 auto;padding:0;}
+
+/* PAGE HEADER */
+.page-header{padding:24px 32px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.page-title-wrap{}
+.page-eyebrow{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.page-title{font-family:var(--serif);font-size:28px;color:var(--text);letter-spacing:-0.5px;}
+.page-meta{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;}
+
+/* SEARCH + FILTERS */
+.controls{padding:16px 32px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;background:var(--bg2);}
+.search-wrap{position:relative;flex:1;max-width:320px;}
+.search-input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px 12px 8px 32px;font-family:var(--mono);font-size:12px;outline:none;transition:border-color 0.15s;}
+.search-input::placeholder{color:var(--muted);}
+.search-input:focus{border-color:var(--green-border);}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:12px;}
+.filter-tabs{display:flex;gap:0;}
+.filter-tab{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;border:none;background:transparent;color:var(--muted);cursor:pointer;border:1px solid var(--border);border-right:none;transition:all 0.15s;}
+.filter-tab:last-child{border-right:1px solid var(--border);}
+.filter-tab.on{color:var(--green);background:var(--green-dim);border-color:var(--green-border);}
+.surface-tabs{display:flex;gap:0;margin-left:auto;}
+.surf-tab{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;padding:8px 12px;border:none;background:transparent;color:var(--muted);cursor:pointer;border:1px solid var(--border);border-right:none;transition:all 0.15s;}
+.surf-tab:last-child{border-right:1px solid var(--border);}
+.surf-tab.on.clay{color:var(--clay-col);background:rgba(200,120,64,0.1);}
+.surf-tab.on.hard{color:var(--hard-col);background:rgba(72,120,200,0.1);}
+.surf-tab.on.grass{color:var(--grass-col);background:rgba(88,168,64,0.1);}
+
+/* PLAYER GRID / TABLE */
+.stats-layout{display:grid;grid-template-columns:1fr 360px;min-height:calc(100vh - 180px);}
+.table-wrap{border-right:1px solid var(--border);}
+.table-header{display:grid;gap:0;padding:7px 32px;border-bottom:1px solid var(--border);background:var(--bg2);}
+.th{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.th:hover{color:var(--text);}
+.th.sorted{color:var(--green);}
+.player-row{display:grid;padding:11px 32px;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.1s;align-items:center;}
+.player-row:hover{background:var(--bg3);}
+.player-row.selected{background:var(--green-dim);border-left:2px solid var(--green);padding-left:30px;}
+.player-name-cell{display:flex;align-items:center;gap:8px;}
+.player-flag{width:16px;height:12px;border-radius:1px;object-fit:cover;flex-shrink:0;}
+.player-name{font-size:12px;font-weight:500;}
+.player-tour{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1px;margin-left:4px;}
+.stat-cell{font-family:var(--mono);font-size:11px;color:var(--text2);text-align:right;}
+.stat-cell.highlight{color:var(--green);}
+.elo-bar{height:3px;background:var(--green);border-radius:1px;margin-top:3px;}
+.locked-cell{font-family:var(--mono);font-size:10px;color:var(--muted);filter:blur(4px);text-align:right;}
+
+/* PLAYER DETAIL PANEL */
+.detail-panel{background:var(--bg2);}
+.detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--muted);gap:12px;padding:40px;}
+.detail-empty-icon{font-size:32px;opacity:0.3;}
+.detail-empty-text{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted);}
+.detail-header{padding:20px;border-bottom:1px solid var(--border);}
+.detail-flag-name{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.detail-flag{width:24px;height:18px;border-radius:1px;object-fit:cover;}
+.detail-name{font-family:var(--serif);font-size:22px;color:var(--text);}
+.detail-meta{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;}
+.detail-elo-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;}
+.detail-elo{background:var(--bg3);border:1px solid var(--border);padding:10px 12px;}
+.detail-elo-surf{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;display:flex;align-items:center;gap:5px;}
+.surf-dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
+.detail-elo-val{font-family:var(--mono);font-size:18px;font-weight:500;color:var(--green);}
+
+/* SURFACE STATS */
+.detail-sec{padding:14px 20px;border-bottom:1px solid var(--border);}
+.detail-sec-head{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.surf-stats-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.surf-col{}
+.surf-col-head{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:4px;}
+.surf-stat-row{margin-bottom:6px;}
+.surf-stat-label{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:0.5px;}
+.surf-stat-val{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--text);}
+.surf-bar{height:2px;background:rgba(255,255,255,0.08);border-radius:1px;margin-top:3px;overflow:hidden;}
+.surf-bar-fill{height:100%;border-radius:1px;}
+
+/* SHARP STATS */
+.sharp-blur{filter:blur(3px);opacity:0.5;pointer-events:none;}
+.tier-gate{text-align:center;padding:16px;background:rgba(93,184,122,0.04);border:1px solid var(--green-border);margin:14px 20px;}
+.tier-gate-label{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.tier-gate-btn{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:6px 16px;cursor:pointer;text-decoration:none;display:inline-block;}
+
+/* LOAD STATE */
+.loading{display:flex;align-items:center;justify-content:center;padding:60px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="/" class="logo-name">Tennis<em>IQ</em></a>
+    <div class="logo-div"></div>
+    <div class="logo-sub">Intelligence Platform</div>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tennisiq.html" class="nav-link">Predictions</a>
+    <a href="/stats.html" class="nav-link active">Stats</a>
+    <a href="/tools.html" class="nav-link">Tools</a>
+    <a href="/#pricing" class="nav-link">Pricing</a>
+  </div>
+  <div class="nav-r">
+    <button class="upgrade-btn" onclick="window.location='/#pricing'">UPGRADE ↗</button>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-header">
+    <div class="page-title-wrap">
+      <div class="page-eyebrow">Player Database</div>
+      <div class="page-title">Player Stats</div>
+      <div class="page-meta" id="db-meta">Loading...</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" class="search-input" id="search-input" placeholder="Search player..." oninput="filterPlayers()">
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab on" onclick="setTour('all',this)">All</button>
+      <button class="filter-tab" onclick="setTour('atp',this)">ATP</button>
+      <button class="filter-tab" onclick="setTour('wta',this)">WTA</button>
+    </div>
+    <div class="surface-tabs">
+      <button class="surf-tab on hard" onclick="setSurface('hard',this)">Hard</button>
+      <button class="surf-tab" onclick="setSurface('clay',this)">Clay</button>
+      <button class="surf-tab" onclick="setSurface('grass',this)">Grass</button>
+    </div>
+  </div>
+
+  <div class="stats-layout">
+    <div class="table-wrap">
+      <div class="table-header" id="table-header" style="grid-template-columns:2fr 80px 70px 70px 60px"></div>
+      <div id="player-table"><div class="loading">Loading player database...</div></div>
+    </div>
+    <div class="detail-panel" id="detail-panel">
+      <div class="detail-empty">
+        <div class="detail-empty-icon">◎</div>
+        <div class="detail-empty-text">Select a player to view stats</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var ATP_URL = 'https://thetennishq.com/players_atp.json';
+var WTA_URL = 'https://thetennishq.com/players_wta.json';
+var API_URL = 'https://tennishq-api.vercel.app';
+var TIER_PRICES = {pro:'price_1TUxthIlZjEq8tdhopWfZyca',sharp:'price_1TUxtzIlZjEq8tdh4T0OpZbY'};
+var FLAG_URL = 'https://flagcdn.com/20x15/';
+
+var allPlayers = [], filteredPlayers = [];
+var currentTour = 'all', currentSurface = 'hard', selectedIdx = -1;
+var sortCol = 'elo', sortDir = -1;
+
+function getUserTier(){return localStorage.getItem('tiq_tier')||'free';}
+function hasAccess(t){var l={free:0,pro:1,sharp:2};return (l[getUserTier()]||0)>=(l[t]||0);}
+
+async function startCheckout(tier) {
+  try {
+    var res = await fetch(API_URL+'/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,returnUrl:window.location.href})});
+    var d = await res.json();
+    if(d.url) window.location.href=d.url;
+  } catch(e){alert('Unable to connect.');}
+}
+
+function getElo(p) {
+  var col = 'elo_'+currentSurface;
+  return p[col] || p.elo_hard || 0;
+}
+function getWinRate(p) {
+  return p[currentSurface+'_win_rate'] || null;
+}
+function getServeWon(p) {
+  return p[currentSurface+'_first_serve_won_pct'] || null;
+}
+
+async function loadData() {
+  try {
+    var [atpRes, wtaRes] = await Promise.all([
+      fetch(ATP_URL+'?t='+Date.now()),
+      fetch(WTA_URL+'?t='+Date.now())
+    ]);
+    var atp = await atpRes.json();
+    var wta = await wtaRes.json();
+    allPlayers = [...(atp.players||[]), ...(wta.players||[])];
+    document.getElementById('db-meta').textContent =
+      'ATP: '+(atp.players||[]).length+' players · WTA: '+(wta.players||[]).length+' players · Generated '+atp.generated;
+    filterPlayers();
+  } catch(e) {
+    document.getElementById('player-table').innerHTML = '<div class="loading">Failed to load player data.</div>';
+  }
+}
+
+function filterPlayers() {
+  var q = (document.getElementById('search-input').value||'').toLowerCase();
+  filteredPlayers = allPlayers.filter(function(p) {
+    if (currentTour !== 'all' && p.tour !== currentTour) return false;
+    if (q && !p.name.toLowerCase().includes(q)) return false;
+    return true;
+  });
+  filteredPlayers.sort(function(a,b) {
+    var va = getElo(a), vb = getElo(b);
+    return (vb-va)*sortDir;
+  });
+  renderTable();
+}
+
+function setTour(t, btn) {
+  currentTour = t;
+  document.querySelectorAll('.filter-tab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  filterPlayers();
+}
+
+function setSurface(s, btn) {
+  currentSurface = s;
+  document.querySelectorAll('.surf-tab').forEach(function(b){b.classList.remove('on','clay','hard','grass');});
+  btn.classList.add('on', s);
+  filterPlayers();
+  if (selectedIdx >= 0) renderDetail(allPlayers[selectedIdx]);
+}
+
+function renderTable() {
+  var isPro = hasAccess('pro');
+  var surfLabel = currentSurface.charAt(0).toUpperCase()+currentSurface.slice(1);
+  var surfColor = currentSurface==='clay'?'var(--clay-col)':currentSurface==='grass'?'var(--grass-col)':'var(--hard-col)';
+
+  document.getElementById('table-header').innerHTML =
+    '<div class="th sorted">Player</div>'+
+    '<div class="th" style="text-align:right;justify-content:flex-end">'+surfLabel+' Elo</div>'+
+    '<div class="th" style="text-align:right;justify-content:flex-end">Win Rate</div>'+
+    '<div class="th" style="text-align:right;justify-content:flex-end">1st Srv Won</div>'+
+    '<div class="th" style="text-align:right;justify-content:flex-end">Matches</div>';
+
+  var maxElo = Math.max.apply(null, filteredPlayers.map(function(p){return getElo(p)||0;}));
+  var rows = filteredPlayers.slice(0, 100).map(function(p, i) {
+    var elo = getElo(p);
+    var wr = getWinRate(p);
+    var sv = getServeWon(p);
+    var eloW = maxElo > 0 ? Math.round(elo/maxElo*80) : 0;
+    var globalIdx = allPlayers.indexOf(p);
+    return '<div class="player-row'+(selectedIdx===globalIdx?' selected':'')+'" '+
+      'style="grid-template-columns:2fr 80px 70px 70px 60px" '+
+      'onclick="selectPlayer('+globalIdx+')">'+
+      '<div class="player-name-cell">'+
+        (p.flag?'<img class="player-flag" src="'+FLAG_URL+p.flag+'.png" alt="" onerror="this.style.display=\'none\'">':'')+
+        '<span class="player-name">'+p.name+'</span>'+
+        '<span class="player-tour">'+p.tour.toUpperCase()+'</span>'+
+      '</div>'+
+      '<div class="stat-cell highlight">'+
+        (elo?Math.round(elo):'—')+
+        (elo?'<div class="elo-bar" style="width:'+eloW+'px"></div>':'')
+      +'</div>'+
+      '<div class="'+(isPro?'stat-cell':'locked-cell')+'">'+(wr?(Math.round(wr*1000)/10)+'%':'—')+'</div>'+
+      '<div class="'+(isPro?'stat-cell':'locked-cell')+'">'+(sv?(Math.round(sv*1000)/10)+'%':'—')+'</div>'+
+      '<div class="stat-cell" style="color:var(--muted)">'+p.n_matches+'</div>'+
+    '</div>';
+  }).join('');
+
+  if (!rows) {
+    document.getElementById('player-table').innerHTML = '<div class="loading">No players found.</div>';
+    return;
+  }
+  document.getElementById('player-table').innerHTML = rows;
+
+  if (!isPro) {
+    document.getElementById('player-table').insertAdjacentHTML('beforeend',
+      '<div style="padding:16px 32px;background:rgba(93,184,122,0.04);border-top:1px solid var(--green-border);text-align:center">'+
+        '<div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:8px">PRO UNLOCKS WIN RATES, SERVE STATS + MORE</div>'+
+        '<button onclick="window.location=\'/#pricing\'" style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);padding:6px 16px;cursor:pointer;">Pro — $9.99/mo ↗</button>'+
+      '</div>'
+    );
+  }
+}
+
+function selectPlayer(idx) {
+  selectedIdx = idx;
+  renderTable();
+  renderDetail(allPlayers[idx]);
+}
+
+function renderDetail(p) {
+  var isPro = hasAccess('pro');
+  var isSharp = hasAccess('sharp');
+  var surfColor = {hard:'var(--hard-col)',clay:'var(--clay-col)',grass:'var(--grass-col)'};
+  var surfDot = function(s){return '<span class="surf-dot" style="background:'+surfColor[s]+'"></span>';};
+
+  function pct(v){return v?(Math.round(v*1000)/10)+'%':'—';}
+  function elo(v){return v?Math.round(v):'—';}
+
+  var html = '<div class="detail-header">'+
+    '<div class="detail-flag-name">'+
+      (p.flag?'<img class="detail-flag" src="'+FLAG_URL+p.flag+'.png" alt="">':'')+
+      '<div class="detail-name">'+p.name+'</div>'+
+    '</div>'+
+    '<div class="detail-meta">'+p.tour.toUpperCase()+' · '+p.n_matches+' matches in database</div>'+
+    '<div class="detail-elo-row">'+
+      '<div class="detail-elo"><div class="detail-elo-surf">'+surfDot('hard')+' Hard</div><div class="detail-elo-val">'+elo(p.elo_hard)+'</div></div>'+
+      '<div class="detail-elo"><div class="detail-elo-surf">'+surfDot('clay')+' Clay</div><div class="detail-elo-val">'+elo(p.elo_clay)+'</div></div>'+
+      '<div class="detail-elo"><div class="detail-elo-surf">'+surfDot('grass')+' Grass</div><div class="detail-elo-val">'+elo(p.elo_grass)+'</div></div>'+
+      '<div class="detail-elo"><div class="detail-elo-surf">'+surfDot('hard')+' Indoor</div><div class="detail-elo-val">'+elo(p.elo_ihard)+'</div></div>'+
+    '</div>'+
+  '</div>';
+
+  // Surface breakdown — Pro
+  var surfStats = function(s) {
+    var label = s.charAt(0).toUpperCase()+s.slice(1);
+    var col = surfColor[s];
+    var wr = p[s+'_win_rate'], sv1 = p[s+'_first_serve_in_pct'];
+    var sv1w = p[s+'_first_serve_won_pct'], sv2w = p[s+'_second_serve_won_pct'];
+    var nm = p[s+'_n_matches_surface'];
+    return '<div class="surf-col">'+
+      '<div class="surf-col-head" style="color:'+col+'">'+surfDot(s)+' '+label+' <span style="color:var(--muted);font-size:7px">'+(nm||'—')+' matches</span></div>'+
+      surfStatRow('WIN RATE', pct(wr), col, wr) +
+      surfStatRow('1ST SERVE %', pct(sv1), col, sv1) +
+      surfStatRow('1ST SRV WON', pct(sv1w), col, sv1w) +
+      surfStatRow('2ND SRV WON', pct(sv2w), col, sv2w) +
+    '</div>';
+  };
+
+  function surfStatRow(label, val, col, raw) {
+    var barW = raw ? Math.round(raw * 100) : 0;
+    return '<div class="surf-stat-row">'+
+      '<div class="surf-stat-label">'+label+'</div>'+
+      '<div class="surf-stat-val">'+val+'</div>'+
+      '<div class="surf-bar"><div class="surf-bar-fill" style="width:'+barW+'%;background:'+col+'"></div></div>'+
+    '</div>';
+  }
+
+  if (isPro) {
+    html += '<div class="detail-sec">'+
+      '<div class="detail-sec-head">Surface Breakdown</div>'+
+      '<div class="surf-stats-grid">'+surfStats('hard')+surfStats('clay')+surfStats('grass')+'</div>'+
+    '</div>';
+  } else {
+    html += '<div class="detail-sec">'+
+      '<div style="filter:blur(3px);opacity:0.5;pointer-events:none">'+
+        '<div class="detail-sec-head">Surface Breakdown</div>'+
+        '<div class="surf-stats-grid">'+surfStats('hard')+surfStats('clay')+surfStats('grass')+'</div>'+
+      '</div>'+
+      '<div style="margin-top:-80px;position:relative;z-index:1">'+
+        '<div class="tier-gate">'+
+          '<div class="tier-gate-label">Pro unlocks surface breakdown</div>'+
+          '<a href="/#pricing" class="tier-gate-btn">Pro — $9.99/mo ↗</a>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }
+
+  // Sharp stats — ace rate, df rate, bp conv
+  var sharpStats = '<div class="surf-stats-grid">';
+  ['hard','clay','grass'].forEach(function(s) {
+    var col = surfColor[s];
+    sharpStats += '<div class="surf-col">'+
+      '<div class="surf-col-head" style="color:'+col+'">'+surfDot(s)+' '+(s.charAt(0).toUpperCase()+s.slice(1))+'</div>'+
+      surfStatRow('ACE RATE', pct(p[s+'_ace_rate']), col, p[s+'_ace_rate']) +
+      surfStatRow('DF RATE', pct(p[s+'_df_rate']), col, p[s+'_df_rate']) +
+      surfStatRow('BP CONV', pct(p[s+'_bp_conv_pct']), col, p[s+'_bp_conv_pct']) +
+    '</div>';
+  });
+  sharpStats += '</div>';
+
+  if (isSharp) {
+    html += '<div class="detail-sec">'+
+      '<div class="detail-sec-head">Advanced Metrics</div>'+sharpStats+
+    '</div>';
+  } else {
+    html += '<div class="detail-sec">'+
+      '<div style="filter:blur(3px);opacity:0.5;pointer-events:none">'+
+        '<div class="detail-sec-head">Advanced Metrics — Ace, DF, BP Conv</div>'+sharpStats+
+      '</div>'+
+      '<div style="margin-top:-80px;position:relative;z-index:1">'+
+        '<div class="tier-gate">'+
+          '<div class="tier-gate-label">Sharp unlocks ace rate, DF rate, BP conversion</div>'+
+          '<a href="/#pricing" class="tier-gate-btn">Sharp — $19.99/mo ↗</a>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }
+
+  document.getElementById('detail-panel').innerHTML = html;
+}
+
+loadData();
+</script>
+</body>
+</html>
