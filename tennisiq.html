@@ -208,6 +208,14 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
   .pricing-grid{grid-template-columns:1fr;}
 }
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SM1208R12"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-4SM1208R12");
+</script>
 </head>
 <body>
 
@@ -504,6 +512,14 @@ function updateNavForTier() {
 
 // ── CHECKOUT ──────────────────────────────────────────────────────────────────
 async function startCheckout(tier) {
+  // Track conversion intent
+  if (typeof gtag !== "undefined") {
+    gtag("event", "begin_checkout", {
+      tier: tier,
+      value: tier === "pro" ? 9.99 : 19.99,
+      currency: "USD"
+    });
+  }
   try {
     var res = await fetch(API_URL + '/api/create-checkout', {
       method: 'POST',
