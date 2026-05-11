@@ -51,6 +51,7 @@ var API_URL = "https://tennishq-api.vercel.app";
 function getParam(n){return new URLSearchParams(window.location.search).get(n);}
 var sessionId=getParam("session_id"), tier=getParam("tier")||"pro";
 if(tier) localStorage.setItem("tiq_tier",tier);
+if(sessionId) localStorage.setItem("tiq_session_id", sessionId);
 var names={pro:"Pro",sharp:"Sharp"};
 document.getElementById("tier-badge").textContent="tennisIQ "+(names[tier]||tier).toUpperCase()+" · ACTIVE";
 var msgs={pro:"Your Pro subscription is active. You now have access to all predictions, the full Matchup DNA breakdown, model intelligence, fatigue and momentum data.",sharp:"Your Sharp subscription is active. You now have full access including upset alerts, the CLV calculator on every match, and daily email digest of top picks."};

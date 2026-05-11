@@ -520,7 +520,7 @@ async function openPortal() {
     const res = await fetch("https://tennishq-api.vercel.app/api/customer-portal", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({customerId: localStorage.getItem("stripeCustomerId")})
+      body: JSON.stringify({sessionId: localStorage.getItem("tiq_session_id")})
     });
     const data = await res.json();
     if (data.url) window.location.href = data.url;
