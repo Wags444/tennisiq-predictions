@@ -231,6 +231,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
     <a href="/tennisiq.html" class="nav-link active">Predictions</a>
     <a href="/tools.html" class="nav-link">Tools</a>
     <a href="/#pricing" class="nav-link">Pricing</a>
+    <a href="#" class="nav-link" id="nav-manage-btn" style="display:none" onclick="openPortal();return false;">Manage</a>
   </div>
   <div class="nav-r">
     <div class="live-ind"><div class="live-dot"></div><span id="pred-count">—</span> picks today</div>
@@ -505,13 +506,27 @@ function updateNavForTier() {
     badge.textContent = 'tennisIQ ' + tier.charAt(0).toUpperCase() + tier.slice(1);
     badge.style.display = 'block';
     btn.style.display = 'none';
+    document.getElementById('nav-manage-btn').style.display = 'block';
   } else {
     badge.style.display = 'none';
+    document.getElementById('nav-manage-btn').style.display = 'none';
     btn.style.display = 'block';
   }
 }
 
 // ── CHECKOUT ──────────────────────────────────────────────────────────────────
+async function openPortal() {
+  try {
+    const res = await fetch("https://tennishq-api.vercel.app/api/customer-portal", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({customerId: localStorage.getItem("stripeCustomerId")})
+    });
+    const data = await res.json();
+    if (data.url) window.location.href = data.url;
+  } catch(e) { alert("Could not open billing portal. Please contact support."); }
+}
+
 async function startCheckout(tier) {
   // Track conversion intent
   if (typeof gtag !== "undefined") {
