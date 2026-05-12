@@ -574,15 +574,15 @@ function narrative(m) {
   var favL = fav.split(' ').pop(), dogL = dog.split(' ').pop();
   var prob = Math.round(Math.max(m.p1_win, m.p2_win) * 100);
   var svWon = isFavP1 ? m.p1_serve_won : m.p2_serve_won;
-  var elo = Math.abs(m.elo_diff || 0);
+  var elo = Math.abs(m.elo_diff_surf || m.elo_diff || 0);
   var surf = m.surface || 'hard';
   var favFat = isFavP1 ? (m.p1_fatigue||0) : (m.p2_fatigue||0);
   var favStreak = isFavP1 ? (m.p1_streak||0) : (m.p2_streak||0);
   var dogStreak = isFavP1 ? (m.p2_streak||0) : (m.p1_streak||0);
   var parts = [];
-  if (elo > 150) parts.push(favL + ' enters with a significant Elo advantage of ' + elo + ' rating points');
+  if (elo > 150) parts.push(favL + ' holds a significant surface-adjusted Elo advantage of ' + elo + ' points on ' + surf);
   else if (elo > 50) parts.push(favL + ' carries a moderate Elo edge of ' + elo + ' points');
-  else parts.push('The Elo ratings are nearly level — a genuine contest on paper');
+  else parts.push('The Elo ratings are nearly level on ' + surf + ' — a genuine contest on paper');
   if (svWon && svWon > 74) parts.push('a ' + svWon + '% first serve won rate on ' + surf + ' provides structural control of rallies');
   if (favFat >= 3) parts.push('a heavy recent match load may be worth monitoring');
   if (favStreak > 2) parts.push(favL + ' arrives on the back of ' + favStreak + ' consecutive wins');
@@ -646,7 +646,7 @@ function renderDNA(m) {
   var retN = Math.min((100-(dogSvWon||60))/40, 1);
   var formN = Math.min(Math.max((favStreak||0)+3,0)/6, 1);
   var bpN = Math.min((favBP||40)/70, 1);
-  var eloN = Math.min(Math.abs(m.elo_diff||0)/300, 1);
+  var eloN = Math.min(Math.abs(m.elo_diff_surf||m.elo_diff||0)/300, 1);
   var surfN = Math.min((favWR||45)/75, 1);
   function pt(angle, scale) {
     var rad = (angle-90)*Math.PI/180, d = 48*scale;
