@@ -296,6 +296,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
         </svg>
         <div class="dna-vs">vs</div>
         <div class="dna-surf" id="dna-surf">—</div>
+        <div id="dna-upset-badge" style="display:none;margin-top:6px"></div>
       </div>
       <div class="dna-player right">
         <div class="dna-flag-wrap right">
@@ -408,6 +409,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
     <button class="pred-filter on" onclick="filterTour('all',this)">All</button>
     <button class="pred-filter" onclick="filterTour('atp',this)">ATP</button>
     <button class="pred-filter" onclick="filterTour('wta',this)">WTA</button>
+    <button class="pred-filter" onclick="filterTour('upset',this)">⚡ Upset Watch</button>
   </div>
 <div class="pred-col-h"><span>Match</span><span style="text-align:center">Prob</span><span style="text-align:center">Fair</span><span style="text-align:center">CLV</span><span>Signal</span></div>
   <div id="pred-list"></div>
@@ -628,6 +630,16 @@ function renderDNA(m) {
   document.getElementById('dna-arch2').textContent = archetype(dogSvIn, dogSvWon, dogWR, dogBP);
   document.getElementById('dna-surf').textContent = surf + ' · ' + tourn;
   document.getElementById('dna-match-label').textContent = fav + ' vs ' + dog;
+  // Upset watch badge in DNA
+  var upsetBadgeEl = document.getElementById("dna-upset-badge");
+  if (upsetBadgeEl) {
+    if (m.upset_watch) {
+      upsetBadgeEl.innerHTML = '<span class="badge b-upset" style="font-size:11px;padding:4px 10px">⚡ Upset Watch · Score ' + m.upset_score + '/100</span>';
+      upsetBadgeEl.style.display = "block";
+    } else {
+      upsetBadgeEl.style.display = "none";
+    }
+  }
 
   // Radar — always visible
   var svN = Math.min((favSvWon||60)/90, 1);
@@ -768,7 +780,7 @@ function getCLV(m) {
 
 function renderPreds(data) {
   var isPro = hasAccess('pro');
-  var filtered = currentFilter==='all'?data:data.filter(function(m){return m.tour===currentFilter;});
+  var filtered = currentFilter==='all'?data:currentFilter==='upset'?data.filter(function(m){return m.upset_watch===true;}):data.filter(function(m){return m.tour===currentFilter;});
   document.getElementById('pred-subtitle').textContent = isPro ? filtered.length+' predictions' : 'Free preview — 1 of '+filtered.length;
   var toShow = isPro ? filtered : filtered.slice(0,1);
   var locked = isPro ? [] : filtered.slice(1, 7);
