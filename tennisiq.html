@@ -168,6 +168,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
 .pred-fair.locked{filter:blur(4px);}
 .badge{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;}
 .b-sharp{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
+.b-upset{background:rgba(255,170,0,0.1);color:#ffaa00;border:1px solid rgba(255,170,0,0.3);}
 .b-watch{background:var(--amber-dim);color:var(--amber);}
 .b-lock{background:rgba(255,255,255,0.03);color:var(--muted);border:1px solid var(--border);}
 
@@ -779,7 +780,8 @@ function renderPreds(data) {
       var isFavP1 = m.p1_win>m.p2_win;
       var probClass = prob>80?'hi':prob>60?'md':'';
       var isSharp = hasAccess('sharp');
-      var badge = prob>80?'<span class="badge b-sharp">Sharp</span>':
+      var badge = m.upset_watch ? '<span class="badge b-upset">⚡ Upset Watch</span>' :
+                  prob>80?'<span class="badge b-sharp">Sharp</span>':
                   prob>60?'<span class="badge b-watch">Watch</span>':
                   '<span class="badge b-watch">⚡</span>';
       var tourn = (m.tournament||'').replace('Mutua Madrid Open - Madrid','Madrid Open').replace(/ - .*/,'');
