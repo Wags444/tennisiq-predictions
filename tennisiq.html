@@ -405,6 +405,7 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
   </div>
 
   <!-- PRED LIST — Pro+ sees all, Free sees 1 -->
+  <div style="background:rgba(93,184,122,0.08);border:1px solid rgba(93,184,122,0.2);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;"><span style="font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--green)">🎾 FREE DURING FRENCH OPEN · All predictions unlocked through June 8</span><a href="/#pricing" style="font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:4px 10px;">Go Pro after →</a></div>
   <div class="sec"><div class="sec-l">Predictions</div><div class="sec-r">Updated daily at 7am · <span id="pred-subtitle">Free preview</span></div></div>
   <div class="pred-filters">
     <button class="pred-filter on" onclick="filterTour('all',this)">All</button>
@@ -660,8 +661,8 @@ function renderDNA(m) {
   var isSharp = hasAccess('sharp');
 
   // Pro content visibility
-  document.getElementById('dna-pro-content').style.display = isPro ? 'block' : 'none';
-  document.getElementById('dna-free-prompt').style.display = isPro ? 'none' : 'block';
+  document.getElementById('dna-pro-content').style.display = 'block';
+  document.getElementById('dna-free-prompt').style.display = 'none';
 
   if (isPro) {
     // Narrative
@@ -782,9 +783,9 @@ function getCLV(m) {
 function renderPreds(data) {
   var isPro = hasAccess('pro');
   var filtered = currentFilter==='all'?data:currentFilter==='upset'?data.filter(function(m){return m.upset_watch===true;}):data.filter(function(m){return m.tour===currentFilter;});
-  document.getElementById('pred-subtitle').textContent = isPro ? filtered.length+' predictions' : 'Free preview — 1 of '+filtered.length;
-  var toShow = isPro ? filtered : filtered.slice(0,1);
-  var locked = isPro ? [] : filtered.slice(1, 7);
+  document.getElementById('pred-subtitle').textContent = filtered.length+' predictions';
+  var toShow = filtered;
+  var locked = [];
 
   document.getElementById('pred-list').innerHTML = [
     ...toShow.map(function(m, i) {
@@ -826,7 +827,7 @@ function renderPreds(data) {
   ].join('');
 
   // Show pricing to free users
-  document.getElementById('pricing-section').style.display = isPro ? 'none' : 'block';
+  document.getElementById('pricing-section').style.display = 'none';
 
   // Schedule
   document.getElementById('sched-count').textContent = filtered.length;
