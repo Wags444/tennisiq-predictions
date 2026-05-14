@@ -1,12 +1,56 @@
 {
   "total_predicted": 97,
   "total_resolved": 18,
-  "week_resolved": 0,
-  "week_correct": 0,
+  "week_resolved": 18,
+  "week_correct": 11,
   "accuracy": {},
   "accuracy_label": "Building...",
-  "min_threshold": 50,
-  "last_updated": "2026-05-13 13:10",
+  "min_threshold": 20,
+  "last_updated": "2026-05-13 22:36",
+  "by_tournament": [
+    {
+      "tournament": "Francavilla Challenger",
+      "n": 7,
+      "correct": 2,
+      "accuracy": 28.6
+    },
+    {
+      "tournament": "Jiangxi Open - Jiujiang",
+      "n": 3,
+      "correct": 1,
+      "accuracy": 33.3
+    },
+    {
+      "tournament": "Wuxi Challenger",
+      "n": 3,
+      "correct": 3,
+      "accuracy": 100
+    },
+    {
+      "tournament": "W100 Indian Harbour Beach",
+      "n": 2,
+      "correct": 2,
+      "accuracy": 100
+    },
+    {
+      "tournament": "Brazzaville Challenger",
+      "n": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "tournament": "Istanbul Open - Istanbul",
+      "n": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "tournament": "Santos Challenger",
+      "n": 1,
+      "correct": 1,
+      "accuracy": 100
+    }
+  ],
   "recent_results": [
     {
       "p1_name": "Courtney John Lock",
