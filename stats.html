@@ -269,7 +269,7 @@ function setSurface(s, btn) {
 }
 
 function renderTable() {
-  var isPro = hasAccess('pro');
+  var isPro = true;
   var surfLabel = currentSurface.charAt(0).toUpperCase()+currentSurface.slice(1);
   var surfColor = currentSurface==='clay'?'var(--clay-col)':currentSurface==='grass'?'var(--grass-col)':'var(--hard-col)';
 
@@ -328,8 +328,8 @@ function selectPlayer(idx) {
 }
 
 function renderDetail(p) {
-  var isPro = hasAccess('pro');
-  var isSharp = hasAccess('sharp');
+  var isPro = true;
+  var isSharp = true;
   var surfColor = {hard:'var(--hard-col)',clay:'var(--clay-col)',grass:'var(--grass-col)'};
   var surfDot = function(s){return '<span class="surf-dot" style="background:'+surfColor[s]+'"></span>';};
 
