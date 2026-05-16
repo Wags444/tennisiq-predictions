@@ -68,10 +68,10 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
 .dna-flag{width:20px;height:15px;border-radius:1px;object-fit:cover;}
 .dna-flag-wrap{display:flex;align-items:center;gap:6px;}
 .dna-flag-wrap.right{flex-direction:row-reverse;}
-.dna-archetype{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;}
-.dna-name{font-family:var(--serif);font-size:20px;color:var(--text);line-height:1.1;}
-.dna-prob{font-family:var(--mono);font-size:32px;font-weight:500;color:var(--green);line-height:1;}
-.dna-prob.dog{color:var(--muted);font-size:22px;}
+.dna-archetype{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;}
+.dna-name{font-family:var(--serif);font-size:26px;color:var(--text);line-height:1.1;}
+.dna-prob{font-family:var(--mono);font-size:42px;font-weight:500;color:var(--green);line-height:1;}
+.dna-prob.dog{color:var(--muted);font-size:30px;}
 .dna-center{padding:0 16px;display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:8px;}
 .dna-vs{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted);}
 .dna-surf{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;text-align:center;}
@@ -84,9 +84,9 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
 
 /* STAT COMPARE */
 .cmp-header{display:grid;grid-template-columns:1fr 90px 1fr;gap:4px;margin-bottom:8px;}
-.cmp-pname{font-family:var(--mono);font-size:8px;letter-spacing:1px;}
-.cmp-row{display:grid;grid-template-columns:1fr 90px 1fr;gap:6px;align-items:center;margin-bottom:7px;}
-.cmp-lbl{font-family:var(--mono);font-size:8px;color:var(--muted);text-align:center;letter-spacing:1px;white-space:nowrap;}
+.cmp-pname{font-family:var(--mono);font-size:10px;letter-spacing:1px;}
+.cmp-row{display:grid;grid-template-columns:1fr 90px 1fr;gap:6px;align-items:center;margin-bottom:9px;}
+.cmp-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;letter-spacing:1px;white-space:nowrap;}
 
 /* INDICATORS */
 .indicators{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
@@ -400,11 +400,6 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
     </div>
   </div>
 
-  <!-- UPSET ALERTS — Sharp only -->
-  <div id="upset-section" style="display:none">
-    <div class="sec"><div class="sec-l">Upset Alerts</div><div class="sec-r" id="upset-count">—</div></div>
-    <div class="upset-sec"><div class="upset-inner"><div class="upset-items" id="upset-list"></div></div></div>
-  </div>
 
   <!-- DYK — all tiers -->
   <div class="sec"><div class="sec-l">Model Insights</div><div class="sec-r">From 110,000+ matches</div></div>
