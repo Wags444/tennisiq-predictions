@@ -513,7 +513,7 @@ var TIER_PRICES = { pro: 'price_1TUxthIlZjEq8tdhopWfZyca', sharp: 'price_1TUxtzI
 // ── TIER SYSTEM ────────────────────────────────────────────────────────────────
 function getUserTier() { return localStorage.getItem('tiq_tier') || 'free'; }
 function getTierLevel(t) { return {free:0,starter:1,pro:1,sharp:2}[t]||0; }
-function hasAccess(required) { return getTierLevel(getUserTier()) >= getTierLevel(required); }
+function hasAccess(required) { return true; } // French Open promo - all access until June 8
 
 function updateNavForTier() {
   var tier = getUserTier();
