@@ -737,43 +737,6 @@ function renderDNA(m) {
   }
 }
 
-// ── UPSET ALERTS ──────────────────────────────────────────────────────────────
-function generateUpsets(data) {
-  if (!hasAccess('sharp')) return;
-  document.getElementById('upset-section').style.display = 'block';
-  var upsets = [];
-  data.forEach(function(m) {
-    var isFavP1 = m.p1_win > m.p2_win;
-    var fav = isFavP1?m.p1_name:m.p2_name, dog = isFavP1?m.p2_name:m.p1_name;
-    var favW = Math.max(m.p1_win,m.p2_win);
-    var favFat = isFavP1?(m.p1_fatigue||0):(m.p2_fatigue||0);
-    var dogStreak = isFavP1?(m.p2_streak||0):(m.p1_streak||0);
-    var dogSrv = isFavP1?(m.p2_serve_won||0):(m.p1_serve_won||0);
-    var favSrv = isFavP1?(m.p1_serve_won||0):(m.p2_serve_won||0);
-    var favL = fav.split(' ').pop(), dogL = dog.split(' ').pop();
-    var reasons = [];
-    if (favFat>=3) reasons.push(favL+' carrying fatigue ('+favFat+' recent matches)');
-    if (dogStreak>=3) reasons.push(dogL+' on '+dogStreak+'-match win streak');
-    if (dogSrv>favSrv+5) reasons.push(dogL+' serve won% ('+dogSrv+'%) exceeds '+favL+'\'s ('+favSrv+'%)');
-    if (favW<0.68&&dogStreak>=2) reasons.push('Close contest — model gives '+(Math.round((1-favW)*100))+'% upset probability');
-    if (reasons.length>=2&&favW>=0.55&&favW<=0.88) upsets.push({m:m,fav:fav,dog:dog,favW:favW,reasons:reasons});
-  });
-  document.getElementById('upset-count').textContent = upsets.length+' match'+(upsets.length!==1?'es':'')+' flagged';
-  if (!upsets.length) {
-    document.getElementById('upset-list').innerHTML = '<div style="font-family:var(--mono);font-size:10px;color:var(--muted);padding:8px 0">No significant upset signals today.</div>';
-    return;
-  }
-  document.getElementById('upset-list').innerHTML = upsets.slice(0,3).map(function(u){
-    var prob = Math.round((1-u.favW)*100);
-    var tourn = (u.m.tournament||'').replace(/ - .*/,'');
-    return '<div class="upset-row">'+
-      '<div class="upset-match">'+u.dog+' vs '+u.fav+'</div>'+
-      '<div class="upset-prob">'+prob+'% upset probability · '+(u.m.surface||'')+' · '+tourn+'</div>'+
-      '<div class="upset-reasons">'+u.reasons.map(function(r){return '<div class="upset-r">'+r+'</div>';}).join('')+'</div>'+
-    '</div>';
-  }).join('');
-}
-
 // ── PREDICTIONS LIST ──────────────────────────────────────────────────────────
 function getCLV(m) {
   if (!hasAccess("sharp")) return "";
@@ -943,7 +906,6 @@ async function loadPredictions() {
     document.getElementById('stat-today-sub').textContent = atp+' ATP · '+wta+' WTA';
     renderPreds(allData);
     renderDNA(allData[0]);
-    generateUpsets(allData);
     loadCLV();
     loadResults();
     updateNavForTier();
