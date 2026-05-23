@@ -26,12 +26,9 @@
     "p1_win_rate": 83.3,
     "p2_win_rate": 66,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 1.05,
-    "p2_odds": 13.02,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Lucia Bronzetti",
@@ -60,12 +57,9 @@
     "p1_win_rate": 42.1,
     "p2_win_rate": 67.7,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:32",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 4.61,
-    "p2_odds": 1.22,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Ajla Tomljanovic",
@@ -94,12 +88,9 @@
     "p1_win_rate": 45.5,
     "p2_win_rate": 77.8,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:32",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 3.47,
-    "p2_odds": 1.35,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Jannik Sinner",
@@ -132,12 +123,9 @@
     "p1_win_rate": 91.5,
     "p2_win_rate": 58.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "it",
-    "p2_flag": "fr",
-    "p1_odds": 1.01,
-    "p2_odds": 47,
-    "bookmaker": "onexbet"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Veronika Erjavec",
@@ -166,12 +154,9 @@
     "p1_win_rate": 65.8,
     "p2_win_rate": 84.4,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 25.58,
-    "p2_odds": 1.02,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Mirra Andreeva",
@@ -200,12 +185,9 @@
     "p1_win_rate": 78.7,
     "p2_win_rate": 53.8,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 1.04,
-    "p2_odds": 13.88,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Giovanni Mpetshi Perricard",
@@ -238,12 +220,9 @@
     "p1_win_rate": 57.7,
     "p2_win_rate": 80.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "rs",
-    "p1_odds": 7.71,
-    "p2_odds": 1.1,
-    "bookmaker": "pinnacle"
+    "p2_flag": "rs"
   },
   {
     "p1_name": "Talia Gibson",
@@ -272,12 +251,9 @@
     "p1_win_rate": 25,
     "p2_win_rate": 62.1,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 3.3,
-    "p2_odds": 1.38,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Alex Martinez",
@@ -310,7 +286,7 @@
     "p1_win_rate": 61.2,
     "p2_win_rate": 26.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "es",
     "p2_flag": "in"
   },
@@ -345,12 +321,9 @@
     "p1_win_rate": 64.8,
     "p2_win_rate": 57.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "it",
-    "p2_flag": "it",
-    "p1_odds": 1.36,
-    "p2_odds": 3.32,
-    "bookmaker": "pinnacle"
+    "p2_flag": "it"
   },
   {
     "p1_name": "Benjamin Bonzi",
@@ -383,12 +356,9 @@
     "p1_win_rate": 52.5,
     "p2_win_rate": 74.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "de",
-    "p1_odds": 15.47,
-    "p2_odds": 1.04,
-    "bookmaker": "pinnacle"
+    "p2_flag": "de"
   },
   {
     "p1_name": "Cameron Norrie",
@@ -421,12 +391,9 @@
     "p1_win_rate": 60.4,
     "p2_win_rate": 68.9,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "gb",
-    "p2_flag": "py",
-    "p1_odds": 2.04,
-    "p2_odds": 1.85,
-    "bookmaker": "pinnacle"
+    "p2_flag": "py"
   },
   {
     "p1_name": "Joao Fonseca",
@@ -459,12 +426,9 @@
     "p1_win_rate": 60.7,
     "p2_win_rate": 58.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "br",
-    "p2_flag": "fr",
-    "p1_odds": 1.04,
-    "p2_odds": 9.5,
-    "bookmaker": "pmu_fr"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Taylor Fritz",
@@ -497,12 +461,9 @@
     "p1_win_rate": 63.7,
     "p2_win_rate": 66.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "us",
-    "p2_flag": "us",
-    "p1_odds": 1.28,
-    "p2_odds": 3.98,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Adam Walton",
@@ -535,12 +496,9 @@
     "p1_win_rate": 49.8,
     "p2_win_rate": 67.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "au",
-    "p2_flag": "ru",
-    "p1_odds": 12.89,
-    "p2_odds": 1.05,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ru"
   },
   {
     "p1_name": "Marta Kostyuk",
@@ -569,12 +527,9 @@
     "p1_win_rate": 71.9,
     "p2_win_rate": 69.2,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:32",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 1.06,
-    "p2_odds": 10.37,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Cristian Garin",
@@ -607,12 +562,9 @@
     "p1_win_rate": 65.3,
     "p2_win_rate": 58.6,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "cl",
-    "p2_flag": "us",
-    "p1_odds": 2.43,
-    "p2_odds": 1.62,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Mert Alkaya",
@@ -645,7 +597,7 @@
     "p1_win_rate": 67.7,
     "p2_win_rate": 49,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "tr",
     "p2_flag": "jp"
   },
@@ -680,12 +632,9 @@
     "p1_win_rate": 66,
     "p2_win_rate": 64.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "fr",
-    "p1_odds": 1.76,
-    "p2_odds": 2.05,
-    "bookmaker": "winamax_fr"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Alexander Bublik",
@@ -718,12 +667,9 @@
     "p1_win_rate": 65.1,
     "p2_win_rate": 49.5,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "kz",
-    "p2_flag": "de",
-    "p1_odds": 1.29,
-    "p2_odds": 3.9,
-    "bookmaker": "pinnacle"
+    "p2_flag": "de"
   },
   {
     "p1_name": "Rinky Hijikata",
@@ -756,12 +702,9 @@
     "p1_win_rate": 51.4,
     "p2_win_rate": 73.6,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "au",
-    "p2_flag": "us",
-    "p1_odds": 13.1,
-    "p2_odds": 1.05,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Marina Bassols Ribera",
@@ -790,12 +733,9 @@
     "p1_win_rate": 56.1,
     "p2_win_rate": 47.1,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 1.98,
-    "p2_odds": 1.88,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Sebastian Ofner",
@@ -828,12 +768,9 @@
     "p1_win_rate": 57.3,
     "p2_win_rate": 66.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "at",
-    "p2_flag": "it",
-    "p1_odds": 3.49,
-    "p2_odds": 1.35,
-    "bookmaker": "pinnacle"
+    "p2_flag": "it"
   },
   {
     "p1_name": "Thomas Faurel",
@@ -866,12 +803,9 @@
     "p1_win_rate": 48.4,
     "p2_win_rate": 65.9,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "",
-    "p1_odds": 6.6,
-    "p2_odds": 1.12,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Felix Auger Aliassime",
@@ -904,12 +838,9 @@
     "p1_win_rate": 65.9,
     "p2_win_rate": 50.2,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "ca",
-    "p2_flag": "de",
-    "p1_odds": 1.32,
-    "p2_odds": 3.69,
-    "bookmaker": "pinnacle"
+    "p2_flag": "de"
   },
   {
     "p1_name": "Roberto Bautista Agut",
@@ -942,12 +873,9 @@
     "p1_win_rate": 41.4,
     "p2_win_rate": 54.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "es",
-    "p2_flag": "us",
-    "p1_odds": 3.96,
-    "p2_odds": 1.29,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Alexandre Muller",
@@ -980,12 +908,9 @@
     "p1_win_rate": 54.5,
     "p2_win_rate": 59.7,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "gr",
-    "p1_odds": 5.82,
-    "p2_odds": 1.17,
-    "bookmaker": "pinnacle"
+    "p2_flag": "gr"
   },
   {
     "p1_name": "Eliot Spizzirri",
@@ -1018,12 +943,9 @@
     "p1_win_rate": 62.4,
     "p2_win_rate": 59.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "us",
-    "p2_flag": "us",
-    "p1_odds": 9.47,
-    "p2_odds": 1.07,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Tomas Machac",
@@ -1056,12 +978,9 @@
     "p1_win_rate": 52.1,
     "p2_win_rate": 54,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "cz",
-    "p2_flag": "be",
-    "p1_odds": 1.61,
-    "p2_odds": 2.46,
-    "bookmaker": "pinnacle"
+    "p2_flag": "be"
   },
   {
     "p1_name": "Daniel Merida Aguilar",
@@ -1094,12 +1013,9 @@
     "p1_win_rate": 67.2,
     "p2_win_rate": 68.2,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "es",
-    "p2_flag": "us",
-    "p1_odds": 4.03,
-    "p2_odds": 1.28,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Hugo Gaston",
@@ -1132,12 +1048,9 @@
     "p1_win_rate": 48,
     "p2_win_rate": 42,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "fr",
-    "p1_odds": 1.94,
-    "p2_odds": 1.94,
-    "bookmaker": "pinnacle"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Sebastian Baez",
@@ -1170,12 +1083,9 @@
     "p1_win_rate": 51.5,
     "p2_win_rate": 68.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "ar",
-    "p2_flag": "ar",
-    "p1_odds": 1.76,
-    "p2_odds": 2.17,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ar"
   },
   {
     "p1_name": "Julia Grabher",
@@ -1204,12 +1114,9 @@
     "p1_win_rate": 68.1,
     "p2_win_rate": 55,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 2.68,
-    "p2_odds": 1.52,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Alejandro Davidovich Fokina",
@@ -1242,12 +1149,9 @@
     "p1_win_rate": 56.8,
     "p2_win_rate": 54.1,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "es",
-    "p2_flag": "",
-    "p1_odds": 1.15,
-    "p2_odds": 6.03,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Casper Ruud",
@@ -1280,12 +1184,9 @@
     "p1_win_rate": 69.9,
     "p2_win_rate": 67.9,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "no",
-    "p2_flag": "ru",
-    "p1_odds": 1.14,
-    "p2_odds": 6.42,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ru"
   },
   {
     "p1_name": "Titouan Droguet",
@@ -1318,12 +1219,9 @@
     "p1_win_rate": 67.8,
     "p2_win_rate": 64.1,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "cz",
-    "p1_odds": 2.86,
-    "p2_odds": 1.47,
-    "bookmaker": "pinnacle"
+    "p2_flag": "cz"
   },
   {
     "p1_name": "Ethan Quinn",
@@ -1356,12 +1254,9 @@
     "p1_win_rate": 55.2,
     "p2_win_rate": 50,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "us",
-    "p2_flag": "ar",
-    "p1_odds": 2.18,
-    "p2_odds": 1.75,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ar"
   },
   {
     "p1_name": "Francisco Cerundolo",
@@ -1394,12 +1289,9 @@
     "p1_win_rate": 64.9,
     "p2_win_rate": 56.4,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "ar",
-    "p2_flag": "nl",
-    "p1_odds": 1.18,
-    "p2_odds": 5.51,
-    "bookmaker": "pinnacle"
+    "p2_flag": "nl"
   },
   {
     "p1_name": "James Duckworth",
@@ -1432,12 +1324,9 @@
     "p1_win_rate": 68.5,
     "p2_win_rate": 47,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "au",
-    "p2_flag": "ca",
-    "p1_odds": 2.53,
-    "p2_odds": 1.58,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ca"
   },
   {
     "p1_name": "Quentin Halys",
@@ -1470,12 +1359,9 @@
     "p1_win_rate": 45.9,
     "p2_win_rate": 52.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "it",
-    "p1_odds": 1.77,
-    "p2_odds": 2.16,
-    "bookmaker": "pinnacle"
+    "p2_flag": "it"
   },
   {
     "p1_name": "Patrick Zahraj",
@@ -1508,7 +1394,7 @@
     "p1_win_rate": 48.5,
     "p2_win_rate": 59,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "de",
     "p2_flag": "gb"
   },
@@ -1543,12 +1429,9 @@
     "p1_win_rate": 50.2,
     "p2_win_rate": 39.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "nl",
-    "p2_flag": "it",
-    "p1_odds": 2.11,
-    "p2_odds": 1.8,
-    "bookmaker": "pinnacle"
+    "p2_flag": "it"
   },
   {
     "p1_name": "Jaime Faria",
@@ -1581,12 +1464,9 @@
     "p1_win_rate": 56.5,
     "p2_win_rate": 47.2,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "pt",
-    "p2_flag": "ca",
-    "p1_odds": 1.7,
-    "p2_odds": 2.25,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ca"
   },
   {
     "p1_name": "Yuki Naito",
@@ -1615,7 +1495,7 @@
     "p1_win_rate": 53.6,
     "p2_win_rate": 57.1,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:32",
     "p1_flag": "",
     "p2_flag": ""
   },
@@ -1650,12 +1530,9 @@
     "p1_win_rate": 48.9,
     "p2_win_rate": 54,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "kz",
-    "p2_flag": "us",
-    "p1_odds": 2.32,
-    "p2_odds": 1.67,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Vit Kopriva",
@@ -1688,12 +1565,9 @@
     "p1_win_rate": 59.3,
     "p2_win_rate": 52.5,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "cz",
-    "p2_flag": "fr",
-    "p1_odds": 2.51,
-    "p2_odds": 1.58,
-    "bookmaker": "pinnacle"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Alexander Blockx",
@@ -1726,12 +1600,9 @@
     "p1_win_rate": 68.3,
     "p2_win_rate": 47.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "be",
-    "p2_flag": "",
-    "p1_odds": 1.13,
-    "p2_odds": 5.7,
-    "bookmaker": "winamax_fr"
+    "p2_flag": ""
   },
   {
     "p1_name": "Pablo Carreno-Busta",
@@ -1764,7 +1635,7 @@
     "p1_win_rate": 63.7,
     "p2_win_rate": 65.5,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "es",
     "p2_flag": "cz"
   },
@@ -1799,12 +1670,9 @@
     "p1_win_rate": 63.3,
     "p2_win_rate": 42.5,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "ar",
-    "p2_flag": "cn",
-    "p1_odds": 1.47,
-    "p2_odds": 2.85,
-    "bookmaker": "pinnacle"
+    "p2_flag": "cn"
   },
   {
     "p1_name": "Alejandro Tabilo",
@@ -1837,12 +1705,9 @@
     "p1_win_rate": 63.5,
     "p2_win_rate": 65.4,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "cl",
-    "p2_flag": "pl",
-    "p1_odds": 1.24,
-    "p2_odds": 4.48,
-    "bookmaker": "pinnacle"
+    "p2_flag": "pl"
   },
   {
     "p1_name": "Yibing Wu",
@@ -1875,12 +1740,9 @@
     "p1_win_rate": 72.1,
     "p2_win_rate": 44.5,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "cn",
-    "p2_flag": "us",
-    "p1_odds": 2.11,
-    "p2_odds": 1.8,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Emilio Nava",
@@ -1913,12 +1775,9 @@
     "p1_win_rate": 60,
     "p2_win_rate": 65.6,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "us",
-    "p2_flag": "ar",
-    "p1_odds": 1.93,
-    "p2_odds": 1.94,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ar"
   },
   {
     "p1_name": "Aleksandar Kovacevic",
@@ -1951,12 +1810,9 @@
     "p1_win_rate": 39.8,
     "p2_win_rate": 80.1,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "us",
-    "p2_flag": "es",
-    "p1_odds": 8.42,
-    "p2_odds": 1.09,
-    "bookmaker": "pinnacle"
+    "p2_flag": "es"
   },
   {
     "p1_name": "Jacob Fearnley",
@@ -1989,12 +1845,9 @@
     "p1_win_rate": 54.9,
     "p2_win_rate": 62.6,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "gb",
-    "p2_flag": "ar",
-    "p1_odds": 4.09,
-    "p2_odds": 1.27,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ar"
   },
   {
     "p1_name": "Ugo Humbert",
@@ -2027,12 +1880,9 @@
     "p1_win_rate": 49.4,
     "p2_win_rate": 31.9,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "fr",
-    "p1_odds": 1.15,
-    "p2_odds": 6.16,
-    "bookmaker": "pinnacle"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Kyrian Jacquet",
@@ -2065,12 +1915,9 @@
     "p1_win_rate": 58,
     "p2_win_rate": 69.4,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "ar",
-    "p1_odds": 1.92,
-    "p2_odds": 1.88,
-    "bookmaker": "marathonbet"
+    "p2_flag": "ar"
   },
   {
     "p1_name": "Hamad Medjedovic",
@@ -2103,12 +1950,9 @@
     "p1_win_rate": 70.2,
     "p2_win_rate": 60.7,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "rs",
-    "p2_flag": "de",
-    "p1_odds": 1.54,
-    "p2_odds": 2.63,
-    "bookmaker": "pinnacle"
+    "p2_flag": "de"
   },
   {
     "p1_name": "Robert Strombachs",
@@ -2141,7 +1985,7 @@
     "p1_win_rate": 57.7,
     "p2_win_rate": 53.9,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "de",
     "p2_flag": "fr"
   },
@@ -2176,12 +2020,9 @@
     "p1_win_rate": 76,
     "p2_win_rate": 36.2,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "be",
-    "p2_flag": "au",
-    "p1_odds": 1.07,
-    "p2_odds": 9.42,
-    "bookmaker": "pinnacle"
+    "p2_flag": "au"
   },
   {
     "p1_name": "Linda Noskova",
@@ -2210,12 +2051,9 @@
     "p1_win_rate": 52,
     "p2_win_rate": 58.1,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 1.41,
-    "p2_odds": 3.12,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Liudmila Samsonova",
@@ -2244,12 +2082,9 @@
     "p1_win_rate": 57.1,
     "p2_win_rate": 62.3,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 1.28,
-    "p2_odds": 4.07,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Luca Van Assche",
@@ -2282,12 +2117,9 @@
     "p1_win_rate": 58.2,
     "p2_win_rate": 57.5,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "us",
-    "p1_odds": 1.77,
-    "p2_odds": 2.15,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Arthur Rinderknech",
@@ -2320,12 +2152,9 @@
     "p1_win_rate": 50.8,
     "p2_win_rate": 58.3,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
-    "p2_flag": "at",
-    "p1_odds": 1.39,
-    "p2_odds": 3.17,
-    "bookmaker": "pinnacle"
+    "p2_flag": "at"
   },
   {
     "p1_name": "Karen Khachanov",
@@ -2358,12 +2187,9 @@
     "p1_win_rate": 53.7,
     "p2_win_rate": 56.4,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "ru",
-    "p2_flag": "fr",
-    "p1_odds": 1.24,
-    "p2_odds": 4.56,
-    "bookmaker": "pinnacle"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Jaume Antoni Munar Clar",
@@ -2396,12 +2222,9 @@
     "p1_win_rate": 50.5,
     "p2_win_rate": 61.5,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "es",
-    "p2_flag": "pl",
-    "p1_odds": 4.96,
-    "p2_odds": 1.21,
-    "bookmaker": "pinnacle"
+    "p2_flag": "pl"
   },
   {
     "p1_name": "Lorenzo Sonego",
@@ -2434,12 +2257,9 @@
     "p1_win_rate": 42.6,
     "p2_win_rate": 44.6,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "it",
-    "p2_flag": "fr",
-    "p1_odds": 1.4,
-    "p2_odds": 2.98,
-    "bookmaker": "gtbets"
+    "p2_flag": "fr"
   },
   {
     "p1_name": "Federico Cina",
@@ -2472,7 +2292,7 @@
     "p1_win_rate": 50.9,
     "p2_win_rate": 43.9,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "it",
     "p2_flag": "us"
   },
@@ -2507,12 +2327,9 @@
     "p1_win_rate": 42.7,
     "p2_win_rate": 54.6,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "au",
-    "p2_flag": "us",
-    "p1_odds": 1.13,
-    "p2_odds": 6.79,
-    "bookmaker": "pinnacle"
+    "p2_flag": "us"
   },
   {
     "p1_name": "Stan Wawrinka",
@@ -2545,7 +2362,7 @@
     "p1_win_rate": 41.3,
     "p2_win_rate": 56.1,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "ch",
     "p2_flag": "nl"
   },
@@ -2580,7 +2397,7 @@
     "p1_win_rate": 57.8,
     "p2_win_rate": 51.2,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "fr",
     "p2_flag": "gb"
   },
@@ -2615,12 +2432,9 @@
     "p1_win_rate": 64.1,
     "p2_win_rate": 75.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "au",
-    "p2_flag": "gb",
-    "p1_odds": 1.09,
-    "p2_odds": 7.96,
-    "bookmaker": "pinnacle"
+    "p2_flag": "gb"
   },
   {
     "p1_name": "Kaitlin Quevedo",
@@ -2649,12 +2463,9 @@
     "p1_win_rate": 66.7,
     "p2_win_rate": 62.8,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 2.01,
-    "p2_odds": 1.86,
-    "bookmaker": "pinnacle"
+    "p2_flag": ""
   },
   {
     "p1_name": "Ignacio Buse",
@@ -2687,12 +2498,9 @@
     "p1_win_rate": 61.9,
     "p2_win_rate": 62.1,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "pe",
-    "p2_flag": "ru",
-    "p1_odds": 3.34,
-    "p2_odds": 1.37,
-    "bookmaker": "pinnacle"
+    "p2_flag": "ru"
   },
   {
     "p1_name": "Miomir Kecmanovic",
@@ -2725,12 +2533,9 @@
     "p1_win_rate": 40.1,
     "p2_win_rate": 51,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "rs",
-    "p2_flag": "hu",
-    "p1_odds": 1.67,
-    "p2_odds": 2.33,
-    "bookmaker": "pinnacle"
+    "p2_flag": "hu"
   },
   {
     "p1_name": "Marton Fucsovics",
@@ -2763,12 +2568,9 @@
     "p1_win_rate": 53.1,
     "p2_win_rate": 57.2,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "hu",
-    "p2_flag": "it",
-    "p1_odds": 2.83,
-    "p2_odds": 1.48,
-    "bookmaker": "pinnacle"
+    "p2_flag": "it"
   },
   {
     "p1_name": "Pablo Llamas Ruiz",
@@ -2801,12 +2603,9 @@
     "p1_win_rate": 68.7,
     "p2_win_rate": 62.8,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "es",
-    "p2_flag": "ar",
-    "p1_odds": 2.05,
-    "p2_odds": 1.74,
-    "bookmaker": "unibet_fr"
+    "p2_flag": "ar"
   },
   {
     "p1_name": "Tomas Martin Etcheverry",
@@ -2839,12 +2638,9 @@
     "p1_win_rate": 61.7,
     "p2_win_rate": 47.2,
     "tour": "atp",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "ar",
-    "p2_flag": "pt",
-    "p1_odds": 1.47,
-    "p2_odds": 2.85,
-    "bookmaker": "pinnacle"
+    "p2_flag": "pt"
   },
   {
     "p1_name": "Emerson Jones",
@@ -2869,11 +2665,8 @@
     "p1_win_rate": 68.6,
     "p2_win_rate": 83,
     "tour": "wta",
-    "generated": "2026-05-23 11:28",
+    "generated": "2026-05-23 11:31",
     "p1_flag": "",
-    "p2_flag": "",
-    "p1_odds": 27,
-    "p2_odds": 1.01,
-    "bookmaker": "onexbet"
+    "p2_flag": ""
   }
 ]
