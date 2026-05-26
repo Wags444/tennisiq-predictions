@@ -1,9 +1,9 @@
 {
-  "generated": "2026-05-24 21:32",
-  "date": "2026-05-24",
-  "n_atp": 96,
-  "n_wta": 12,
-  "n_total": 95,
+  "generated": "2026-05-25 22:19",
+  "date": "2026-05-25",
+  "n_atp": 81,
+  "n_wta": 8,
+  "n_total": 77,
   "model_accuracy_atp": "68.7%",
   "model_accuracy_wta": "78.3%",
   "backtest_roi": "+19.2%"
