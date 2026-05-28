@@ -1,24 +1,13 @@
 {
   "total_predicted": 254,
-  "total_resolved": 43,
-  "week_resolved": 25,
-  "week_correct": 17,
+  "total_resolved": 48,
+  "week_resolved": 30,
+  "week_correct": 22,
   "accuracy": {},
   "accuracy_label": "Building...",
   "min_threshold": 50,
-  "last_updated": "2026-05-27 20:50",
+  "last_updated": "2026-05-27 20:59",
   "recent_results": [
-    {
-      "p1_name": "Milos Karol",
-      "p2_name": "Andrej Martin",
-      "surface": "clay",
-      "tournament": "Kosice Challenger",
-      "p1_win": 0.216,
-      "p2_win": 0.784,
-      "result": "Andrej Martin",
-      "correct": true,
-      "pred_date": "2026-05-26"
-    },
     {
       "p1_name": "Mariano Navone",
       "p2_name": "Jakub Mensik",
@@ -160,6 +149,17 @@
       "p2_win": 0.375,
       "result": "Luca Nardi",
       "correct": false,
+      "pred_date": "2026-05-26"
+    },
+    {
+      "p1_name": "Jil Teichmann",
+      "p2_name": "Magdalena Frech",
+      "surface": "clay",
+      "tournament": "French Open - Paris",
+      "p1_win": 0.619,
+      "p2_win": 0.381,
+      "result": "Jil Teichmann",
+      "correct": true,
       "pred_date": "2026-05-26"
     },
     {
