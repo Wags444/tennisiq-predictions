@@ -249,7 +249,7 @@ run_predictions <- function(fix, lookup, profiles, model, melo, mfull, tour_labe
     prof1 <- tryCatch(get_prof(p1_id), error=function(e) NULL)
     prof2 <- tryCatch(get_prof(p2_id), error=function(e) NULL)
     preds[[length(preds)+1]] <- data.frame(
-      p1_id=p1_id, p2_id=p2_id, p1_name=n1, p2_name=n2, surface=surf, tournament=tourn, tournamentId=fix$tournamentId[i],
+      p1_id=p1_id, p2_id=p2_id, p1_name=n1, p2_name=n2, surface=surf, tournament=tourn, tournamentId=fix$tournamentId[i], match_date=as.character(as.Date(substr(fix$date[i]%||%fix$tournament$date[i],1,10))),
       p1_win=r$p1_win, p2_win=r$p2_win,
       fair_p1=round(1/r$p1_win,2), fair_p2=round(1/r$p2_win,2),
       elo_diff=r$elo_diff, elo1=r$elo1, elo2=r$elo2,
@@ -275,9 +275,9 @@ run_predictions <- function(fix, lookup, profiles, model, melo, mfull, tour_labe
 }
 
 Sys.sleep(2)
-fix_atp <- api_get_fixtures("atp", CONFIG, pages=10)
+fix_atp <- tryCatch({ d1<-fetch_fixtures_by_date("atp",format(Sys.Date(),"%Y-%m-%d")); d2<-fetch_fixtures_by_date("atp",format(Sys.Date()+1,"%Y-%m-%d")); dplyr::bind_rows(d1,d2) }, error=function(e) api_get_fixtures("atp",CONFIG,pages=10))
 Sys.sleep(2)
-fix_wta <- if(exists("logit_wta")) api_get_fixtures("wta", CONFIG, pages=10) else data.frame()
+fix_wta <- if(exists("logit_wta")) tryCatch({ d1<-fetch_fixtures_by_date("wta",format(Sys.Date(),"%Y-%m-%d")); d2<-fetch_fixtures_by_date("wta",format(Sys.Date()+1,"%Y-%m-%d")); dplyr::bind_rows(d1,d2) }, error=function(e) api_get_fixtures("wta",CONFIG,pages=10)) else data.frame()
 cat(sprintf("[4/5] Fixtures: %d ATP + %d WTA\n", nrow(fix_atp), nrow(fix_wta)))
 
 # Generate predictions
@@ -312,7 +312,7 @@ wta_preds_df <- (function() {
     prof1_wta <- tryCatch(get_prof_wta(p1_id), error=function(e) NULL)
     prof2_wta <- tryCatch(get_prof_wta(p2_id), error=function(e) NULL)
     preds[[length(preds)+1]] <- data.frame(
-      p1_id=p1_id, p2_id=p2_id, p1_name=n1,p2_name=n2,surface=surf,tournament=tourn, tournamentId=fix_wta$tournamentId[i],
+      p1_id=p1_id, p2_id=p2_id, p1_name=n1,p2_name=n2,surface=surf,tournament=tourn, tournamentId=fix_wta$tournamentId[i], match_date=as.character(as.Date(substr(fix_wta$date[i]%||%fix_wta$tournament$date[i],1,10))),
       p1_win=r$p1_win,p2_win=r$p2_win,
       fair_p1=round(1/r$p1_win,2),fair_p2=round(1/r$p2_win,2),
       elo_diff=r$elo_diff,elo1=r$elo1,elo2=r$elo2,
@@ -482,6 +482,31 @@ if("market_deviation" %in% names(all_preds)) {
   n_removed <- n_before - nrow(all_preds)
   if(n_removed > 0) cat(sprintf("Removed %d predictions with >25pp market deviation\n", n_removed))
 }
+# Remove already-completed matches
+tryCatch({
+  comp_ids <- c()
+  t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
+  for(tid in t_ids) {
+    ttype <- if(any(all_preds$tournamentId==tid & all_preds$tour=="wta", na.rm=TRUE)) "wta" else "atp"
+    rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
+    if(is.null(rr)||httr::status_code(rr)!=200) next
+    rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
+    if(is.null(rd)||is.null(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",,drop=FALSE]
+    if(nrow(cx)==0) next
+    for(i in seq_len(nrow(all_preds))) {
+      p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
+      if(is.na(p1)||is.na(p2)) next
+      if(any((cx$player1Id==p1&cx$player2Id==p2)|(cx$player1Id==p2&cx$player2Id==p1)))
+        comp_ids <- c(comp_ids, i)
+    }
+  }
+  if(length(comp_ids)>0) {
+    cat(sprintf("Removed %d completed matches\n",length(unique(comp_ids))))
+    all_preds <- all_preds[-unique(comp_ids),,drop=FALSE]
+    row.names(all_preds) <- NULL
+  }
+}, error=function(e) cat("Completed filter error:",e$message,"\n"))
 jsonlite::write_json(all_preds, "output/daily/predictions_today.json",
                     pretty=TRUE, auto_unbox=TRUE)
 meta <- list(
