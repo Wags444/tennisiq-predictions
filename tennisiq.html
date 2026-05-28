@@ -151,8 +151,8 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
 .pred-filters{display:flex;border-bottom:1px solid var(--border);}
 .pred-filter{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;border:none;background:none;color:var(--muted);cursor:pointer;border-right:1px solid var(--border);}
 .pred-filter.on{color:var(--green);background:var(--green-dim);}
-.pred-col-h{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:7px 20px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 60px 60px 50px 70px;gap:10px;background:var(--bg2);}
-.pred-row{display:grid;grid-template-columns:1fr 60px 60px 50px 70px;padding:11px 20px;border-bottom:1px solid var(--border);align-items:center;gap:10px;cursor:pointer;transition:background 0.1s;}
+.pred-col-h{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:7px 20px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:55px 1fr 60px 60px 50px 70px;gap:10px;background:var(--bg2);}
+.pred-row{display:grid;grid-template-columns:55px 1fr 60px 60px 50px 70px;padding:11px 20px;border-bottom:1px solid var(--border);align-items:center;gap:10px;cursor:pointer;transition:background 0.1s;}
 .pred-row:hover{background:var(--bg3);}
 .pred-row.selected{background:var(--green-dim);border-left:2px solid var(--green);padding-left:18px;}
 .pred-row.locked{cursor:default;opacity:0.4;}
@@ -420,8 +420,11 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
     <button class="pred-filter" onclick="filterTour('atp',this)">ATP</button>
     <button class="pred-filter" onclick="filterTour('wta',this)">WTA</button>
     <button class="pred-filter" onclick="filterTour('upset',this)">🎯 Value Watch</button>
+    <select class="pred-filter" id="date-filter" onchange="filterByDate(this.value)" style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;border:none;background:var(--bg);color:var(--muted);cursor:pointer;border-right:1px solid var(--border);">
+      <option value="all">All Dates</option>
+    </select>
   </div>
-<div class="pred-col-h"><span>Match</span><span style="text-align:center">Prob</span><span style="text-align:center">Fair</span><span style="text-align:center">CLV</span><span>Signal</span></div>
+<div class="pred-col-h"><span>Date</span><span>Match</span><span style="text-align:center">Prob</span><span style="text-align:center">Fair</span><span style="text-align:center">CLV</span><span>Signal</span></div>
   <div id="pred-list"></div>
 
   <!-- PRICING — shown to free users -->
@@ -753,7 +756,8 @@ function getCLV(m) {
 
 function renderPreds(data) {
   var isPro = hasAccess('pro');
-  var filtered = currentFilter==='all'?data:currentFilter==='upset'?data.filter(function(m){return m.upset_watch===true;}):data.filter(function(m){return m.tour===currentFilter;});
+  var filtered = currentFilter==="all"?data:currentFilter==="upset"?data.filter(function(m){return m.upset_watch===true;}):data.filter(function(m){return m.tour===currentFilter;});
+  if(currentDateFilter !== "all") filtered = filtered.filter(function(m){return m.match_date===currentDateFilter;});
   document.getElementById('pred-subtitle').textContent = filtered.length+' predictions';
   var toShow = filtered;
   var locked = [];
@@ -771,7 +775,8 @@ function renderPreds(data) {
                   '<span class="badge b-watch">⚡</span>';
       var tourn = (m.tournament||'').replace('Mutua Madrid Open - Madrid','Madrid Open').replace(/ - .*/,'');
       var realIdx = data.indexOf(m);
-      return '<div class="pred-row'+(selectedIdx===realIdx?' selected':'')+'" onclick="selectMatch('+realIdx+')">'+
+      var matchDate = m.match_date ? m.match_date.slice(5).replace('-','/') : '—';
+      return '<div class="pred-row'+(selectedIdx===realIdx?' selected':'')+' date-'+(m.match_date||'unknown')+'" onclick="selectMatch('+realIdx+')">'+ '<div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center">'+matchDate+'</div>'+
         '<div>'+
           '<div class="pred-name">'+flagImg(m.p1_flag)+'<span>'+m.p1_name+'</span>'+
           '<span style="color:var(--muted);font-weight:400;font-size:10px;margin:0 3px">vs</span>'+
@@ -877,6 +882,40 @@ async function loadCLV() {
   '</div>';
 }
 
+
+var currentDateFilter = "all";
+function filterByDate(val) {
+  currentDateFilter = val;
+  renderPreds(allData);
+}
+function populateDateFilter(data) {
+  var dates = [...new Set(data.map(function(m){return m.match_date||""}).filter(Boolean))].sort();
+  var sel = document.getElementById("date-filter");
+  sel.innerHTML = "<option value=\"all\">All Dates</option>";
+  dates.forEach(function(d) {
+    var opt = document.createElement("option");
+    opt.value = d;
+    opt.textContent = d.slice(5).replace("-","/");
+    sel.appendChild(opt);
+  });
+}
+
+var currentDateFilter = "all";
+function filterByDate(val) {
+  currentDateFilter = val;
+  renderPreds(allData);
+}
+function populateDateFilter(data) {
+  var dates = [...new Set(data.map(function(m){return m.match_date||""}).filter(Boolean))].sort();
+  var sel = document.getElementById("date-filter");
+  sel.innerHTML = "<option value=\"all\">All Dates</option>";
+  dates.forEach(function(d) {
+    var opt = document.createElement("option");
+    opt.value = d;
+    opt.textContent = d.slice(5).replace("-","/");
+    sel.appendChild(opt);
+  });
+}
 function calcCLV() {
   var odds = parseFloat(document.getElementById('clv-odds').value);
   if (!odds || odds <= 1) { document.getElementById('clv-result').textContent = 'Enter valid decimal odds'; return; }
@@ -899,6 +938,7 @@ async function loadPredictions() {
     if (!r.ok) throw new Error('HTTP ' + r.status);
     var data = await r.json();
     allData = data.filter(function(m){return !m.p1_name.includes('/')&&!m.p2_name.includes('/');});
+    populateDateFilter(allData);
     allData.sort(function(a,b){return Math.abs(b.p1_win-0.5)-Math.abs(a.p1_win-0.5);});
     document.getElementById('pred-count').textContent = allData.length;
     document.getElementById('stat-today').textContent = allData.length;
