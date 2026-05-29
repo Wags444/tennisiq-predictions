@@ -229,8 +229,9 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
   </div>
   <div class="nav-links">
     <a href="/" class="nav-link">Home</a>
-    <a href="/tennisiq.html" class="nav-link active">Predictions</a>
-    <a href="/tools.html" class="nav-link">Tools</a>
+    <a href="/tennisiq.html" class="nav-link active" onclick="showPredictions();return false;">Predictions</a>
+    <a href="/tennisiq.html" class="nav-link active" onclick="showPredictions();return false;">Predictions</a>
+    <a href="#" class="nav-link" onclick="showResults();return false;" id="results-nav-link">Results</a>
     <a href="/stats.html" class="nav-link">Stats</a>
     <a href="/#pricing" class="nav-link">Pricing</a>
     <a href="#" class="nav-link" id="nav-manage-btn" style="display:none" onclick="openPortal();return false;">Manage</a>
@@ -427,6 +428,15 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
 <div class="pred-col-h"><span>Date</span><span>Match</span><span style="text-align:center">Prob</span><span style="text-align:center">Fair</span><span style="text-align:center">CLV</span><span>Signal</span></div>
   <div id="pred-list"></div>
 
+
+<!-- RESULTS SECTION -->
+<div id="results-section" style="display:none">
+  <div class="pred-col-h" style="grid-template-columns:80px 1fr 80px 60px 60px">
+    <span>Date</span><span>Match</span><span>Surface</span><span style="text-align:center">Pick</span><span style="text-align:center">Result</span>
+  </div>
+  <div id="results-list"></div>
+  <div id="results-summary" style="font-family:var(--mono);font-size:10px;color:var(--muted);padding:12px 20px;border-top:1px solid var(--border);text-align:right"></div>
+</div>
   <!-- PRICING — shown to free users -->
   <div id="pricing-section" class="pricing-teaser" style="display:none">
     <div class="pricing-head">Unlock tennisIQ</div>
@@ -828,6 +838,48 @@ function selectMatch(idx) {
   document.querySelectorAll('.pred-row:not(.locked)').forEach(function(r,i){
     if (filtered[i]) r.classList.toggle('selected', filtered[i]===allData[idx]);
   });
+}
+
+function showResults() {
+  document.getElementById("results-section").style.display = "block";
+  document.getElementById("pred-list").closest ? null : null;
+  // Hide predictions, show results
+  document.querySelectorAll(".pred-filters,.pred-col-h,#pred-list,#pricing-section").forEach(function(el){el.style.display="none";});
+  document.getElementById("results-section").style.display = "block";
+  document.getElementById("results-nav-link").style.color = "var(--green)";
+  renderResults();
+}
+function showPredictions() {
+  document.querySelectorAll(".pred-filters,.pred-col-h,#pred-list").forEach(function(el){el.style.display="";});
+  document.getElementById("results-section").style.display = "none";
+  document.getElementById("results-nav-link").style.color = "";
+}
+function renderResults() {
+  var res = (allData && allData._results) ? allData._results : [];
+  if(!res.length) {
+    fetch("results.json").then(function(r){return r.json();}).then(function(d){
+      var rows = d.recent_results || [];
+      var correct = rows.filter(function(r){return r.correct;}).length;
+      var total = rows.length;
+      document.getElementById("results-list").innerHTML = rows.map(function(m) {
+        var isFavP1 = m.p1_win > m.p2_win;
+        var pick = isFavP1 ? m.p1_name : m.p2_name;
+        var pickProb = Math.round(Math.max(m.p1_win,m.p2_win)*100);
+        var won = m.result === pick;
+        var tourn = (m.tournament||"").replace(/ - .*/,"");
+        var surfIcon = m.surface==="clay"?"🟤":m.surface==="grass"?"🟢":"🔵";
+        return "<div style='display:grid;grid-template-columns:80px 1fr 80px 60px 60px;padding:10px 20px;border-bottom:1px solid var(--border);align-items:center;gap:10px;font-size:12px'>"+
+          "<div style='font-family:var(--mono);font-size:9px;color:var(--muted)'>"+m.pred_date.slice(5).replace("-","/")+"</div>"+
+          "<div><div style='font-weight:500'>"+pick+"<span style='color:var(--muted);font-weight:400'> "+pickProb+"%</span></div>"+
+          "<div style='font-size:10px;color:var(--muted)'>vs "+(isFavP1?m.p2_name:m.p1_name)+" · "+tourn+"</div></div>"+
+          "<div style='font-size:10px;color:var(--muted);text-align:center'>"+surfIcon+" "+m.surface+"</div>"+
+          "<div style='text-align:center;font-family:var(--mono);font-size:10px;color:var(--muted)'>"+pickProb+"%</div>"+
+          "<div style='text-align:center;font-size:16px'>"+(won?"✅":"❌")+"</div>"+
+        "</div>";
+      }).join("");
+      document.getElementById("results-summary").textContent = correct+"/"+total+" correct ("+Math.round(correct/total*100)+"%) — last "+total+" resolved picks";
+    });
+  }
 }
 
 function filterTour(t, btn) {
