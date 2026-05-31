@@ -1,35 +1,13 @@
 {
-  "total_predicted": 356,
-  "total_resolved": 138,
-  "week_resolved": 120,
-  "week_correct": 78,
-  "accuracy": 65,
-  "accuracy_label": "65%",
+  "total_predicted": 419,
+  "total_resolved": 143,
+  "week_resolved": 125,
+  "week_correct": 80,
+  "accuracy": 64,
+  "accuracy_label": "64%",
   "min_threshold": 50,
-  "last_updated": "2026-05-30 21:55",
+  "last_updated": "2026-05-31 09:36",
   "recent_results": [
-    {
-      "p1_name": "Justin Boulais",
-      "p2_name": "Nicolas Mejia",
-      "surface": "hard",
-      "tournament": "Little Rock Challenger",
-      "p1_win": 0.372,
-      "p2_win": 0.628,
-      "result": "Justin Boulais",
-      "correct": false,
-      "pred_date": "2026-05-28"
-    },
-    {
-      "p1_name": "Johannus Monday",
-      "p2_name": "Aidan Mayo",
-      "surface": "hard",
-      "tournament": "Little Rock Challenger",
-      "p1_win": 0.625,
-      "p2_win": 0.375,
-      "result": "Aidan Mayo",
-      "correct": false,
-      "pred_date": "2026-05-28"
-    },
     {
       "p1_name": "Matteo Arnaldi",
       "p2_name": "Stefanos Tsitsipas",
@@ -94,6 +72,17 @@
       "p2_win": 0.427,
       "result": "Michael Mmoh",
       "correct": true,
+      "pred_date": "2026-05-28"
+    },
+    {
+      "p1_name": "Karen Khachanov",
+      "p2_name": "Jesper De Jong",
+      "surface": "clay",
+      "tournament": "French Open - Paris",
+      "p1_win": 0.562,
+      "p2_win": 0.438,
+      "result": "Jesper De Jong",
+      "correct": false,
       "pred_date": "2026-05-28"
     },
     {
@@ -193,6 +182,17 @@
       "p2_win": 0.375,
       "result": "Aidan Mayo",
       "correct": false,
+      "pred_date": "2026-05-29"
+    },
+    {
+      "p1_name": "Dali Blanch",
+      "p2_name": "Kilian Feldbausch",
+      "surface": "clay",
+      "tournament": "Kosice Challenger",
+      "p1_win": 0.416,
+      "p2_win": 0.584,
+      "result": "Kilian Feldbausch",
+      "correct": true,
       "pred_date": "2026-05-29"
     },
     {
