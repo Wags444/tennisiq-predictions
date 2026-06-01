@@ -34,7 +34,7 @@
     "p1_win_rate": 48.2,
     "p2_win_rate": 56.6,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ca",
     "p2_flag": "ci",
     "market_flag": false
@@ -74,7 +74,7 @@
     "p1_win_rate": 51.8,
     "p2_win_rate": 64.3,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "cn",
     "p2_flag": "za",
     "market_flag": false
@@ -114,7 +114,7 @@
     "p1_win_rate": 57.4,
     "p2_win_rate": 48.3,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "es",
     "p2_flag": "it",
     "market_flag": false
@@ -154,7 +154,7 @@
     "p1_win_rate": 48.9,
     "p2_win_rate": 53.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "us",
     "p2_flag": "us",
     "market_flag": false
@@ -194,7 +194,7 @@
     "p1_win_rate": 65.2,
     "p2_win_rate": 63.5,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "hr",
     "p2_flag": "ch",
     "market_flag": false
@@ -234,7 +234,7 @@
     "p1_win_rate": 68.4,
     "p2_win_rate": 65.3,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "es",
     "p2_flag": "it",
     "market_flag": false
@@ -274,7 +274,7 @@
     "p1_win_rate": 58.4,
     "p2_win_rate": 46.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "sk",
     "p2_flag": "br",
     "market_flag": false
@@ -314,7 +314,7 @@
     "p1_win_rate": 54.6,
     "p2_win_rate": 49.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "fr",
     "p2_flag": "de",
     "market_flag": false
@@ -354,7 +354,7 @@
     "p1_win_rate": 61.1,
     "p2_win_rate": 47.3,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "gb",
     "p2_flag": "us",
     "market_flag": false
@@ -394,7 +394,7 @@
     "p1_win_rate": 57.4,
     "p2_win_rate": 54.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "cn",
     "p2_flag": "us",
     "market_flag": false
@@ -434,7 +434,7 @@
     "p1_win_rate": 79.3,
     "p2_win_rate": 75,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "es",
     "p2_flag": "de",
     "p1_odds": 3.68,
@@ -479,7 +479,7 @@
     "p1_win_rate": 62.9,
     "p2_win_rate": 62.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "cz",
     "p2_flag": "br",
     "p1_odds": 2.84,
@@ -524,7 +524,7 @@
     "p1_win_rate": 59.5,
     "p2_win_rate": 65.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "it",
     "p2_flag": "es",
     "market_flag": false
@@ -564,7 +564,7 @@
     "p1_win_rate": 47.5,
     "p2_win_rate": 58.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "in",
     "p2_flag": "gb",
     "market_flag": false
@@ -604,7 +604,7 @@
     "p1_win_rate": 59.5,
     "p2_win_rate": 54.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "jp",
     "p2_flag": "jp",
     "market_flag": false
@@ -644,7 +644,7 @@
     "p1_win_rate": 42,
     "p2_win_rate": 62.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "es",
     "p2_flag": "cz",
     "market_flag": false
@@ -684,7 +684,7 @@
     "p1_win_rate": 65.8,
     "p2_win_rate": 48.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "de",
     "market_flag": false
@@ -724,7 +724,7 @@
     "p1_win_rate": 57.3,
     "p2_win_rate": 60.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "gb",
     "market_flag": false
@@ -764,7 +764,7 @@
     "p1_win_rate": 40.8,
     "p2_win_rate": 52.5,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "jp",
     "p2_flag": "sk",
     "market_flag": false
@@ -804,7 +804,7 @@
     "p1_win_rate": 46.6,
     "p2_win_rate": 51,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "co",
     "p2_flag": "au",
     "market_flag": false
@@ -844,7 +844,7 @@
     "p1_win_rate": 54,
     "p2_win_rate": 53.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "it",
     "p2_flag": "us",
     "market_flag": false
@@ -884,7 +884,7 @@
     "p1_win_rate": 42.5,
     "p2_win_rate": 51,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "no",
     "p2_flag": "pl",
     "market_flag": false
@@ -924,7 +924,7 @@
     "p1_win_rate": 62.6,
     "p2_win_rate": 43.9,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "it",
     "p2_flag": "gb",
     "market_flag": false
@@ -964,7 +964,7 @@
     "p1_win_rate": 56.6,
     "p2_win_rate": 66.2,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "au",
     "p2_flag": "gb",
     "market_flag": false
@@ -1004,7 +1004,7 @@
     "p1_win_rate": 54,
     "p2_win_rate": 46.9,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ar",
     "p2_flag": "fr",
     "market_flag": false
@@ -1040,7 +1040,7 @@
     "p1_win_rate": 56.1,
     "p2_win_rate": 46.2,
     "tour": "wta",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "",
     "market_flag": false
@@ -1080,7 +1080,7 @@
     "p1_win_rate": 55.3,
     "p2_win_rate": 61.7,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "jp",
     "p2_flag": "au",
     "market_flag": false
@@ -1120,7 +1120,7 @@
     "p1_win_rate": 56.1,
     "p2_win_rate": 61.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "au",
     "p2_flag": "us",
     "market_flag": false
@@ -1160,7 +1160,7 @@
     "p1_win_rate": 59.7,
     "p2_win_rate": 50.2,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "jp",
     "p2_flag": "jp",
     "market_flag": false
@@ -1200,7 +1200,7 @@
     "p1_win_rate": 44.2,
     "p2_win_rate": 52.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "cn",
     "p2_flag": "ch",
     "market_flag": false
@@ -1236,7 +1236,7 @@
     "p1_win_rate": 55.8,
     "p2_win_rate": 62.1,
     "tour": "wta",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "",
     "market_flag": false
@@ -1276,7 +1276,7 @@
     "p1_win_rate": 58,
     "p2_win_rate": 53.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "de",
     "p2_flag": "es",
     "market_flag": false
@@ -1316,7 +1316,7 @@
     "p1_win_rate": 51.4,
     "p2_win_rate": 65.9,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "se",
     "p2_flag": "gb",
     "market_flag": false
@@ -1356,7 +1356,7 @@
     "p1_win_rate": 65.1,
     "p2_win_rate": 62.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ca",
     "p2_flag": "cl",
     "market_flag": false
@@ -1396,7 +1396,7 @@
     "p1_win_rate": 47.5,
     "p2_win_rate": 58.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "sk",
     "p2_flag": "cz",
     "market_flag": false
@@ -1432,7 +1432,7 @@
     "p1_win_rate": 56.2,
     "p2_win_rate": 51.4,
     "tour": "wta",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "",
     "market_flag": false
@@ -1472,7 +1472,7 @@
     "p1_win_rate": 57.7,
     "p2_win_rate": 52.7,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "de",
     "p2_flag": "gb",
     "market_flag": false
@@ -1512,7 +1512,7 @@
     "p1_win_rate": 62.4,
     "p2_win_rate": 60.3,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ro",
     "p2_flag": "it",
     "market_flag": false
@@ -1552,7 +1552,7 @@
     "p1_win_rate": 54.8,
     "p2_win_rate": 59.9,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "au",
     "p2_flag": "tw",
     "market_flag": false
@@ -1592,7 +1592,7 @@
     "p1_win_rate": 55.4,
     "p2_win_rate": 48,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "fr",
     "p2_flag": "fr",
     "market_flag": false
@@ -1632,7 +1632,7 @@
     "p1_win_rate": 48.1,
     "p2_win_rate": 59.5,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "es",
     "p2_flag": "fr",
     "market_flag": false
@@ -1672,7 +1672,7 @@
     "p1_win_rate": 49.3,
     "p2_win_rate": 50,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "it",
     "p2_flag": "nl",
     "market_flag": false
@@ -1712,7 +1712,7 @@
     "p1_win_rate": 64.9,
     "p2_win_rate": 47.5,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "gb",
     "p2_flag": "au",
     "market_flag": false
@@ -1748,7 +1748,7 @@
     "p1_win_rate": 60.4,
     "p2_win_rate": 70.8,
     "tour": "wta",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "",
     "market_flag": false
@@ -1788,7 +1788,7 @@
     "p1_win_rate": 56.3,
     "p2_win_rate": 55.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "de",
     "p2_flag": "ch",
     "market_flag": false
@@ -1828,7 +1828,7 @@
     "p1_win_rate": 57.3,
     "p2_win_rate": 48.9,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "au",
     "p2_flag": "gb",
     "market_flag": false
@@ -1868,7 +1868,7 @@
     "p1_win_rate": 53.3,
     "p2_win_rate": 61.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "it",
     "p2_flag": "au",
     "market_flag": false
@@ -1908,7 +1908,7 @@
     "p1_win_rate": 55.8,
     "p2_win_rate": 51.5,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ch",
     "p2_flag": "de",
     "market_flag": false
@@ -1944,7 +1944,7 @@
     "p1_win_rate": 61.3,
     "p2_win_rate": 41.8,
     "tour": "wta",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "",
     "market_flag": false
@@ -1984,7 +1984,7 @@
     "p1_win_rate": 53.5,
     "p2_win_rate": 57.7,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "it",
     "p2_flag": "rs",
     "market_flag": false
@@ -2024,7 +2024,7 @@
     "p1_win_rate": 54.7,
     "p2_win_rate": 58.6,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "br",
     "p2_flag": "ar",
     "market_flag": false
@@ -2064,7 +2064,7 @@
     "p1_win_rate": 51.2,
     "p2_win_rate": 57.7,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "us",
     "p2_flag": "au",
     "market_flag": false
@@ -2104,7 +2104,7 @@
     "p1_win_rate": 58.9,
     "p2_win_rate": 60.6,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "nl",
     "p2_flag": "us",
     "market_flag": false
@@ -2144,7 +2144,7 @@
     "p1_win_rate": 59.9,
     "p2_win_rate": 51.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "au",
     "p2_flag": "ca",
     "market_flag": false
@@ -2184,7 +2184,7 @@
     "p1_win_rate": 49.2,
     "p2_win_rate": 62.3,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "cz",
     "p2_flag": "cz",
     "market_flag": false
@@ -2220,7 +2220,7 @@
     "p1_win_rate": 45.5,
     "p2_win_rate": 62.2,
     "tour": "wta",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "",
     "market_flag": false
@@ -2260,7 +2260,7 @@
     "p1_win_rate": 50.1,
     "p2_win_rate": 53.7,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "cz",
     "p2_flag": "za",
     "market_flag": false
@@ -2300,7 +2300,7 @@
     "p1_win_rate": 55.4,
     "p2_win_rate": 61.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "us",
     "p2_flag": "no",
     "market_flag": false
@@ -2340,7 +2340,7 @@
     "p1_win_rate": 58.2,
     "p2_win_rate": 54.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "pe",
     "p2_flag": "rs",
     "market_flag": false
@@ -2380,7 +2380,7 @@
     "p1_win_rate": 59.1,
     "p2_win_rate": 67.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ee",
     "p2_flag": "ch",
     "market_flag": false
@@ -2420,7 +2420,7 @@
     "p1_win_rate": 51,
     "p2_win_rate": 52.6,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "au",
     "p2_flag": "de",
     "market_flag": false
@@ -2460,7 +2460,7 @@
     "p1_win_rate": 63.2,
     "p2_win_rate": 56.6,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "fr",
     "p2_flag": "gb",
     "market_flag": false
@@ -2500,7 +2500,7 @@
     "p1_win_rate": 53.8,
     "p2_win_rate": 55.9,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "es",
     "p2_flag": "",
     "market_flag": false
@@ -2540,7 +2540,7 @@
     "p1_win_rate": 51.5,
     "p2_win_rate": 57.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "tn",
     "p2_flag": "tw",
     "market_flag": false
@@ -2580,7 +2580,7 @@
     "p1_win_rate": 62.9,
     "p2_win_rate": 59.1,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ar",
     "p2_flag": "it",
     "market_flag": false
@@ -2620,7 +2620,7 @@
     "p1_win_rate": 58.3,
     "p2_win_rate": 49.7,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "us",
     "p2_flag": "us",
     "market_flag": false
@@ -2660,7 +2660,7 @@
     "p1_win_rate": 50.6,
     "p2_win_rate": 54.8,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ar",
     "p2_flag": "cz",
     "market_flag": false
@@ -2700,7 +2700,7 @@
     "p1_win_rate": 57.6,
     "p2_win_rate": 61.5,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "gb",
     "p2_flag": "de",
     "market_flag": false
@@ -2740,7 +2740,7 @@
     "p1_win_rate": 57.2,
     "p2_win_rate": 58,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "gb",
     "p2_flag": "au",
     "market_flag": false
@@ -2780,7 +2780,7 @@
     "p1_win_rate": 48.7,
     "p2_win_rate": 65.7,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "fr",
     "p2_flag": "gb",
     "market_flag": false
@@ -2816,7 +2816,7 @@
     "p1_win_rate": 67.8,
     "p2_win_rate": 56.6,
     "tour": "wta",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "",
     "p2_flag": "",
     "market_flag": false
@@ -2856,7 +2856,7 @@
     "p1_win_rate": 68.9,
     "p2_win_rate": 64.2,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "sk",
     "p2_flag": "hu",
     "market_flag": false
@@ -2896,7 +2896,7 @@
     "p1_win_rate": 61.7,
     "p2_win_rate": 54.3,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "ca",
     "p2_flag": "jp",
     "market_flag": false
@@ -2936,9 +2936,45 @@
     "p1_win_rate": 48.3,
     "p2_win_rate": 52.4,
     "tour": "atp",
-    "generated": "2026-06-01 10:43",
+    "generated": "2026-06-01 10:50",
     "p1_flag": "kz",
     "p2_flag": "it",
+    "market_flag": false
+  },
+  {
+    "p1_id": 59411,
+    "p2_id": 31727,
+    "p1_name": "Darya Astakhova",
+    "p2_name": "Xinyu Gao",
+    "surface": "clay",
+    "tournament": "Open delle Puglie - Foggia",
+    "tournamentId": 17035,
+    "match_date": "2026-06-01",
+    "p1_win": 0.503,
+    "p2_win": 0.497,
+    "fair_p1": 1.99,
+    "fair_p2": 2.01,
+    "elo_diff": 126,
+    "elo1": 1750,
+    "elo2": 1625,
+    "h2h_record": "0-0",
+    "h2h_surf": "0-0 on clay",
+    "p1_fatigue": 5,
+    "p2_fatigue": 2,
+    "p1_serve_in": 65.2,
+    "p2_serve_in": 66.5,
+    "p1_serve_won": 64.8,
+    "p2_serve_won": 67.1,
+    "p1_second_won": 47.9,
+    "p2_second_won": 53.5,
+    "p1_bp_conv": 59.1,
+    "p2_bp_conv": 57.9,
+    "p1_win_rate": 72.4,
+    "p2_win_rate": 65,
+    "tour": "wta",
+    "generated": "2026-06-01 10:50",
+    "p1_flag": "",
+    "p2_flag": "",
     "market_flag": false
   }
 ]
