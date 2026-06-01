@@ -3,6 +3,8 @@ suppressPackageStartupMessages({
   library(purrr); library(lubridate); library(zoo); library(glmnet)
 })
 cat("[1/5] Packages loaded\n")
+source("R/00_config.R")
+source("R/01_api_client.R")
 
 # Load runtime bundle
 rb <- readRDS("output/runtime_bundle.rds")
