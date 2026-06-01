@@ -3,7 +3,10 @@ name: Daily Predictions
 on:
   schedule:
     - cron: "0 14 * * *"  # 7am PT (UTC-7) daily
-  workflow_dispatch:        # Manual trigger from GitHub mobile app
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   run-predictions:
@@ -21,12 +24,17 @@ jobs:
       with:
         r-version: "4.3"
 
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+
     - name: Install R packages
       run: |
         Rscript -e "install.packages(c(
-          'httr', 'jsonlite', 'dplyr', 'lubridate',
-          'glmnet', 'stringr', 'tidyr'
-        ), repos='https://cloud.r-project.org')"
+          "httr", "jsonlite", "dplyr", "lubridate",
+          "glmnet", "stringr", "tidyr", "Matrix"
+        ), repos="https://cloud.r-project.org", dependencies=TRUE)"
 
     - name: Create output directories
       run: |
