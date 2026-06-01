@@ -281,9 +281,14 @@ fix_wta <- if(exists("logit_wta")) tryCatch({ d1<-fetch_fixtures_by_date("wta",f
 cat(sprintf("[4/5] Fixtures: %d ATP + %d WTA\n", nrow(fix_atp), nrow(fix_wta)))
 
 # Generate predictions
+cat("About to call run_predictions\n")
+cat("fix_atp nrow:", nrow(fix_atp), "\n")
+cat("features2 profiles nrow:", nrow(features2$profiles), "\n")
+cat("bundle$model class:", class(bundle$model), "\n")
 atp_preds <- run_predictions(fix_atp, names_lookup,
   features2$profiles, bundle$model,
   matches_full, matches_full, "atp")
+cat("run_predictions done, nrow:", nrow(atp_preds), "\n")
 
 wta_preds_df <- (function() {
   if (!exists("logit_wta")||!exists("features_wta")||!exists("wta_elo")||!exists("wta_full")) {
