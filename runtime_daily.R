@@ -279,8 +279,8 @@ cat(sprintf("[4/5] Fixtures: %d ATP + %d WTA\n", nrow(fix_atp), nrow(fix_wta)))
 
 # Generate predictions
 atp_preds <- run_predictions(fix_atp, names_lookup,
-  features2$profiles, logit_full,
-  matches_with_elo, matches_full, "atp")
+  bundle$profiles, bundle$model,
+  matches_full, matches_full, "atp")
 
 wta_preds_df <- (function() {
   if (!exists("logit_wta")||!exists("features_wta")||!exists("wta_elo")||!exists("wta_full")) {
