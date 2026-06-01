@@ -231,10 +231,10 @@ run_predictions <- function(fix, lookup, profiles, model, melo, mfull, tour_labe
     if (is.na(surf)) next
     tourn <- tryCatch(fix$tournament$name[i], error=function(e) "")
     if (!keep_tournament(tourn)) next
-    r <- tryCatch(
+    r <- tryCatch({
       predict_match_v2(p1_id, p2_id, surf, model=model,
-                       profiles=profiles, melo=melo, mfull=mfull),
-      error=function(e) NULL)
+                       profiles=profiles, melo=melo, mfull=mfull)
+    }, error=function(e){if(i<=3)cat("PRED_ERR i=",i,":",conditionMessage(e),"\n"); NULL})
     if(is.null(r)) next
     # Get serve stats for Sharp breakdown
     get_prof <- function(pid) {
@@ -278,14 +278,8 @@ fix_wta <- if(exists("logit_wta")) tryCatch({ d1<-fetch_fixtures_by_date("wta",f
 cat(sprintf("[4/5] Fixtures: %d ATP + %d WTA\n", nrow(fix_atp), nrow(fix_wta)))
 
 # Generate predictions
-# Debug: check why predictions might be 0
-cat("Profiles player_id sample:", head(bundle$profiles$player_id, 3), "\n")
-cat("Fix player1Id sample:", head(fix_atp$player1Id, 3), "\n")
-cat("Fix nrow:", nrow(fix_atp), "\n")
-cat("normalise_surface exists:", exists("normalise_surface"), "\n")
-cat("keep_tournament exists:", exists("keep_tournament"), "\n")
 atp_preds <- run_predictions(fix_atp, names_lookup,
-  bundle$profiles, bundle$model,
+  features2$profiles, bundle$model,
   matches_full, matches_full, "atp")
 
 wta_preds_df <- (function() {
