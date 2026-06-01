@@ -219,11 +219,13 @@ keep_tournament <- function(nm) {
 run_predictions <- function(fix, lookup, profiles, model, melo, mfull, tour_label) {
   preds <- list()
   for (i in seq_len(nrow(fix))) {
+  n_name<-0;n_prof<-0;n_surf<-0;n_tourn<-0
     p1_id <- fix$player1Id[i]
     p2_id <- fix$player2Id[i]
     n1 <- lookup[[as.character(p1_id)]] %||% ""
     n2 <- lookup[[as.character(p2_id)]] %||% ""
     if (grepl("/",n1)||grepl("/",n2)||n1==""||n2=="") next
+  n_name<-n_name+1
     if (!p1_id %in% profiles$player_id) next
     if (!p2_id %in% profiles$player_id) next
     surf <- tryCatch(normalise_surface(fix$tournament$court$name[i]),
@@ -268,6 +270,7 @@ run_predictions <- function(fix, lookup, profiles, model, melo, mfull, tour_labe
       stringsAsFactors=FALSE
     )
   }
+  cat(sprintf("run_predictions: name=%d prof=%d surf=%d tourn=%d preds=%d\n",n_name,n_prof,n_surf,n_tourn,length(preds)))
   dplyr::bind_rows(preds)
 }
 
