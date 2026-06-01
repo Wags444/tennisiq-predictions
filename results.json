@@ -1,12 +1,12 @@
 {
-  "total_predicted": 419,
-  "total_resolved": 157,
-  "week_resolved": 139,
-  "week_correct": 87,
-  "accuracy": 62.6,
-  "accuracy_label": "62.6%",
+  "total_predicted": 502,
+  "total_resolved": 160,
+  "week_resolved": 142,
+  "week_correct": 89,
+  "accuracy": 62.7,
+  "accuracy_label": "62.7%",
   "min_threshold": 50,
-  "last_updated": "2026-05-31 16:03",
+  "last_updated": "2026-06-01 08:29",
   "recent_results": [
     {
       "p1_name": "Luca Van Assche",
