@@ -2,46 +2,32 @@ name: Daily Predictions
 
 on:
   schedule:
-    - cron: "0 14 * * *"  # 7am PT (UTC-7) daily
+    - cron: "0 14 * * *"
   workflow_dispatch:
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   run-predictions:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         lfs: true
 
-    - name: Setup R
-      uses: r-lib/actions/setup-r@v2
+    - uses: r-lib/actions/setup-r@v2
       with:
         r-version: "4.3"
 
     - name: Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+      run: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
 
     - name: Install R packages
-      run: |
-        Rscript -e "install.packages(c(
-          "httr", "jsonlite", "dplyr", "lubridate",
-          "glmnet", "stringr", "tidyr", "Matrix"
-        ), repos="https://cloud.r-project.org", dependencies=TRUE)"
+      run: Rscript install_packages.R
 
-    - name: Create output directories
-      run: |
-        mkdir -p output/daily
-        mkdir -p output/predictions_log
+    - name: Create directories
+      run: mkdir -p output/daily output/predictions_log
 
-    - name: Run daily predictions
+    - name: Run predictions
       env:
         RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
@@ -55,4 +41,3 @@ jobs:
         git add predictions_today.json results.json meta.json output/predictions_log/ || true
         git diff --staged --quiet || git commit -m "Predictions $(date +%a %m/%d/%Y)"
         git push
-
