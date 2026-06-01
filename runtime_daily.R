@@ -278,6 +278,12 @@ fix_wta <- if(exists("logit_wta")) tryCatch({ d1<-fetch_fixtures_by_date("wta",f
 cat(sprintf("[4/5] Fixtures: %d ATP + %d WTA\n", nrow(fix_atp), nrow(fix_wta)))
 
 # Generate predictions
+# Debug: check why predictions might be 0
+cat("Profiles player_id sample:", head(bundle$profiles$player_id, 3), "\n")
+cat("Fix player1Id sample:", head(fix_atp$player1Id, 3), "\n")
+cat("Fix nrow:", nrow(fix_atp), "\n")
+cat("normalise_surface exists:", exists("normalise_surface"), "\n")
+cat("keep_tournament exists:", exists("keep_tournament"), "\n")
 atp_preds <- run_predictions(fix_atp, names_lookup,
   bundle$profiles, bundle$model,
   matches_full, matches_full, "atp")
