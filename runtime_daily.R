@@ -202,21 +202,7 @@ predict_match_wta <- function(p1_id, p2_id, surface) {
        p1_streak=rec1$streak,p2_streak=rec2$streak,
        p1_fatigue=rec1$fatigue7,p2_fatigue=rec2$fatigue7)
 }
-# Rebuild name lookups
-names_lookup <- list()
-for (.i in seq_len(nrow(raw_expanded$players))) {
-  .pid <- raw_expanded$players$player_id[.i]
-  .nm  <- raw_expanded$players$name[.i]
-  if (!is.na(.nm) && nchar(.nm) > 2) names_lookup[[as.character(.pid)]] <- .nm
-}
-wta_names_lookup <- list()
-if (exists("wta_players") && nrow(wta_players) > 0) {
-  for (.i in seq_len(nrow(wta_players))) {
-    .pid <- wta_players$player_id[.i]
-    .nm  <- wta_players$name[.i]
-    if (!is.na(.nm) && nchar(.nm) > 2) wta_names_lookup[[as.character(.pid)]] <- .nm
-  }
-}
+# names_lookup already loaded from runtime bundle
 cat(sprintf("[2/5] Lookups: %d ATP + %d WTA players\n",
            length(names_lookup), length(wta_names_lookup)))
 if (nchar(CONFIG$api_key) < 10) stop("RAPIDAPI_KEY not set")
@@ -345,9 +331,9 @@ wta_preds_df <- (function() {
 })()
 
 # Country lookup for flags
-country_df2 <- raw_expanded$players %>%
-  dplyr::filter(!is.na(country), country != "N/A", !grepl("/", name)) %>%
-  dplyr::select(player_id, country) %>% dplyr::distinct()
+country_df2 <- data.frame(player_id=integer(), country=character())
+
+
 iso3_to_2 <- c(AUS="au",ESP="es",ITA="it",FRA="fr",GER="de",USA="us",GBR="gb",
   ARG="ar",BRA="br",SRB="rs",CRO="hr",SUI="ch",AUT="at",BEL="be",NED="nl",
   ROU="ro",CZE="cz",SVK="sk",POL="pl",RUS="ru",JPN="jp",KOR="kr",CHN="cn",
