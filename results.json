@@ -1,24 +1,13 @@
 {
   "total_predicted": 502,
-  "total_resolved": 160,
-  "week_resolved": 142,
-  "week_correct": 89,
-  "accuracy": 62.7,
-  "accuracy_label": "62.7%",
+  "total_resolved": 109,
+  "week_resolved": 91,
+  "week_correct": 60,
+  "accuracy": 65.9,
+  "accuracy_label": "65.9%",
   "min_threshold": 50,
-  "last_updated": "2026-06-01 08:29",
+  "last_updated": "2026-06-01 10:24",
   "recent_results": [
-    {
-      "p1_name": "Luca Van Assche",
-      "p2_name": "Brandon Nakashima",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.486,
-      "p2_win": 0.514,
-      "result": "Brandon Nakashima",
-      "correct": true,
-      "pred_date": "2026-05-28"
-    },
     {
       "p1_name": "Colton Smith",
       "p2_name": "Tyler Zink",
@@ -27,6 +16,83 @@
       "p1_win": 0.505,
       "p2_win": 0.495,
       "result": "Colton Smith",
+      "correct": true,
+      "pred_date": "2026-05-27"
+    },
+    {
+      "p1_name": "Yu Hsiou Hsu",
+      "p2_name": "Jacopo Vasami",
+      "surface": "clay",
+      "tournament": "Vicenza Challenger",
+      "p1_win": 0.244,
+      "p2_win": 0.756,
+      "result": "Jacopo Vasami",
+      "correct": true,
+      "pred_date": "2026-05-28"
+    },
+    {
+      "p1_name": "Franco Agamenone",
+      "p2_name": "Radu Albot",
+      "surface": "clay",
+      "tournament": "Chisinau Challenger",
+      "p1_win": 0.748,
+      "p2_win": 0.252,
+      "result": "Radu Albot",
+      "correct": false,
+      "pred_date": "2026-05-28"
+    },
+    {
+      "p1_name": "Dali Blanch",
+      "p2_name": "Peter Fajta",
+      "surface": "clay",
+      "tournament": "Kosice Challenger",
+      "p1_win": 0.744,
+      "p2_win": 0.256,
+      "result": "Dali Blanch",
+      "correct": true,
+      "pred_date": "2026-05-28"
+    },
+    {
+      "p1_name": "Taro Daniel",
+      "p2_name": "Mathys Erhard",
+      "surface": "clay",
+      "tournament": "Kosice Challenger",
+      "p1_win": 0.303,
+      "p2_win": 0.697,
+      "result": "Mathys Erhard",
+      "correct": true,
+      "pred_date": "2026-05-28"
+    },
+    {
+      "p1_name": "Philip Henning",
+      "p2_name": "Stefano Napolitano",
+      "surface": "hard",
+      "tournament": "Centurion 1 Challenger",
+      "p1_win": 0.643,
+      "p2_win": 0.357,
+      "result": "Stefano Napolitano",
+      "correct": false,
+      "pred_date": "2026-05-28"
+    },
+    {
+      "p1_name": "Liam Broady",
+      "p2_name": "Cezar Cretu",
+      "surface": "clay",
+      "tournament": "Chisinau Challenger",
+      "p1_win": 0.389,
+      "p2_win": 0.611,
+      "result": "Cezar Cretu",
+      "correct": true,
+      "pred_date": "2026-05-28"
+    },
+    {
+      "p1_name": "Hynek Barton",
+      "p2_name": "Kilian Feldbausch",
+      "surface": "clay",
+      "tournament": "Kosice Challenger",
+      "p1_win": 0.393,
+      "p2_win": 0.607,
+      "result": "Kilian Feldbausch",
       "correct": true,
       "pred_date": "2026-05-28"
     },
@@ -39,17 +105,6 @@
       "p2_win": 0.082,
       "result": "Zachary Svajda",
       "correct": false,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Quentin Halys",
-      "p2_name": "Alexander Zverev",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.101,
-      "p2_win": 0.899,
-      "result": "Alexander Zverev",
-      "correct": true,
       "pred_date": "2026-05-29"
     },
     {
@@ -108,17 +163,6 @@
       "pred_date": "2026-05-29"
     },
     {
-      "p1_name": "Alex De Minaur",
-      "p2_name": "Jakub Mensik",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.69,
-      "p2_win": 0.31,
-      "result": "Jakub Mensik",
-      "correct": false,
-      "pred_date": "2026-05-29"
-    },
-    {
       "p1_name": "Matteo Arnaldi",
       "p2_name": "Raphael Collignon",
       "surface": "clay",
@@ -126,17 +170,6 @@
       "p1_win": 0.316,
       "p2_win": 0.684,
       "result": "Matteo Arnaldi",
-      "correct": false,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Johannus Monday",
-      "p2_name": "Aidan Mayo",
-      "surface": "hard",
-      "tournament": "Little Rock Challenger",
-      "p1_win": 0.625,
-      "p2_win": 0.375,
-      "result": "Aidan Mayo",
       "correct": false,
       "pred_date": "2026-05-29"
     },
@@ -174,28 +207,6 @@
       "pred_date": "2026-05-29"
     },
     {
-      "p1_name": "Michael Mmoh",
-      "p2_name": "Bernard Tomic",
-      "surface": "hard",
-      "tournament": "Little Rock Challenger",
-      "p1_win": 0.573,
-      "p2_win": 0.427,
-      "result": "Michael Mmoh",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Karen Khachanov",
-      "p2_name": "Jesper De Jong",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.562,
-      "p2_win": 0.438,
-      "result": "Jesper De Jong",
-      "correct": false,
-      "pred_date": "2026-05-29"
-    },
-    {
       "p1_name": "Jaime Faria",
       "p2_name": "Frances Tiafoe",
       "surface": "clay",
@@ -214,17 +225,6 @@
       "p1_win": 0.494,
       "p2_win": 0.506,
       "result": "Giles Hussey",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Colton Smith",
-      "p2_name": "Tyler Zink",
-      "surface": "hard",
-      "tournament": "Little Rock Challenger",
-      "p1_win": 0.505,
-      "p2_win": 0.495,
-      "result": "Colton Smith",
       "correct": true,
       "pred_date": "2026-05-29"
     }
