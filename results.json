@@ -1,68 +1,13 @@
 {
   "total_predicted": 502,
-  "total_resolved": 144,
-  "week_resolved": 126,
-  "week_correct": 85,
-  "accuracy": 67.5,
-  "accuracy_label": "67.5%",
+  "total_resolved": 149,
+  "week_resolved": 131,
+  "week_correct": 87,
+  "accuracy": 66.4,
+  "accuracy_label": "66.4%",
   "min_threshold": 50,
-  "last_updated": "2026-06-01 16:52",
+  "last_updated": "2026-06-01 17:07",
   "recent_results": [
-    {
-      "p1_name": "Philip Henning",
-      "p2_name": "Stefano Napolitano",
-      "surface": "hard",
-      "tournament": "Centurion 1 Challenger",
-      "p1_win": 0.643,
-      "p2_win": 0.357,
-      "result": "Stefano Napolitano",
-      "correct": false,
-      "pred_date": "2026-05-28"
-    },
-    {
-      "p1_name": "Liam Broady",
-      "p2_name": "Cezar Cretu",
-      "surface": "clay",
-      "tournament": "Chisinau Challenger",
-      "p1_win": 0.389,
-      "p2_win": 0.611,
-      "result": "Cezar Cretu",
-      "correct": true,
-      "pred_date": "2026-05-28"
-    },
-    {
-      "p1_name": "Hynek Barton",
-      "p2_name": "Kilian Feldbausch",
-      "surface": "clay",
-      "tournament": "Kosice Challenger",
-      "p1_win": 0.393,
-      "p2_win": 0.607,
-      "result": "Kilian Feldbausch",
-      "correct": true,
-      "pred_date": "2026-05-28"
-    },
-    {
-      "p1_name": "Francisco Cerundolo",
-      "p2_name": "Zachary Svajda",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.918,
-      "p2_win": 0.082,
-      "result": "Zachary Svajda",
-      "correct": false,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Flavio Cobolli",
-      "p2_name": "Learner Tien",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.892,
-      "p2_win": 0.108,
-      "result": "Flavio Cobolli",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
     {
       "p1_name": "Chun Hsin Tseng",
       "p2_name": "Lukas Neumayer",
@@ -196,6 +141,17 @@
       "pred_date": "2026-05-30"
     },
     {
+      "p1_name": "Lukas Neumayer",
+      "p2_name": "Chun Hsin Tseng",
+      "surface": "clay",
+      "tournament": "Vicenza Challenger",
+      "p1_win": 0.783,
+      "p2_win": 0.217,
+      "result": "Lukas Neumayer",
+      "correct": true,
+      "pred_date": "2026-05-30"
+    },
+    {
       "p1_name": "Martin Krumich",
       "p2_name": "Mathys Erhard",
       "surface": "clay",
@@ -273,6 +229,17 @@
       "pred_date": "2026-05-30"
     },
     {
+      "p1_name": "Jacopo Vasami",
+      "p2_name": "Lukas Neumayer",
+      "surface": "clay",
+      "tournament": "Vicenza Challenger",
+      "p1_win": 0.361,
+      "p2_win": 0.639,
+      "result": "Lukas Neumayer",
+      "correct": true,
+      "pred_date": "2026-05-30"
+    },
+    {
       "p1_name": "Martin Krumich",
       "p2_name": "Kilian Feldbausch",
       "surface": "clay",
@@ -292,6 +259,17 @@
       "p2_win": 0.415,
       "result": "Kilian Feldbausch",
       "correct": true,
+      "pred_date": "2026-05-30"
+    },
+    {
+      "p1_name": "Jacopo Vasami",
+      "p2_name": "Stefano Travaglia",
+      "surface": "clay",
+      "tournament": "Vicenza Challenger",
+      "p1_win": 0.448,
+      "p2_win": 0.552,
+      "result": "Jacopo Vasami",
+      "correct": false,
       "pred_date": "2026-05-30"
     },
     {
@@ -361,6 +339,17 @@
       "pred_date": "2026-05-31"
     },
     {
+      "p1_name": "Harold Mayot",
+      "p2_name": "Yusuke Takahashi",
+      "surface": "hard",
+      "tournament": "Centurion 2 Challenger",
+      "p1_win": 0.887,
+      "p2_win": 0.113,
+      "result": "Harold Mayot",
+      "correct": true,
+      "pred_date": "2026-05-31"
+    },
+    {
       "p1_name": "Marco Cecchinato",
       "p2_name": "Ilia Simakin",
       "surface": "clay",
@@ -402,6 +391,17 @@
       "p2_win": 0.263,
       "result": "Stefanos Sakellaridis",
       "correct": true,
+      "pred_date": "2026-05-31"
+    },
+    {
+      "p1_name": "Luca Castelnuovo",
+      "p2_name": "Mario Gonzalez Fernandez",
+      "surface": "hard",
+      "tournament": "Centurion 2 Challenger",
+      "p1_win": 0.713,
+      "p2_win": 0.287,
+      "result": "Mario Gonzalez Fernandez",
+      "correct": false,
       "pred_date": "2026-05-31"
     },
     {
@@ -460,6 +460,17 @@
       "pred_date": "2026-05-31"
     },
     {
+      "p1_name": "Max Houkes",
+      "p2_name": "Emilio Nava",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.585,
+      "p2_win": 0.415,
+      "result": "Emilio Nava",
+      "correct": false,
+      "pred_date": "2026-05-31"
+    },
+    {
       "p1_name": "Frederico Ferreira Silva",
       "p2_name": "Pedro Martinez Portero",
       "surface": "clay",
@@ -491,17 +502,6 @@
       "result": "Rafael Jodar",
       "correct": true,
       "pred_date": "2026-05-31"
-    },
-    {
-      "p1_name": "Harold Mayot",
-      "p2_name": "Yusuke Takahashi",
-      "surface": "hard",
-      "tournament": "Centurion 2 Challenger",
-      "p1_win": 0.887,
-      "p2_win": 0.113,
-      "result": "Harold Mayot",
-      "correct": true,
-      "pred_date": "2026-06-01"
     },
     {
       "p1_name": "Guy Den Ouden",
