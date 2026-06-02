@@ -491,9 +491,60 @@ tryCatch({
     rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
     if(is.null(rr)||httr::status_code(rr)!=200) next
     rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
-    if(is.null(rd)||is.null(rd$data$singles)) next
-    cx <- rd$data$singles[rd$data$singles$result_type=="completed",,drop=FALSE]
+    if(is.null(rd)||is.null(rd$data$singles)||!is.data.frame(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",]
     if(nrow(cx)==0) next
+    for(i in seq_len(nrow(all_preds))) {
+      p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
+      if(is.na(p1)||is.na(p2)) next
+      if(any((cx$player1Id==p1&cx$player2Id==p2)|(cx$player1Id==p2&cx$player2Id==p1)))
+        comp_ids <- c(comp_ids, i)
+    }
+  }
+  if(length(comp_ids)>0) {
+    cat(sprintf("Removed %d completed matches\n",length(unique(comp_ids))))
+    all_preds <- all_preds[-unique(comp_ids),,drop=FALSE]
+    row.names(all_preds) <- NULL
+  }
+}, error=function(e) cat("Completed filter error:",e$message,"\n"))
+# Remove already-completed matches
+tryCatch({
+  comp_ids <- c()
+  t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
+  for(tid in t_ids) {
+    ttype <- if(any(all_preds$tournamentId==tid & all_preds$tour=="wta", na.rm=TRUE)) "wta" else "atp"
+    rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
+    if(is.null(rr)||httr::status_code(rr)!=200) next
+    rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
+    if(is.null(rd)||is.null(rd$data$singles)) next
+    if(!is.data.frame(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",]
+    if(nrow(cx)==0) next
+    for(i in seq_len(nrow(all_preds))) {
+      p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
+      if(is.na(p1)||is.na(p2)) next
+      if(any((cx$player1Id==p1&cx$player2Id==p2)|(cx$player1Id==p2&cx$player2Id==p1)))
+        comp_ids <- c(comp_ids, i)
+    }
+  }
+  if(length(comp_ids)>0) {
+    cat(sprintf("Removed %d completed matches\n",length(unique(comp_ids))))
+    all_preds <- all_preds[-unique(comp_ids),,drop=FALSE]
+    row.names(all_preds) <- NULL
+  }
+}, error=function(e) cat("Completed filter error:",e$message,"\n"))
+# Remove already-completed matches
+tryCatch({
+  comp_ids <- c()
+  t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
+  for(tid in t_ids) {
+    ttype <- if(any(all_preds$tournamentId==tid & all_preds$tour=="wta", na.rm=TRUE)) "wta" else "atp"
+    rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
+    if(is.null(rr)||httr::status_code(rr)!=200) next
+    rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
+    if(is.null(rd)||is.null(rd$data$singles)) next
+    if(!is.data.frame(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",]
     for(i in seq_len(nrow(all_preds))) {
       p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
       if(is.na(p1)||is.na(p2)) next
@@ -547,6 +598,7 @@ tryCatch({
   today_log <- file.path(log_dir, paste0("predictions_", Sys.Date(), ".rds"))
   if(!file.exists(today_log) && nrow(all_preds)>0) {
     log_data <- all_preds
+      if(!is.data.frame(res_data$data$singles)) next
     log_data$pred_date <- Sys.Date()
     log_data$result <- NA_character_
     log_data$correct <- NA
@@ -592,7 +644,7 @@ tryCatch({
         jsonlite::fromJSON(httr::content(res_r,"text",encoding="UTF-8"), simplifyDataFrame=TRUE),
         error=function(e) NULL
       )
-      if(is.null(res_data$data$singles)) next
+      if(is.null(res_data$data$singles)||!is.data.frame(res_data$data$singles)) next
       results_df <- res_data$data$singles
       results_df <- results_df[results_df$result_type=="completed",]
       if(nrow(results_df)==0) next
@@ -631,6 +683,8 @@ tryCatch({
   all_res <- dplyr::bind_rows(lapply(logs, function(f) {
     d <- readRDS(f); d[!is.na(d$correct),]
   }))
+  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
+  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
   week_res     <- if(nrow(all_res)>0) all_res[all_res$pred_date >= Sys.Date()-7,] else all_res
   week_total   <- nrow(week_res)
   week_correct <- if(nrow(week_res)>0) sum(week_res$correct,na.rm=TRUE) else 0L
@@ -647,7 +701,7 @@ tryCatch({
     last_updated     = format(Sys.time(),"%Y-%m-%d %H:%M"),
     recent_results   = if(nrow(all_res)>0) tail(
       all_res[,c("p1_name","p2_name","surface","tournament",
-                 "p1_win","p2_win","result","correct","pred_date")],20
+                 "p1_win","p2_win","result","correct","pred_date")],50
     ) else list()
   )
   jsonlite::write_json(smry,"output/daily/results.json",pretty=TRUE,auto_unbox=TRUE)
