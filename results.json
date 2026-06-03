@@ -1,178 +1,13 @@
 {
-  "total_predicted": 502,
-  "total_resolved": 149,
-  "week_resolved": 131,
-  "week_correct": 87,
+  "total_predicted": 553,
+  "total_resolved": 164,
+  "week_resolved": 146,
+  "week_correct": 97,
   "accuracy": 66.4,
   "accuracy_label": "66.4%",
   "min_threshold": 50,
-  "last_updated": "2026-06-01 17:07",
+  "last_updated": "2026-06-02 07:07",
   "recent_results": [
-    {
-      "p1_name": "Chun Hsin Tseng",
-      "p2_name": "Lukas Neumayer",
-      "surface": "clay",
-      "tournament": "Vicenza Challenger",
-      "p1_win": 0.217,
-      "p2_win": 0.783,
-      "result": "Lukas Neumayer",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Radu Albot",
-      "p2_name": "Cezar Cretu",
-      "surface": "clay",
-      "tournament": "Chisinau Challenger",
-      "p1_win": 0.282,
-      "p2_win": 0.718,
-      "result": "Cezar Cretu",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Juan Manuel Cerundolo",
-      "p2_name": "Martin Landaluce",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.711,
-      "p2_win": 0.289,
-      "result": "Juan Manuel Cerundolo",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Genaro Alberto Olivieri",
-      "p2_name": "Stefanos Sakellaridis",
-      "surface": "clay",
-      "tournament": "Chisinau Challenger",
-      "p1_win": 0.292,
-      "p2_win": 0.708,
-      "result": "Stefanos Sakellaridis",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Matteo Arnaldi",
-      "p2_name": "Raphael Collignon",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.316,
-      "p2_win": 0.684,
-      "result": "Matteo Arnaldi",
-      "correct": false,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Matteo Berrettini",
-      "p2_name": "Francisco Comesana",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.624,
-      "p2_win": 0.376,
-      "result": "Matteo Berrettini",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Felix Auger Aliassime",
-      "p2_name": "Brandon Nakashima",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.612,
-      "p2_win": 0.388,
-      "result": "Felix Auger Aliassime",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Dali Blanch",
-      "p2_name": "Kilian Feldbausch",
-      "surface": "clay",
-      "tournament": "Kosice Challenger",
-      "p1_win": 0.416,
-      "p2_win": 0.584,
-      "result": "Kilian Feldbausch",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Jaime Faria",
-      "p2_name": "Frances Tiafoe",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.485,
-      "p2_win": 0.515,
-      "result": "Frances Tiafoe",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Eliakim Coulibaly",
-      "p2_name": "Giles Hussey",
-      "surface": "hard",
-      "tournament": "Centurion 1 Challenger",
-      "p1_win": 0.494,
-      "p2_win": 0.506,
-      "result": "Giles Hussey",
-      "correct": true,
-      "pred_date": "2026-05-29"
-    },
-    {
-      "p1_name": "Zachary Svajda",
-      "p2_name": "Francisco Cerundolo",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.082,
-      "p2_win": 0.918,
-      "result": "Zachary Svajda",
-      "correct": false,
-      "pred_date": "2026-05-30"
-    },
-    {
-      "p1_name": "Jesper De Jong",
-      "p2_name": "Alexander Zverev",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.099,
-      "p2_win": 0.901,
-      "result": "Alexander Zverev",
-      "correct": true,
-      "pred_date": "2026-05-30"
-    },
-    {
-      "p1_name": "Lukas Neumayer",
-      "p2_name": "Chun Hsin Tseng",
-      "surface": "clay",
-      "tournament": "Vicenza Challenger",
-      "p1_win": 0.783,
-      "p2_win": 0.217,
-      "result": "Lukas Neumayer",
-      "correct": true,
-      "pred_date": "2026-05-30"
-    },
-    {
-      "p1_name": "Martin Krumich",
-      "p2_name": "Mathys Erhard",
-      "surface": "clay",
-      "tournament": "Kosice Challenger",
-      "p1_win": 0.747,
-      "p2_win": 0.253,
-      "result": "Martin Krumich",
-      "correct": true,
-      "pred_date": "2026-05-30"
-    },
-    {
-      "p1_name": "Cezar Cretu",
-      "p2_name": "Stefanos Sakellaridis",
-      "surface": "clay",
-      "tournament": "Chisinau Challenger",
-      "p1_win": 0.264,
-      "p2_win": 0.736,
-      "result": "Stefanos Sakellaridis",
-      "correct": true,
-      "pred_date": "2026-05-30"
-    },
     {
       "p1_name": "Cezar Cretu",
       "p2_name": "Radu Albot",
@@ -394,6 +229,17 @@
       "pred_date": "2026-05-31"
     },
     {
+      "p1_name": "Tristan Boyer",
+      "p2_name": "Filip Cristian Jianu",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.275,
+      "p2_win": 0.725,
+      "result": "Tristan Boyer",
+      "correct": false,
+      "pred_date": "2026-05-31"
+    },
+    {
       "p1_name": "Luca Castelnuovo",
       "p2_name": "Mario Gonzalez Fernandez",
       "surface": "hard",
@@ -504,6 +350,28 @@
       "pred_date": "2026-05-31"
     },
     {
+      "p1_name": "Alexander Shevchenko",
+      "p2_name": "Raul Brancaccio",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.504,
+      "p2_win": 0.496,
+      "result": "Alexander Shevchenko",
+      "correct": true,
+      "pred_date": "2026-05-31"
+    },
+    {
+      "p1_name": "Filip Peliwo",
+      "p2_name": "Eliakim Coulibaly",
+      "surface": "hard",
+      "tournament": "Centurion 2 Challenger",
+      "p1_win": 0.122,
+      "p2_win": 0.878,
+      "result": "Eliakim Coulibaly",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
       "p1_name": "Guy Den Ouden",
       "p2_name": "Pavel Kotov",
       "surface": "clay",
@@ -512,17 +380,6 @@
       "p2_win": 0.218,
       "result": "Guy Den Ouden",
       "correct": true,
-      "pred_date": "2026-06-01"
-    },
-    {
-      "p1_name": "Tristan Boyer",
-      "p2_name": "Filip Cristian Jianu",
-      "surface": "clay",
-      "tournament": "Prostejov Challenger",
-      "p1_win": 0.275,
-      "p2_win": 0.725,
-      "result": "Tristan Boyer",
-      "correct": false,
       "pred_date": "2026-06-01"
     },
     {
@@ -537,6 +394,50 @@
       "pred_date": "2026-06-01"
     },
     {
+      "p1_name": "Hugo Dellien",
+      "p2_name": "Max Schoenhaus",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.709,
+      "p2_win": 0.291,
+      "result": "Max Schoenhaus",
+      "correct": false,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Tristan Schoolkate",
+      "p2_name": "Arthur Fery",
+      "surface": "grass",
+      "tournament": "Birmingham Challenger",
+      "p1_win": 0.686,
+      "p2_win": 0.314,
+      "result": "Arthur Fery",
+      "correct": false,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Sebastian Baez",
+      "p2_name": "Sascha Gueymard Wayenburg",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.682,
+      "p2_win": 0.318,
+      "result": "Sebastian Baez",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Mika Petkovic",
+      "p2_name": "Alejandro Moro Canas",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.341,
+      "p2_win": 0.659,
+      "result": "Alejandro Moro Canas",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
       "p1_name": "Matej Dodig",
       "p2_name": "Joel Schwaerzler",
       "surface": "clay",
@@ -548,13 +449,112 @@
       "pred_date": "2026-06-01"
     },
     {
-      "p1_name": "Alexander Shevchenko",
-      "p2_name": "Raul Brancaccio",
+      "p1_name": "Cezar Cretu",
+      "p2_name": "Jacopo Vasami",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.362,
+      "p2_win": 0.638,
+      "result": "Jacopo Vasami",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Guillaume Dalmasso",
+      "p2_name": "Constantin Bittoun Kouzmine",
+      "surface": "hard",
+      "tournament": "Centurion 2 Challenger",
+      "p1_win": 0.633,
+      "p2_win": 0.367,
+      "result": "Guillaume Dalmasso",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Nikolas Sanchez-Izquierdo",
+      "p2_name": "Luka Pavlovic",
       "surface": "clay",
       "tournament": "Prostejov Challenger",
-      "p1_win": 0.504,
-      "p2_win": 0.496,
-      "result": "Alexander Shevchenko",
+      "p1_win": 0.37,
+      "p2_win": 0.63,
+      "result": "Nikolas Sanchez-Izquierdo",
+      "correct": false,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Mattia Bellucci",
+      "p2_name": "Alex Bolt",
+      "surface": "grass",
+      "tournament": "Birmingham Challenger",
+      "p1_win": 0.397,
+      "p2_win": 0.603,
+      "result": "Alex Bolt",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Joao Lucas Reis Da Silva",
+      "p2_name": "Alex Barrena",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.591,
+      "p2_win": 0.409,
+      "result": "Joao Lucas Reis Da Silva",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Akira Santillan",
+      "p2_name": "Alexander Donski",
+      "surface": "hard",
+      "tournament": "Centurion 2 Challenger",
+      "p1_win": 0.585,
+      "p2_win": 0.415,
+      "result": "Alexander Donski",
+      "correct": false,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Mark Lajal",
+      "p2_name": "Leandro Riedi",
+      "surface": "grass",
+      "tournament": "Birmingham Challenger",
+      "p1_win": 0.44,
+      "p2_win": 0.56,
+      "result": "Mark Lajal",
+      "correct": false,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Miguel Damas",
+      "p2_name": "Damir Dzumhur",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.448,
+      "p2_win": 0.552,
+      "result": "Damir Dzumhur",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Moez Echargui",
+      "p2_name": "Chun Hsin Tseng",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.449,
+      "p2_win": 0.551,
+      "result": "Chun Hsin Tseng",
+      "correct": true,
+      "pred_date": "2026-06-01"
+    },
+    {
+      "p1_name": "Jan Choinski",
+      "p2_name": "Tom Gentzsch",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.539,
+      "p2_win": 0.461,
+      "result": "Jan Choinski",
       "correct": true,
       "pred_date": "2026-06-01"
     }
