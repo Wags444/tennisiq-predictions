@@ -5,6 +5,10 @@ suppressPackageStartupMessages({
 cat("[1/5] Packages loaded\n")
 
 load("output/tennisiq_session.RData")
+if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
+if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
+if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
+if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
 # Load rankings cache
 if(file.exists("output/rankings_cache.rds")) {
   ranks <- readRDS("output/rankings_cache.rds")
@@ -109,10 +113,18 @@ predict_match_wta <- function(p1_id, p2_id, surface) {
     p[which.max(p$n_matches),]
   }
   get_surf_elo <- function(pid, surf_df) {
+    if(!is.null(wta_elo_sack)) {
+      scol <- dplyr::case_when(surface=="clay"~"elo_clay",surface=="hard"~"elo_hard",surface=="grass"~"elo_grass",TRUE~"elo_overall")
+      srow <- wta_elo_sack[wta_elo_sack$player_id==pid,,drop=FALSE]
+      if(nrow(srow)>0 && scol %in% names(srow) && !is.na(srow[[scol]][1])) return(srow[[scol]][1])
+    }
     rows <- surf_df[surf_df$player_id==pid,]
-    if(nrow(rows)==0) return(1500)
-    col <- grep("_a$", names(surf_df), value=TRUE)[1]
-    rows[[col]][nrow(rows)]
+    if(nrow(rows)==0) {
+      rnk <- as.numeric(wta_rank_lookup[as.character(pid)])%||%500
+      return(dplyr::case_when(rnk<=10~2036,rnk<=50~1743,rnk<=100~1704,rnk<=200~1695,TRUE~1600))
+    }
+    col2 <- grep("_a$", names(surf_df), value=TRUE)[1]
+    rows[[col2]][nrow(rows)]
   }
   get_recent <- function(pid) {
     rows <- wta_full[wta_full$player_id==pid,]
@@ -278,6 +290,39 @@ Sys.sleep(2)
 fix_atp <- tryCatch({ d1<-fetch_fixtures_by_date("atp",format(Sys.Date(),"%Y-%m-%d")); d2<-fetch_fixtures_by_date("atp",format(Sys.Date()+1,"%Y-%m-%d")); dplyr::bind_rows(d1,d2) }, error=function(e) api_get_fixtures("atp",CONFIG,pages=10))
 Sys.sleep(2)
 fix_wta <- if(exists("logit_wta")) tryCatch({ d1<-fetch_fixtures_by_date("wta",format(Sys.Date(),"%Y-%m-%d")); d2<-fetch_fixtures_by_date("wta",format(Sys.Date()+1,"%Y-%m-%d")); dplyr::bind_rows(d1,d2) }, error=function(e) api_get_fixtures("wta",CONFIG,pages=10)) else data.frame()
+if(exists("fix_wta") && nrow(fix_wta)>0) {
+  for(.i in seq_len(nrow(fix_wta))) {
+    .p1<-as.character(fix_wta$player1Id[.i]); .n1<-fix_wta$player1$name[.i]
+    .p2<-as.character(fix_wta$player2Id[.i]); .n2<-fix_wta$player2$name[.i]
+    if(!is.na(.n1)&&nchar(.n1)>2&&!grepl("/",.n1)&&is.null(wta_names_lookup[[.p1]])) wta_names_lookup[[.p1]]<-.n1
+    if(!is.na(.n2)&&nchar(.n2)>2&&!grepl("/",.n2)&&is.null(wta_names_lookup[[.p2]])) wta_names_lookup[[.p2]]<-.n2
+  }
+}
+if(exists("fix_wta") && nrow(fix_wta)>0) {
+  for(.i in seq_len(nrow(fix_wta))) {
+    .p1<-as.character(fix_wta$player1Id[.i]); .n1<-fix_wta$player1$name[.i]
+    .p2<-as.character(fix_wta$player2Id[.i]); .n2<-fix_wta$player2$name[.i]
+    if(!is.na(.n1)&&nchar(.n1)>2&&!grepl("/",.n1)&&is.null(wta_names_lookup[[.p1]])) wta_names_lookup[[.p1]]<-.n1
+    if(!is.na(.n2)&&nchar(.n2)>2&&!grepl("/",.n2)&&is.null(wta_names_lookup[[.p2]])) wta_names_lookup[[.p2]]<-.n2
+  }
+}
+if(exists("fix_wta") && nrow(fix_wta)>0) {
+  for(.i in seq_len(nrow(fix_wta))) {
+    .p1<-as.character(fix_wta$player1Id[.i]); .n1<-fix_wta$player1$name[.i]
+    .p2<-as.character(fix_wta$player2Id[.i]); .n2<-fix_wta$player2$name[.i]
+    if(!is.na(.n1)&&nchar(.n1)>2&&!grepl("/",.n1)&&is.null(wta_names_lookup[[.p1]])) wta_names_lookup[[.p1]]<-.n1
+    if(!is.na(.n2)&&nchar(.n2)>2&&!grepl("/",.n2)&&is.null(wta_names_lookup[[.p2]])) wta_names_lookup[[.p2]]<-.n2
+  }
+}
+# Expand WTA names lookup from fixture player data
+if(exists("fix_wta") && nrow(fix_wta)>0) {
+  for(.i in seq_len(nrow(fix_wta))) {
+    .p1<-as.character(fix_wta$player1Id[.i]); .n1<-fix_wta$player1$name[.i]
+    .p2<-as.character(fix_wta$player2Id[.i]); .n2<-fix_wta$player2$name[.i]
+    if(!is.na(.n1)&&nchar(.n1)>2&&!grepl("/",.n1)&&is.null(wta_names_lookup[[.p1]])) wta_names_lookup[[.p1]]<-.n1
+    if(!is.na(.n2)&&nchar(.n2)>2&&!grepl("/",.n2)&&is.null(wta_names_lookup[[.p2]])) wta_names_lookup[[.p2]]<-.n2
+  }
+}
 cat(sprintf("[4/5] Fixtures: %d ATP + %d WTA\n", nrow(fix_atp), nrow(fix_wta)))
 
 # Generate predictions
@@ -294,8 +339,8 @@ wta_preds_df <- (function() {
     n1 <- wta_names_lookup[[as.character(p1_id)]] %||% ""
     n2 <- wta_names_lookup[[as.character(p2_id)]] %||% ""
     if(grepl("/",n1)||grepl("/",n2)||n1==""||n2=="") next
-    if(!p1_id %in% features_wta$profiles$player_id) next
-    if(!p2_id %in% features_wta$profiles$player_id) next
+    # avg_profile fallback handles unknown players
+    # avg_profile fallback handles unknown players
     surf <- tryCatch(normalise_surface(fix_wta$tournament$court$name[i]),error=function(e) NA_character_)
     if(is.na(surf)) next
     tourn <- tryCatch(fix_wta$tournament$name[i],error=function(e) "")
@@ -482,6 +527,104 @@ if("market_deviation" %in% names(all_preds)) {
   n_removed <- n_before - nrow(all_preds)
   if(n_removed > 0) cat(sprintf("Removed %d predictions with >25pp market deviation\n", n_removed))
 }
+tryCatch({
+  comp_ids <- c()
+  t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
+  for(tid in t_ids) {
+    ttype <- if(any(all_preds$tournamentId==tid & all_preds$tour=="wta", na.rm=TRUE)) "wta" else "atp"
+    rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
+    if(is.null(rr)||httr::status_code(rr)!=200) next
+    rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
+    if(is.null(rd)||is.null(rd$data$singles)||!is.data.frame(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",]
+    if(nrow(cx)==0) next
+    for(i in seq_len(nrow(all_preds))) {
+      p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
+      if(is.na(p1)||is.na(p2)) next
+      if(any((cx$player1Id==p1&cx$player2Id==p2)|(cx$player1Id==p2&cx$player2Id==p1)))
+        comp_ids <- c(comp_ids, i)
+    }
+  }
+  if(length(comp_ids)>0) {
+    cat(sprintf("Removed %d completed matches\n",length(unique(comp_ids))))
+    all_preds <- all_preds[-unique(comp_ids),,drop=FALSE]
+    row.names(all_preds) <- NULL
+  }
+}, error=function(e) cat("Completed filter error:",e$message,"\n"))
+tryCatch({
+  comp_ids <- c()
+  t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
+  for(tid in t_ids) {
+    ttype <- if(any(all_preds$tournamentId==tid & all_preds$tour=="wta", na.rm=TRUE)) "wta" else "atp"
+    rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
+    if(is.null(rr)||httr::status_code(rr)!=200) next
+    rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
+    if(is.null(rd)||is.null(rd$data$singles)||!is.data.frame(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",]
+    if(nrow(cx)==0) next
+    for(i in seq_len(nrow(all_preds))) {
+      p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
+      if(is.na(p1)||is.na(p2)) next
+      if(any((cx$player1Id==p1&cx$player2Id==p2)|(cx$player1Id==p2&cx$player2Id==p1)))
+        comp_ids <- c(comp_ids, i)
+    }
+  }
+  if(length(comp_ids)>0) {
+    cat(sprintf("Removed %d completed matches\n",length(unique(comp_ids))))
+    all_preds <- all_preds[-unique(comp_ids),,drop=FALSE]
+    row.names(all_preds) <- NULL
+  }
+}, error=function(e) cat("Completed filter error:",e$message,"\n"))
+# Remove already-completed matches
+tryCatch({
+  comp_ids <- c()
+  t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
+  for(tid in t_ids) {
+    ttype <- if(any(all_preds$tournamentId==tid & all_preds$tour=="wta", na.rm=TRUE)) "wta" else "atp"
+    rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
+    if(is.null(rr)||httr::status_code(rr)!=200) next
+    rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
+    if(is.null(rd)||is.null(rd$data$singles)||!is.data.frame(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",]
+    if(nrow(cx)==0) next
+    for(i in seq_len(nrow(all_preds))) {
+      p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
+      if(is.na(p1)||is.na(p2)) next
+      if(any((cx$player1Id==p1&cx$player2Id==p2)|(cx$player1Id==p2&cx$player2Id==p1)))
+        comp_ids <- c(comp_ids, i)
+    }
+  }
+  if(length(comp_ids)>0) {
+    cat(sprintf("Removed %d completed matches\n",length(unique(comp_ids))))
+    all_preds <- all_preds[-unique(comp_ids),,drop=FALSE]
+    row.names(all_preds) <- NULL
+  }
+}, error=function(e) cat("Completed filter error:",e$message,"\n"))
+# Remove already-completed matches
+tryCatch({
+  comp_ids <- c()
+  t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
+  for(tid in t_ids) {
+    ttype <- if(any(all_preds$tournamentId==tid & all_preds$tour=="wta", na.rm=TRUE)) "wta" else "atp"
+    rr <- tryCatch(httr::GET(sprintf("%s/%s/tournament/results/%s",CONFIG$api_base,ttype,tid),.hdrs(CONFIG)),error=function(e)NULL)
+    if(is.null(rr)||httr::status_code(rr)!=200) next
+    rd <- tryCatch(jsonlite::fromJSON(httr::content(rr,"text",encoding="UTF-8"),simplifyDataFrame=TRUE),error=function(e)NULL)
+    if(is.null(rd)||is.null(rd$data$singles)||!is.data.frame(rd$data$singles)) next
+    cx <- rd$data$singles[rd$data$singles$result_type=="completed",]
+    if(nrow(cx)==0) next
+    for(i in seq_len(nrow(all_preds))) {
+      p1<-all_preds$p1_id[i]; p2<-all_preds$p2_id[i]
+      if(is.na(p1)||is.na(p2)) next
+      if(any((cx$player1Id==p1&cx$player2Id==p2)|(cx$player1Id==p2&cx$player2Id==p1)))
+        comp_ids <- c(comp_ids, i)
+    }
+  }
+  if(length(comp_ids)>0) {
+    cat(sprintf("Removed %d completed matches\n",length(unique(comp_ids))))
+    all_preds <- all_preds[-unique(comp_ids),,drop=FALSE]
+    row.names(all_preds) <- NULL
+  }
+}, error=function(e) cat("Completed filter error:",e$message,"\n"))
 # Remove already-completed matches
 tryCatch({
   comp_ids <- c()
@@ -683,6 +826,10 @@ tryCatch({
   all_res <- dplyr::bind_rows(lapply(logs, function(f) {
     d <- readRDS(f); d[!is.na(d$correct),]
   }))
+  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
+  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
+  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
+  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
   all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
   all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
   week_res     <- if(nrow(all_res)>0) all_res[all_res$pred_date >= Sys.Date()-7,] else all_res
