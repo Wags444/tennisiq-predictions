@@ -5,6 +5,7 @@ suppressPackageStartupMessages({
 cat("[1/5] Packages loaded\n")
 
 load("output/tennisiq_session.RData")
+if(file.exists("output/atp_elo_sackmann.rds")) atp_elo_sack <- readRDS("output/atp_elo_sackmann.rds") else atp_elo_sack <- NULL
 if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
 if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
 if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
@@ -25,10 +26,18 @@ predict_match_v2 <- function(p1_id, p2_id, surface, model, profiles, melo, mfull
     p[which.max(p$n_matches),]
   }
   get_surf_elo <- function(pid, surf_df) {
+    if(exists("atp_elo_sack") && !is.null(atp_elo_sack)) {
+      scol <- dplyr::case_when(surface=="clay"~"elo_clay",surface=="hard"~"elo_hard",surface=="grass"~"elo_grass",TRUE~"elo_overall")
+      srow <- atp_elo_sack[atp_elo_sack$player_id==pid,,drop=FALSE]
+      if(nrow(srow)>0 && scol %in% names(srow) && !is.na(srow[[scol]][1])) return(srow[[scol]][1])
+    }
     rows <- surf_df[surf_df$player_id==pid,]
-    if(nrow(rows)==0) return(1500)
-    col <- grep("_a$", names(surf_df), value=TRUE)[1]
-    rows[[col]][nrow(rows)]
+    if(nrow(rows)==0) {
+      rnk <- as.numeric(atp_rank_lookup[as.character(pid)])%||%500
+      return(dplyr::case_when(rnk<=10~2200,rnk<=50~1950,rnk<=100~1850,rnk<=200~1750,TRUE~1650))
+    }
+    col2 <- grep("_a$", names(surf_df), value=TRUE)[1]
+    rows[[col2]][nrow(rows)]
   }
   get_recent <- function(pid) {
     rows <- mfull[mfull$player_id==pid,]
