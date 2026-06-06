@@ -1,24 +1,13 @@
 {
-  "total_predicted": 694,
-  "total_resolved": 248,
-  "week_resolved": 151,
-  "week_correct": 99,
-  "accuracy": 65.6,
-  "accuracy_label": "65.6%",
+  "total_predicted": 733,
+  "total_resolved": 249,
+  "week_resolved": 140,
+  "week_correct": 90,
+  "accuracy": 64.3,
+  "accuracy_label": "64.3%",
   "min_threshold": 50,
-  "last_updated": "2026-06-05 18:01",
+  "last_updated": "2026-06-06 08:08",
   "recent_results": [
-    {
-      "p1_name": "Milos Karol",
-      "p2_name": "Carlo Alberto Caniato",
-      "surface": "clay",
-      "tournament": "Prostejov Challenger",
-      "p1_win": 0.382,
-      "p2_win": 0.618,
-      "result": "Milos Karol",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
     {
       "p1_name": "Alexander Shevchenko",
       "p2_name": "Nikolas Sanchez-Izquierdo",
@@ -555,6 +544,17 @@
       "p1_win": 0.824,
       "p2_win": 0.176,
       "result": "Henrique Rocha",
+      "correct": true,
+      "pred_date": "2026-06-05"
+    },
+    {
+      "p1_name": "Andre Ilagan",
+      "p2_name": "Yuta Shimizu",
+      "surface": "hard",
+      "tournament": "Tyler Challenger",
+      "p1_win": 0.527,
+      "p2_win": 0.473,
+      "result": "Andre Ilagan",
       "correct": true,
       "pred_date": "2026-06-05"
     }
