@@ -1,24 +1,13 @@
 {
   "total_predicted": 733,
-  "total_resolved": 249,
-  "week_resolved": 140,
+  "total_resolved": 250,
+  "week_resolved": 141,
   "week_correct": 90,
-  "accuracy": 64.3,
-  "accuracy_label": "64.3%",
+  "accuracy": 63.8,
+  "accuracy_label": "63.8%",
   "min_threshold": 50,
-  "last_updated": "2026-06-06 08:08",
+  "last_updated": "2026-06-06 08:37",
   "recent_results": [
-    {
-      "p1_name": "Alexander Shevchenko",
-      "p2_name": "Nikolas Sanchez-Izquierdo",
-      "surface": "clay",
-      "tournament": "Prostejov Challenger",
-      "p1_win": 0.614,
-      "p2_win": 0.386,
-      "result": "Nikolas Sanchez-Izquierdo",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
     {
       "p1_name": "Marvin Moeller",
       "p2_name": "Gauthier Onclin",
@@ -545,6 +534,17 @@
       "p2_win": 0.176,
       "result": "Henrique Rocha",
       "correct": true,
+      "pred_date": "2026-06-05"
+    },
+    {
+      "p1_name": "Harold Mayot",
+      "p2_name": "Philip Henning",
+      "surface": "hard",
+      "tournament": "Centurion 2 Challenger",
+      "p1_win": 0.771,
+      "p2_win": 0.229,
+      "result": "Philip Henning",
+      "correct": false,
       "pred_date": "2026-06-05"
     },
     {
