@@ -731,7 +731,7 @@ file.copy("output/daily/meta.json",
           file.path(git_repo,"meta.json"), overwrite=TRUE)
 shell("C:/Users/bwags/R/TennisIQ/Claude/push_predictions.bat", wait=TRUE)
 cat("Pushed to GitHub\n")
-cat(sprintf("Done: %d ATP + %d WTA predictions live\n", nrow(atp_preds), nrow(wta_preds_df)))
+cat(sprintf("Done: %d ATP + %d WTA predictions live\n", sum(all_preds$tour=="atp",na.rm=TRUE), sum(all_preds$tour=="wta",na.rm=TRUE)))
 
 # Generate social posts
 tryCatch({
