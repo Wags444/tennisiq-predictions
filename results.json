@@ -1,24 +1,13 @@
 {
   "total_predicted": 694,
-  "total_resolved": 247,
-  "week_resolved": 150,
-  "week_correct": 98,
-  "accuracy": 65.3,
-  "accuracy_label": "65.3%",
+  "total_resolved": 248,
+  "week_resolved": 151,
+  "week_correct": 99,
+  "accuracy": 65.6,
+  "accuracy_label": "65.6%",
   "min_threshold": 50,
-  "last_updated": "2026-06-05 17:24",
+  "last_updated": "2026-06-05 18:01",
   "recent_results": [
-    {
-      "p1_name": "Chun Hsin Tseng",
-      "p2_name": "Timofey Skatov",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.373,
-      "p2_win": 0.627,
-      "result": "Timofey Skatov",
-      "correct": true,
-      "pred_date": "2026-06-02"
-    },
     {
       "p1_name": "Milos Karol",
       "p2_name": "Carlo Alberto Caniato",
@@ -557,6 +546,17 @@
       "result": "Daniel Merida Aguilar",
       "correct": true,
       "pred_date": "2026-06-04"
+    },
+    {
+      "p1_name": "Henrique Rocha",
+      "p2_name": "Remy Bertola",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.824,
+      "p2_win": 0.176,
+      "result": "Henrique Rocha",
+      "correct": true,
+      "pred_date": "2026-06-05"
     }
   ]
 }
