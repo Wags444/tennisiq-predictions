@@ -44,7 +44,14 @@ predict_match_v2 <- function(p1_id, p2_id, surface, model, profiles, melo, mfull
     if(nrow(rows)==0) return(list(fatigue7=0,sets7=0,streak=0))
     rows <- rows[order(rows$date,decreasing=TRUE),]
     streak <- 0
-    for(w in rows$won[1:min(10,nrow(rows))]) { if(is.na(w)) break; if(isTRUE(w==1)) streak<-streak+1 else break }
+    for(w in rows$won[1:min(10,nrow(rows))]) {
+      if(is.na(w)) break
+      if(isTRUE(w==1)) streak<-streak+1 else break
+    }
+    streak <- min(streak, 6)
+    days_since <- as.numeric(Sys.Date()-rows$date[1])
+    decay <- dplyr::case_when(days_since<=14~1.0,days_since<=28~0.75,days_since<=45~0.5,days_since<=70~0.25,TRUE~0.1)
+    streak <- streak * decay
     list(fatigue7=rows$matches_last7[1]%||%0,
          sets7=sum(rows$won[1:min(7,nrow(rows))],na.rm=TRUE),
          streak=streak)
@@ -147,6 +154,10 @@ predict_match_wta <- function(p1_id, p2_id, surface) {
       if(is.na(w)) break
       if(isTRUE(w==1)) streak<-streak+1 else break
     }
+    streak <- min(streak, 6)
+    days_since <- as.numeric(Sys.Date()-rows$date[1])
+    decay <- dplyr::case_when(days_since<=14~1.0,days_since<=28~0.75,days_since<=45~0.5,days_since<=70~0.25,TRUE~0.1)
+    streak <- streak * decay
     list(fatigue7=rows$matches_last7[1]%||%0,
          sets7=sum(rows$won[1:min(7,nrow(rows))],na.rm=TRUE),
          win5=if(nrow(last5)>0) mean(last5$won,na.rm=TRUE) else 0.5,
@@ -835,12 +846,12 @@ tryCatch({
   all_res <- dplyr::bind_rows(lapply(logs, function(f) {
     d <- readRDS(f); d[!is.na(d$correct),]
   }))
-  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
-  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
-  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
-  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
-  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
-  all_res <- dplyr::distinct(dplyr::arrange(all_res, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
+  all_res <- dplyr::distinct(dplyr::arrange(all_res, match_date, pred_date), p1_name, p2_name, tournament, .keep_all=TRUE)
+
+
+
+
+
   week_res     <- if(nrow(all_res)>0) all_res[all_res$pred_date >= Sys.Date()-7,] else all_res
   week_total   <- nrow(week_res)
   week_correct <- if(nrow(week_res)>0) sum(week_res$correct,na.rm=TRUE) else 0L
