@@ -548,6 +548,16 @@ if("market_deviation" %in% names(all_preds)) {
   if(n_removed > 0) cat(sprintf("Removed %d predictions with >25pp market deviation\n", n_removed))
 }
 tryCatch({
+# Grass confidence filter - only keep grass picks >= 70% confidence
+grass_low_conf <- all_preds$surface=="grass" & 
+  (pmax(all_preds$p1_win, all_preds$p2_win) < 0.70)
+grass_low_conf[is.na(grass_low_conf)] <- FALSE
+n_grass_removed <- sum(grass_low_conf)
+if(n_grass_removed > 0) {
+  all_preds <- all_preds[!grass_low_conf,,drop=FALSE]
+  cat(sprintf("Removed %d low-confidence grass predictions (<70%%)
+", n_grass_removed))
+}
   comp_ids <- c()
   t_ids <- unique(all_preds$tournamentId[!is.na(all_preds$tournamentId)])
   for(tid in t_ids) {
