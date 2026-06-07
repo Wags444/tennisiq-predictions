@@ -1,46 +1,13 @@
 {
-  "total_predicted": 733,
-  "total_resolved": 253,
-  "week_resolved": 144,
-  "week_correct": 93,
-  "accuracy": 64.6,
-  "accuracy_label": "64.6%",
+  "total_predicted": 860,
+  "total_resolved": 256,
+  "week_resolved": 129,
+  "week_correct": 79,
+  "accuracy": 61.2,
+  "accuracy_label": "61.2%",
   "min_threshold": 50,
-  "last_updated": "2026-06-06 21:00",
+  "last_updated": "2026-06-07 09:15",
   "recent_results": [
-    {
-      "p1_name": "Max Schoenhaus",
-      "p2_name": "Alejandro Moro Canas",
-      "surface": "clay",
-      "tournament": "Bad Rappenau Challenger",
-      "p1_win": 0.338,
-      "p2_win": 0.662,
-      "result": "Alejandro Moro Canas",
-      "correct": true,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Marko Topo",
-      "p2_name": "Emilio Nava",
-      "surface": "clay",
-      "tournament": "Bad Rappenau Challenger",
-      "p1_win": 0.361,
-      "p2_win": 0.639,
-      "result": "Emilio Nava",
-      "correct": true,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Chun Hsin Tseng",
-      "p2_name": "Timofey Skatov",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.373,
-      "p2_win": 0.627,
-      "result": "Timofey Skatov",
-      "correct": true,
-      "pred_date": "2026-06-02"
-    },
     {
       "p1_name": "Alexander Shevchenko",
       "p2_name": "Nikolas Sanchez-Izquierdo",
@@ -526,6 +493,28 @@
       "pred_date": "2026-06-05"
     },
     {
+      "p1_name": "Otto Virtanen",
+      "p2_name": "Kamil Majchrzak",
+      "surface": "grass",
+      "tournament": "Birmingham Challenger",
+      "p1_win": 0.436,
+      "p2_win": 0.564,
+      "result": "Otto Virtanen",
+      "correct": false,
+      "pred_date": "2026-06-05"
+    },
+    {
+      "p1_name": "Arthur Fery",
+      "p2_name": "Bu Yunchaokete",
+      "surface": "grass",
+      "tournament": "Birmingham Challenger",
+      "p1_win": 0.527,
+      "p2_win": 0.473,
+      "result": "Bu Yunchaokete",
+      "correct": false,
+      "pred_date": "2026-06-05"
+    },
+    {
       "p1_name": "Adam Walton",
       "p2_name": "Liam Draxl",
       "surface": "hard",
@@ -555,6 +544,17 @@
       "p1_win": 0.55,
       "p2_win": 0.45,
       "result": "Daniel Merida Aguilar",
+      "correct": true,
+      "pred_date": "2026-06-06"
+    },
+    {
+      "p1_name": "Sebastian Baez",
+      "p2_name": "Alex Molcan",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.558,
+      "p2_win": 0.442,
+      "result": "Sebastian Baez",
       "correct": true,
       "pred_date": "2026-06-06"
     }
