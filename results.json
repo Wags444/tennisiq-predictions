@@ -6,16 +6,82 @@
   "accuracy": 63.8,
   "accuracy_label": "63.8%",
   "min_threshold": 50,
-  "last_updated": "2026-06-06 08:37",
+  "last_updated": "2026-06-06 09:09",
   "recent_results": [
     {
-      "p1_name": "Marvin Moeller",
-      "p2_name": "Gauthier Onclin",
+      "p1_name": "Roberto Carballes Baena",
+      "p2_name": "Lorenzo Carboni",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.496,
+      "p2_win": 0.504,
+      "result": "Roberto Carballes Baena",
+      "correct": false,
+      "pred_date": "2026-06-02"
+    },
+    {
+      "p1_name": "Sebastian Baez",
+      "p2_name": "Tristan Boyer",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.721,
+      "p2_win": 0.279,
+      "result": "Sebastian Baez",
+      "correct": true,
+      "pred_date": "2026-06-02"
+    },
+    {
+      "p1_name": "Felix Auger Aliassime",
+      "p2_name": "Flavio Cobolli",
+      "surface": "clay",
+      "tournament": "French Open - Paris",
+      "p1_win": 0.294,
+      "p2_win": 0.706,
+      "result": "Flavio Cobolli",
+      "correct": true,
+      "pred_date": "2026-06-02"
+    },
+    {
+      "p1_name": "Max Schoenhaus",
+      "p2_name": "Alejandro Moro Canas",
       "surface": "clay",
       "tournament": "Bad Rappenau Challenger",
-      "p1_win": 0.387,
-      "p2_win": 0.613,
-      "result": "Marvin Moeller",
+      "p1_win": 0.338,
+      "p2_win": 0.662,
+      "result": "Alejandro Moro Canas",
+      "correct": true,
+      "pred_date": "2026-06-02"
+    },
+    {
+      "p1_name": "Marko Topo",
+      "p2_name": "Emilio Nava",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.361,
+      "p2_win": 0.639,
+      "result": "Emilio Nava",
+      "correct": true,
+      "pred_date": "2026-06-02"
+    },
+    {
+      "p1_name": "Chun Hsin Tseng",
+      "p2_name": "Timofey Skatov",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.373,
+      "p2_win": 0.627,
+      "result": "Timofey Skatov",
+      "correct": true,
+      "pred_date": "2026-06-02"
+    },
+    {
+      "p1_name": "Alexander Shevchenko",
+      "p2_name": "Nikolas Sanchez-Izquierdo",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.614,
+      "p2_win": 0.386,
+      "result": "Nikolas Sanchez-Izquierdo",
       "correct": false,
       "pred_date": "2026-06-02"
     },
@@ -42,105 +108,6 @@
       "pred_date": "2026-06-02"
     },
     {
-      "p1_name": "Daniel Elahi Galan",
-      "p2_name": "Max Hans Rehberg",
-      "surface": "clay",
-      "tournament": "Bad Rappenau Challenger",
-      "p1_win": 0.598,
-      "p2_win": 0.402,
-      "result": "Max Hans Rehberg",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Clement Chidekh",
-      "p2_name": "Filippo Romano",
-      "surface": "grass",
-      "tournament": "Birmingham Challenger",
-      "p1_win": 0.56,
-      "p2_win": 0.44,
-      "result": "Filippo Romano",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "James McCabe",
-      "p2_name": "Kamil Majchrzak",
-      "surface": "grass",
-      "tournament": "Birmingham Challenger",
-      "p1_win": 0.531,
-      "p2_win": 0.469,
-      "result": "Kamil Majchrzak",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Andrea Pellegrino",
-      "p2_name": "Maks Kasnikowski",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.489,
-      "p2_win": 0.511,
-      "result": "Andrea Pellegrino",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Luca Nardi",
-      "p2_name": "Oriol Roca Batalla",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.506,
-      "p2_win": 0.494,
-      "result": "Luca Nardi",
-      "correct": true,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Roberto Carballes Baena",
-      "p2_name": "Lorenzo Carboni",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.496,
-      "p2_win": 0.504,
-      "result": "Roberto Carballes Baena",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Marco Trungelliti",
-      "p2_name": "Yu Hsiou Hsu",
-      "surface": "clay",
-      "tournament": "Bad Rappenau Challenger",
-      "p1_win": 0.905,
-      "p2_win": 0.095,
-      "result": "Marco Trungelliti",
-      "correct": true,
-      "pred_date": "2026-06-03"
-    },
-    {
-      "p1_name": "Alex Molcan",
-      "p2_name": "Milos Karol",
-      "surface": "clay",
-      "tournament": "Prostejov Challenger",
-      "p1_win": 0.896,
-      "p2_win": 0.104,
-      "result": "Alex Molcan",
-      "correct": true,
-      "pred_date": "2026-06-03"
-    },
-    {
-      "p1_name": "Taro Daniel",
-      "p2_name": "Damir Dzumhur",
-      "surface": "clay",
-      "tournament": "Prostejov Challenger",
-      "p1_win": 0.136,
-      "p2_win": 0.864,
-      "result": "Taro Daniel",
-      "correct": false,
-      "pred_date": "2026-06-03"
-    },
-    {
       "p1_name": "Liam Broady",
       "p2_name": "Daniel Merida Aguilar",
       "surface": "clay",
@@ -148,28 +115,6 @@
       "p1_win": 0.154,
       "p2_win": 0.846,
       "result": "Daniel Merida Aguilar",
-      "correct": true,
-      "pred_date": "2026-06-03"
-    },
-    {
-      "p1_name": "Jan Choinski",
-      "p2_name": "Luka Mikrut",
-      "surface": "clay",
-      "tournament": "Bad Rappenau Challenger",
-      "p1_win": 0.244,
-      "p2_win": 0.756,
-      "result": "Luka Mikrut",
-      "correct": true,
-      "pred_date": "2026-06-03"
-    },
-    {
-      "p1_name": "Henrique Rocha",
-      "p2_name": "Dusan Lajovic",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.748,
-      "p2_win": 0.252,
-      "result": "Henrique Rocha",
       "correct": true,
       "pred_date": "2026-06-03"
     },
@@ -229,6 +174,72 @@
       "pred_date": "2026-06-03"
     },
     {
+      "p1_name": "Mackenzie Mcdonald",
+      "p2_name": "Rinky Hijikata",
+      "surface": "grass",
+      "tournament": "Birmingham Challenger",
+      "p1_win": 0.433,
+      "p2_win": 0.567,
+      "result": "Rinky Hijikata",
+      "correct": true,
+      "pred_date": "2026-06-03"
+    },
+    {
+      "p1_name": "Marco Trungelliti",
+      "p2_name": "Yu Hsiou Hsu",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.905,
+      "p2_win": 0.095,
+      "result": "Marco Trungelliti",
+      "correct": true,
+      "pred_date": "2026-06-03"
+    },
+    {
+      "p1_name": "Alex Molcan",
+      "p2_name": "Milos Karol",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.896,
+      "p2_win": 0.104,
+      "result": "Alex Molcan",
+      "correct": true,
+      "pred_date": "2026-06-03"
+    },
+    {
+      "p1_name": "Taro Daniel",
+      "p2_name": "Damir Dzumhur",
+      "surface": "clay",
+      "tournament": "Prostejov Challenger",
+      "p1_win": 0.136,
+      "p2_win": 0.864,
+      "result": "Taro Daniel",
+      "correct": false,
+      "pred_date": "2026-06-03"
+    },
+    {
+      "p1_name": "Jan Choinski",
+      "p2_name": "Luka Mikrut",
+      "surface": "clay",
+      "tournament": "Bad Rappenau Challenger",
+      "p1_win": 0.244,
+      "p2_win": 0.756,
+      "result": "Luka Mikrut",
+      "correct": true,
+      "pred_date": "2026-06-03"
+    },
+    {
+      "p1_name": "Henrique Rocha",
+      "p2_name": "Dusan Lajovic",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.748,
+      "p2_win": 0.252,
+      "result": "Henrique Rocha",
+      "correct": true,
+      "pred_date": "2026-06-03"
+    },
+    {
       "p1_name": "Andrea Pellegrino",
       "p2_name": "Roberto Carballes Baena",
       "surface": "clay",
@@ -284,17 +295,6 @@
       "pred_date": "2026-06-03"
     },
     {
-      "p1_name": "Mackenzie Mcdonald",
-      "p2_name": "Rinky Hijikata",
-      "surface": "grass",
-      "tournament": "Birmingham Challenger",
-      "p1_win": 0.433,
-      "p2_win": 0.567,
-      "result": "Rinky Hijikata",
-      "correct": true,
-      "pred_date": "2026-06-03"
-    },
-    {
       "p1_name": "Max Hans Rehberg",
       "p2_name": "Marvin Moeller",
       "surface": "clay",
@@ -339,6 +339,39 @@
       "pred_date": "2026-06-03"
     },
     {
+      "p1_name": "Edas Butvilas",
+      "p2_name": "Andre Ilagan",
+      "surface": "hard",
+      "tournament": "Tyler Challenger",
+      "p1_win": 0.829,
+      "p2_win": 0.171,
+      "result": "Andre Ilagan",
+      "correct": false,
+      "pred_date": "2026-06-04"
+    },
+    {
+      "p1_name": "Adam Walton",
+      "p2_name": "Andres Martin",
+      "surface": "hard",
+      "tournament": "Tyler Challenger",
+      "p1_win": 0.796,
+      "p2_win": 0.204,
+      "result": "Adam Walton",
+      "correct": true,
+      "pred_date": "2026-06-04"
+    },
+    {
+      "p1_name": "Murphy Cassone",
+      "p2_name": "Yuta Shimizu",
+      "surface": "hard",
+      "tournament": "Tyler Challenger",
+      "p1_win": 0.361,
+      "p2_win": 0.639,
+      "result": "Yuta Shimizu",
+      "correct": true,
+      "pred_date": "2026-06-04"
+    },
+    {
       "p1_name": "Luka Mikrut",
       "p2_name": "Marvin Moeller",
       "surface": "clay",
@@ -372,28 +405,6 @@
       "pred_date": "2026-06-04"
     },
     {
-      "p1_name": "Edas Butvilas",
-      "p2_name": "Andre Ilagan",
-      "surface": "hard",
-      "tournament": "Tyler Challenger",
-      "p1_win": 0.829,
-      "p2_win": 0.171,
-      "result": "Andre Ilagan",
-      "correct": false,
-      "pred_date": "2026-06-04"
-    },
-    {
-      "p1_name": "Adam Walton",
-      "p2_name": "Andres Martin",
-      "surface": "hard",
-      "tournament": "Tyler Challenger",
-      "p1_win": 0.796,
-      "p2_win": 0.204,
-      "result": "Adam Walton",
-      "correct": true,
-      "pred_date": "2026-06-04"
-    },
-    {
       "p1_name": "Marco Trungelliti",
       "p2_name": "Diego Dedura",
       "surface": "clay",
@@ -423,17 +434,6 @@
       "p1_win": 0.694,
       "p2_win": 0.306,
       "result": "Sebastian Baez",
-      "correct": true,
-      "pred_date": "2026-06-04"
-    },
-    {
-      "p1_name": "Murphy Cassone",
-      "p2_name": "Yuta Shimizu",
-      "surface": "hard",
-      "tournament": "Tyler Challenger",
-      "p1_win": 0.361,
-      "p2_win": 0.639,
-      "result": "Yuta Shimizu",
       "correct": true,
       "pred_date": "2026-06-04"
     },
@@ -537,17 +537,6 @@
       "pred_date": "2026-06-05"
     },
     {
-      "p1_name": "Harold Mayot",
-      "p2_name": "Philip Henning",
-      "surface": "hard",
-      "tournament": "Centurion 2 Challenger",
-      "p1_win": 0.771,
-      "p2_win": 0.229,
-      "result": "Philip Henning",
-      "correct": false,
-      "pred_date": "2026-06-05"
-    },
-    {
       "p1_name": "Andre Ilagan",
       "p2_name": "Yuta Shimizu",
       "surface": "hard",
@@ -556,6 +545,17 @@
       "p2_win": 0.473,
       "result": "Andre Ilagan",
       "correct": true,
+      "pred_date": "2026-06-05"
+    },
+    {
+      "p1_name": "Harold Mayot",
+      "p2_name": "Philip Henning",
+      "surface": "hard",
+      "tournament": "Centurion 2 Challenger",
+      "p1_win": 0.771,
+      "p2_win": 0.229,
+      "result": "Philip Henning",
+      "correct": false,
       "pred_date": "2026-06-05"
     }
   ]
