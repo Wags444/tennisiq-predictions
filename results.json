@@ -1,46 +1,13 @@
 {
   "total_predicted": 733,
-  "total_resolved": 250,
-  "week_resolved": 141,
-  "week_correct": 90,
-  "accuracy": 63.8,
-  "accuracy_label": "63.8%",
+  "total_resolved": 253,
+  "week_resolved": 144,
+  "week_correct": 93,
+  "accuracy": 64.6,
+  "accuracy_label": "64.6%",
   "min_threshold": 50,
-  "last_updated": "2026-06-06 09:09",
+  "last_updated": "2026-06-06 21:00",
   "recent_results": [
-    {
-      "p1_name": "Roberto Carballes Baena",
-      "p2_name": "Lorenzo Carboni",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.496,
-      "p2_win": 0.504,
-      "result": "Roberto Carballes Baena",
-      "correct": false,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Sebastian Baez",
-      "p2_name": "Tristan Boyer",
-      "surface": "clay",
-      "tournament": "Prostejov Challenger",
-      "p1_win": 0.721,
-      "p2_win": 0.279,
-      "result": "Sebastian Baez",
-      "correct": true,
-      "pred_date": "2026-06-02"
-    },
-    {
-      "p1_name": "Felix Auger Aliassime",
-      "p2_name": "Flavio Cobolli",
-      "surface": "clay",
-      "tournament": "French Open - Paris",
-      "p1_win": 0.294,
-      "p2_win": 0.706,
-      "result": "Flavio Cobolli",
-      "correct": true,
-      "pred_date": "2026-06-02"
-    },
     {
       "p1_name": "Max Schoenhaus",
       "p2_name": "Alejandro Moro Canas",
@@ -557,6 +524,39 @@
       "result": "Philip Henning",
       "correct": false,
       "pred_date": "2026-06-05"
+    },
+    {
+      "p1_name": "Adam Walton",
+      "p2_name": "Liam Draxl",
+      "surface": "hard",
+      "tournament": "Tyler Challenger",
+      "p1_win": 0.657,
+      "p2_win": 0.343,
+      "result": "Adam Walton",
+      "correct": true,
+      "pred_date": "2026-06-06"
+    },
+    {
+      "p1_name": "Timofey Skatov",
+      "p2_name": "Henrique Rocha",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.355,
+      "p2_win": 0.645,
+      "result": "Henrique Rocha",
+      "correct": true,
+      "pred_date": "2026-06-06"
+    },
+    {
+      "p1_name": "Daniel Merida Aguilar",
+      "p2_name": "Andrea Pellegrino",
+      "surface": "clay",
+      "tournament": "Perugia Challenger",
+      "p1_win": 0.55,
+      "p2_win": 0.45,
+      "result": "Daniel Merida Aguilar",
+      "correct": true,
+      "pred_date": "2026-06-06"
     }
   ]
 }
