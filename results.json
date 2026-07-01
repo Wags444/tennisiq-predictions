@@ -1,12 +1,12 @@
 {
   "total_predicted": 817,
   "total_resolved": 244,
-  "week_resolved": 91,
-  "week_correct": 63,
-  "accuracy": 69.2,
-  "accuracy_label": "69.2%",
+  "week_resolved": 0,
+  "week_correct": 0,
+  "accuracy": {},
+  "accuracy_label": "Building...",
   "min_threshold": 50,
-  "last_updated": "2026-06-08 06:20",
+  "last_updated": "2026-07-01 16:28",
   "recent_results": [
     {
       "p1_name": "Courtney John Lock",
