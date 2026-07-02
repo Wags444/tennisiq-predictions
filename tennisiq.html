@@ -855,9 +855,9 @@ function showPredictions() {
   document.getElementById("results-nav-link").style.color = "";
 }
 function renderResults() {
-  var res = (allData && allData._results) ? allData._results : [];
-  if(!res.length) {
-    fetch("results.json").then(function(r){return r.json();}).then(function(d){
+  var res = [];
+  if(true) {
+    fetch("results.json?t="+Date.now()).then(function(r){return r.json();}).then(function(d){
       var rows = d.recent_results || [];
       var correct = rows.filter(function(r){return r.correct;}).length;
       var total = rows.length;
