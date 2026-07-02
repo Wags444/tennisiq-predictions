@@ -876,10 +876,10 @@ tryCatch({
     accuracy_label   = if(show_acc) paste0(round(week_correct/week_total*100,1),"%") else "Building...",
     min_threshold    = min_thresh,
     last_updated     = format(Sys.time(),"%Y-%m-%d %H:%M"),
-    recent_results   = if(nrow(all_res)>0) tail(
-      all_res[,c("p1_name","p2_name","surface","tournament",
-                 "p1_win","p2_win","result","correct","pred_date")],50
-    ) else list()
+    recent_results   = if(nrow(all_res)>0) {
+      tmp <- all_res[,c("p1_name","p2_name","surface","tournament","p1_win","p2_win","result","correct","pred_date")]
+      head(tmp[order(tmp$pred_date, decreasing=TRUE),], 50)
+    } else list()
   )
   jsonlite::write_json(smry,"output/daily/results.json",pretty=TRUE,auto_unbox=TRUE)
   file.copy("output/daily/results.json",file.path(git_repo,"results.json"),overwrite=TRUE)
