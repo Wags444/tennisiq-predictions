@@ -1,13 +1,123 @@
 {
-  "total_predicted": 870,
-  "total_resolved": 289,
-  "week_resolved": 15,
-  "week_correct": 9,
+  "total_predicted": 884,
+  "total_resolved": 302,
+  "week_resolved": 28,
+  "week_correct": 18,
   "accuracy": {},
   "accuracy_label": "Building...",
   "min_threshold": 50,
-  "last_updated": "2026-07-02 12:34",
+  "last_updated": "2026-07-03 11:57",
   "recent_results": [
+    {
+      "p1_name": "Arthur Rinderknech",
+      "p2_name": "Novak Djokovic",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.101,
+      "p2_win": 0.899,
+      "result": "Novak Djokovic",
+      "correct": true,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Dimitar Kuzmanov",
+      "p2_name": "Zsombor Piros",
+      "surface": "clay",
+      "tournament": "Brasov Challenger",
+      "p1_win": 0.159,
+      "p2_win": 0.841,
+      "result": "Zsombor Piros",
+      "correct": true,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Francisco Comesana",
+      "p2_name": "Daniel Rincon",
+      "surface": "clay",
+      "tournament": "Milan Challenger",
+      "p1_win": 0.835,
+      "p2_win": 0.165,
+      "result": "Daniel Rincon",
+      "correct": false,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Jan-Lennard Struff",
+      "p2_name": "Daniil Medvedev",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.178,
+      "p2_win": 0.822,
+      "result": "Jan-Lennard Struff",
+      "correct": false,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Gustavo Heide",
+      "p2_name": "Enrico Dalla Valle",
+      "surface": "clay",
+      "tournament": "Milan Challenger",
+      "p1_win": 0.816,
+      "p2_win": 0.184,
+      "result": "Gustavo Heide",
+      "correct": true,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Andrej Nedic",
+      "p2_name": "Keegan Smith",
+      "surface": "clay",
+      "tournament": "Brasov Challenger",
+      "p1_win": 0.791,
+      "p2_win": 0.209,
+      "result": "Keegan Smith",
+      "correct": false,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Jack Kennedy",
+      "p2_name": "Yosuke Watanuki",
+      "surface": "hard",
+      "tournament": "Cary Challenger",
+      "p1_win": 0.254,
+      "p2_win": 0.746,
+      "result": "Yosuke Watanuki",
+      "correct": true,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Kilian Feldbausch",
+      "p2_name": "Inaki Montes-De La Torre",
+      "surface": "clay",
+      "tournament": "Troyes Challenger",
+      "p1_win": 0.7,
+      "p2_win": 0.3,
+      "result": "Kilian Feldbausch",
+      "correct": true,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Marvin Moeller",
+      "p2_name": "Marat Sharipov (RUS)",
+      "surface": "clay",
+      "tournament": "Troyes Challenger",
+      "p1_win": 0.368,
+      "p2_win": 0.632,
+      "result": "Marvin Moeller",
+      "correct": false,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Sascha Gueymard Wayenburg",
+      "p2_name": "Maks Kasnikowski",
+      "surface": "clay",
+      "tournament": "Brasov Challenger",
+      "p1_win": 0.386,
+      "p2_win": 0.614,
+      "result": "Maks Kasnikowski",
+      "correct": true,
+      "pred_date": "2026-07-02"
+    },
     {
       "p1_name": "Liam Broady",
       "p2_name": "Jack Kennedy",
@@ -60,6 +170,39 @@
       "p1_win": 0.107,
       "p2_win": 0.893,
       "result": "Alexander Zverev",
+      "correct": true,
+      "pred_date": "2026-07-01"
+    },
+    {
+      "p1_name": "Frances Tiafoe",
+      "p2_name": "Jan Choinski",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.892,
+      "p2_win": 0.108,
+      "result": "Frances Tiafoe",
+      "correct": true,
+      "pred_date": "2026-07-01"
+    },
+    {
+      "p1_name": "Kyrian Jacquet",
+      "p2_name": "Alexander Bublik",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.128,
+      "p2_win": 0.872,
+      "result": "Alexander Bublik",
+      "correct": true,
+      "pred_date": "2026-07-01"
+    },
+    {
+      "p1_name": "Jiri Lehecka",
+      "p2_name": "Alex Molcan",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.857,
+      "p2_win": 0.143,
+      "result": "Jiri Lehecka",
       "correct": true,
       "pred_date": "2026-07-01"
     },
@@ -414,149 +557,6 @@
       "result": "Roberto Carballes Baena",
       "correct": true,
       "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Luca Nardi",
-      "p2_name": "Jacob Fearnley",
-      "surface": "grass",
-      "tournament": "Ilkley Challenger",
-      "p1_win": 0.299,
-      "p2_win": 0.701,
-      "result": "Jacob Fearnley",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Maks Kasnikowski",
-      "p2_name": "Enrico Dalla Valle",
-      "surface": "clay",
-      "tournament": "Cattolica Challenger",
-      "p1_win": 0.617,
-      "p2_win": 0.383,
-      "result": "Enrico Dalla Valle",
-      "correct": false,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Marco Trungelliti",
-      "p2_name": "Pavel Kotov",
-      "surface": "clay",
-      "tournament": "Lyon Challenger",
-      "p1_win": 0.597,
-      "p2_win": 0.403,
-      "result": "Marco Trungelliti",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Calvin Hemery",
-      "p2_name": "Alejandro Moro Canas",
-      "surface": "clay",
-      "tournament": "Lyon Challenger",
-      "p1_win": 0.42,
-      "p2_win": 0.58,
-      "result": "Alejandro Moro Canas",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Alvaro Guillen Meza",
-      "p2_name": "Ilia Simakin",
-      "surface": "clay",
-      "tournament": "Cattolica Challenger",
-      "p1_win": 0.552,
-      "p2_win": 0.448,
-      "result": "Alvaro Guillen Meza",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Adam Walton",
-      "p2_name": "Andre Ilagan",
-      "surface": "hard",
-      "tournament": "Tyler Challenger",
-      "p1_win": 0.876,
-      "p2_win": 0.124,
-      "result": "Adam Walton",
-      "correct": true,
-      "pred_date": "2026-06-07"
-    },
-    {
-      "p1_name": "Bu Yunchaokete",
-      "p2_name": "Otto Virtanen",
-      "surface": "grass",
-      "tournament": "Birmingham Challenger",
-      "p1_win": 0.215,
-      "p2_win": 0.785,
-      "result": "Bu Yunchaokete",
-      "correct": false,
-      "pred_date": "2026-06-07"
-    },
-    {
-      "p1_name": "Henrique Rocha",
-      "p2_name": "Daniel Merida Aguilar",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.393,
-      "p2_win": 0.607,
-      "result": "Henrique Rocha",
-      "correct": false,
-      "pred_date": "2026-06-07"
-    },
-    {
-      "p1_name": "Daniel Altmaier",
-      "p2_name": "Frances Tiafoe",
-      "surface": "grass",
-      "tournament": "Boss Open - Stuttgart",
-      "p1_win": 0.164,
-      "p2_win": 0.836,
-      "result": "Frances Tiafoe",
-      "correct": true,
-      "pred_date": "2026-06-07"
-    },
-    {
-      "p1_name": "Tallon Griekspoor",
-      "p2_name": "Botic Van De Zandschulp",
-      "surface": "grass",
-      "tournament": "Libema Open - 's-Hertogenbosch",
-      "p1_win": 0.735,
-      "p2_win": 0.265,
-      "result": "Tallon Griekspoor",
-      "correct": true,
-      "pred_date": "2026-06-07"
-    },
-    {
-      "p1_name": "Tom Gentzsch",
-      "p2_name": "Rinky Hijikata",
-      "surface": "grass",
-      "tournament": "Boss Open - Stuttgart",
-      "p1_win": 0.297,
-      "p2_win": 0.703,
-      "result": "Rinky Hijikata",
-      "correct": true,
-      "pred_date": "2026-06-07"
-    },
-    {
-      "p1_name": "Adam Walton",
-      "p2_name": "Liam Draxl",
-      "surface": "hard",
-      "tournament": "Tyler Challenger",
-      "p1_win": 0.657,
-      "p2_win": 0.343,
-      "result": "Adam Walton",
-      "correct": true,
-      "pred_date": "2026-06-06"
-    },
-    {
-      "p1_name": "Timofey Skatov",
-      "p2_name": "Henrique Rocha",
-      "surface": "clay",
-      "tournament": "Perugia Challenger",
-      "p1_win": 0.355,
-      "p2_win": 0.645,
-      "result": "Henrique Rocha",
-      "correct": true,
-      "pred_date": "2026-06-06"
     }
   ]
 }
