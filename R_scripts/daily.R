@@ -784,6 +784,7 @@ tryCatch({
   if(length(log_files)==0) stop("No prediction logs found")
 
   total_matched <- 0; total_correct <- 0
+  seen_matches <- character(0)  # track already-resolved matches to avoid duplicates
 
   for(f in log_files) {
     plog <- readRDS(f)
@@ -837,6 +838,9 @@ tryCatch({
         plog$correct[i] <- (winner_id == pick_id)
         total_matched <- total_matched+1
         if(plog$correct[i]) total_correct <- total_correct+1
+        match_key <- paste(plog$p1_id[i], plog$p2_id[i], plog$tournamentId[i], sep="_")
+        if(match_key %in% seen_matches) next
+        seen_matches <- c(seen_matches, match_key)
         cat(sprintf("  Resolved: %s vs %s → %s [%s]\n",
           plog$p1_name[i], plog$p2_name[i], winner_name,
           if(plog$correct[i]) "✓" else "✗"))
@@ -865,15 +869,15 @@ tryCatch({
   week_res     <- if(nrow(all_res)>0) all_res[all_res$pred_date >= Sys.Date()-7,] else all_res
   week_total   <- nrow(week_res)
   week_correct <- if(nrow(week_res)>0) sum(week_res$correct,na.rm=TRUE) else 0L
-  min_thresh   <- 50
+  min_thresh   <- 10
   show_acc     <- week_total >= min_thresh
   smry <- list(
     total_predicted  = sum(sapply(logs,function(f) nrow(readRDS(f)))),
     total_resolved   = nrow(all_res),
     week_resolved    = week_total,
     week_correct     = week_correct,
-    accuracy         = if(show_acc) round(week_correct/week_total*100,1) else NULL,
-    accuracy_label   = if(show_acc) paste0(round(week_correct/week_total*100,1),"%") else "Building...",
+    accuracy         = round(sum(all_res$correct,na.rm=TRUE)/max(1,nrow(all_res))*100,1),
+    accuracy_label   = if(show_acc) paste0(round(week_correct/week_total*100,1),"% this week") else paste0(round(sum(all_res$correct,na.rm=TRUE)/max(1,nrow(all_res))*100,1),"% overall"),
     min_threshold    = min_thresh,
     last_updated     = format(Sys.time(),"%Y-%m-%d %H:%M"),
     recent_results   = if(nrow(all_res)>0) {
