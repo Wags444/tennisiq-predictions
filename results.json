@@ -1,13 +1,68 @@
 {
-  "total_predicted": 884,
-  "total_resolved": 302,
-  "week_resolved": 28,
-  "week_correct": 18,
-  "accuracy": 67.5,
-  "accuracy_label": "64.3% this week",
+  "total_predicted": 892,
+  "total_resolved": 308,
+  "week_resolved": 34,
+  "week_correct": 23,
+  "accuracy": 67.9,
+  "accuracy_label": "67.6% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-03 17:34",
+  "last_updated": "2026-07-04 10:57",
   "recent_results": [
+    {
+      "p1_name": "Marcos Giron",
+      "p2_name": "Alexander Zverev",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.124,
+      "p2_win": 0.876,
+      "result": "Alexander Zverev",
+      "correct": true,
+      "pred_date": "2026-07-03"
+    },
+    {
+      "p1_name": "Jiri Lehecka",
+      "p2_name": "Jaume Antoni Munar Clar",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.819,
+      "p2_win": 0.181,
+      "result": "Jiri Lehecka",
+      "correct": true,
+      "pred_date": "2026-07-03"
+    },
+    {
+      "p1_name": "Maks Kasnikowski",
+      "p2_name": "Zsombor Piros",
+      "surface": "clay",
+      "tournament": "Brasov Challenger",
+      "p1_win": 0.208,
+      "p2_win": 0.792,
+      "result": "Zsombor Piros",
+      "correct": true,
+      "pred_date": "2026-07-03"
+    },
+    {
+      "p1_name": "Lorenzo Giustino",
+      "p2_name": "Kilian Feldbausch",
+      "surface": "clay",
+      "tournament": "Troyes Challenger",
+      "p1_win": 0.309,
+      "p2_win": 0.691,
+      "result": "Kilian Feldbausch",
+      "correct": true,
+      "pred_date": "2026-07-03"
+    },
+    {
+      "p1_name": "Gustavo Heide",
+      "p2_name": "Marco Cecchinato",
+      "surface": "clay",
+      "tournament": "Milan Challenger",
+      "p1_win": 0.649,
+      "p2_win": 0.351,
+      "result": "Marco Cecchinato",
+      "correct": false,
+      "pred_date": "2026-07-03"
+    },
     {
       "p1_name": "Arthur Rinderknech",
       "p2_name": "Novak Djokovic",
@@ -72,6 +127,17 @@
       "p2_win": 0.209,
       "result": "Keegan Smith",
       "correct": false,
+      "pred_date": "2026-07-02"
+    },
+    {
+      "p1_name": "Alex De Minaur",
+      "p2_name": "Zachary Svajda",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.752,
+      "p2_win": 0.248,
+      "result": "Alex De Minaur",
+      "correct": true,
       "pred_date": "2026-07-02"
     },
     {
@@ -489,72 +555,6 @@
       "p1_win": 0.795,
       "p2_win": 0.205,
       "result": "Jan-Lennard Struff",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Karim Bennani",
-      "p2_name": "Santiago Rodriguez Taverna",
-      "surface": "clay",
-      "tournament": "San Miguel de Tucuman Challenger",
-      "p1_win": 0.791,
-      "p2_win": 0.209,
-      "result": "Santiago Rodriguez Taverna",
-      "correct": false,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "James McCabe",
-      "p2_name": "Zizou Bergs",
-      "surface": "grass",
-      "tournament": "Libema Open - 's-Hertogenbosch",
-      "p1_win": 0.233,
-      "p2_win": 0.767,
-      "result": "James McCabe",
-      "correct": false,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Sascha Gueymard Wayenburg",
-      "p2_name": "Clement Tabur",
-      "surface": "clay",
-      "tournament": "Lyon Challenger",
-      "p1_win": 0.242,
-      "p2_win": 0.758,
-      "result": "Clement Tabur",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Robin Bertrand",
-      "p2_name": "Nikolas Sanchez-Izquierdo",
-      "surface": "clay",
-      "tournament": "Lyon Challenger",
-      "p1_win": 0.263,
-      "p2_win": 0.737,
-      "result": "Nikolas Sanchez-Izquierdo",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Thomas Faurel",
-      "p2_name": "Florent Bax",
-      "surface": "clay",
-      "tournament": "Lyon Challenger",
-      "p1_win": 0.264,
-      "p2_win": 0.736,
-      "result": "Thomas Faurel",
-      "correct": false,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Max Hans Rehberg",
-      "p2_name": "Roberto Carballes Baena",
-      "surface": "clay",
-      "tournament": "Cattolica Challenger",
-      "p1_win": 0.265,
-      "p2_win": 0.735,
-      "result": "Roberto Carballes Baena",
       "correct": true,
       "pred_date": "2026-06-08"
     }
