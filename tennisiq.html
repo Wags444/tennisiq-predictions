@@ -256,15 +256,15 @@ nav{height:50px;display:flex;align-items:center;justify-content:space-between;pa
     <div class="stat"><div class="stat-l">Recent (30d)</div><div class="stat-v" id="stat-week">—</div><div class="stat-s" id="stat-week-sub">Track record</div></div>
   </div>
 
-  <!-- FRENCH OPEN PROMO BANNER -->
+  <!-- WIMBLEDON PROMO BANNER -->
   <div style="margin:0;padding:24px 32px;background:linear-gradient(135deg,rgba(93,184,122,0.12),rgba(93,184,122,0.04));border-bottom:1px solid rgba(93,184,122,0.25);border-top:1px solid rgba(93,184,122,0.25);">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <div>
-        <div style="font-family:var(--serif);font-size:22px;color:var(--green);margin-bottom:4px;letter-spacing:-0.5px;">🎾 Free During Roland Garros</div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:1px;">ALL PREDICTIONS + MATCHUP DNA UNLOCKED · THROUGH JUNE 8</div>
+        <div style="font-family:var(--serif);font-size:22px;color:var(--green);margin-bottom:4px;letter-spacing:-0.5px;">🎾 Free During Wimbledon</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:1px;">ALL PREDICTIONS + MATCHUP DNA UNLOCKED · THROUGH JULY 12</div>
       </div>
       <div style="display:flex;gap:10px;align-items:center;">
-        <span style="font-family:var(--mono);font-size:9px;color:var(--muted)">Goes paid after French Open →</span>
+        <span style="font-family:var(--mono);font-size:9px;color:var(--muted)">Goes paid after Wimbledon →</span>
         <a href="/#pricing" style="font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--green);text-decoration:none;border:1px solid var(--green-border);padding:7px 16px;background:var(--green-dim);">GET PRO ↗</a>
       </div>
     </div>
@@ -523,7 +523,7 @@ var TIER_PRICES = { pro: 'price_1TUxthIlZjEq8tdhopWfZyca', sharp: 'price_1TUxtzI
 // ── TIER SYSTEM ────────────────────────────────────────────────────────────────
 function getUserTier() { return localStorage.getItem('tiq_tier') || 'free'; }
 function getTierLevel(t) { return {free:0,starter:1,pro:1,sharp:2}[t]||0; }
-function hasAccess(required) { return true; } // French Open promo - all access until June 8
+function hasAccess(required) { return true; } // Wimbledon promo - all access until July 12
 
 function updateNavForTier() {
   var tier = getUserTier();
