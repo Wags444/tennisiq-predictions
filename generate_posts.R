@@ -1,6 +1,6 @@
 library(jsonlite);library(dplyr)
 SITE_URL <- "thetennishq.com/tennisiq.html"
-PROMO <- "FRENCHOPEN"
+PROMO <- "WIMBLEDON"
 PROMO_ACTIVE <- TRUE
 `%||%` <- function(a,b) if(is.null(a)||is.na(a)) b else a
 
@@ -28,10 +28,10 @@ upset_signals <- function(m) {
 }
 is_upset_watch <- function(m) { length(upset_signals(m)) >= 1 }
 tournaments <- unique(preds$tournament)
-is_french_open <- any(grepl("Roland Garros|French Open",tournaments,ignore.case=TRUE))
+is_wimbledon <- any(grepl("Wimbledon",tournaments,ignore.case=TRUE))
 day_label <- format(Sys.Date(),"%B %d")
-tourney_header <- if(is_french_open) "Roland Garros" else paste(sapply(tournaments[1:min(2,length(tournaments))],tour_short),collapse=" & ")
-tourney_tag <- if(is_french_open) "#RolandGarros #FrenchOpen" else "#Tennis #ATP"
+tourney_header <- if(is_wimbledon) "Wimbledon" else paste(sapply(tournaments[1:min(2,length(tournaments))],tour_short),collapse=" & ")
+tourney_tag <- if(is_wimbledon) "#Wimbledon #Wimbledon2026" else "#Tennis #ATP"
 top3 <- head(preds[preds$p1_win>0.65|preds$p2_win>0.65,],3)
 upset_watches <- local({ uw <- preds[sapply(1:nrow(preds),function(i) is_upset_watch(preds[i,])),]; if(nrow(uw)>0) { uw$edge <- uw$p1_win*100 - uw$market_implied_p1; uw[order(-uw$edge),] } else uw })
 
@@ -78,7 +78,7 @@ stat_post <- paste(c("📊 tennisIQ Data Point","",paste0(s$stat),"",s$text,"",p
 ")
 
 # POST 4: Promo
-promo_post <- paste(c("🎾 French Open is here.","","tennisIQ gives you:","→ Daily model predictions for every match","→ Matchup DNA — visual breakdown of every contest","→ Surface Elo, serve profiles, fatigue signals","→ Upset alerts before the upsets happen","","Use code FRENCHOPEN for 50% off your first month.","Pro just $4.99 · Sharp just $9.99","",SITE_URL,"",paste0(tourney_tag," #TennisIQ")),collapse="
+promo_post <- paste(c("🎾 Wimbledon is here.","","tennisIQ gives you:","→ Daily model predictions for every match","→ Matchup DNA — visual breakdown of every contest","→ Surface Elo, serve profiles, fatigue signals","→ Upset alerts before the upsets happen","","Free through July 12 — no code needed.",SITE_URL,"",paste0(tourney_tag," #TennisIQ")),collapse="
 ")
 
 # POST 5: Instagram
@@ -86,7 +86,7 @@ instagram_post <- if(nrow(top3)>0) local({
   m<-top3[1,]
   lines<-c(paste0("🎾 ",tourney_header," — ",day_label),"",paste0("Top matchup: ",fav_name(m)," vs ",dog_name(m)),paste0(surf_emoji(m$surface)," ",tools::toTitleCase(m$surface)," · ",tour_short(m$tournament)),"",paste0("tennisIQ model: ",fav_name(m)," ",fav_prob(m),"%"),paste0("Elo gap: ",abs(round(m$elo_diff))," points"),"")
   if(nrow(upset_watches)>0) { uw<-upset_watches[1,]; lines<-c(lines,paste0("⚡ Value Watch: ",dog_name(uw)," (",dog_prob(uw),"%)"),"") }
-  lines<-c(lines,"Full Matchup DNA at link in bio 👆","",if(PROMO_ACTIVE) paste0("Code FRENCHOPEN for 50% off 🎾") else NULL,"","#RolandGarros #FrenchOpen #Tennis #TennisAnalytics #TennisData #TennisIQ #ATP #WTA")
+  lines<-c(lines,"Full Matchup DNA at link in bio 👆","",if(PROMO_ACTIVE) paste0("Free through July 12 🎾") else NULL,"","#Wimbledon #Wimbledon2026 #Tennis #TennisAnalytics #TennisData #TennisIQ #ATP #WTA")
   paste(lines,collapse="
 ")
 }) else NULL
