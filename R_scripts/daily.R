@@ -550,7 +550,7 @@ if("market_deviation" %in% names(all_preds)) {
 tryCatch({
 # Grass confidence filter - only keep grass picks >= 70% confidence
 grass_low_conf <- all_preds$surface=="grass" & 
-  (pmax(all_preds$p1_win, all_preds$p2_win) < 0.70)
+  (pmax(all_preds$p1_win, all_preds$p2_win) < ifelse(grepl("Wimbledon|Australian|US Open|Roland", all_preds$tournament, ignore.case=TRUE), 0.60, 0.70))
 grass_low_conf[is.na(grass_low_conf)] <- FALSE
 n_grass_removed <- sum(grass_low_conf)
 if(n_grass_removed > 0) {
