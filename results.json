@@ -1,12 +1,12 @@
 {
   "total_predicted": 947,
-  "total_resolved": 313,
-  "week_resolved": 39,
-  "week_correct": 27,
-  "accuracy": 68.1,
-  "accuracy_label": "69.2% this week",
+  "total_resolved": 314,
+  "week_resolved": 40,
+  "week_correct": 28,
+  "accuracy": 68.2,
+  "accuracy_label": "70% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-05 14:09",
+  "last_updated": "2026-07-05 14:39",
   "recent_results": [
     {
       "p1_name": "Felix Auger Aliassime",
@@ -18,6 +18,17 @@
       "result": "Felix Auger Aliassime",
       "correct": true,
       "pred_date": "2026-07-05"
+    },
+    {
+      "p1_name": "Jannik Sinner",
+      "p2_name": "Shintaro Mochizuki",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.977,
+      "p2_win": 0.023,
+      "result": "Jannik Sinner",
+      "correct": true,
+      "pred_date": "2026-07-04"
     },
     {
       "p1_name": "Roman Safiullin",
@@ -544,17 +555,6 @@
       "p1_win": 0.431,
       "p2_win": 0.569,
       "result": "Daniel Elahi Galan",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Federico Cina",
-      "p2_name": "Marko Topo",
-      "surface": "clay",
-      "tournament": "Bratislava Challenger",
-      "p1_win": 0.566,
-      "p2_win": 0.434,
-      "result": "Federico Cina",
       "correct": true,
       "pred_date": "2026-06-08"
     }
