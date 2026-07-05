@@ -1,13 +1,24 @@
 {
   "total_predicted": 947,
-  "total_resolved": 312,
-  "week_resolved": 38,
-  "week_correct": 26,
-  "accuracy": 67.9,
-  "accuracy_label": "68.4% this week",
+  "total_resolved": 313,
+  "week_resolved": 39,
+  "week_correct": 27,
+  "accuracy": 68.1,
+  "accuracy_label": "69.2% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-05 09:29",
+  "last_updated": "2026-07-05 14:09",
   "recent_results": [
+    {
+      "p1_name": "Felix Auger Aliassime",
+      "p2_name": "Alejandro Davidovich Fokina",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.608,
+      "p2_win": 0.392,
+      "result": "Felix Auger Aliassime",
+      "correct": true,
+      "pred_date": "2026-07-05"
+    },
     {
       "p1_name": "Roman Safiullin",
       "p2_name": "Novak Djokovic",
@@ -544,17 +555,6 @@
       "p1_win": 0.566,
       "p2_win": 0.434,
       "result": "Federico Cina",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Lorenzo Giustino",
-      "p2_name": "Daniel Rincon",
-      "surface": "clay",
-      "tournament": "Lyon Challenger",
-      "p1_win": 0.435,
-      "p2_win": 0.565,
-      "result": "Daniel Rincon",
       "correct": true,
       "pred_date": "2026-06-08"
     }
