@@ -1,12 +1,12 @@
 {
   "total_predicted": 892,
-  "total_resolved": 308,
-  "week_resolved": 34,
-  "week_correct": 23,
-  "accuracy": 67.9,
-  "accuracy_label": "67.6% this week",
+  "total_resolved": 310,
+  "week_resolved": 36,
+  "week_correct": 24,
+  "accuracy": 67.7,
+  "accuracy_label": "66.7% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-04 10:57",
+  "last_updated": "2026-07-04 16:33",
   "recent_results": [
     {
       "p1_name": "Marcos Giron",
@@ -31,6 +31,17 @@
       "pred_date": "2026-07-03"
     },
     {
+      "p1_name": "Taylor Fritz",
+      "p2_name": "Lorenzo Sonego",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.8,
+      "p2_win": 0.2,
+      "result": "Taylor Fritz",
+      "correct": true,
+      "pred_date": "2026-07-03"
+    },
+    {
       "p1_name": "Maks Kasnikowski",
       "p2_name": "Zsombor Piros",
       "surface": "clay",
@@ -39,6 +50,17 @@
       "p2_win": 0.792,
       "result": "Zsombor Piros",
       "correct": true,
+      "pred_date": "2026-07-03"
+    },
+    {
+      "p1_name": "Zizou Bergs",
+      "p2_name": "Arthur Fery",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.786,
+      "p2_win": 0.214,
+      "result": "Arthur Fery",
+      "correct": false,
       "pred_date": "2026-07-03"
     },
     {
@@ -534,28 +556,6 @@
       "p2_win": 0.814,
       "result": "Miguel Damas",
       "correct": false,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Dusan Lajovic",
-      "p2_name": "Jonas Forejtek",
-      "surface": "clay",
-      "tournament": "Cattolica Challenger",
-      "p1_win": 0.8,
-      "p2_win": 0.2,
-      "result": "Dusan Lajovic",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Jan-Lennard Struff",
-      "p2_name": "Alexis Galarneau",
-      "surface": "grass",
-      "tournament": "Boss Open - Stuttgart",
-      "p1_win": 0.795,
-      "p2_win": 0.205,
-      "result": "Jan-Lennard Struff",
-      "correct": true,
       "pred_date": "2026-06-08"
     }
   ]
