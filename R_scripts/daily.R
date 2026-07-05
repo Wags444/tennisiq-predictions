@@ -889,3 +889,11 @@ tryCatch({
   file.copy("output/daily/results.json",file.path(git_repo,"results.json"),overwrite=TRUE)
   cat(sprintf("Results JSON: %d resolved, %s\n", smry$total_resolved, smry$accuracy_label))
 }, error=function(e) cat("Results JSON error:", e$message, "\n"))
+# Push results.json to GitHub
+tryCatch({
+  setwd(git_repo)
+  system("git add results.json")
+  system(sprintf('git commit -m "Results %s"', format(Sys.Date(),"%Y-%m-%d")))
+  system("git push origin main")
+  setwd("C:/Users/bwags/R/TennisIQ/Claude")
+}, error=function(e) cat("Results push error:", e$message, "\n"))
