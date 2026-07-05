@@ -1,13 +1,24 @@
 {
   "total_predicted": 947,
-  "total_resolved": 311,
-  "week_resolved": 37,
-  "week_correct": 25,
-  "accuracy": 67.8,
-  "accuracy_label": "67.6% this week",
+  "total_resolved": 312,
+  "week_resolved": 38,
+  "week_correct": 26,
+  "accuracy": 67.9,
+  "accuracy_label": "68.4% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-05 09:18",
+  "last_updated": "2026-07-05 09:29",
   "recent_results": [
+    {
+      "p1_name": "Roman Safiullin",
+      "p2_name": "Novak Djokovic",
+      "surface": "grass",
+      "tournament": "Wimbledon - London",
+      "p1_win": 0.063,
+      "p2_win": 0.937,
+      "result": "Novak Djokovic",
+      "correct": true,
+      "pred_date": "2026-07-04"
+    },
     {
       "p1_name": "Keegan Smith",
       "p2_name": "Zsombor Piros",
@@ -544,17 +555,6 @@
       "p1_win": 0.435,
       "p2_win": 0.565,
       "result": "Daniel Rincon",
-      "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Jesper De Jong",
-      "p2_name": "Ognjen Milic",
-      "surface": "clay",
-      "tournament": "Cattolica Challenger",
-      "p1_win": 0.853,
-      "p2_win": 0.147,
-      "result": "Jesper De Jong",
       "correct": true,
       "pred_date": "2026-06-08"
     }
