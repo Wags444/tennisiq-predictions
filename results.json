@@ -1,13 +1,24 @@
 {
-  "total_predicted": 892,
-  "total_resolved": 310,
-  "week_resolved": 36,
-  "week_correct": 24,
-  "accuracy": 67.7,
-  "accuracy_label": "66.7% this week",
+  "total_predicted": 947,
+  "total_resolved": 311,
+  "week_resolved": 37,
+  "week_correct": 25,
+  "accuracy": 67.8,
+  "accuracy_label": "67.6% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-04 16:33",
+  "last_updated": "2026-07-05 09:18",
   "recent_results": [
+    {
+      "p1_name": "Keegan Smith",
+      "p2_name": "Zsombor Piros",
+      "surface": "clay",
+      "tournament": "Brasov Challenger",
+      "p1_win": 0.071,
+      "p2_win": 0.929,
+      "result": "Zsombor Piros",
+      "correct": true,
+      "pred_date": "2026-07-04"
+    },
     {
       "p1_name": "Marcos Giron",
       "p2_name": "Alexander Zverev",
@@ -545,17 +556,6 @@
       "p2_win": 0.147,
       "result": "Jesper De Jong",
       "correct": true,
-      "pred_date": "2026-06-08"
-    },
-    {
-      "p1_name": "Miguel Damas",
-      "p2_name": "Vilius Gaubas",
-      "surface": "clay",
-      "tournament": "Lyon Challenger",
-      "p1_win": 0.186,
-      "p2_win": 0.814,
-      "result": "Miguel Damas",
-      "correct": false,
       "pred_date": "2026-06-08"
     }
   ]
