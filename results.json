@@ -1,12 +1,12 @@
 {
-  "total_predicted": 947,
+  "total_predicted": 1047,
   "total_resolved": 314,
   "week_resolved": 40,
   "week_correct": 28,
   "accuracy": 68.2,
   "accuracy_label": "70% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-05 14:39",
+  "last_updated": "2026-07-06 05:54",
   "recent_results": [
     {
       "p1_name": "Felix Auger Aliassime",
