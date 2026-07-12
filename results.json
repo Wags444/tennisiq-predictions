@@ -1,13 +1,24 @@
 {
-  "total_predicted": 1131,
-  "total_resolved": 359,
-  "week_resolved": 49,
-  "week_correct": 29,
-  "accuracy": 66.6,
-  "accuracy_label": "59.2% this week",
+  "total_predicted": 1252,
+  "total_resolved": 360,
+  "week_resolved": 47,
+  "week_correct": 27,
+  "accuracy": 66.7,
+  "accuracy_label": "57.4% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-11 09:18",
+  "last_updated": "2026-07-12 15:16",
   "recent_results": [
+    {
+      "p1_name": "Florian Broska",
+      "p2_name": "Kimmer Coppejans",
+      "surface": "clay",
+      "tournament": "Liege Challenger",
+      "p1_win": 0.687,
+      "p2_win": 0.313,
+      "result": "Florian Broska",
+      "correct": true,
+      "pred_date": "2026-07-11"
+    },
     {
       "p1_name": "Titouan Droguet",
       "p2_name": "Mathys Erhard",
@@ -546,17 +557,6 @@
       "result": "Zsombor Piros",
       "correct": true,
       "pred_date": "2026-07-04"
-    },
-    {
-      "p1_name": "Marcos Giron",
-      "p2_name": "Alexander Zverev",
-      "surface": "grass",
-      "tournament": "Wimbledon - London",
-      "p1_win": 0.124,
-      "p2_win": 0.876,
-      "result": "Alexander Zverev",
-      "correct": true,
-      "pred_date": "2026-07-03"
     }
   ]
 }
