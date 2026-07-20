@@ -1,13 +1,79 @@
 {
-  "total_predicted": 1559,
-  "total_resolved": 438,
-  "week_resolved": 71,
-  "week_correct": 48,
-  "accuracy": 67.1,
-  "accuracy_label": "67.6% this week",
+  "total_predicted": 1704,
+  "total_resolved": 444,
+  "week_resolved": 57,
+  "week_correct": 37,
+  "accuracy": 66.7,
+  "accuracy_label": "64.9% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-19 11:43",
+  "last_updated": "2026-07-20 09:11",
   "recent_results": [
+    {
+      "p1_name": "Aleksandar Vukic",
+      "p2_name": "Arthur Gea",
+      "surface": "hard",
+      "tournament": "Granby Challenger",
+      "p1_win": 0.536,
+      "p2_win": 0.464,
+      "result": "Aleksandar Vukic",
+      "correct": true,
+      "pred_date": "2026-07-19"
+    },
+    {
+      "p1_name": "Bernard Tomic",
+      "p2_name": "Mark Lajal",
+      "surface": "hard",
+      "tournament": "Lincoln Challenger",
+      "p1_win": 0.28,
+      "p2_win": 0.72,
+      "result": "Bernard Tomic",
+      "correct": false,
+      "pred_date": "2026-07-19"
+    },
+    {
+      "p1_name": "Gauthier Onclin",
+      "p2_name": "Duje Ajdukovic",
+      "surface": "clay",
+      "tournament": "Tampere Challenger",
+      "p1_win": 0.625,
+      "p2_win": 0.375,
+      "result": "Gauthier Onclin",
+      "correct": true,
+      "pred_date": "2026-07-19"
+    },
+    {
+      "p1_name": "Titouan Droguet",
+      "p2_name": "Camilo Ugo Carabelli",
+      "surface": "clay",
+      "tournament": "Millennium Estoril Open - Estoril",
+      "p1_win": 0.451,
+      "p2_win": 0.549,
+      "result": "Titouan Droguet",
+      "correct": false,
+      "pred_date": "2026-07-19"
+    },
+    {
+      "p1_name": "Daniel Elahi Galan",
+      "p2_name": "Gilles Arnaud Bailly",
+      "surface": "clay",
+      "tournament": "Tampere Challenger",
+      "p1_win": 0.543,
+      "p2_win": 0.457,
+      "result": "Gilles Arnaud Bailly",
+      "correct": false,
+      "pred_date": "2026-07-19"
+    },
+    {
+      "p1_name": "Thiago Seyboth Wild",
+      "p2_name": "Zdenek Kolar",
+      "surface": "clay",
+      "tournament": "Zug Challenger",
+      "p1_win": 0.469,
+      "p2_win": 0.531,
+      "result": "Thiago Seyboth Wild",
+      "correct": false,
+      "pred_date": "2026-07-19"
+    },
     {
       "p1_name": "Alexander Shevchenko",
       "p2_name": "Stefanos Tsitsipas",
@@ -490,72 +556,6 @@
       "p2_win": 0.691,
       "result": "Kimmer Coppejans",
       "correct": true,
-      "pred_date": "2026-07-14"
-    },
-    {
-      "p1_name": "Andrej Nedic",
-      "p2_name": "Enrico Dalla Valle",
-      "surface": "clay",
-      "tournament": "Cordenons Challenger",
-      "p1_win": 0.64,
-      "p2_win": 0.36,
-      "result": "Enrico Dalla Valle",
-      "correct": false,
-      "pred_date": "2026-07-14"
-    },
-    {
-      "p1_name": "Sumit Nagal",
-      "p2_name": "Juan Bautista Torres",
-      "surface": "clay",
-      "tournament": "Cordenons Challenger",
-      "p1_win": 0.628,
-      "p2_win": 0.372,
-      "result": "Sumit Nagal",
-      "correct": true,
-      "pred_date": "2026-07-14"
-    },
-    {
-      "p1_name": "Nuno Borges",
-      "p2_name": "Grigor Dimitrov",
-      "surface": "clay",
-      "tournament": "Nordea Open - Bastad",
-      "p1_win": 0.59,
-      "p2_win": 0.41,
-      "result": "Nuno Borges",
-      "correct": true,
-      "pred_date": "2026-07-14"
-    },
-    {
-      "p1_name": "Max Schoenhaus",
-      "p2_name": "Max Houkes",
-      "surface": "clay",
-      "tournament": "Bunschoten Challenger",
-      "p1_win": 0.434,
-      "p2_win": 0.566,
-      "result": "Max Houkes",
-      "correct": true,
-      "pred_date": "2026-07-14"
-    },
-    {
-      "p1_name": "Yannick Hanfmann",
-      "p2_name": "Valentin Vacherot",
-      "surface": "clay",
-      "tournament": "EFG Swiss Open - Gstaad",
-      "p1_win": 0.444,
-      "p2_win": 0.556,
-      "result": "Valentin Vacherot",
-      "correct": true,
-      "pred_date": "2026-07-14"
-    },
-    {
-      "p1_name": "Botic Van De Zandschulp",
-      "p2_name": "Adolfo Daniel Vallejo",
-      "surface": "clay",
-      "tournament": "Nordea Open - Bastad",
-      "p1_win": 0.54,
-      "p2_win": 0.46,
-      "result": "Adolfo Daniel Vallejo",
-      "correct": false,
       "pred_date": "2026-07-14"
     }
   ]
