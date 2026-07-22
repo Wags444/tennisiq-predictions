@@ -1,12 +1,12 @@
 {
   "total_predicted": 1788,
-  "total_resolved": 482,
-  "week_resolved": 95,
-  "week_correct": 61,
+  "total_resolved": 485,
+  "week_resolved": 98,
+  "week_correct": 63,
   "accuracy": 66.4,
-  "accuracy_label": "64.2% this week",
+  "accuracy_label": "64.3% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-21 18:20",
+  "last_updated": "2026-07-21 18:44",
   "recent_results": [
     {
       "p1_name": "Henrique Rocha",
@@ -97,6 +97,17 @@
       "pred_date": "2026-07-20"
     },
     {
+      "p1_name": "Harold Mayot",
+      "p2_name": "Raul Brancaccio",
+      "surface": "clay",
+      "tournament": "Zug Challenger",
+      "p1_win": 0.683,
+      "p2_win": 0.317,
+      "result": "Harold Mayot",
+      "correct": true,
+      "pred_date": "2026-07-20"
+    },
+    {
       "p1_name": "Sebastian Baez",
       "p2_name": "Miomir Kecmanovic",
       "surface": "clay",
@@ -130,6 +141,17 @@
       "pred_date": "2026-07-20"
     },
     {
+      "p1_name": "Roberto Carballes Baena",
+      "p2_name": "Marc-Andrea Huesler",
+      "surface": "clay",
+      "tournament": "Zug Challenger",
+      "p1_win": 0.593,
+      "p2_win": 0.407,
+      "result": "Marc-Andrea Huesler",
+      "correct": false,
+      "pred_date": "2026-07-20"
+    },
+    {
       "p1_name": "Alastair Gray",
       "p2_name": "Akira Santillan",
       "surface": "hard",
@@ -148,6 +170,17 @@
       "p1_win": 0.589,
       "p2_win": 0.411,
       "result": "Jan-Lennard Struff",
+      "correct": true,
+      "pred_date": "2026-07-20"
+    },
+    {
+      "p1_name": "Max Alcala Gurri",
+      "p2_name": "Martin Krumich",
+      "surface": "clay",
+      "tournament": "Zug Challenger",
+      "p1_win": 0.589,
+      "p2_win": 0.411,
+      "result": "Max Alcala Gurri",
       "correct": true,
       "pred_date": "2026-07-20"
     },
@@ -522,39 +555,6 @@
       "p1_win": 0.255,
       "p2_win": 0.745,
       "result": "Luciano Darderi",
-      "correct": true,
-      "pred_date": "2026-07-17"
-    },
-    {
-      "p1_name": "Max Alcala Gurri",
-      "p2_name": "Gonzalo Villanueva",
-      "surface": "clay",
-      "tournament": "Cordenons Challenger",
-      "p1_win": 0.739,
-      "p2_win": 0.261,
-      "result": "Max Alcala Gurri",
-      "correct": true,
-      "pred_date": "2026-07-17"
-    },
-    {
-      "p1_name": "Mark Lajal",
-      "p2_name": "Rio Noguchi",
-      "surface": "hard",
-      "tournament": "Lincoln Challenger",
-      "p1_win": 0.704,
-      "p2_win": 0.296,
-      "result": "Mark Lajal",
-      "correct": true,
-      "pred_date": "2026-07-17"
-    },
-    {
-      "p1_name": "Colton Smith",
-      "p2_name": "Bu Yunchaokete",
-      "surface": "hard",
-      "tournament": "Lincoln Challenger",
-      "p1_win": 0.341,
-      "p2_win": 0.659,
-      "result": "Bu Yunchaokete",
       "correct": true,
       "pred_date": "2026-07-17"
     }
