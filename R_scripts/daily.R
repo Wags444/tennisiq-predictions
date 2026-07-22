@@ -82,7 +82,7 @@ predict_match_v2 <- function(p1_id, p2_id, surface, model, profiles, melo, mfull
     elo_diff               = elo_diff,
     d_fatigue_last7        = rec1$fatigue7 - rec2$fatigue7,
     d_sets_last7           = rec1$sets7 - rec2$sets7,
-    d_form_streak          = rec1$streak - rec2$streak,
+    d_form_streak          = 0,  # removed - hurts OOS accuracy
     h2h_surf_win_pct       = h2h_surf,
     d_win_big              = (prof1$win_big%||%0.5)         - (prof2$win_big%||%0.5),
     d_win_vs_strong        = (prof1$win_vs_strong%||%0.5)   - (prof2$win_vs_strong%||%0.5),
@@ -192,7 +192,7 @@ predict_match_wta <- function(p1_id, p2_id, surface) {
       (prof1$total_pts_won_avg%||%0)    - (prof2$total_pts_won_avg%||%0),
       elo_diff,
       rec1$fatigue7 - rec2$fatigue7,
-      rec1$streak - rec2$streak,
+      0,  # d_form_streak removed - hurts OOS accuracy
       h2h_surf,
       (prof1$win_big%||%0.5)        - (prof2$win_big%||%0.5),
       (prof1$win_vs_strong%||%0.5)  - (prof2$win_vs_strong%||%0.5),
@@ -211,7 +211,7 @@ predict_match_wta <- function(p1_id, p2_id, surface) {
       (prof1$win_rate%||%0.5)-(prof2$win_rate%||%0.5),
       elo1-elo2, elo_diff_surf,
       rec1$fatigue7-rec2$fatigue7, rec1$sets7-rec2$sets7,
-      rec1$win5-rec2$win5, rec1$win5s-rec2$win5s, rec1$streak-rec2$streak,
+      rec1$win5-rec2$win5, rec1$win5s-rec2$win5s, 0,
       h2h_pct, h2h_surf
     ), nrow=1, dimnames=list(NULL, all_feats_wta))
     p_win <- as.numeric(predict(logit_wta, newx=nd, type="response"))
