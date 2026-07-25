@@ -1,23 +1,100 @@
 {
-  "total_predicted": 1888,
-  "total_resolved": 526,
-  "week_resolved": 99,
-  "week_correct": 67,
+  "total_predicted": 1929,
+  "total_resolved": 535,
+  "week_resolved": 97,
+  "week_correct": 63,
   "accuracy": 66.7,
-  "accuracy_label": "67.7% this week",
+  "accuracy_label": "64.9% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-24 14:38",
+  "last_updated": "2026-07-25 12:16",
   "recent_results": [
     {
-      "p1_name": "Mario Gonzalez Fernandez",
+      "p1_name": "Alex Michelsen",
+      "p2_name": "Mark Lajal",
+      "surface": "hard",
+      "tournament": "Bloomfield Hills Challenger",
+      "p1_win": 0.809,
+      "p2_win": 0.191,
+      "result": "Alex Michelsen",
+      "correct": true,
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Diego Dedura",
+      "p2_name": "Gauthier Onclin",
+      "surface": "clay",
+      "tournament": "Tampere Challenger",
+      "p1_win": 0.788,
+      "p2_win": 0.212,
+      "result": "Diego Dedura",
+      "correct": true,
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Alexander Bublik",
+      "p2_name": "Quentin Halys",
+      "surface": "clay",
+      "tournament": "Generali Open - Kitzbuhel",
+      "p1_win": 0.731,
+      "p2_win": 0.269,
+      "result": "Quentin Halys",
+      "correct": false,
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Maks Kasnikowski",
+      "p2_name": "Otto Virtanen",
+      "surface": "clay",
+      "tournament": "Tampere Challenger",
+      "p1_win": 0.296,
+      "p2_win": 0.704,
+      "result": "Otto Virtanen",
+      "correct": true,
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Max Hans Rehberg",
+      "p2_name": "Marc-Andrea Huesler",
+      "surface": "clay",
+      "tournament": "Zug Challenger",
+      "p1_win": 0.344,
+      "p2_win": 0.656,
+      "result": "Marc-Andrea Huesler",
+      "correct": true,
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Luka Pavlovic",
       "p2_name": "Keegan Smith",
       "surface": "hard",
       "tournament": "Segovia Challenger",
-      "p1_win": 0.627,
-      "p2_win": 0.373,
-      "result": "Keegan Smith",
+      "p1_win": 0.634,
+      "p2_win": 0.366,
+      "result": "Luka Pavlovic",
+      "correct": true,
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Shintaro Mochizuki",
+      "p2_name": "Johannus Monday",
+      "surface": "hard",
+      "tournament": "Winnipeg Challenger",
+      "p1_win": 0.442,
+      "p2_win": 0.558,
+      "result": "Shintaro Mochizuki",
       "correct": false,
-      "pred_date": "2026-07-22"
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Liam Draxl",
+      "p2_name": "Clement Chidekh",
+      "surface": "hard",
+      "tournament": "Winnipeg Challenger",
+      "p1_win": 0.492,
+      "p2_win": 0.508,
+      "result": "Liam Draxl",
+      "correct": false,
+      "pred_date": "2026-07-24"
     },
     {
       "p1_name": "Mark Lajal",
@@ -104,6 +181,17 @@
       "p1_win": 0.798,
       "p2_win": 0.202,
       "result": "Jaime Faria",
+      "correct": true,
+      "pred_date": "2026-07-22"
+    },
+    {
+      "p1_name": "Dimitar Kuzmanov",
+      "p2_name": "Otto Virtanen",
+      "surface": "clay",
+      "tournament": "Tampere Challenger",
+      "p1_win": 0.232,
+      "p2_win": 0.768,
+      "result": "Otto Virtanen",
       "correct": true,
       "pred_date": "2026-07-22"
     },
@@ -372,6 +460,17 @@
       "pred_date": "2026-07-21"
     },
     {
+      "p1_name": "Mario Gonzalez Fernandez",
+      "p2_name": "Keegan Smith",
+      "surface": "hard",
+      "tournament": "Segovia Challenger",
+      "p1_win": 0.627,
+      "p2_win": 0.373,
+      "result": "Keegan Smith",
+      "correct": false,
+      "pred_date": "2026-07-21"
+    },
+    {
       "p1_name": "Akira Santillan",
       "p2_name": "Mert Alkaya",
       "surface": "hard",
@@ -457,105 +556,6 @@
       "p2_win": 0.56,
       "result": "Pedro Martinez Portero",
       "correct": true,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Yanki Erel",
-      "p2_name": "Sergey Fomin",
-      "surface": "hard",
-      "tournament": "Segovia Challenger",
-      "p1_win": 0.89,
-      "p2_win": 0.11,
-      "result": "Yanki Erel",
-      "correct": true,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Gonzalo Bueno",
-      "p2_name": "Tiago Pereira",
-      "surface": "clay",
-      "tournament": "Millennium Estoril Open - Estoril",
-      "p1_win": 0.853,
-      "p2_win": 0.147,
-      "result": "Gonzalo Bueno",
-      "correct": true,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Nicolai Budkov Kjaer",
-      "p2_name": "Sascha Gueymard Wayenburg",
-      "surface": "clay",
-      "tournament": "Tampere Challenger",
-      "p1_win": 0.802,
-      "p2_win": 0.198,
-      "result": "Sascha Gueymard Wayenburg",
-      "correct": false,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Adolfo Daniel Vallejo",
-      "p2_name": "Kilian Feldbausch",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.78,
-      "p2_win": 0.22,
-      "result": "Kilian Feldbausch",
-      "correct": false,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Vilius Gaubas",
-      "p2_name": "Pablo Carreno-Busta",
-      "surface": "clay",
-      "tournament": "Millennium Estoril Open - Estoril",
-      "p1_win": 0.29,
-      "p2_win": 0.71,
-      "result": "Pablo Carreno-Busta",
-      "correct": true,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Alex Marti Pujolras",
-      "p2_name": "Oliver Crawford",
-      "surface": "hard",
-      "tournament": "Segovia Challenger",
-      "p1_win": 0.7,
-      "p2_win": 0.3,
-      "result": "Oliver Crawford",
-      "correct": false,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Nikolas Sanchez-Izquierdo",
-      "p2_name": "Eero Vasa",
-      "surface": "clay",
-      "tournament": "Tampere Challenger",
-      "p1_win": 0.698,
-      "p2_win": 0.302,
-      "result": "Eero Vasa",
-      "correct": false,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Harold Mayot",
-      "p2_name": "Raul Brancaccio",
-      "surface": "clay",
-      "tournament": "Zug Challenger",
-      "p1_win": 0.683,
-      "p2_win": 0.317,
-      "result": "Harold Mayot",
-      "correct": true,
-      "pred_date": "2026-07-20"
-    },
-    {
-      "p1_name": "Sebastian Baez",
-      "p2_name": "Miomir Kecmanovic",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.318,
-      "p2_win": 0.682,
-      "result": "Sebastian Baez",
-      "correct": false,
       "pred_date": "2026-07-20"
     }
   ]
