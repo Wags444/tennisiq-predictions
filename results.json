@@ -1,12 +1,12 @@
 {
-  "total_predicted": 2043,
-  "total_resolved": 545,
-  "week_resolved": 107,
-  "week_correct": 70,
-  "accuracy": 66.8,
-  "accuracy_label": "65.4% this week",
+  "total_predicted": 2172,
+  "total_resolved": 551,
+  "week_resolved": 88,
+  "week_correct": 58,
+  "accuracy": 67,
+  "accuracy_label": "65.9% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-26 12:55",
+  "last_updated": "2026-07-27 09:06",
   "recent_results": [
     {
       "p1_name": "Alex Michelsen",
@@ -42,6 +42,39 @@
       "pred_date": "2026-07-26"
     },
     {
+      "p1_name": "Karan Singh",
+      "p2_name": "Koki Matsuda",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.056,
+      "p2_win": 0.944,
+      "result": "Koki Matsuda",
+      "correct": true,
+      "pred_date": "2026-07-26"
+    },
+    {
+      "p1_name": "Adrian Boitan",
+      "p2_name": "Gabriel Debru",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.19,
+      "p2_win": 0.81,
+      "result": "Gabriel Debru",
+      "correct": true,
+      "pred_date": "2026-07-26"
+    },
+    {
+      "p1_name": "Radu Albot",
+      "p2_name": "Benjamin Hassan",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.541,
+      "p2_win": 0.459,
+      "result": "Radu Albot",
+      "correct": true,
+      "pred_date": "2026-07-26"
+    },
+    {
       "p1_name": "Charles Broom",
       "p2_name": "Toby Samuel",
       "surface": "hard",
@@ -62,6 +95,28 @@
       "result": "Liam Draxl",
       "correct": true,
       "pred_date": "2026-07-25"
+    },
+    {
+      "p1_name": "Alexander Blockx",
+      "p2_name": "Luciano Darderi",
+      "surface": "clay",
+      "tournament": "Millennium Estoril Open - Estoril",
+      "p1_win": 0.538,
+      "p2_win": 0.462,
+      "result": "Alexander Blockx",
+      "correct": true,
+      "pred_date": "2026-07-25"
+    },
+    {
+      "p1_name": "Jaime Faria",
+      "p2_name": "Luciano Darderi",
+      "surface": "clay",
+      "tournament": "Millennium Estoril Open - Estoril",
+      "p1_win": 0.283,
+      "p2_win": 0.717,
+      "result": "Luciano Darderi",
+      "correct": true,
+      "pred_date": "2026-07-24"
     },
     {
       "p1_name": "Alex Michelsen",
@@ -148,6 +203,17 @@
       "p1_win": 0.479,
       "p2_win": 0.521,
       "result": "Matteo Martineau",
+      "correct": false,
+      "pred_date": "2026-07-24"
+    },
+    {
+      "p1_name": "Luca Van Assche",
+      "p2_name": "Hugo Gaston",
+      "surface": "clay",
+      "tournament": "Millennium Estoril Open - Estoril",
+      "p1_win": 0.48,
+      "p2_win": 0.52,
+      "result": "Luca Van Assche",
       "correct": false,
       "pred_date": "2026-07-24"
     },
@@ -489,72 +555,6 @@
       "p1_win": 0.223,
       "p2_win": 0.777,
       "result": "Luca Van Assche",
-      "correct": false,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Eero Vasa",
-      "p2_name": "Maks Kasnikowski",
-      "surface": "clay",
-      "tournament": "Tampere Challenger",
-      "p1_win": 0.278,
-      "p2_win": 0.722,
-      "result": "Maks Kasnikowski",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Hugo Gaston",
-      "p2_name": "Titouan Droguet",
-      "surface": "clay",
-      "tournament": "Millennium Estoril Open - Estoril",
-      "p1_win": 0.304,
-      "p2_win": 0.696,
-      "result": "Hugo Gaston",
-      "correct": false,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Jan-Lennard Struff",
-      "p2_name": "Mariano Navone",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.31,
-      "p2_win": 0.69,
-      "result": "Mariano Navone",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Yosuke Watanuki",
-      "p2_name": "Toby Samuel",
-      "surface": "hard",
-      "tournament": "Winnipeg Challenger",
-      "p1_win": 0.32,
-      "p2_win": 0.68,
-      "result": "Toby Samuel",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Marco Trungelliti",
-      "p2_name": "Yannick Hanfmann",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.334,
-      "p2_win": 0.666,
-      "result": "Yannick Hanfmann",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Quentin Halys",
-      "p2_name": "Valentin Vacherot",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.342,
-      "p2_win": 0.658,
-      "result": "Quentin Halys",
       "correct": false,
       "pred_date": "2026-07-21"
     }
