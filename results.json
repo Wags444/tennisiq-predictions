@@ -1,13 +1,90 @@
 {
-  "total_predicted": 2172,
-  "total_resolved": 551,
-  "week_resolved": 88,
-  "week_correct": 58,
-  "accuracy": 67,
-  "accuracy_label": "65.9% this week",
+  "total_predicted": 2270,
+  "total_resolved": 561,
+  "week_resolved": 75,
+  "week_correct": 51,
+  "accuracy": 66.7,
+  "accuracy_label": "68% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-27 09:06",
+  "last_updated": "2026-07-28 07:21",
   "recent_results": [
+    {
+      "p1_name": "Taylor Fritz",
+      "p2_name": "Zizou Bergs",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.745,
+      "p2_win": 0.255,
+      "result": "Taylor Fritz",
+      "correct": true,
+      "pred_date": "2026-07-27"
+    },
+    {
+      "p1_name": "Alejandro Tabilo",
+      "p2_name": "Tallon Griekspoor",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.393,
+      "p2_win": 0.607,
+      "result": "Alejandro Tabilo",
+      "correct": false,
+      "pred_date": "2026-07-27"
+    },
+    {
+      "p1_name": "Aleksandar Vukic",
+      "p2_name": "Zachary Svajda",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.403,
+      "p2_win": 0.597,
+      "result": "Aleksandar Vukic",
+      "correct": false,
+      "pred_date": "2026-07-27"
+    },
+    {
+      "p1_name": "Frances Tiafoe",
+      "p2_name": "Terence Atmane",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.792,
+      "p2_win": 0.208,
+      "result": "Terence Atmane",
+      "correct": false,
+      "pred_date": "2026-07-27"
+    },
+    {
+      "p1_name": "Gabriel Diallo",
+      "p2_name": "Tristan Boyer",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.745,
+      "p2_win": 0.255,
+      "result": "Tristan Boyer",
+      "correct": false,
+      "pred_date": "2026-07-27"
+    },
+    {
+      "p1_name": "Max Houkes",
+      "p2_name": "Roberto Carballes Baena",
+      "surface": "clay",
+      "tournament": "Bonn Challenger",
+      "p1_win": 0.364,
+      "p2_win": 0.636,
+      "result": "Roberto Carballes Baena",
+      "correct": true,
+      "pred_date": "2026-07-27"
+    },
+    {
+      "p1_name": "Takuya Kumasaka",
+      "p2_name": "Florent Bax",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.592,
+      "p2_win": 0.408,
+      "result": "Florent Bax",
+      "correct": false,
+      "pred_date": "2026-07-27"
+    },
     {
       "p1_name": "Alex Michelsen",
       "p2_name": "Jacob Fearnley",
@@ -53,6 +130,17 @@
       "pred_date": "2026-07-26"
     },
     {
+      "p1_name": "Cameron Norrie",
+      "p2_name": "Aleksandar Kovacevic",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.81,
+      "p2_win": 0.19,
+      "result": "Cameron Norrie",
+      "correct": true,
+      "pred_date": "2026-07-26"
+    },
+    {
       "p1_name": "Adrian Boitan",
       "p2_name": "Gabriel Debru",
       "surface": "hard",
@@ -60,6 +148,28 @@
       "p1_win": 0.19,
       "p2_win": 0.81,
       "result": "Gabriel Debru",
+      "correct": true,
+      "pred_date": "2026-07-26"
+    },
+    {
+      "p1_name": "Chak Lam Coleman Wong",
+      "p2_name": "Darwin Blanch",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.726,
+      "p2_win": 0.274,
+      "result": "Chak Lam Coleman Wong",
+      "correct": true,
+      "pred_date": "2026-07-26"
+    },
+    {
+      "p1_name": "Dimitar Kuzmanov",
+      "p2_name": "Alexandr Binda",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.715,
+      "p2_win": 0.285,
+      "result": "Dimitar Kuzmanov",
       "correct": true,
       "pred_date": "2026-07-26"
     },
@@ -447,116 +557,6 @@
       "result": "Dominic Stricker",
       "correct": false,
       "pred_date": "2026-07-22"
-    },
-    {
-      "p1_name": "Andrey Rublev",
-      "p2_name": "Timofey Skatov",
-      "surface": "clay",
-      "tournament": "Millennium Estoril Open - Estoril",
-      "p1_win": 0.932,
-      "p2_win": 0.068,
-      "result": "Andrey Rublev",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Kilian Feldbausch",
-      "p2_name": "Ignacio Buse",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.102,
-      "p2_win": 0.898,
-      "result": "Ignacio Buse",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Gauthier Onclin",
-      "p2_name": "Niels Visker",
-      "surface": "clay",
-      "tournament": "Tampere Challenger",
-      "p1_win": 0.859,
-      "p2_win": 0.141,
-      "result": "Gauthier Onclin",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Kyrian Jacquet",
-      "p2_name": "Alexander Blockx",
-      "surface": "clay",
-      "tournament": "Millennium Estoril Open - Estoril",
-      "p1_win": 0.144,
-      "p2_win": 0.856,
-      "result": "Alexander Blockx",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Tomas Martin Etcheverry",
-      "p2_name": "Jurij Rodionov",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.849,
-      "p2_win": 0.151,
-      "result": "Tomas Martin Etcheverry",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Zsombor Piros",
-      "p2_name": "Max Hans Rehberg",
-      "surface": "clay",
-      "tournament": "Zug Challenger",
-      "p1_win": 0.844,
-      "p2_win": 0.156,
-      "result": "Max Hans Rehberg",
-      "correct": false,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Alexander Bublik",
-      "p2_name": "Facundo Diaz Acosta",
-      "surface": "clay",
-      "tournament": "Generali Open - Kitzbuhel",
-      "p1_win": 0.839,
-      "p2_win": 0.161,
-      "result": "Alexander Bublik",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Pedro Martinez Portero",
-      "p2_name": "Luciano Darderi",
-      "surface": "clay",
-      "tournament": "Millennium Estoril Open - Estoril",
-      "p1_win": 0.208,
-      "p2_win": 0.792,
-      "result": "Luciano Darderi",
-      "correct": true,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Charles Broom",
-      "p2_name": "Zhizhen Zhang",
-      "surface": "hard",
-      "tournament": "Winnipeg Challenger",
-      "p1_win": 0.221,
-      "p2_win": 0.779,
-      "result": "Charles Broom",
-      "correct": false,
-      "pred_date": "2026-07-21"
-    },
-    {
-      "p1_name": "Luca Van Assche",
-      "p2_name": "Pablo Carreno-Busta",
-      "surface": "clay",
-      "tournament": "Millennium Estoril Open - Estoril",
-      "p1_win": 0.223,
-      "p2_win": 0.777,
-      "result": "Luca Van Assche",
-      "correct": false,
-      "pred_date": "2026-07-21"
     }
   ]
 }
