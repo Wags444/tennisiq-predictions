@@ -1,12 +1,12 @@
 {
   "total_predicted": 2376,
-  "total_resolved": 624,
-  "week_resolved": 93,
-  "week_correct": 58,
-  "accuracy": 66,
-  "accuracy_label": "62.4% this week",
+  "total_resolved": 632,
+  "week_resolved": 101,
+  "week_correct": 62,
+  "accuracy": 65.8,
+  "accuracy_label": "61.4% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-30 08:23",
+  "last_updated": "2026-07-30 16:04",
   "recent_results": [
     {
       "p1_name": "Radu Albot",
@@ -108,6 +108,17 @@
       "pred_date": "2026-07-29"
     },
     {
+      "p1_name": "Cameron Norrie",
+      "p2_name": "James Duckworth",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.844,
+      "p2_win": 0.156,
+      "result": "Cameron Norrie",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
       "p1_name": "Samuele Pieri",
       "p2_name": "Federico Agustin Gomez",
       "surface": "clay",
@@ -116,6 +127,28 @@
       "p2_win": 0.203,
       "result": "Federico Agustin Gomez",
       "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Brandon Nakashima",
+      "p2_name": "Jakub Mensik",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.222,
+      "p2_win": 0.778,
+      "result": "Brandon Nakashima",
+      "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Vilius Gaubas",
+      "p2_name": "Genaro Alberto Olivieri",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.748,
+      "p2_win": 0.252,
+      "result": "Vilius Gaubas",
+      "correct": true,
       "pred_date": "2026-07-29"
     },
     {
@@ -141,6 +174,50 @@
       "pred_date": "2026-07-29"
     },
     {
+      "p1_name": "Daniel Elahi Galan",
+      "p2_name": "Max Hans Rehberg",
+      "surface": "clay",
+      "tournament": "Bonn Challenger",
+      "p1_win": 0.65,
+      "p2_win": 0.35,
+      "result": "Daniel Elahi Galan",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Timofey Skatov",
+      "p2_name": "Otto Virtanen",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.368,
+      "p2_win": 0.632,
+      "result": "Timofey Skatov",
+      "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Thiago Moura Monteiro",
+      "p2_name": "Andrea Pellegrino",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.371,
+      "p2_win": 0.629,
+      "result": "Thiago Moura Monteiro",
+      "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Francesco Maestrelli",
+      "p2_name": "Juan Pablo Varillas",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.617,
+      "p2_win": 0.383,
+      "result": "Juan Pablo Varillas",
+      "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
       "p1_name": "Hynek Barton",
       "p2_name": "Gonzalo Bueno",
       "surface": "clay",
@@ -148,6 +225,17 @@
       "p1_win": 0.415,
       "p2_win": 0.585,
       "result": "Gonzalo Bueno",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Duje Ajdukovic",
+      "p2_name": "Kilian Feldbausch",
+      "surface": "clay",
+      "tournament": "Liberec Challenger",
+      "p1_win": 0.427,
+      "p2_win": 0.573,
+      "result": "Kilian Feldbausch",
       "correct": true,
       "pred_date": "2026-07-29"
     },
@@ -467,94 +555,6 @@
       "p1_win": 0.627,
       "p2_win": 0.373,
       "result": "Henri Squire",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Marco Cecchinato",
-      "p2_name": "Franco Agamenone",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.613,
-      "p2_win": 0.387,
-      "result": "Marco Cecchinato",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Kilian Feldbausch",
-      "p2_name": "Harold Mayot",
-      "surface": "clay",
-      "tournament": "Liberec Challenger",
-      "p1_win": 0.392,
-      "p2_win": 0.608,
-      "result": "Kilian Feldbausch",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Takuya Kumasaka",
-      "p2_name": "Florent Bax",
-      "surface": "hard",
-      "tournament": "Samsun Challenger",
-      "p1_win": 0.592,
-      "p2_win": 0.408,
-      "result": "Florent Bax",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Francesco Maestrelli",
-      "p2_name": "Lukas Neumayer",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.413,
-      "p2_win": 0.587,
-      "result": "Francesco Maestrelli",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Tom Gentzsch",
-      "p2_name": "Joao Lucas Reis Da Silva",
-      "surface": "clay",
-      "tournament": "Bonn Challenger",
-      "p1_win": 0.571,
-      "p2_win": 0.429,
-      "result": "Tom Gentzsch",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Hynek Barton",
-      "p2_name": "Andrej Nedic",
-      "surface": "clay",
-      "tournament": "Liberec Challenger",
-      "p1_win": 0.443,
-      "p2_win": 0.557,
-      "result": "Hynek Barton",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Max Schoenhaus",
-      "p2_name": "Federico Agustin Gomez",
-      "surface": "clay",
-      "tournament": "Bonn Challenger",
-      "p1_win": 0.544,
-      "p2_win": 0.456,
-      "result": "Federico Agustin Gomez",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Pedro Martinez Portero",
-      "p2_name": "Hugo Dellien",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.53,
-      "p2_win": 0.47,
-      "result": "Hugo Dellien",
       "correct": false,
       "pred_date": "2026-07-27"
     }
