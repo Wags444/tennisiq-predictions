@@ -1,13 +1,112 @@
 {
   "total_predicted": 2331,
-  "total_resolved": 599,
-  "week_resolved": 88,
-  "week_correct": 59,
-  "accuracy": 66.3,
-  "accuracy_label": "67% this week",
+  "total_resolved": 617,
+  "week_resolved": 106,
+  "week_correct": 70,
+  "accuracy": 66.1,
+  "accuracy_label": "66% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-29 11:37",
+  "last_updated": "2026-07-29 22:43",
   "recent_results": [
+    {
+      "p1_name": "Yosuke Watanuki",
+      "p2_name": "Hayato Matsuoka",
+      "surface": "hard",
+      "tournament": "Vancouver Challenger",
+      "p1_win": 0.803,
+      "p2_win": 0.197,
+      "result": "Hayato Matsuoka",
+      "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Mark Lajal",
+      "p2_name": "Evan Zhu",
+      "surface": "hard",
+      "tournament": "Vancouver Challenger",
+      "p1_win": 0.751,
+      "p2_win": 0.249,
+      "result": "Mark Lajal",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Benjamin Bonzi",
+      "p2_name": "Michael Mmoh",
+      "surface": "hard",
+      "tournament": "Vancouver Challenger",
+      "p1_win": 0.74,
+      "p2_win": 0.26,
+      "result": "Benjamin Bonzi",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Taylor Fritz",
+      "p2_name": "Kamil Majchrzak",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.737,
+      "p2_win": 0.263,
+      "result": "Taylor Fritz",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Alexandre Muller",
+      "p2_name": "Marco Cecchinato",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.686,
+      "p2_win": 0.314,
+      "result": "Alexandre Muller",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Daniel Milavsky",
+      "p2_name": "Yi Zhou",
+      "surface": "hard",
+      "tournament": "Vancouver Challenger",
+      "p1_win": 0.355,
+      "p2_win": 0.645,
+      "result": "Daniel Milavsky",
+      "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "James Kent Trotter",
+      "p2_name": "Tyler Zink",
+      "surface": "hard",
+      "tournament": "Vancouver Challenger",
+      "p1_win": 0.571,
+      "p2_win": 0.429,
+      "result": "Tyler Zink",
+      "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Denis Shapovalov",
+      "p2_name": "Rodrigo Pacheco Mendez",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.898,
+      "p2_win": 0.102,
+      "result": "Denis Shapovalov",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Alex Michelsen",
+      "p2_name": "Adrian Mannarino",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.748,
+      "p2_win": 0.252,
+      "result": "Alex Michelsen",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
     {
       "p1_name": "Filippo Romano",
       "p2_name": "Otto Virtanen",
@@ -27,6 +126,17 @@
       "p1_win": 0.142,
       "p2_win": 0.858,
       "result": "Andrea Pellegrino",
+      "correct": true,
+      "pred_date": "2026-07-28"
+    },
+    {
+      "p1_name": "Alex Michelsen",
+      "p2_name": "Mackenzie Mcdonald",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.794,
+      "p2_win": 0.206,
+      "result": "Alex Michelsen",
       "correct": true,
       "pred_date": "2026-07-28"
     },
@@ -108,6 +218,17 @@
       "pred_date": "2026-07-28"
     },
     {
+      "p1_name": "Norbert Gombos",
+      "p2_name": "Matyas Cerny",
+      "surface": "clay",
+      "tournament": "Liberec Challenger",
+      "p1_win": 0.413,
+      "p2_win": 0.587,
+      "result": "Norbert Gombos",
+      "correct": false,
+      "pred_date": "2026-07-28"
+    },
+    {
       "p1_name": "Jacopo Vasami",
       "p2_name": "Juan Pablo Varillas",
       "surface": "clay",
@@ -116,6 +237,39 @@
       "p2_win": 0.564,
       "result": "Juan Pablo Varillas",
       "correct": true,
+      "pred_date": "2026-07-28"
+    },
+    {
+      "p1_name": "Bernard Tomic",
+      "p2_name": "Karen Khachanov",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.061,
+      "p2_win": 0.939,
+      "result": "Bernard Tomic",
+      "correct": false,
+      "pred_date": "2026-07-28"
+    },
+    {
+      "p1_name": "Aleksandar Vukic",
+      "p2_name": "Lorenzo Musetti",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.094,
+      "p2_win": 0.906,
+      "result": "Lorenzo Musetti",
+      "correct": true,
+      "pred_date": "2026-07-28"
+    },
+    {
+      "p1_name": "Jiri Lehecka",
+      "p2_name": "Chak Lam Coleman Wong",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.862,
+      "p2_win": 0.138,
+      "result": "Chak Lam Coleman Wong",
+      "correct": false,
       "pred_date": "2026-07-28"
     },
     {
@@ -229,6 +383,17 @@
       "pred_date": "2026-07-27"
     },
     {
+      "p1_name": "Dan Added",
+      "p2_name": "Lucas Poullain",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.712,
+      "p2_win": 0.288,
+      "result": "Dan Added",
+      "correct": true,
+      "pred_date": "2026-07-27"
+    },
+    {
       "p1_name": "Denis Shapovalov",
       "p2_name": "Rinky Hijikata",
       "surface": "hard",
@@ -236,6 +401,17 @@
       "p1_win": 0.701,
       "p2_win": 0.299,
       "result": "Denis Shapovalov",
+      "correct": true,
+      "pred_date": "2026-07-27"
+    },
+    {
+      "p1_name": "Mert Alkaya",
+      "p2_name": "Colin Sinclair",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.315,
+      "p2_win": 0.685,
+      "result": "Colin Sinclair",
       "correct": true,
       "pred_date": "2026-07-27"
     },
@@ -361,6 +537,17 @@
       "pred_date": "2026-07-27"
     },
     {
+      "p1_name": "Luca Van Assche",
+      "p2_name": "Alexander Blockx",
+      "surface": "clay",
+      "tournament": "Millennium Estoril Open - Estoril",
+      "p1_win": 0.119,
+      "p2_win": 0.881,
+      "result": "Luca Van Assche",
+      "correct": false,
+      "pred_date": "2026-07-26"
+    },
+    {
       "p1_name": "Alex Michelsen",
       "p2_name": "Jacob Fearnley",
       "surface": "hard",
@@ -368,193 +555,6 @@
       "p1_win": 0.825,
       "p2_win": 0.175,
       "result": "Alex Michelsen",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Liam Draxl",
-      "p2_name": "Toby Samuel",
-      "surface": "hard",
-      "tournament": "Winnipeg Challenger",
-      "p1_win": 0.337,
-      "p2_win": 0.663,
-      "result": "Toby Samuel",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Matteo Martineau",
-      "p2_name": "Luka Pavlovic",
-      "surface": "hard",
-      "tournament": "Segovia Challenger",
-      "p1_win": 0.428,
-      "p2_win": 0.572,
-      "result": "Luka Pavlovic",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Karan Singh",
-      "p2_name": "Koki Matsuda",
-      "surface": "hard",
-      "tournament": "Samsun Challenger",
-      "p1_win": 0.056,
-      "p2_win": 0.944,
-      "result": "Koki Matsuda",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Benjamin Bonzi",
-      "p2_name": "Blaise Bicknell",
-      "surface": "hard",
-      "tournament": "Vancouver Challenger",
-      "p1_win": 0.935,
-      "p2_win": 0.065,
-      "result": "Benjamin Bonzi",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Andres Andrade",
-      "p2_name": "Alexei Popyrin",
-      "surface": "hard",
-      "tournament": "Vancouver Challenger",
-      "p1_win": 0.098,
-      "p2_win": 0.902,
-      "result": "Andres Andrade",
-      "correct": false,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Adrian Mannarino",
-      "p2_name": "Learner Tien",
-      "surface": "hard",
-      "tournament": "Citi Open - Washington",
-      "p1_win": 0.123,
-      "p2_win": 0.877,
-      "result": "Adrian Mannarino",
-      "correct": false,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Cameron Norrie",
-      "p2_name": "Aleksandar Kovacevic",
-      "surface": "hard",
-      "tournament": "Mifel Tennis Open - Los Cabos",
-      "p1_win": 0.81,
-      "p2_win": 0.19,
-      "result": "Cameron Norrie",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Adrian Boitan",
-      "p2_name": "Gabriel Debru",
-      "surface": "hard",
-      "tournament": "Samsun Challenger",
-      "p1_win": 0.19,
-      "p2_win": 0.81,
-      "result": "Gabriel Debru",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Frances Tiafoe",
-      "p2_name": "Terence Atmane",
-      "surface": "hard",
-      "tournament": "Citi Open - Washington",
-      "p1_win": 0.792,
-      "p2_win": 0.208,
-      "result": "Terence Atmane",
-      "correct": false,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Kamil Majchrzak",
-      "p2_name": "Tommy Paul",
-      "surface": "hard",
-      "tournament": "Citi Open - Washington",
-      "p1_win": 0.236,
-      "p2_win": 0.764,
-      "result": "Kamil Majchrzak",
-      "correct": false,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Taylor Fritz",
-      "p2_name": "Zizou Bergs",
-      "surface": "hard",
-      "tournament": "Citi Open - Washington",
-      "p1_win": 0.745,
-      "p2_win": 0.255,
-      "result": "Taylor Fritz",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Arthur Fils",
-      "p2_name": "Rafael Jodar",
-      "surface": "hard",
-      "tournament": "Citi Open - Washington",
-      "p1_win": 0.738,
-      "p2_win": 0.262,
-      "result": "Rafael Jodar",
-      "correct": false,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Chak Lam Coleman Wong",
-      "p2_name": "Darwin Blanch",
-      "surface": "hard",
-      "tournament": "Mifel Tennis Open - Los Cabos",
-      "p1_win": 0.726,
-      "p2_win": 0.274,
-      "result": "Chak Lam Coleman Wong",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Dimitar Kuzmanov",
-      "p2_name": "Alexandr Binda",
-      "surface": "hard",
-      "tournament": "Samsun Challenger",
-      "p1_win": 0.715,
-      "p2_win": 0.285,
-      "result": "Dimitar Kuzmanov",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Alexandre Muller",
-      "p2_name": "Stefano Napolitano",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.657,
-      "p2_win": 0.343,
-      "result": "Alexandre Muller",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Yu Hsiou Hsu",
-      "p2_name": "Michael Mmoh",
-      "surface": "hard",
-      "tournament": "Vancouver Challenger",
-      "p1_win": 0.343,
-      "p2_win": 0.657,
-      "result": "Michael Mmoh",
-      "correct": true,
-      "pred_date": "2026-07-26"
-    },
-    {
-      "p1_name": "Jack Pinnington Jones",
-      "p2_name": "Toby Samuel",
-      "surface": "hard",
-      "tournament": "Vancouver Challenger",
-      "p1_win": 0.346,
-      "p2_win": 0.654,
-      "result": "Toby Samuel",
       "correct": true,
       "pred_date": "2026-07-26"
     }
