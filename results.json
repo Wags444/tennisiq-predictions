@@ -1,13 +1,57 @@
 {
-  "total_predicted": 2376,
-  "total_resolved": 632,
-  "week_resolved": 101,
-  "week_correct": 62,
-  "accuracy": 65.8,
-  "accuracy_label": "61.4% this week",
+  "total_predicted": 2407,
+  "total_resolved": 639,
+  "week_resolved": 108,
+  "week_correct": 68,
+  "accuracy": 66,
+  "accuracy_label": "63% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-30 16:04",
+  "last_updated": "2026-07-31 08:26",
   "recent_results": [
+    {
+      "p1_name": "Cameron Norrie",
+      "p2_name": "Bernard Tomic",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.948,
+      "p2_win": 0.052,
+      "result": "Cameron Norrie",
+      "correct": true,
+      "pred_date": "2026-07-30"
+    },
+    {
+      "p1_name": "Francisco Cerundolo",
+      "p2_name": "Arthur Gea",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.866,
+      "p2_win": 0.134,
+      "result": "Arthur Gea",
+      "correct": false,
+      "pred_date": "2026-07-30"
+    },
+    {
+      "p1_name": "Denis Shapovalov",
+      "p2_name": "Dalibor Svrcina",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.786,
+      "p2_win": 0.214,
+      "result": "Denis Shapovalov",
+      "correct": true,
+      "pred_date": "2026-07-30"
+    },
+    {
+      "p1_name": "Martin Krumich",
+      "p2_name": "Sumit Nagal",
+      "surface": "clay",
+      "tournament": "Liberec Challenger",
+      "p1_win": 0.359,
+      "p2_win": 0.641,
+      "result": "Sumit Nagal",
+      "correct": true,
+      "pred_date": "2026-07-30"
+    },
     {
       "p1_name": "Radu Albot",
       "p2_name": "Yanki Erel",
@@ -97,6 +141,17 @@
       "pred_date": "2026-07-29"
     },
     {
+      "p1_name": "Jan Choinski",
+      "p2_name": "Olle Wallin",
+      "surface": "clay",
+      "tournament": "Bonn Challenger",
+      "p1_win": 0.915,
+      "p2_win": 0.085,
+      "result": "Jan Choinski",
+      "correct": true,
+      "pred_date": "2026-07-29"
+    },
+    {
       "p1_name": "Denis Shapovalov",
       "p2_name": "Rodrigo Pacheco Mendez",
       "surface": "hard",
@@ -171,6 +226,17 @@
       "p2_win": 0.253,
       "result": "Vadym Ursu",
       "correct": false,
+      "pred_date": "2026-07-29"
+    },
+    {
+      "p1_name": "Ugo Humbert",
+      "p2_name": "Ben Shelton",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.255,
+      "p2_win": 0.745,
+      "result": "Ben Shelton",
+      "correct": true,
       "pred_date": "2026-07-29"
     },
     {
@@ -350,6 +416,17 @@
       "pred_date": "2026-07-28"
     },
     {
+      "p1_name": "Terence Atmane",
+      "p2_name": "Alejandro Tabilo",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.366,
+      "p2_win": 0.634,
+      "result": "Alejandro Tabilo",
+      "correct": true,
+      "pred_date": "2026-07-28"
+    },
+    {
       "p1_name": "Michael Vrbensky",
       "p2_name": "Nikoloz Basilashvili",
       "surface": "clay",
@@ -479,83 +556,6 @@
       "p2_win": 0.263,
       "result": "Vilius Gaubas",
       "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Max Hans Rehberg",
-      "p2_name": "Stefano Travaglia",
-      "surface": "clay",
-      "tournament": "Bonn Challenger",
-      "p1_win": 0.274,
-      "p2_win": 0.726,
-      "result": "Max Hans Rehberg",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Michele Ribecai",
-      "p2_name": "Juan Bautista Torres",
-      "surface": "clay",
-      "tournament": "Liberec Challenger",
-      "p1_win": 0.279,
-      "p2_win": 0.721,
-      "result": "Juan Bautista Torres",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Genaro Alberto Olivieri",
-      "p2_name": "Carlos Taberner",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.288,
-      "p2_win": 0.712,
-      "result": "Genaro Alberto Olivieri",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Dan Added",
-      "p2_name": "Lucas Poullain",
-      "surface": "hard",
-      "tournament": "Samsun Challenger",
-      "p1_win": 0.712,
-      "p2_win": 0.288,
-      "result": "Dan Added",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Mert Alkaya",
-      "p2_name": "Colin Sinclair",
-      "surface": "hard",
-      "tournament": "Samsun Challenger",
-      "p1_win": 0.315,
-      "p2_win": 0.685,
-      "result": "Colin Sinclair",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Max Houkes",
-      "p2_name": "Roberto Carballes Baena",
-      "surface": "clay",
-      "tournament": "Bonn Challenger",
-      "p1_win": 0.364,
-      "p2_win": 0.636,
-      "result": "Roberto Carballes Baena",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Clement Tabur",
-      "p2_name": "Henri Squire",
-      "surface": "clay",
-      "tournament": "Bonn Challenger",
-      "p1_win": 0.627,
-      "p2_win": 0.373,
-      "result": "Henri Squire",
-      "correct": false,
       "pred_date": "2026-07-27"
     }
   ]
