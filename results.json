@@ -1,12 +1,12 @@
 {
   "total_predicted": 2407,
   "total_resolved": 639,
-  "week_resolved": 108,
-  "week_correct": 68,
+  "week_resolved": 67,
+  "week_correct": 42,
   "accuracy": 66,
-  "accuracy_label": "63% this week",
+  "accuracy_label": "62.7% this week",
   "min_threshold": 10,
-  "last_updated": "2026-07-31 08:26",
+  "last_updated": "2026-08-03 08:38",
   "recent_results": [
     {
       "p1_name": "Cameron Norrie",
