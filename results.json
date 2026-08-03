@@ -1,13 +1,101 @@
 {
-  "total_predicted": 2407,
-  "total_resolved": 639,
-  "week_resolved": 67,
-  "week_correct": 42,
-  "accuracy": 66,
-  "accuracy_label": "62.7% this week",
+  "total_predicted": 2548,
+  "total_resolved": 648,
+  "week_resolved": 76,
+  "week_correct": 44,
+  "accuracy": 65.4,
+  "accuracy_label": "57.9% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-03 08:38",
+  "last_updated": "2026-08-03 11:18",
   "recent_results": [
+    {
+      "p1_name": "Alexandre Muller",
+      "p2_name": "Mili Poljicak",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.788,
+      "p2_win": 0.212,
+      "result": "Mili Poljicak",
+      "correct": false,
+      "pred_date": "2026-07-31"
+    },
+    {
+      "p1_name": "Alex De Minaur",
+      "p2_name": "Brandon Nakashima",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.757,
+      "p2_win": 0.243,
+      "result": "Brandon Nakashima",
+      "correct": false,
+      "pred_date": "2026-07-31"
+    },
+    {
+      "p1_name": "Taylor Fritz",
+      "p2_name": "Alex Michelsen",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.679,
+      "p2_win": 0.321,
+      "result": "Taylor Fritz",
+      "correct": true,
+      "pred_date": "2026-07-31"
+    },
+    {
+      "p1_name": "Juan Pablo Varillas",
+      "p2_name": "Timofey Skatov",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.357,
+      "p2_win": 0.643,
+      "result": "Juan Pablo Varillas",
+      "correct": false,
+      "pred_date": "2026-07-31"
+    },
+    {
+      "p1_name": "Vilius Gaubas",
+      "p2_name": "Thiago Moura Monteiro",
+      "surface": "clay",
+      "tournament": "San Marino Challenger",
+      "p1_win": 0.529,
+      "p2_win": 0.471,
+      "result": "Vilius Gaubas",
+      "correct": true,
+      "pred_date": "2026-07-31"
+    },
+    {
+      "p1_name": "Alejandro Tabilo",
+      "p2_name": "Ben Shelton",
+      "surface": "hard",
+      "tournament": "Citi Open - Washington",
+      "p1_win": 0.185,
+      "p2_win": 0.815,
+      "result": "Alejandro Tabilo",
+      "correct": false,
+      "pred_date": "2026-07-31"
+    },
+    {
+      "p1_name": "Cameron Norrie",
+      "p2_name": "Denis Shapovalov",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.651,
+      "p2_win": 0.349,
+      "result": "Denis Shapovalov",
+      "correct": false,
+      "pred_date": "2026-07-31"
+    },
+    {
+      "p1_name": "Chak Lam Coleman Wong",
+      "p2_name": "Arthur Gea",
+      "surface": "hard",
+      "tournament": "Mifel Tennis Open - Los Cabos",
+      "p1_win": 0.589,
+      "p2_win": 0.411,
+      "result": "Arthur Gea",
+      "correct": false,
+      "pred_date": "2026-07-31"
+    },
     {
       "p1_name": "Cameron Norrie",
       "p2_name": "Bernard Tomic",
@@ -50,6 +138,17 @@
       "p2_win": 0.641,
       "result": "Sumit Nagal",
       "correct": true,
+      "pred_date": "2026-07-30"
+    },
+    {
+      "p1_name": "Koki Matsuda",
+      "p2_name": "Gabriel Debru",
+      "surface": "hard",
+      "tournament": "Samsun Challenger",
+      "p1_win": 0.521,
+      "p2_win": 0.479,
+      "result": "Gabriel Debru",
+      "correct": false,
       "pred_date": "2026-07-30"
     },
     {
@@ -457,105 +556,6 @@
       "p2_win": 0.597,
       "result": "Aleksandar Vukic",
       "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Ugo Humbert",
-      "p2_name": "Andres Martin",
-      "surface": "hard",
-      "tournament": "Citi Open - Washington",
-      "p1_win": 0.968,
-      "p2_win": 0.032,
-      "result": "Ugo Humbert",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Aidan Mayo",
-      "p2_name": "James Duckworth",
-      "surface": "hard",
-      "tournament": "Mifel Tennis Open - Los Cabos",
-      "p1_win": 0.099,
-      "p2_win": 0.901,
-      "result": "James Duckworth",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Martin Damm",
-      "p2_name": "Ben Shelton",
-      "surface": "hard",
-      "tournament": "Citi Open - Washington",
-      "p1_win": 0.102,
-      "p2_win": 0.898,
-      "result": "Ben Shelton",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Filippo Romano",
-      "p2_name": "Otto Virtanen",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.135,
-      "p2_win": 0.865,
-      "result": "Otto Virtanen",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Carlo Alberto Caniato",
-      "p2_name": "Andrea Pellegrino",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.142,
-      "p2_win": 0.858,
-      "result": "Andrea Pellegrino",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Joel Schwaerzler",
-      "p2_name": "Maxim Mrva",
-      "surface": "clay",
-      "tournament": "Liberec Challenger",
-      "p1_win": 0.786,
-      "p2_win": 0.214,
-      "result": "Joel Schwaerzler",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Timofey Skatov",
-      "p2_name": "Thomas Faurel",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.781,
-      "p2_win": 0.219,
-      "result": "Timofey Skatov",
-      "correct": true,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Gabriel Diallo",
-      "p2_name": "Tristan Boyer",
-      "surface": "hard",
-      "tournament": "Mifel Tennis Open - Los Cabos",
-      "p1_win": 0.745,
-      "p2_win": 0.255,
-      "result": "Tristan Boyer",
-      "correct": false,
-      "pred_date": "2026-07-27"
-    },
-    {
-      "p1_name": "Vilius Gaubas",
-      "p2_name": "Luka Pavlovic",
-      "surface": "clay",
-      "tournament": "San Marino Challenger",
-      "p1_win": 0.737,
-      "p2_win": 0.263,
-      "result": "Vilius Gaubas",
-      "correct": true,
       "pred_date": "2026-07-27"
     }
   ]
