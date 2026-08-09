@@ -1,13 +1,101 @@
 {
-  "total_predicted": 2734,
-  "total_resolved": 754,
-  "week_resolved": 105,
-  "week_correct": 62,
-  "accuracy": 64.5,
-  "accuracy_label": "59% this week",
+  "total_predicted": 2797,
+  "total_resolved": 762,
+  "week_resolved": 113,
+  "week_correct": 63,
+  "accuracy": 63.9,
+  "accuracy_label": "55.8% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-08 09:18",
+  "last_updated": "2026-08-09 10:36",
   "recent_results": [
+    {
+      "p1_name": "Tom Gentzsch",
+      "p2_name": "Zsombor Piros",
+      "surface": "clay",
+      "tournament": "Hagen Challenger",
+      "p1_win": 0.262,
+      "p2_win": 0.738,
+      "result": "Tom Gentzsch",
+      "correct": false,
+      "pred_date": "2026-08-08"
+    },
+    {
+      "p1_name": "Edas Butvilas",
+      "p2_name": "Dusan Lajovic",
+      "surface": "hard",
+      "tournament": "Lexington Challenger",
+      "p1_win": 0.431,
+      "p2_win": 0.569,
+      "result": "Edas Butvilas",
+      "correct": false,
+      "pred_date": "2026-08-08"
+    },
+    {
+      "p1_name": "Arthur Rinderknech",
+      "p2_name": "Brandon Nakashima",
+      "surface": "hard",
+      "tournament": "National Bank Open - Montreal",
+      "p1_win": 0.54,
+      "p2_win": 0.46,
+      "result": "Brandon Nakashima",
+      "correct": false,
+      "pred_date": "2026-08-08"
+    },
+    {
+      "p1_name": "Nuno Borges",
+      "p2_name": "Luciano Darderi",
+      "surface": "hard",
+      "tournament": "National Bank Open - Montreal",
+      "p1_win": 0.529,
+      "p2_win": 0.471,
+      "result": "Luciano Darderi",
+      "correct": false,
+      "pred_date": "2026-08-08"
+    },
+    {
+      "p1_name": "Petr Nesterov",
+      "p2_name": "Radu Mihai Papoe",
+      "surface": "clay",
+      "tournament": "Plovdiv 2 Challenger",
+      "p1_win": 0.48,
+      "p2_win": 0.52,
+      "result": "Petr Nesterov",
+      "correct": false,
+      "pred_date": "2026-08-08"
+    },
+    {
+      "p1_name": "Gabriele Piraino",
+      "p2_name": "Carlos Sanchez Jover",
+      "surface": "clay",
+      "tournament": "Plovdiv 2 Challenger",
+      "p1_win": 0.482,
+      "p2_win": 0.518,
+      "result": "Gabriele Piraino",
+      "correct": false,
+      "pred_date": "2026-08-08"
+    },
+    {
+      "p1_name": "Jiri Lehecka",
+      "p2_name": "Rafael Jodar",
+      "surface": "hard",
+      "tournament": "National Bank Open - Montreal",
+      "p1_win": 0.695,
+      "p2_win": 0.305,
+      "result": "Rafael Jodar",
+      "correct": false,
+      "pred_date": "2026-08-08"
+    },
+    {
+      "p1_name": "Arthur Fils",
+      "p2_name": "Cameron Norrie",
+      "surface": "hard",
+      "tournament": "National Bank Open - Montreal",
+      "p1_win": 0.605,
+      "p2_win": 0.395,
+      "result": "Arthur Fils",
+      "correct": true,
+      "pred_date": "2026-08-08"
+    },
     {
       "p1_name": "Alexander Zverev",
       "p2_name": "Tallon Griekspoor",
@@ -469,94 +557,6 @@
       "result": "Alex Michelsen",
       "correct": false,
       "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Rafael Jodar",
-      "p2_name": "Corentin Moutet",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.594,
-      "p2_win": 0.406,
-      "result": "Rafael Jodar",
-      "correct": true,
-      "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Petr Nesterov",
-      "p2_name": "Sebastian Sorger",
-      "surface": "clay",
-      "tournament": "Plovdiv 2 Challenger",
-      "p1_win": 0.594,
-      "p2_win": 0.406,
-      "result": "Petr Nesterov",
-      "correct": true,
-      "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Miomir Kecmanovic",
-      "p2_name": "Arthur Rinderknech",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.407,
-      "p2_win": 0.593,
-      "result": "Arthur Rinderknech",
-      "correct": true,
-      "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Maxim Mrva",
-      "p2_name": "Guy Den Ouden",
-      "surface": "clay",
-      "tournament": "Hagen Challenger",
-      "p1_win": 0.434,
-      "p2_win": 0.566,
-      "result": "Guy Den Ouden",
-      "correct": true,
-      "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Viktor Durasovic",
-      "p2_name": "Andrea Guerrieri",
-      "surface": "hard",
-      "tournament": "Grodzisk Mazowiecki Challenger",
-      "p1_win": 0.444,
-      "p2_win": 0.556,
-      "result": "Andrea Guerrieri",
-      "correct": true,
-      "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Hubert Hurkacz",
-      "p2_name": "Alejandro Tabilo",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.543,
-      "p2_win": 0.457,
-      "result": "Hubert Hurkacz",
-      "correct": true,
-      "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Chun Hsin Tseng",
-      "p2_name": "Tom Gentzsch",
-      "surface": "clay",
-      "tournament": "Hagen Challenger",
-      "p1_win": 0.467,
-      "p2_win": 0.533,
-      "result": "Tom Gentzsch",
-      "correct": true,
-      "pred_date": "2026-08-04"
-    },
-    {
-      "p1_name": "Camilo Ugo Carabelli",
-      "p2_name": "Cameron Norrie",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.152,
-      "p2_win": 0.848,
-      "result": "Cameron Norrie",
-      "correct": true,
-      "pred_date": "2026-08-03"
     }
   ]
 }
