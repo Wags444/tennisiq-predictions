@@ -1,12 +1,12 @@
 {
   "total_predicted": 2953,
   "total_resolved": 793,
-  "week_resolved": 60,
-  "week_correct": 27,
+  "week_resolved": 39,
+  "week_correct": 16,
   "accuracy": 63.3,
-  "accuracy_label": "45% this week",
+  "accuracy_label": "41% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-12 05:16",
+  "last_updated": "2026-08-13 09:20",
   "recent_results": [
     {
       "p1_name": "Daniel Merida Aguilar",
