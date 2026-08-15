@@ -1,12 +1,12 @@
 {
-  "total_predicted": 3025,
-  "total_resolved": 843,
-  "week_resolved": 89,
-  "week_correct": 41,
+  "total_predicted": 3085,
+  "total_resolved": 861,
+  "week_resolved": 107,
+  "week_correct": 52,
   "accuracy": 62.5,
-  "accuracy_label": "46.1% this week",
+  "accuracy_label": "48.6% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-14 22:45",
+  "last_updated": "2026-08-15 09:06",
   "recent_results": [
     {
       "p1_name": "Daniel Milavsky",
@@ -27,6 +27,50 @@
       "p1_win": 0.186,
       "p2_win": 0.814,
       "result": "Andre Ilagan",
+      "correct": false,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Hamad Medjedovic",
+      "p2_name": "Marco Trungelliti",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.808,
+      "p2_win": 0.192,
+      "result": "Marco Trungelliti",
+      "correct": false,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Sho Shimabukuro",
+      "p2_name": "Hubert Hurkacz",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.193,
+      "p2_win": 0.807,
+      "result": "Hubert Hurkacz",
+      "correct": true,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Adam Walton",
+      "p2_name": "Nicolas Mejia",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.778,
+      "p2_win": 0.222,
+      "result": "Adam Walton",
+      "correct": true,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Kyrian Jacquet",
+      "p2_name": "Adolfo Daniel Vallejo",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.761,
+      "p2_win": 0.239,
+      "result": "Adolfo Daniel Vallejo",
       "correct": false,
       "pred_date": "2026-08-14"
     },
@@ -60,6 +104,94 @@
       "p1_win": 0.704,
       "p2_win": 0.296,
       "result": "Lloyd Harris",
+      "correct": true,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Christopher O'Connell",
+      "p2_name": "Kamil Majchrzak",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.302,
+      "p2_win": 0.698,
+      "result": "Christopher O'Connell",
+      "correct": false,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Yannick Hanfmann",
+      "p2_name": "Luca Van Assche",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.692,
+      "p2_win": 0.308,
+      "result": "Yannick Hanfmann",
+      "correct": true,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Titouan Droguet",
+      "p2_name": "Matteo Berrettini",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.31,
+      "p2_win": 0.69,
+      "result": "Matteo Berrettini",
+      "correct": true,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Vit Kopriva",
+      "p2_name": "Quentin Halys",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.418,
+      "p2_win": 0.582,
+      "result": "Quentin Halys",
+      "correct": true,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Mark Lajal",
+      "p2_name": "Juan Manuel Cerundolo",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.467,
+      "p2_win": 0.533,
+      "result": "Juan Manuel Cerundolo",
+      "correct": true,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Chak Lam Coleman Wong",
+      "p2_name": "Daniel Altmaier",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.504,
+      "p2_win": 0.496,
+      "result": "Daniel Altmaier",
+      "correct": false,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Aziz Dougaz",
+      "p2_name": "Sergey Fomin",
+      "surface": "hard",
+      "tournament": "Astana Challenger",
+      "p1_win": 0.405,
+      "p2_win": 0.595,
+      "result": "Aziz Dougaz",
+      "correct": false,
+      "pred_date": "2026-08-14"
+    },
+    {
+      "p1_name": "Hayato Matsuoka",
+      "p2_name": "Khumoun Sultanov",
+      "surface": "hard",
+      "tournament": "Astana Challenger",
+      "p1_win": 0.575,
+      "p2_win": 0.425,
+      "result": "Hayato Matsuoka",
       "correct": true,
       "pred_date": "2026-08-14"
     },
@@ -108,6 +240,28 @@
       "pred_date": "2026-08-12"
     },
     {
+      "p1_name": "Daniel Elahi Galan",
+      "p2_name": "Federico Agustin Gomez",
+      "surface": "clay",
+      "tournament": "Todi Challenger",
+      "p1_win": 0.646,
+      "p2_win": 0.354,
+      "result": "Federico Agustin Gomez",
+      "correct": false,
+      "pred_date": "2026-08-12"
+    },
+    {
+      "p1_name": "Filippo Romano",
+      "p2_name": "Juan Bautista Torres",
+      "surface": "clay",
+      "tournament": "Todi Challenger",
+      "p1_win": 0.396,
+      "p2_win": 0.604,
+      "result": "Juan Bautista Torres",
+      "correct": true,
+      "pred_date": "2026-08-12"
+    },
+    {
       "p1_name": "Quinn Vandecasteele",
       "p2_name": "Abedallah Shelbayh",
       "surface": "hard",
@@ -115,6 +269,17 @@
       "p1_win": 0.424,
       "p2_win": 0.576,
       "result": "Quinn Vandecasteele",
+      "correct": false,
+      "pred_date": "2026-08-12"
+    },
+    {
+      "p1_name": "Nikolas Sanchez-Izquierdo",
+      "p2_name": "Maxim Mrva",
+      "surface": "clay",
+      "tournament": "Todi Challenger",
+      "p1_win": 0.571,
+      "p2_win": 0.429,
+      "result": "Maxim Mrva",
       "correct": false,
       "pred_date": "2026-08-12"
     },
@@ -149,6 +314,17 @@
       "p2_win": 0.099,
       "result": "Saba Purtseladze",
       "correct": false,
+      "pred_date": "2026-08-12"
+    },
+    {
+      "p1_name": "Oriol Roca Batalla",
+      "p2_name": "Francesco Passaro",
+      "surface": "clay",
+      "tournament": "Todi Challenger",
+      "p1_win": 0.179,
+      "p2_win": 0.821,
+      "result": "Francesco Passaro",
+      "correct": true,
       "pred_date": "2026-08-12"
     },
     {
@@ -229,6 +405,17 @@
       "pred_date": "2026-08-12"
     },
     {
+      "p1_name": "Daniel Michalski",
+      "p2_name": "Lukas Neumayer",
+      "surface": "clay",
+      "tournament": "Todi Challenger",
+      "p1_win": 0.253,
+      "p2_win": 0.747,
+      "result": "Lukas Neumayer",
+      "correct": true,
+      "pred_date": "2026-08-12"
+    },
+    {
       "p1_name": "Denis Shapovalov",
       "p2_name": "Adrian Mannarino",
       "surface": "hard",
@@ -306,6 +493,17 @@
       "pred_date": "2026-08-12"
     },
     {
+      "p1_name": "Alex Barrena",
+      "p2_name": "Luciano Emanuel Ambrogi",
+      "surface": "clay",
+      "tournament": "Todi Challenger",
+      "p1_win": 0.67,
+      "p2_win": 0.33,
+      "result": "Alex Barrena",
+      "correct": true,
+      "pred_date": "2026-08-12"
+    },
+    {
       "p1_name": "Mariano Navone",
       "p2_name": "Raphael Collignon",
       "surface": "hard",
@@ -359,204 +557,6 @@
       "result": "Thiago Agustin Tirante",
       "correct": true,
       "pred_date": "2026-08-12"
-    },
-    {
-      "p1_name": "Juncheng Shang",
-      "p2_name": "Lorenzo Sonego",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.413,
-      "p2_win": 0.587,
-      "result": "Lorenzo Sonego",
-      "correct": true,
-      "pred_date": "2026-08-12"
-    },
-    {
-      "p1_name": "Learner Tien",
-      "p2_name": "Ben Shelton",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.42,
-      "p2_win": 0.58,
-      "result": "Ben Shelton",
-      "correct": true,
-      "pred_date": "2026-08-12"
-    },
-    {
-      "p1_name": "Zachary Svajda",
-      "p2_name": "Mattia Bellucci",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.541,
-      "p2_win": 0.459,
-      "result": "Mattia Bellucci",
-      "correct": false,
-      "pred_date": "2026-08-12"
-    },
-    {
-      "p1_name": "Rafael Jodar",
-      "p2_name": "Brandon Nakashima",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.503,
-      "p2_win": 0.497,
-      "result": "Brandon Nakashima",
-      "correct": false,
-      "pred_date": "2026-08-12"
-    },
-    {
-      "p1_name": "Diego Dedura",
-      "p2_name": "Max Hans Rehberg",
-      "surface": "clay",
-      "tournament": "Hamburg Challenger",
-      "p1_win": 0.89,
-      "p2_win": 0.11,
-      "result": "Max Hans Rehberg",
-      "correct": false,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Daniel Merida Aguilar",
-      "p2_name": "Learner Tien",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.126,
-      "p2_win": 0.874,
-      "result": "Learner Tien",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Olle Wallin",
-      "p2_name": "Carlos Taberner",
-      "surface": "clay",
-      "tournament": "Hamburg Challenger",
-      "p1_win": 0.134,
-      "p2_win": 0.866,
-      "result": "Carlos Taberner",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Vadym Ursu",
-      "p2_name": "Manas Manoj Dhamne",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.185,
-      "p2_win": 0.815,
-      "result": "Manas Manoj Dhamne",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Sidharth Rawat",
-      "p2_name": "Mert Alkaya",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.806,
-      "p2_win": 0.194,
-      "result": "Mert Alkaya",
-      "correct": false,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Sanhui Shin",
-      "p2_name": "Erik Arutiunian",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.201,
-      "p2_win": 0.799,
-      "result": "Erik Arutiunian",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Amir Omarkhanov",
-      "p2_name": "Beibit Zhukayev",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.786,
-      "p2_win": 0.214,
-      "result": "Beibit Zhukayev",
-      "correct": false,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Rudolf Molleker",
-      "p2_name": "Elmer Moller",
-      "surface": "clay",
-      "tournament": "Hamburg Challenger",
-      "p1_win": 0.215,
-      "p2_win": 0.785,
-      "result": "Rudolf Molleker",
-      "correct": false,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Aziz Ouakaa",
-      "p2_name": "Jie Cui",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.752,
-      "p2_win": 0.248,
-      "result": "Jie Cui",
-      "correct": false,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Fajing Sun",
-      "p2_name": "Zangar Nurlanuly",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.737,
-      "p2_win": 0.263,
-      "result": "Fajing Sun",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Kasidit Samrej",
-      "p2_name": "Kokoro Isomura",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.734,
-      "p2_win": 0.266,
-      "result": "Kasidit Samrej",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Denis Yevseyev",
-      "p2_name": "Matej Dodig",
-      "surface": "clay",
-      "tournament": "Hamburg Challenger",
-      "p1_win": 0.278,
-      "p2_win": 0.722,
-      "result": "Matej Dodig",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Jakub Mensik",
-      "p2_name": "Ben Shelton",
-      "surface": "hard",
-      "tournament": "National Bank Open - Montreal",
-      "p1_win": 0.385,
-      "p2_win": 0.615,
-      "result": "Ben Shelton",
-      "correct": true,
-      "pred_date": "2026-08-10"
-    },
-    {
-      "p1_name": "Takuya Kumasaka",
-      "p2_name": "Colin Sinclair",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.408,
-      "p2_win": 0.592,
-      "result": "Takuya Kumasaka",
-      "correct": false,
-      "pred_date": "2026-08-10"
     }
   ]
 }
