@@ -1,12 +1,12 @@
 {
   "total_predicted": 3221,
-  "total_resolved": 910,
-  "week_resolved": 103,
-  "week_correct": 62,
-  "accuracy": 62.7,
-  "accuracy_label": "60.2% this week",
+  "total_resolved": 918,
+  "week_resolved": 111,
+  "week_correct": 69,
+  "accuracy": 63,
+  "accuracy_label": "62.2% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-18 21:30",
+  "last_updated": "2026-08-18 21:44",
   "recent_results": [
     {
       "p1_name": "Andre Ilagan",
@@ -20,6 +20,39 @@
       "pred_date": "2026-08-16"
     },
     {
+      "p1_name": "Tommy Paul",
+      "p2_name": "Adolfo Daniel Vallejo",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.954,
+      "p2_win": 0.046,
+      "result": "Tommy Paul",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Alexander Zverev",
+      "p2_name": "Terence Atmane",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.933,
+      "p2_win": 0.067,
+      "result": "Alexander Zverev",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Arthur Fery",
+      "p2_name": "Alex De Minaur",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.108,
+      "p2_win": 0.892,
+      "result": "Alex De Minaur",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
       "p1_name": "Jakub Filip",
       "p2_name": "Nick Hardt",
       "surface": "clay",
@@ -27,6 +60,17 @@
       "p1_win": 0.134,
       "p2_win": 0.866,
       "result": "Nick Hardt",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Rinky Hijikata",
+      "p2_name": "Jakub Mensik",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.154,
+      "p2_win": 0.846,
+      "result": "Jakub Mensik",
       "correct": true,
       "pred_date": "2026-08-16"
     },
@@ -130,6 +174,28 @@
       "pred_date": "2026-08-16"
     },
     {
+      "p1_name": "Alexander Blockx",
+      "p2_name": "Flavio Cobolli",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.387,
+      "p2_win": 0.613,
+      "result": "Flavio Cobolli",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Thiago Agustin Tirante",
+      "p2_name": "Martin Landaluce",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.403,
+      "p2_win": 0.597,
+      "result": "Thiago Agustin Tirante",
+      "correct": false,
+      "pred_date": "2026-08-16"
+    },
+    {
       "p1_name": "Florian Broska",
       "p2_name": "Sean Cuenin",
       "surface": "clay",
@@ -170,6 +236,28 @@
       "p1_win": 0.548,
       "p2_win": 0.452,
       "result": "Harold Mayot",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Rafael Jodar",
+      "p2_name": "Alejandro Tabilo",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.544,
+      "p2_win": 0.456,
+      "result": "Rafael Jodar",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Jiri Lehecka",
+      "p2_name": "Arthur Fils",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.481,
+      "p2_win": 0.519,
+      "result": "Arthur Fils",
       "correct": true,
       "pred_date": "2026-08-16"
     },
@@ -467,94 +555,6 @@
       "p1_win": 0.186,
       "p2_win": 0.814,
       "result": "Andre Ilagan",
-      "correct": false,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Hamad Medjedovic",
-      "p2_name": "Marco Trungelliti",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.808,
-      "p2_win": 0.192,
-      "result": "Marco Trungelliti",
-      "correct": false,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Sho Shimabukuro",
-      "p2_name": "Hubert Hurkacz",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.193,
-      "p2_win": 0.807,
-      "result": "Hubert Hurkacz",
-      "correct": true,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Adam Walton",
-      "p2_name": "Nicolas Mejia",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.778,
-      "p2_win": 0.222,
-      "result": "Adam Walton",
-      "correct": true,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Kyrian Jacquet",
-      "p2_name": "Adolfo Daniel Vallejo",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.761,
-      "p2_win": 0.239,
-      "result": "Adolfo Daniel Vallejo",
-      "correct": false,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Marco Cecchinato",
-      "p2_name": "Juan Bautista Torres",
-      "surface": "clay",
-      "tournament": "Todi Challenger",
-      "p1_win": 0.726,
-      "p2_win": 0.274,
-      "result": "Marco Cecchinato",
-      "correct": true,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Andres Andrade",
-      "p2_name": "Jack Pinnington Jones",
-      "surface": "hard",
-      "tournament": "Brownsburg Challenger",
-      "p1_win": 0.275,
-      "p2_win": 0.725,
-      "result": "Jack Pinnington Jones",
-      "correct": true,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Lloyd Harris",
-      "p2_name": "Harry Wendelken",
-      "surface": "hard",
-      "tournament": "Brownsburg Challenger",
-      "p1_win": 0.704,
-      "p2_win": 0.296,
-      "result": "Lloyd Harris",
-      "correct": true,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Christopher O'Connell",
-      "p2_name": "Kamil Majchrzak",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.302,
-      "p2_win": 0.698,
-      "result": "Christopher O'Connell",
       "correct": false,
       "pred_date": "2026-08-14"
     }
