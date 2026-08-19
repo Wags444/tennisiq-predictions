@@ -1,12 +1,12 @@
 {
   "total_predicted": 3221,
-  "total_resolved": 918,
-  "week_resolved": 111,
-  "week_correct": 69,
-  "accuracy": 63,
-  "accuracy_label": "62.2% this week",
+  "total_resolved": 923,
+  "week_resolved": 116,
+  "week_correct": 71,
+  "accuracy": 62.8,
+  "accuracy_label": "61.2% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-18 21:44",
+  "last_updated": "2026-08-18 21:51",
   "recent_results": [
     {
       "p1_name": "Andre Ilagan",
@@ -75,6 +75,17 @@
       "pred_date": "2026-08-16"
     },
     {
+      "p1_name": "Emile Hudd",
+      "p2_name": "Alastair Gray",
+      "surface": "hard",
+      "tournament": "Roehampton 1 Challenger",
+      "p1_win": 0.825,
+      "p2_win": 0.175,
+      "result": "Alastair Gray",
+      "correct": false,
+      "pred_date": "2026-08-16"
+    },
+    {
       "p1_name": "Luca Staeheli",
       "p2_name": "Andrey Chepelev",
       "surface": "clay",
@@ -83,6 +94,17 @@
       "p2_win": 0.76,
       "result": "Luca Staeheli",
       "correct": false,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Yuta Shimizu",
+      "p2_name": "Anton Matusevich",
+      "surface": "hard",
+      "tournament": "Roehampton 1 Challenger",
+      "p1_win": 0.242,
+      "p2_win": 0.758,
+      "result": "Anton Matusevich",
+      "correct": true,
       "pred_date": "2026-08-16"
     },
     {
@@ -207,6 +229,28 @@
       "pred_date": "2026-08-16"
     },
     {
+      "p1_name": "Christian Langmo",
+      "p2_name": "Adrian Boitan",
+      "surface": "hard",
+      "tournament": "Roehampton 1 Challenger",
+      "p1_win": 0.405,
+      "p2_win": 0.595,
+      "result": "Adrian Boitan",
+      "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Viktor Durasovic",
+      "p2_name": "Manas Manoj Dhamne",
+      "surface": "hard",
+      "tournament": "Roehampton 1 Challenger",
+      "p1_win": 0.414,
+      "p2_win": 0.586,
+      "result": "Viktor Durasovic",
+      "correct": false,
+      "pred_date": "2026-08-16"
+    },
+    {
       "p1_name": "Chun Hsin Tseng",
       "p2_name": "Hynek Barton",
       "surface": "clay",
@@ -248,6 +292,17 @@
       "p2_win": 0.456,
       "result": "Rafael Jodar",
       "correct": true,
+      "pred_date": "2026-08-16"
+    },
+    {
+      "p1_name": "Iliyan Radulov",
+      "p2_name": "Johannus Monday",
+      "surface": "hard",
+      "tournament": "Roehampton 1 Challenger",
+      "p1_win": 0.472,
+      "p2_win": 0.528,
+      "result": "Iliyan Radulov",
+      "correct": false,
       "pred_date": "2026-08-16"
     },
     {
@@ -502,61 +557,6 @@
       "result": "Taylor Fritz",
       "correct": true,
       "pred_date": "2026-08-15"
-    },
-    {
-      "p1_name": "Daniel Merida Aguilar",
-      "p2_name": "Zizou Bergs",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.324,
-      "p2_win": 0.676,
-      "result": "Daniel Merida Aguilar",
-      "correct": false,
-      "pred_date": "2026-08-15"
-    },
-    {
-      "p1_name": "Adam Walton",
-      "p2_name": "Ignacio Buse",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.404,
-      "p2_win": 0.596,
-      "result": "Adam Walton",
-      "correct": false,
-      "pred_date": "2026-08-15"
-    },
-    {
-      "p1_name": "Aziz Dougaz",
-      "p2_name": "Hayato Matsuoka",
-      "surface": "hard",
-      "tournament": "Astana Challenger",
-      "p1_win": 0.51,
-      "p2_win": 0.49,
-      "result": "Hayato Matsuoka",
-      "correct": false,
-      "pred_date": "2026-08-15"
-    },
-    {
-      "p1_name": "Daniel Milavsky",
-      "p2_name": "Rei Sakamoto",
-      "surface": "hard",
-      "tournament": "Brownsburg Challenger",
-      "p1_win": 0.142,
-      "p2_win": 0.858,
-      "result": "Daniel Milavsky",
-      "correct": false,
-      "pred_date": "2026-08-14"
-    },
-    {
-      "p1_name": "Andre Ilagan",
-      "p2_name": "Tristan Schoolkate",
-      "surface": "hard",
-      "tournament": "Brownsburg Challenger",
-      "p1_win": 0.186,
-      "p2_win": 0.814,
-      "result": "Andre Ilagan",
-      "correct": false,
-      "pred_date": "2026-08-14"
     }
   ]
 }
