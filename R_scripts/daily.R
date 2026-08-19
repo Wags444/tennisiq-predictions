@@ -4,7 +4,7 @@ suppressPackageStartupMessages({
 })
 cat("[1/5] Packages loaded\n")
 
-load("output/tennisiq_session.RData")
+tryCatch(load("output/tennisiq_session.RData"), error=function(e) cat("Session load skipped:", e$message, "\n"))
 if(file.exists("output/atp_elo_sackmann.rds")) atp_elo_sack <- readRDS("output/atp_elo_sackmann.rds") else atp_elo_sack <- NULL
 if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
 if(file.exists("output/wta_elo_sackmann.rds")) wta_elo_sack <- readRDS("output/wta_elo_sackmann.rds") else wta_elo_sack <- NULL
@@ -87,7 +87,9 @@ predict_match_v2 <- function(p1_id, p2_id, surface, model, profiles, melo, mfull
     d_win_big              = (prof1$win_big%||%0.5)         - (prof2$win_big%||%0.5),
     d_win_vs_strong        = (prof1$win_vs_strong%||%0.5)   - (prof2$win_vs_strong%||%0.5),
     d_win_rate_decay       = (prof1$win_rate_decay%||%0.5)  - (prof2$win_rate_decay%||%0.5),
-    d_ranking_norm         = (r1-r2)/500
+    d_ranking_norm         = (r1-r2)/500,
+    d_return_pts_won      = (prof2$serve_pts_won%||%0.65) - (prof1$serve_pts_won%||%0.65),
+    d_return_hard        = ((prof2$serve_pts_won%||%0.65) - (prof1$serve_pts_won%||%0.65)) * as.integer(surface=="hard")
   )
   p_win <- as.numeric(predict(model, newdata=nd, type="response"))
   p_win <- max(0.01, min(0.99, p_win))
@@ -402,8 +404,8 @@ wta_preds_df <- (function() {
 
 # Country lookup for flags
 country_df2 <- raw_expanded$players %>%
-  dplyr::filter(!is.na(country), country != "N/A", !grepl("/", name)) %>%
-  dplyr::select(player_id, country) %>% dplyr::distinct()
+  dplyr::filter(!is.na(player_id)) %>%
+  dplyr::select(player_id) %>% dplyr::distinct() %>% dplyr::mutate(country=NA_character_)
 iso3_to_2 <- c(AUS="au",ESP="es",ITA="it",FRA="fr",GER="de",USA="us",GBR="gb",
   ARG="ar",BRA="br",SRB="rs",CRO="hr",SUI="ch",AUT="at",BEL="be",NED="nl",
   ROU="ro",CZE="cz",SVK="sk",POL="pl",RUS="ru",JPN="jp",KOR="kr",CHN="cn",
