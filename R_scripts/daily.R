@@ -91,7 +91,7 @@ predict_match_v2 <- function(p1_id, p2_id, surface, model, profiles, melo, mfull
     d_return_pts_won      = (prof2$serve_pts_won%||%0.65) - (prof1$serve_pts_won%||%0.65),
     d_return_hard        = ((prof2$serve_pts_won%||%0.65) - (prof1$serve_pts_won%||%0.65)) * as.integer(surface=="hard")
   )
-  p_win <- as.numeric(predict(model, newdata=nd, type="response"))
+  p_win <- as.numeric(predict(model, newx=as.matrix(nd), s="lambda.min", type="response"))
   p_win <- max(0.01, min(0.99, p_win))
   list(p1_id=p1_id, p2_id=p2_id, surface=surface,
        p1_win=round(p_win,3), p2_win=round(1-p_win,3),
