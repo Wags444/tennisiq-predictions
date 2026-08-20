@@ -1,12 +1,12 @@
 {
-  "total_predicted": 3238,
-  "total_resolved": 943,
-  "week_resolved": 136,
-  "week_correct": 79,
-  "accuracy": 62.4,
-  "accuracy_label": "58.1% this week",
+  "total_predicted": 3269,
+  "total_resolved": 948,
+  "week_resolved": 104,
+  "week_correct": 61,
+  "accuracy": 62.1,
+  "accuracy_label": "58.7% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-19 22:01",
+  "last_updated": "2026-08-20 09:13",
   "recent_results": [
     {
       "p1_name": "Thiago Agustin Tirante",
@@ -42,6 +42,17 @@
       "pred_date": "2026-08-18"
     },
     {
+      "p1_name": "Otto Virtanen",
+      "p2_name": "Moez Echargui",
+      "surface": "hard",
+      "tournament": "Cancun Challenger",
+      "p1_win": 0.82,
+      "p2_win": 0.18,
+      "result": "Moez Echargui",
+      "correct": false,
+      "pred_date": "2026-08-18"
+    },
+    {
       "p1_name": "Radu Mihai Papoe",
       "p2_name": "Javier Barranco Cosano",
       "surface": "clay",
@@ -49,6 +60,17 @@
       "p1_win": 0.787,
       "p2_win": 0.213,
       "result": "Radu Mihai Papoe",
+      "correct": true,
+      "pred_date": "2026-08-18"
+    },
+    {
+      "p1_name": "Camilo Ugo Carabelli",
+      "p2_name": "Nicolas Mejia",
+      "surface": "hard",
+      "tournament": "Cancun Challenger",
+      "p1_win": 0.76,
+      "p2_win": 0.24,
+      "result": "Camilo Ugo Carabelli",
       "correct": true,
       "pred_date": "2026-08-18"
     },
@@ -97,6 +119,17 @@
       "pred_date": "2026-08-18"
     },
     {
+      "p1_name": "Norbert Gombos",
+      "p2_name": "Sean Cuenin",
+      "surface": "clay",
+      "tournament": "Prague Challenger",
+      "p1_win": 0.32,
+      "p2_win": 0.68,
+      "result": "Norbert Gombos",
+      "correct": false,
+      "pred_date": "2026-08-18"
+    },
+    {
       "p1_name": "Juan Bautista Torres",
       "p2_name": "Chun Hsin Tseng",
       "surface": "clay",
@@ -137,6 +170,17 @@
       "p1_win": 0.651,
       "p2_win": 0.349,
       "result": "Lucas Poullain",
+      "correct": false,
+      "pred_date": "2026-08-18"
+    },
+    {
+      "p1_name": "Rodrigo Pacheco Mendez",
+      "p2_name": "Tomas Barrios Vera",
+      "surface": "hard",
+      "tournament": "Cancun Challenger",
+      "p1_win": 0.37,
+      "p2_win": 0.63,
+      "result": "Rodrigo Pacheco Mendez",
       "correct": false,
       "pred_date": "2026-08-18"
     },
@@ -225,6 +269,17 @@
       "p1_win": 0.479,
       "p2_win": 0.521,
       "result": "Arthur Fils",
+      "correct": false,
+      "pred_date": "2026-08-18"
+    },
+    {
+      "p1_name": "Alexandre Muller",
+      "p2_name": "Chak Lam Coleman Wong",
+      "surface": "hard",
+      "tournament": "Cancun Challenger",
+      "p1_win": 0.521,
+      "p2_win": 0.479,
+      "result": "Chak Lam Coleman Wong",
       "correct": false,
       "pred_date": "2026-08-18"
     },
@@ -502,61 +557,6 @@
       "result": "Harold Mayot",
       "correct": true,
       "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Rafael Jodar",
-      "p2_name": "Alejandro Tabilo",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.544,
-      "p2_win": 0.456,
-      "result": "Rafael Jodar",
-      "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Iliyan Radulov",
-      "p2_name": "Johannus Monday",
-      "surface": "hard",
-      "tournament": "Roehampton 1 Challenger",
-      "p1_win": 0.472,
-      "p2_win": 0.528,
-      "result": "Iliyan Radulov",
-      "correct": false,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Jiri Lehecka",
-      "p2_name": "Arthur Fils",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.481,
-      "p2_win": 0.519,
-      "result": "Arthur Fils",
-      "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Murkel Dellien",
-      "p2_name": "Ryan Nijboer",
-      "surface": "clay",
-      "tournament": "Sion Challenger",
-      "p1_win": 0.507,
-      "p2_win": 0.493,
-      "result": "Ryan Nijboer",
-      "correct": false,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Daniel Milavsky",
-      "p2_name": "Lloyd Harris",
-      "surface": "hard",
-      "tournament": "Brownsburg Challenger",
-      "p1_win": 0.093,
-      "p2_win": 0.907,
-      "result": "Lloyd Harris",
-      "correct": true,
-      "pred_date": "2026-08-15"
     }
   ]
 }
