@@ -1,13 +1,57 @@
 {
-  "total_predicted": 3284,
-  "total_resolved": 966,
-  "week_resolved": 122,
-  "week_correct": 70,
-  "accuracy": 61.9,
-  "accuracy_label": "57.4% this week",
+  "total_predicted": 3305,
+  "total_resolved": 972,
+  "week_resolved": 102,
+  "week_correct": 57,
+  "accuracy": 61.8,
+  "accuracy_label": "55.9% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-21 11:18",
+  "last_updated": "2026-08-22 09:49",
   "recent_results": [
+    {
+      "p1_name": "Benjamin Hassan",
+      "p2_name": "Dominic Stricker",
+      "surface": "clay",
+      "tournament": "Sion Challenger",
+      "p1_win": 0.425,
+      "p2_win": 0.575,
+      "result": "Dominic Stricker",
+      "correct": true,
+      "pred_date": "2026-08-21"
+    },
+    {
+      "p1_name": "Sebastian Baez",
+      "p2_name": "Chak Lam Coleman Wong",
+      "surface": "hard",
+      "tournament": "Cancun Challenger",
+      "p1_win": 0.56,
+      "p2_win": 0.44,
+      "result": "Sebastian Baez",
+      "correct": true,
+      "pred_date": "2026-08-21"
+    },
+    {
+      "p1_name": "Vit Kopriva",
+      "p2_name": "Lloyd Harris",
+      "surface": "hard",
+      "tournament": "Cancun Challenger",
+      "p1_win": 0.558,
+      "p2_win": 0.442,
+      "result": "Lloyd Harris",
+      "correct": false,
+      "pred_date": "2026-08-21"
+    },
+    {
+      "p1_name": "Roman Safiullin",
+      "p2_name": "Hubert Hurkacz",
+      "surface": "hard",
+      "tournament": "Cancun Challenger",
+      "p1_win": 0.507,
+      "p2_win": 0.493,
+      "result": "Hubert Hurkacz",
+      "correct": false,
+      "pred_date": "2026-08-21"
+    },
     {
       "p1_name": "Norbert Gombos",
       "p2_name": "Radu Mihai Papoe",
@@ -174,6 +218,17 @@
       "pred_date": "2026-08-20"
     },
     {
+      "p1_name": "Lorenzo Musetti",
+      "p2_name": "Frances Tiafoe",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.541,
+      "p2_win": 0.459,
+      "result": "Frances Tiafoe",
+      "correct": false,
+      "pred_date": "2026-08-20"
+    },
+    {
       "p1_name": "Dominic Stricker",
       "p2_name": "Tommaso Compagnucci",
       "surface": "clay",
@@ -182,6 +237,17 @@
       "p2_win": 0.54,
       "result": "Dominic Stricker",
       "correct": false,
+      "pred_date": "2026-08-20"
+    },
+    {
+      "p1_name": "Taylor Fritz",
+      "p2_name": "Brandon Nakashima",
+      "surface": "hard",
+      "tournament": "Cincinnati Open - Cincinnati",
+      "p1_win": 0.465,
+      "p2_win": 0.535,
+      "result": "Brandon Nakashima",
+      "correct": true,
       "pred_date": "2026-08-20"
     },
     {
@@ -490,72 +556,6 @@
       "p2_win": 0.869,
       "result": "Lloyd Harris",
       "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Tommy Paul",
-      "p2_name": "Adolfo Daniel Vallejo",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.954,
-      "p2_win": 0.046,
-      "result": "Tommy Paul",
-      "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Alexander Zverev",
-      "p2_name": "Terence Atmane",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.933,
-      "p2_win": 0.067,
-      "result": "Alexander Zverev",
-      "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Arthur Fery",
-      "p2_name": "Alex De Minaur",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.108,
-      "p2_win": 0.892,
-      "result": "Alex De Minaur",
-      "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Jakub Filip",
-      "p2_name": "Nick Hardt",
-      "surface": "clay",
-      "tournament": "Prague Challenger",
-      "p1_win": 0.134,
-      "p2_win": 0.866,
-      "result": "Nick Hardt",
-      "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Rinky Hijikata",
-      "p2_name": "Jakub Mensik",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.154,
-      "p2_win": 0.846,
-      "result": "Jakub Mensik",
-      "correct": true,
-      "pred_date": "2026-08-16"
-    },
-    {
-      "p1_name": "Emile Hudd",
-      "p2_name": "Alastair Gray",
-      "surface": "hard",
-      "tournament": "Roehampton 1 Challenger",
-      "p1_win": 0.825,
-      "p2_win": 0.175,
-      "result": "Alastair Gray",
-      "correct": false,
       "pred_date": "2026-08-16"
     }
   ]
