@@ -1,13 +1,101 @@
 {
-  "total_predicted": 3666,
-  "total_resolved": 1024,
-  "week_resolved": 75,
-  "week_correct": 37,
-  "accuracy": 61.2,
-  "accuracy_label": "49.3% this week",
+  "total_predicted": 3802,
+  "total_resolved": 1035,
+  "week_resolved": 86,
+  "week_correct": 42,
+  "accuracy": 61.1,
+  "accuracy_label": "48.8% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-26 08:40",
+  "last_updated": "2026-08-27 10:44",
   "recent_results": [
+    {
+      "p1_name": "Johannus Monday",
+      "p2_name": "Michele Ribecai",
+      "surface": "hard",
+      "tournament": "Roehampton 2 Challenger",
+      "p1_win": 0.587,
+      "p2_win": 0.413,
+      "result": "Michele Ribecai",
+      "correct": false,
+      "pred_date": "2026-08-26"
+    },
+    {
+      "p1_name": "Sandro Kopp",
+      "p2_name": "Martin Krumich",
+      "surface": "clay",
+      "tournament": "Augsburg Challenger",
+      "p1_win": 0.498,
+      "p2_win": 0.502,
+      "result": "Sandro Kopp",
+      "correct": false,
+      "pred_date": "2026-08-26"
+    },
+    {
+      "p1_name": "Lorenzo Sonego",
+      "p2_name": "James Duckworth",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.582,
+      "p2_win": 0.418,
+      "result": "James Duckworth",
+      "correct": false,
+      "pred_date": "2026-08-26"
+    },
+    {
+      "p1_name": "Martin Damm",
+      "p2_name": "Fabian Marozsan",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.435,
+      "p2_win": 0.565,
+      "result": "Fabian Marozsan",
+      "correct": true,
+      "pred_date": "2026-08-26"
+    },
+    {
+      "p1_name": "Inaki Montes-De La Torre",
+      "p2_name": "George Loffhagen",
+      "surface": "hard",
+      "tournament": "Roehampton 2 Challenger",
+      "p1_win": 0.532,
+      "p2_win": 0.468,
+      "result": "George Loffhagen",
+      "correct": false,
+      "pred_date": "2026-08-26"
+    },
+    {
+      "p1_name": "Arthur Fery",
+      "p2_name": "Mees Rottgering",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.594,
+      "p2_win": 0.406,
+      "result": "Arthur Fery",
+      "correct": true,
+      "pred_date": "2026-08-25"
+    },
+    {
+      "p1_name": "Rinky Hijikata",
+      "p2_name": "Benjamin Bonzi",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.485,
+      "p2_win": 0.515,
+      "result": "Benjamin Bonzi",
+      "correct": true,
+      "pred_date": "2026-08-25"
+    },
+    {
+      "p1_name": "Patrick Brady",
+      "p2_name": "Charles Broom",
+      "surface": "hard",
+      "tournament": "Roehampton 2 Challenger",
+      "p1_win": 0.65,
+      "p2_win": 0.35,
+      "result": "Charles Broom",
+      "correct": false,
+      "pred_date": "2026-08-25"
+    },
     {
       "p1_name": "Anton Matusevich",
       "p2_name": "Michele Ribecai",
@@ -31,6 +119,17 @@
       "pred_date": "2026-08-25"
     },
     {
+      "p1_name": "Daniel Altmaier",
+      "p2_name": "Ignacio Buse",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.434,
+      "p2_win": 0.566,
+      "result": "Ignacio Buse",
+      "correct": true,
+      "pred_date": "2026-08-25"
+    },
+    {
       "p1_name": "Hugo Grenier",
       "p2_name": "Sebastian Baez",
       "surface": "hard",
@@ -39,6 +138,28 @@
       "p2_win": 0.55,
       "result": "Sebastian Baez",
       "correct": true,
+      "pred_date": "2026-08-25"
+    },
+    {
+      "p1_name": "Botic Van De Zandschulp",
+      "p2_name": "Luciano Darderi",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.543,
+      "p2_win": 0.457,
+      "result": "Botic Van De Zandschulp",
+      "correct": true,
+      "pred_date": "2026-08-25"
+    },
+    {
+      "p1_name": "Aleksandar Kovacevic",
+      "p2_name": "Stefanos Tsitsipas",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.433,
+      "p2_win": 0.567,
+      "result": "Aleksandar Kovacevic",
+      "correct": false,
       "pred_date": "2026-08-25"
     },
     {
@@ -436,127 +557,6 @@
       "result": "Sebastian Baez",
       "correct": true,
       "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Sho Shimabukuro",
-      "p2_name": "Miomir Kecmanovic",
-      "surface": "hard",
-      "tournament": "Winston-Salem Open - Winston-Salem",
-      "p1_win": 0.421,
-      "p2_win": 0.579,
-      "result": "Miomir Kecmanovic",
-      "correct": true,
-      "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Rinky Hijikata",
-      "p2_name": "Darwin Blanch",
-      "surface": "hard",
-      "tournament": "Winston-Salem Open - Winston-Salem",
-      "p1_win": 0.573,
-      "p2_win": 0.427,
-      "result": "Rinky Hijikata",
-      "correct": true,
-      "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Valentin Royer",
-      "p2_name": "Pedro Martinez Portero",
-      "surface": "hard",
-      "tournament": "Kingston 1 Challenger",
-      "p1_win": 0.484,
-      "p2_win": 0.516,
-      "result": "Valentin Royer",
-      "correct": false,
-      "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Brandon Nakashima",
-      "p2_name": "Frances Tiafoe",
-      "surface": "hard",
-      "tournament": "Cincinnati Open - Cincinnati",
-      "p1_win": 0.486,
-      "p2_win": 0.514,
-      "result": "Frances Tiafoe",
-      "correct": true,
-      "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Adam Walton",
-      "p2_name": "Jesper De Jong",
-      "surface": "hard",
-      "tournament": "Winston-Salem Open - Winston-Salem",
-      "p1_win": 0.495,
-      "p2_win": 0.505,
-      "result": "Adam Walton",
-      "correct": false,
-      "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Martin Landaluce",
-      "p2_name": "Mattia Bellucci",
-      "surface": "hard",
-      "tournament": "Winston-Salem Open - Winston-Salem",
-      "p1_win": 0.498,
-      "p2_win": 0.502,
-      "result": "Mattia Bellucci",
-      "correct": true,
-      "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Kamil Majchrzak",
-      "p2_name": "Benjamin Bonzi",
-      "surface": "hard",
-      "tournament": "Winston-Salem Open - Winston-Salem",
-      "p1_win": 0.505,
-      "p2_win": 0.495,
-      "result": "Benjamin Bonzi",
-      "correct": false,
-      "pred_date": "2026-08-22"
-    },
-    {
-      "p1_name": "Benjamin Hassan",
-      "p2_name": "Dominic Stricker",
-      "surface": "clay",
-      "tournament": "Sion Challenger",
-      "p1_win": 0.425,
-      "p2_win": 0.575,
-      "result": "Dominic Stricker",
-      "correct": true,
-      "pred_date": "2026-08-21"
-    },
-    {
-      "p1_name": "Zizou Bergs",
-      "p2_name": "Stefanos Sakellaridis",
-      "surface": "hard",
-      "tournament": "Quebec City Challenger",
-      "p1_win": 0.591,
-      "p2_win": 0.409,
-      "result": "Stefanos Sakellaridis",
-      "correct": false,
-      "pred_date": "2026-08-21"
-    },
-    {
-      "p1_name": "Valentin Royer",
-      "p2_name": "Clement Chidekh",
-      "surface": "hard",
-      "tournament": "Kingston 1 Challenger",
-      "p1_win": 0.481,
-      "p2_win": 0.519,
-      "result": "Valentin Royer",
-      "correct": false,
-      "pred_date": "2026-08-21"
-    },
-    {
-      "p1_name": "Jesper De Jong",
-      "p2_name": "Hugo Gaston",
-      "surface": "hard",
-      "tournament": "Quebec City Challenger",
-      "p1_win": 0.5,
-      "p2_win": 0.5,
-      "result": "Hugo Gaston",
-      "correct": true,
-      "pred_date": "2026-08-21"
     }
   ]
 }
