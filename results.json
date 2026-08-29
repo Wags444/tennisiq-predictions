@@ -1,13 +1,57 @@
 {
-  "total_predicted": 3905,
-  "total_resolved": 1047,
-  "week_resolved": 79,
-  "week_correct": 38,
+  "total_predicted": 4019,
+  "total_resolved": 1051,
+  "week_resolved": 73,
+  "week_correct": 35,
   "accuracy": 60.8,
-  "accuracy_label": "48.1% this week",
+  "accuracy_label": "47.9% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-28 09:00",
+  "last_updated": "2026-08-29 10:08",
   "recent_results": [
+    {
+      "p1_name": "Ignacio Buse",
+      "p2_name": "Benjamin Bonzi",
+      "surface": "hard",
+      "tournament": "Winston-Salem Open - Winston-Salem",
+      "p1_win": 0.522,
+      "p2_win": 0.478,
+      "result": "Ignacio Buse",
+      "correct": true,
+      "pred_date": "2026-08-28"
+    },
+    {
+      "p1_name": "Rodrigo Pacheco Mendez",
+      "p2_name": "Andres Andrade",
+      "surface": "hard",
+      "tournament": "Kingston 2 Challenger",
+      "p1_win": 0.482,
+      "p2_win": 0.518,
+      "result": "Andres Andrade",
+      "correct": true,
+      "pred_date": "2026-08-28"
+    },
+    {
+      "p1_name": "Charles Broom",
+      "p2_name": "George Loffhagen",
+      "surface": "hard",
+      "tournament": "Roehampton 2 Challenger",
+      "p1_win": 0.513,
+      "p2_win": 0.487,
+      "result": "George Loffhagen",
+      "correct": false,
+      "pred_date": "2026-08-28"
+    },
+    {
+      "p1_name": "Cezar Cretu",
+      "p2_name": "Sandro Kopp",
+      "surface": "clay",
+      "tournament": "Augsburg Challenger",
+      "p1_win": 0.493,
+      "p2_win": 0.507,
+      "result": "Cezar Cretu",
+      "correct": false,
+      "pred_date": "2026-08-27"
+    },
     {
       "p1_name": "Juan Manuel Cerundolo",
       "p2_name": "Ignacio Buse",
@@ -511,50 +555,6 @@
       "p1_win": 0.45,
       "p2_win": 0.55,
       "result": "Max Schoenhaus",
-      "correct": true,
-      "pred_date": "2026-08-23"
-    },
-    {
-      "p1_name": "Johannus Monday",
-      "p2_name": "Iliyan Radulov",
-      "surface": "hard",
-      "tournament": "Roehampton 2 Challenger",
-      "p1_win": 0.456,
-      "p2_win": 0.544,
-      "result": "Johannus Monday",
-      "correct": false,
-      "pred_date": "2026-08-23"
-    },
-    {
-      "p1_name": "Gijs Brouwer",
-      "p2_name": "Andres Martin",
-      "surface": "hard",
-      "tournament": "Kingston 2 Challenger",
-      "p1_win": 0.537,
-      "p2_win": 0.463,
-      "result": "Andres Martin",
-      "correct": false,
-      "pred_date": "2026-08-23"
-    },
-    {
-      "p1_name": "Sebastian Baez",
-      "p2_name": "Hubert Hurkacz",
-      "surface": "hard",
-      "tournament": "Cancun Challenger",
-      "p1_win": 0.532,
-      "p2_win": 0.468,
-      "result": "Hubert Hurkacz",
-      "correct": false,
-      "pred_date": "2026-08-23"
-    },
-    {
-      "p1_name": "Ivan Marrero Curbelo",
-      "p2_name": "Blaise Bicknell",
-      "surface": "hard",
-      "tournament": "Kingston 2 Challenger",
-      "p1_win": 0.517,
-      "p2_win": 0.483,
-      "result": "Ivan Marrero Curbelo",
       "correct": true,
       "pred_date": "2026-08-23"
     }
