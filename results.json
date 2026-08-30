@@ -1,12 +1,12 @@
 {
-  "total_predicted": 4019,
+  "total_predicted": 4174,
   "total_resolved": 1051,
-  "week_resolved": 73,
-  "week_correct": 35,
+  "week_resolved": 61,
+  "week_correct": 28,
   "accuracy": 60.8,
-  "accuracy_label": "47.9% this week",
+  "accuracy_label": "45.9% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-29 10:08",
+  "last_updated": "2026-08-30 12:15",
   "recent_results": [
     {
       "p1_name": "Ignacio Buse",
