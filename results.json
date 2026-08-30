@@ -1,13 +1,24 @@
 {
   "total_predicted": 4174,
-  "total_resolved": 1051,
-  "week_resolved": 61,
-  "week_correct": 28,
+  "total_resolved": 1052,
+  "week_resolved": 62,
+  "week_correct": 29,
   "accuracy": 60.8,
-  "accuracy_label": "45.9% this week",
+  "accuracy_label": "46.8% this week",
   "min_threshold": 10,
-  "last_updated": "2026-08-30 12:15",
+  "last_updated": "2026-08-30 12:42",
   "recent_results": [
+    {
+      "p1_name": "Aidan Mayo",
+      "p2_name": "Andres Andrade",
+      "surface": "hard",
+      "tournament": "Kingston 2 Challenger",
+      "p1_win": 0.527,
+      "p2_win": 0.473,
+      "result": "Aidan Mayo",
+      "correct": true,
+      "pred_date": "2026-08-29"
+    },
     {
       "p1_name": "Ignacio Buse",
       "p2_name": "Benjamin Bonzi",
@@ -544,17 +555,6 @@
       "p1_win": 0.436,
       "p2_win": 0.564,
       "result": "Miguel Damas",
-      "correct": true,
-      "pred_date": "2026-08-23"
-    },
-    {
-      "p1_name": "Mili Poljicak",
-      "p2_name": "Max Schoenhaus",
-      "surface": "clay",
-      "tournament": "Augsburg Challenger",
-      "p1_win": 0.45,
-      "p2_win": 0.55,
-      "result": "Max Schoenhaus",
       "correct": true,
       "pred_date": "2026-08-23"
     }
