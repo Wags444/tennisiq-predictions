@@ -1,13 +1,178 @@
 {
-  "total_predicted": 4367,
-  "total_resolved": 1163,
-  "week_resolved": 127,
-  "week_correct": 82,
-  "accuracy": 61.4,
-  "accuracy_label": "64.6% this week",
+  "total_predicted": 4412,
+  "total_resolved": 1184,
+  "week_resolved": 143,
+  "week_correct": 93,
+  "accuracy": 61.3,
+  "accuracy_label": "65% this week",
   "min_threshold": 10,
-  "last_updated": "2026-09-02 22:24",
+  "last_updated": "2026-09-03 17:04",
   "recent_results": [
+    {
+      "p1_name": "Daniel Rincon",
+      "p2_name": "Inaki Montes-De La Torre",
+      "surface": "hard",
+      "tournament": "Manacor Challenger",
+      "p1_win": 0.518,
+      "p2_win": 0.482,
+      "result": "Inaki Montes-De La Torre",
+      "correct": false,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Luca Potenza",
+      "p2_name": "Joel Schwaerzler",
+      "surface": "hard",
+      "tournament": "Manacor Challenger",
+      "p1_win": 0.488,
+      "p2_win": 0.512,
+      "result": "Luca Potenza",
+      "correct": false,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Michele Ribecai",
+      "p2_name": "Jack Pinnington Jones",
+      "surface": "hard",
+      "tournament": "Manacor Challenger",
+      "p1_win": 0.363,
+      "p2_win": 0.637,
+      "result": "Jack Pinnington Jones",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Jan-Lennard Struff",
+      "p2_name": "Francisco Cerundolo",
+      "surface": "hard",
+      "tournament": "U.S. Open - New York",
+      "p1_win": 0.369,
+      "p2_win": 0.631,
+      "result": "Francisco Cerundolo",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Jay Clarke",
+      "p2_name": "Pedro Martinez Portero",
+      "surface": "clay",
+      "tournament": "Como Challenger",
+      "p1_win": 0.398,
+      "p2_win": 0.602,
+      "result": "Jay Clarke",
+      "correct": false,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Tristan Schoolkate",
+      "p2_name": "Flavio Cobolli",
+      "surface": "hard",
+      "tournament": "U.S. Open - New York",
+      "p1_win": 0.399,
+      "p2_win": 0.601,
+      "result": "Flavio Cobolli",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Federico Iannaccone",
+      "p2_name": "Maxim Mrva",
+      "surface": "clay",
+      "tournament": "Plovdiv 3 Challenger",
+      "p1_win": 0.582,
+      "p2_win": 0.418,
+      "result": "Federico Iannaccone",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Andrej Nedic",
+      "p2_name": "Kilian Feldbausch",
+      "surface": "clay",
+      "tournament": "Como Challenger",
+      "p1_win": 0.439,
+      "p2_win": 0.561,
+      "result": "Andrej Nedic",
+      "correct": false,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Gilles Arnaud Bailly",
+      "p2_name": "Hugo Dellien",
+      "surface": "clay",
+      "tournament": "Porto Challenger",
+      "p1_win": 0.445,
+      "p2_win": 0.555,
+      "result": "Hugo Dellien",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Miguel Damas",
+      "p2_name": "Dimitar Kuzmanov",
+      "surface": "clay",
+      "tournament": "Porto Challenger",
+      "p1_win": 0.546,
+      "p2_win": 0.454,
+      "result": "Miguel Damas",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Johan Nikles",
+      "p2_name": "Filip Cristian Jianu",
+      "surface": "clay",
+      "tournament": "Como Challenger",
+      "p1_win": 0.472,
+      "p2_win": 0.528,
+      "result": "Johan Nikles",
+      "correct": false,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Alejandro Moro Canas",
+      "p2_name": "Marco Cecchinato",
+      "surface": "clay",
+      "tournament": "Porto Challenger",
+      "p1_win": 0.521,
+      "p2_win": 0.479,
+      "result": "Alejandro Moro Canas",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Edas Butvilas",
+      "p2_name": "Remy Bertola",
+      "surface": "hard",
+      "tournament": "Manacor Challenger",
+      "p1_win": 0.501,
+      "p2_win": 0.499,
+      "result": "Edas Butvilas",
+      "correct": true,
+      "pred_date": "2026-09-02"
+    },
+    {
+      "p1_name": "Mitsuki Wei Kang Leong",
+      "p2_name": "Koki Matsuda",
+      "surface": "hard",
+      "tournament": "Zhangjiagang Challenger",
+      "p1_win": 0.35,
+      "p2_win": 0.65,
+      "result": "Mitsuki Wei Kang Leong",
+      "correct": false,
+      "pred_date": "2026-09-01"
+    },
+    {
+      "p1_name": "Bernard Tomic",
+      "p2_name": "Kasidit Samrej",
+      "surface": "hard",
+      "tournament": "Zhangjiagang Challenger",
+      "p1_win": 0.571,
+      "p2_win": 0.429,
+      "result": "Kasidit Samrej",
+      "correct": false,
+      "pred_date": "2026-09-01"
+    },
     {
       "p1_name": "Chun Hsin Tseng",
       "p2_name": "Yosuke Watanuki",
@@ -141,6 +306,17 @@
       "pred_date": "2026-09-01"
     },
     {
+      "p1_name": "Jakub Mensik",
+      "p2_name": "Jurij Rodionov",
+      "surface": "hard",
+      "tournament": "U.S. Open - New York",
+      "p1_win": 0.65,
+      "p2_win": 0.35,
+      "result": "Jakub Mensik",
+      "correct": true,
+      "pred_date": "2026-09-01"
+    },
+    {
       "p1_name": "Denis Shapovalov",
       "p2_name": "Luca Van Assche",
       "surface": "hard",
@@ -159,6 +335,17 @@
       "p1_win": 0.391,
       "p2_win": 0.609,
       "result": "Frances Tiafoe",
+      "correct": true,
+      "pred_date": "2026-09-01"
+    },
+    {
+      "p1_name": "Alexander Blockx",
+      "p2_name": "Marco Trungelliti",
+      "surface": "hard",
+      "tournament": "U.S. Open - New York",
+      "p1_win": 0.595,
+      "p2_win": 0.405,
+      "result": "Alexander Blockx",
       "correct": true,
       "pred_date": "2026-09-01"
     },
@@ -229,6 +416,17 @@
       "pred_date": "2026-09-01"
     },
     {
+      "p1_name": "Ilia Simakin",
+      "p2_name": "Matthew Dellavedova",
+      "surface": "hard",
+      "tournament": "Zhangjiagang Challenger",
+      "p1_win": 0.554,
+      "p2_win": 0.446,
+      "result": "Ilia Simakin",
+      "correct": true,
+      "pred_date": "2026-09-01"
+    },
+    {
       "p1_name": "Federico Arnaboldi",
       "p2_name": "Juan Pablo Varillas",
       "surface": "clay",
@@ -259,6 +457,17 @@
       "p2_win": 0.455,
       "result": "Alexander Bublik",
       "correct": true,
+      "pred_date": "2026-09-01"
+    },
+    {
+      "p1_name": "Felix Auger Aliassime",
+      "p2_name": "Karen Khachanov",
+      "surface": "hard",
+      "tournament": "U.S. Open - New York",
+      "p1_win": 0.542,
+      "p2_win": 0.458,
+      "result": "Karen Khachanov",
+      "correct": false,
       "pred_date": "2026-09-01"
     },
     {
@@ -339,224 +548,15 @@
       "pred_date": "2026-09-01"
     },
     {
-      "p1_name": "Brandon Nakashima",
-      "p2_name": "Alex Michelsen",
+      "p1_name": "Alexei Popyrin",
+      "p2_name": "Alejandro Tabilo",
       "surface": "hard",
       "tournament": "U.S. Open - New York",
-      "p1_win": 0.521,
-      "p2_win": 0.479,
-      "result": "Alex Michelsen",
+      "p1_win": 0.522,
+      "p2_win": 0.478,
+      "result": "Alejandro Tabilo",
       "correct": false,
       "pred_date": "2026-09-01"
-    },
-    {
-      "p1_name": "Daniil Glinka",
-      "p2_name": "Daniel Rincon",
-      "surface": "hard",
-      "tournament": "Manacor Challenger",
-      "p1_win": 0.487,
-      "p2_win": 0.513,
-      "result": "Daniel Rincon",
-      "correct": true,
-      "pred_date": "2026-09-01"
-    },
-    {
-      "p1_name": "Daniel Merida Aguilar",
-      "p2_name": "Andrey Rublev",
-      "surface": "hard",
-      "tournament": "U.S. Open - New York",
-      "p1_win": 0.492,
-      "p2_win": 0.508,
-      "result": "Daniel Merida Aguilar",
-      "correct": false,
-      "pred_date": "2026-09-01"
-    },
-    {
-      "p1_name": "Martin Landaluce",
-      "p2_name": "Jacob Fearnley",
-      "surface": "hard",
-      "tournament": "U.S. Open - New York",
-      "p1_win": 0.514,
-      "p2_win": 0.486,
-      "result": "Jacob Fearnley",
-      "correct": false,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Gabriele Piraino",
-      "p2_name": "Dusan Obradovic",
-      "surface": "clay",
-      "tournament": "Plovdiv 3 Challenger",
-      "p1_win": 0.334,
-      "p2_win": 0.666,
-      "result": "Dusan Obradovic",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Jakub Mensik",
-      "p2_name": "Shintaro Mochizuki",
-      "surface": "hard",
-      "tournament": "U.S. Open - New York",
-      "p1_win": 0.624,
-      "p2_win": 0.376,
-      "result": "Jakub Mensik",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Pol Martin Tiffon",
-      "p2_name": "Juan Pablo Ficovich",
-      "surface": "clay",
-      "tournament": "Plovdiv 3 Challenger",
-      "p1_win": 0.591,
-      "p2_win": 0.409,
-      "result": "Pol Martin Tiffon",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Eric Vanshelboim",
-      "p2_name": "Calvin Hemery",
-      "surface": "clay",
-      "tournament": "Plovdiv 3 Challenger",
-      "p1_win": 0.42,
-      "p2_win": 0.58,
-      "result": "Calvin Hemery",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Franco Agamenone",
-      "p2_name": "Massimo Giunta",
-      "surface": "clay",
-      "tournament": "Plovdiv 3 Challenger",
-      "p1_win": 0.428,
-      "p2_win": 0.572,
-      "result": "Massimo Giunta",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Nick Hardt",
-      "p2_name": "Marco Cecchinato",
-      "surface": "clay",
-      "tournament": "Porto Challenger",
-      "p1_win": 0.571,
-      "p2_win": 0.429,
-      "result": "Marco Cecchinato",
-      "correct": false,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Zdenek Kolar",
-      "p2_name": "Oriol Roca Batalla",
-      "surface": "clay",
-      "tournament": "Porto Challenger",
-      "p1_win": 0.564,
-      "p2_win": 0.436,
-      "result": "Oriol Roca Batalla",
-      "correct": false,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Thiago Seyboth Wild",
-      "p2_name": "Martin Krumich",
-      "surface": "clay",
-      "tournament": "Como Challenger",
-      "p1_win": 0.554,
-      "p2_win": 0.446,
-      "result": "Thiago Seyboth Wild",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Gilles Arnaud Bailly",
-      "p2_name": "Alex Barrena",
-      "surface": "clay",
-      "tournament": "Porto Challenger",
-      "p1_win": 0.553,
-      "p2_win": 0.447,
-      "result": "Gilles Arnaud Bailly",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Frederico Ferreira Silva",
-      "p2_name": "Hugo Dellien",
-      "surface": "clay",
-      "tournament": "Porto Challenger",
-      "p1_win": 0.45,
-      "p2_win": 0.55,
-      "result": "Hugo Dellien",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Thiago Moura Monteiro",
-      "p2_name": "Kimmer Coppejans",
-      "surface": "clay",
-      "tournament": "Porto Challenger",
-      "p1_win": 0.543,
-      "p2_win": 0.457,
-      "result": "Thiago Moura Monteiro",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Raul Brancaccio",
-      "p2_name": "Duje Ajdukovic",
-      "surface": "clay",
-      "tournament": "Como Challenger",
-      "p1_win": 0.462,
-      "p2_win": 0.538,
-      "result": "Duje Ajdukovic",
-      "correct": true,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Oleg Prihodko",
-      "p2_name": "Maxim Mrva",
-      "surface": "clay",
-      "tournament": "Plovdiv 3 Challenger",
-      "p1_win": 0.528,
-      "p2_win": 0.472,
-      "result": "Maxim Mrva",
-      "correct": false,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Alvaro Guillen Meza",
-      "p2_name": "Max Schoenhaus",
-      "surface": "clay",
-      "tournament": "Como Challenger",
-      "p1_win": 0.524,
-      "p2_win": 0.476,
-      "result": "Max Schoenhaus",
-      "correct": false,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Petr Nesterov",
-      "p2_name": "Yanaki Milev",
-      "surface": "clay",
-      "tournament": "Plovdiv 3 Challenger",
-      "p1_win": 0.524,
-      "p2_win": 0.476,
-      "result": "Yanaki Milev",
-      "correct": false,
-      "pred_date": "2026-08-30"
-    },
-    {
-      "p1_name": "Gonzalo Bueno",
-      "p2_name": "Joao Lucas Reis Da Silva",
-      "surface": "clay",
-      "tournament": "Como Challenger",
-      "p1_win": 0.477,
-      "p2_win": 0.523,
-      "result": "Gonzalo Bueno",
-      "correct": false,
-      "pred_date": "2026-08-30"
     }
   ]
 }
