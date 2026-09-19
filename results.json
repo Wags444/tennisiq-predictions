@@ -1,12 +1,12 @@
 {
   "total_predicted": 4723,
   "total_resolved": 1285,
-  "week_resolved": 80,
-  "week_correct": 49,
+  "week_resolved": 0,
+  "week_correct": 0,
   "accuracy": 61.4,
-  "accuracy_label": "61.3% this week",
+  "accuracy_label": "61.4% overall",
   "min_threshold": 10,
-  "last_updated": "2026-09-11 19:17",
+  "last_updated": "2026-09-19 13:21",
   "recent_results": [
     {
       "p1_name": "Tiago Pereira",
